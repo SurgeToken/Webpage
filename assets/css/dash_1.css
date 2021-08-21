@@ -20,6 +20,21 @@
     margin-bottom: 10px !important;
 }
 
+.surgeSelect{
+    background-color: #1b2e4b;
+    color: #009688;
+    border: 1px solid #1b2e4b;
+    padding: 9px 2.25rem 9px .75rem;
+    margin-bottom: 10px;
+}
+
+.surgeBtn{
+    color: #fff !important;
+    background-color: #2fb3ab !important;
+    border-color: #0e1726 !important;
+    width: 50%;
+}
+
 
 .widget {
     position: relative;
@@ -64,19 +79,55 @@
 .cAddress{
     background-color: #011b1f94;
     padding: 4px 10px 4px 1em;
-    width: 82%;
+    /* width: 82%; */
     margin-top: 10px;
     border: 1px solid #006a7b87;
     margin-left: 6px;
 }
 
 .cAddress i {
-    margin-left: 4px;
+    margin-left: 5px;
 }
 
-.contractAddress{
-    margin-top: 2em;
-    margin-bottom: 3em;
+.logoNav{
+    width:70%;
+    margin-top: 10px;
+}
+
+.logoNav1{
+    width:100% !important;
+}
+
+.logoNav2{
+    width:50% !important;
+}
+
+.xWordmark{
+    width:50% !important;
+}
+
+.sWordmark{
+    width:50% !important;
+}
+
+.dropWordmark{
+    width:50% !important;
+}
+
+.dropPanel{
+    width:100%;
+}
+
+.logo{
+    width: 75%;
+    margin-top: -2%;
+}
+.copyIcon{
+    margin-left: 15px;
+    font-size: 1.1rem;
+}
+.navbar .navbar-item .nav-item.user-profile-dropdown a.user .media .media-body, .navbar .nav-logo {
+display:flex !important; 
 }
 
 
@@ -1009,13 +1060,26 @@
     .table-responsive {
         overflow-x: hidden;
     }
+
+    .contractAddress{
+        margin-top: 2em;
+        margin-bottom: 3em;
+        margin-left:22%;
+    }
+}
+@media(min-width:1430px){
+    .contractAddress{
+        margin-top: 2em;
+        margin-bottom: 3em;
+        margin-left:37%;
+    }
 }
 @media(max-width: 1430px) and (min-width: 1200px) {
     /*
         ===========================
             Top Selling Product
         ===========================
-    */
+    */ 
     .widget-table-two .table .td-content img {
         display: block;
     }
@@ -1028,11 +1092,23 @@
     .widget-table-three .table .td-content img {
         display: block;
     }
+
+    .contractAddress{
+        margin-top: 2em;
+        margin-bottom: 3em;
+        margin-left:22%;
+    }
 }
 
 @media(max-width: 767px) {
     .widget-notification-two button {
         display: none;
+    }
+
+    .contractAddress{
+        margin-top: 2em;
+        margin-bottom: 3em;
+        margin-left:22%;
     }
 }
 @media(max-width: 575px) {
@@ -1105,6 +1181,12 @@
     .widget-table-three .table .td-content img {
         display: block;
         margin: 0 auto 5px auto;
+    }
+
+    .contractAddress{
+        margin-top: 2em;
+        margin-bottom: 3em;
+        margin-left:22%;
     }
 
 }
