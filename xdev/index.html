@@ -449,21 +449,61 @@ viewBox="0 0 75 75" style="enable-background:new 0 0 75 75;" xml:space="preserve
                     </div>
                 </div>
 
-                <!-- Price and Balances -->
+                <!-- Prices and Balances -->
+                <div class="row posfixed" id="htb">
+                    <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12 layout-spacing spacer2 align-self-end">
+                        &nbsp;
+                    </div>
+                    <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12 layout-spacing spacer2 align-self-end">
+                        <div class="widget widget-chart-one">
+                            <div class="spacer4">
+                                <h3 class="">Price & Balances</h3>
+                                <p>For the latest Surge Prices <a href="http://surge.ddns.net/" target="_blank"><strong><u>Click Here</u></strong></a></p>
+                                <hr>
+                            </div>
+                            <div class="row spacer4">
+                                <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 col-xl-6">
+                                    <div class="form-group">
+                                        <select class="form-select surgeSelect" aria-label="Token Select" id="tokenSelect">
+                                            <option selected value="0">Choose Your Token</option>
+                                            <option value="sUSD">
+                                                SurgeUSD
+                                            </option>
+                                            <option value="sETH">
+                                                SurgeETH
+                                            </option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 col-xl-6">
+                                    <div class="input-group mb-3">
+                                        <input type="text" class="form-control" placeholder="Token Amount" aria-label="Token Amount" aria-describedby="basic-addon1" id="tokenAmount">
+                                    </div>
+                                </div>
+                                <div class="text-center">
+                                    <button type="button" class="btn surgeBtn" id="calcBtn" >
+                                        Calculate
+                                    </button>
+                                </div>
+                                
+                            </div>
+                        </div>
+                    </div>
+                </div>
                     
                 <!-- Token Addresses -->
                 <div class="row" id="htb">
                     <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12 layout-spacing spacer3">
                         <div class="widget widget-chart-one">
                             <div class="">
-                                <em><h3>Find your favorite <strong>Token</strong> contract address here:</h3></em>
-                                <!-- <img class="sWordmark" src="assets/img/SURGEBNBWhite.png" >
+                                <!-- <em><h3>Find your favorite <strong>Token</strong> contract address here:</h3></em>
+                                <img class="sWordmark" src="assets/img/SURGEBNBWhite.png" >
                                 <div class="contractAddress text-end">
                                 <p class="cAddress" id="SurgeBNB">
                                     0xE1E1Aa58983F6b8eE8E4eCD206ceA6578F036c21  <i onclick="copyAddress('SurgeBNB');return false;" class="far fa-copy"></i>
                                 </p>
-                                </div> -->
-                                <hr>
+                                </div>
+                                <hr> -->
                                 <img class="sWordmark" src="assets/img/SURGEUSDWhite.png" >
                                 <div class="contractAddress text-end">
                                 <p class="cAddress" id="SurgeUSD">0x14fEe7d23233AC941ADd278c123989b86eA7e1fF  <i onclick="copyAddress('SurgeUSD');return false;" class="far fa-copy"></i></p>
@@ -479,10 +519,8 @@ viewBox="0 0 75 75" style="enable-background:new 0 0 75 75;" xml:space="preserve
                     <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12 layout-spacing spacer3">
                         <div class="widget widget-chart-one">
                             <div class="">
-                                
                                 <em><h3>Find your favorite <strong>xToken</strong> contract address here:</h3></em>
-                                Relaunch Coming Soon
-                                <!-- <img class="xWordmark" src="assets/img/XSURGEBNBWhite.png" >
+                                <img class="xWordmark" src="assets/img/XSURGEBNBWhite.png" >
                                 <div class="contractAddress text-end">
                                     <p class="cAddress" id="xSurgeBNB">0x35a72F50B0663f5c1d2fFE82266eda890da5b763  <i onclick="copyAddress('xSurgeBNB');return false;" class="far fa-copy"></i></p>
                                 </div>
@@ -495,7 +533,7 @@ viewBox="0 0 75 75" style="enable-background:new 0 0 75 75;" xml:space="preserve
                                 <img class="xWordmark" src="assets/img/XSURGEETHWhite.png" >
                                 <div class="contractAddress text-end">
                                     <p class="cAddress" id="xSurgeETH">0x2410627444550129b67aB571A8f5A030BC578e7c  <i onclick="copyAddress('xSurgeETH');return false;" class="far fa-copy"></i></p>
-                                </div> -->
+                                </div>
                             </div>
                         </div>
                     </div>
