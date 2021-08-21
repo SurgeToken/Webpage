@@ -485,7 +485,6 @@ viewBox="0 0 75 75" style="enable-background:new 0 0 75 75;" xml:space="preserve
                                         Calculate
                                     </button>
                                 </div>
-                                
                             </div>
                         </div>
                     </div>
@@ -941,8 +940,6 @@ viewBox="0 0 75 75" style="enable-background:new 0 0 75 75;" xml:space="preserve
             $("#calcBtn").click(function(){
                 var selectedToken = $("#tokenSelect").val();
                 var tokenAmount = $("#tokenAmount").val();
-                var totalsUSDSupply = "";
-                var totalbUSDBalance = "";
                 var bUSDPrice = "";
                 var totalValue = "";
                 var totalUser = "";
@@ -951,14 +948,18 @@ viewBox="0 0 75 75" style="enable-background:new 0 0 75 75;" xml:space="preserve
                     case "sUSD":
                         
                         //get total supply of sUSD
-                        $.get( "https://api.bscscan.com/api?module=stats&action=tokensupply&contractaddress=0x14fee7d23233ac941add278c123989b86ea7e1ff&apikey=8GK8XP9HETPQV4N1XGBX8AEMAK7PJE3FNA", function( data ) {
-                            totalsUSDSupply = data.result;
+                        $.get("price.php").done(function(data){
+                            var data = JSON.parse(data);
+                            var totalsUSDSupply, totalbUSDBalance;
+
+                            $.each(data, function(i, item){
+                                totalsUSDSupply = item.susd_total_supply;
+                                totalbUSDBalance = item.busd_total_balance;
+                            });
+
+                            alert("total sUSD Supply: " + totalsUSDSupply + "\ntotal busd balance: " + totalbUSDBalance);
                         });
 
-                        //get total balance of bUSD
-                        $.get( "https://api.bscscan.com/api?module=account&action=tokenbalance&contractaddress=0xe9e7cea3dedca5984780bafc599bd69add087d56&address=0x14fee7d23233ac941add278c123989b86ea7e1ff&tag=latest&apikey=8GK8XP9HETPQV4N1XGBX8AEMAK7PJE3FNA", function( data ) {
-                            totalbUSDBalance = data.result;
-                        });
 
                         //get the current price of bUSD, calculate total value and user value
                         $.get( "https://api.covalenthq.com/v1/56/address/0xe9e7cea3dedca5984780bafc599bd69add087d56/balances_v2/?quote-currency=USD&limit=1&key=ckey_43c97667ea9547c594b5c51cf0e", function( data ) {
