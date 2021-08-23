@@ -26,7 +26,7 @@
     <link href="plugins/apex/apexcharts.css" rel="stylesheet" type="text/css">
     <link href="assets/css/dashboard/dash_1.css?v=1.27
     " rel="stylesheet" type="text/css" />
-    <link href="assets/css/structure.css?v=1.54" rel="stylesheet" type="text/css" />
+    <link href="assets/css/structure.css?v=1.55" rel="stylesheet" type="text/css" />
     <!-- END PAGE LEVEL PLUGINS/CUSTOM STYLES -->
 
 </head>
@@ -48,7 +48,9 @@
                 <div class="navLogo">
                     <a class="navbar-brand" href="index.html"><img class="logoNav1" src="assets/img/xsurge.png" ></a>
                 </div>
-
+                <div class="dApp">
+                    <a href="http://google.com">TRADE</a>
+                </div>
                 <div class="navSocial">
                     <!--Discord-->
                     <a class="" href="https://discord.gg/XSURGE">
@@ -449,7 +451,44 @@ viewBox="0 0 75 75" style="enable-background:new 0 0 75 75;" xml:space="preserve
                     </div>
                 </div>
 
-                <!-- Price and Balances -->
+                <!-- Prices and Balances -->
+                <div class="row posfixed" id="htb">
+                    <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12 layout-spacing spacer2 align-self-end">
+                        &nbsp;
+                    </div>
+                    <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12 layout-spacing spacer2 align-self-end">
+                        <div class="widget widget-chart-one">
+                            <div class="spacer4">
+                                <h3 class="">Price & Balances</h3>
+                                <p>For the latest Surge Prices <a href="http://surge.ddns.net/" target="_blank"><strong><u>Click Here</u></strong></a></p>
+                                <hr>
+                            </div>
+                            <div class="row spacer4">
+                                <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 col-xl-6">
+                                    <div class="form-group">
+                                        <select class="form-select surgeSelect" aria-label="Token Select" id="tokenSelect">
+                                            <option selected value="0">Choose Your Token</option>
+                                            <option value="sUSD">
+                                                SurgeUSD
+                                            </option>
+                                            <option value="sETH">
+                                                SurgeETH
+                                            </option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 col-xl-6">
+                                    <div class="input-group mb-3">
+                                        <input type="text" class="form-control" placeholder="Token Amount" aria-label="Token Amount" aria-describedby="basic-addon1" id="tokenAmount">
+                                    </div>
+                                </div>
+                                <div class="dApp text-center">
+                                    <a href="" id="calcBtn">CALCULATE</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
                     
                 <!-- Token Addresses -->
                 <div class="row" id="htb">
@@ -457,7 +496,6 @@ viewBox="0 0 75 75" style="enable-background:new 0 0 75 75;" xml:space="preserve
                         <div class="widget widget-chart-one">
                             <div class="">
                                 <em><h3>Find your favorite <strong>Token</strong> contract address here:</h3></em>
-                                <hr>
                                 <img class="sWordmark" src="assets/img/SURGEUSDWhite.png" >
                                 <div class="contractAddress text-end">
                                 <p class="cAddress" id="SurgeUSD">0x14fEe7d23233AC941ADd278c123989b86eA7e1fF  <i onclick="copyAddress('SurgeUSD');return false;" class="far fa-copy"></i></p>
@@ -473,14 +511,11 @@ viewBox="0 0 75 75" style="enable-background:new 0 0 75 75;" xml:space="preserve
                     <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12 layout-spacing spacer3">
                         <div class="widget widget-chart-one">
                             <div class="">
-                                
                                 <em><h3>Find your favorite <strong>xToken</strong> contract address here:</h3></em>
-                                <p>Relaunch Coming Soon!</p>
+                                <p>Relaunch Coming Soon</p>
                             </div>
                         </div>
                     </div>
-
-                    
                 </div>
 
                 <!-- Copied Token Address -->
@@ -880,6 +915,75 @@ viewBox="0 0 75 75" style="enable-background:new 0 0 75 75;" xml:space="preserve
             $("#copyMSG").hide();
 
 
+            $("#calcBtn").click(function(){
+                var selectedToken = $("#tokenSelect").val();
+                var tokenAmount = $("#tokenAmount").val();
+                var bUSDPrice = "";
+                var totalValue = "";
+                var totalUser = "";
+                
+                switch(selectedToken){
+                    case "sUSD":
+                        
+                        //get total supply of sUSD
+                        $.get("price.php").done(function(data){
+                            var data = JSON.parse(data);
+                            var totalsUSDSupply, totalbUSDBalance;
+
+                            $.each(data, function(i, item){
+                                totalsUSDSupply = item.susd_total_supply;
+                                totalbUSDBalance = item.busd_total_balance;
+                            });
+
+                            alert("total sUSD Supply: " + totalsUSDSupply + "\ntotal busd balance: " + totalbUSDBalance);
+                        });
+
+
+                        //get the current price of bUSD, calculate total value and user value
+                        $.get( "https://api.covalenthq.com/v1/56/address/0xe9e7cea3dedca5984780bafc599bd69add087d56/balances_v2/?quote-currency=USD&limit=1&key=ckey_43c97667ea9547c594b5c51cf0e", function( data ) {
+                            
+
+                            var result = [];
+                            getPrice(data, "quote_rate");
+                            bUSDPrice =  result.join(", ");
+
+                            function getPrice(obj, name) {
+                                for (var key in obj) {
+                                    if (obj.hasOwnProperty(key)) {
+                                        if ("object" == typeof(obj[key])) {
+                                            getPrice(obj[key], name);
+                                        } else if (key == name) {
+                                            result.push(obj[key]);
+                                        }
+                                    }
+                                }
+                            }
+
+
+                        }).done(function(){
+                            //calculate total value
+                            totalValue = (totalbUSDBalance / totalsUSDSupply) * bUSDPrice;
+                            
+                            totalUser = (totalValue * tokenAmount);
+
+                            alert(totalUser);
+                        });
+
+                        //calculate total value
+
+
+                        //calculate users value
+
+                        break;
+                    case "sETH":
+                        alert(selectedToken);
+                        break;
+                    default:
+                        break;
+                }
+            });
+
+            
         });
     </script>
 
