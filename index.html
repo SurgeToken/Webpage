@@ -24,9 +24,9 @@
 
     <!-- BEGIN PAGE LEVEL PLUGINS/CUSTOM STYLES -->
     <link href="plugins/apex/apexcharts.css" rel="stylesheet" type="text/css">
-    <link href="assets/css/dashboard/dash_1.css?v=1.27
+    <link href="assets/css/dashboard/dash_1.css?v=1.28
     " rel="stylesheet" type="text/css" />
-    <link href="assets/css/structure.css?v=1.55" rel="stylesheet" type="text/css" />
+    <link href="assets/css/structure.css?v=1.56" rel="stylesheet" type="text/css" />
     <!-- END PAGE LEVEL PLUGINS/CUSTOM STYLES -->
 
 </head>
@@ -459,8 +459,33 @@ viewBox="0 0 75 75" style="enable-background:new 0 0 75 75;" xml:space="preserve
                     <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12 layout-spacing spacer2 align-self-end">
                         <div class="widget widget-chart-one">
                             <div class="spacer4">
-                                <h3 class="">Price & Balances</h3>
-                                <p>For the latest Surge Prices <a href="http://surge.ddns.net/" target="_blank"><strong><u>Click Here</u></strong></a></p>
+                                <h3 class="">Token Statistics</h3>
+                                <div>
+                                    <img class="sWordmark" src="assets/img/SURGEUSDWhite.png" >
+                                    <table class="table table-borderless priceTable">
+                                       <tr>
+                                           <td>Price:</td>
+                                           <td id="susdPrice">[price here]</td>
+                                       </tr>
+                                       <tr>
+                                        <td>Holders:</td>
+                                        <td id="susdHolders">[holders here]</td>
+                                    </tr>
+                                    </table>
+                                </div>
+                                <div>
+                                    <img class="sWordmark" src="assets/img/SURGEETHWhite.png" >
+                                    <table class="table table-borderless priceTable">
+                                       <tr>
+                                           <td>Price:</td>
+                                           <td id="sethPrice">[price here]</td>
+                                       </tr>
+                                       <tr>
+                                        <td>Holders:</td>
+                                        <td id="sethHolders">[holders here]</td>
+                                    </tr>
+                                    </table>
+                                </div>
                                 <hr>
                             </div>
                             <div class="row spacer4">
@@ -481,10 +506,11 @@ viewBox="0 0 75 75" style="enable-background:new 0 0 75 75;" xml:space="preserve
                                     <div class="input-group mb-3">
                                         <input type="text" class="form-control" placeholder="Token Amount" aria-label="Token Amount" aria-describedby="basic-addon1" id="tokenAmount">
                                     </div>
+                                    <div class="float-end">
+                                        <button class="calcBtn" id="calcBtn">CALCULATE</button>
+                                    </div>
                                 </div>
-                                <div class="dApp text-center">
-                                    <a href="" id="calcBtn">CALCULATE</a>
-                                </div>
+                                
                             </div>
                         </div>
                     </div>
@@ -904,12 +930,21 @@ viewBox="0 0 75 75" style="enable-background:new 0 0 75 75;" xml:space="preserve
             }
 
             function getSUSD(){
+                $.get("price.php").done(function(data){
+                    var data = JSON.parse(data);
+                    var price;
 
+                    price = data.price;
+                    
+                    alert(price);
+                });
                 
                 
             }
 
         $(document).ready(function() {
+
+            //getSUSD();
            
 
             $("#copyMSG").hide();

@@ -126,6 +126,30 @@
     margin-left: 15px;
     font-size: 1.1rem;
 }
+
+.calcBtn {
+
+    text-decoration: none;
+    color: white;
+    font-size: 1.2em;
+    font-weight: 800;
+    background: #004354e6;
+    padding: 8px 12px;
+    border-radius: 30px;
+    border: 1px solid #31f0fd85;
+    box-shadow: rgba(0, 195, 255, 0.16) 0px 0px 20px 0px;
+  
+  }
+
+.priceTable{
+    margin-top: 1em;
+    background-color: transparent !important;
+}
+
+.priceTable > tbody > tr > td{
+    font-size: 15px;
+}
+
 .navbar .navbar-item .nav-item.user-profile-dropdown a.user .media .media-body, .navbar .nav-logo {
 display:flex !important; 
 }
