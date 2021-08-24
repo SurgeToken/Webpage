@@ -20,7 +20,6 @@
     <script src="assets/js/loader.js"></script>
     
     <!-- BEGIN GLOBAL MANDATORY STYLES -->
-    <link rel="preconnect" href="https://fonts.googleapis.com/%22%3E
     <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&display=swap" rel="stylesheet">
 
@@ -34,9 +33,9 @@
 
     <!-- BEGIN PAGE LEVEL PLUGINS/CUSTOM STYLES -->
     <link href="plugins/apex/apexcharts.css" rel="stylesheet" type="text/css">
-    <link href="assets/css/dashboard/dash_1.css?v=1.29
+    <link href="assets/css/dashboard/dash_1.css?v=1.30
     " rel="stylesheet" type="text/css" />
-    <link href="assets/css/structure.css?v=1.57" rel="stylesheet" type="text/css" />
+    <link href="assets/css/structure.css?v=1.58" rel="stylesheet" type="text/css" />
     <!-- END PAGE LEVEL PLUGINS/CUSTOM STYLES -->
 
 </head>
@@ -59,7 +58,7 @@
                     <a class="navbar-brand" href="index.html"><img class="logoNav1" src="assets/img/xsurge.png" ></a>
                 </div>
                 <div class="dApp">
-                    <a href="https://dev.app.xsurge.net">Trade</a>
+                    <a href="https://app.xsurge.net">Trade</a>
                 </div>
                 <div class="navSocial">
                     <!--Discord-->
@@ -457,7 +456,7 @@ viewBox="0 0 75 75" style="enable-background:new 0 0 75 75;" xml:space="preserve
                                 <h5 class="">Add Surge as custom token to your wallet</h5>
                                 <p>Add the Surge Contract Address, choose Network: Smart Chain</p><br>
                                 <div class="dApp">
-                                    <a href="https://dev.app.xsurge.net">Trade Now</a>
+                                    <a href="https://app.xsurge.net">Trade Now</a>
                                 </div>
                             </div>
                         </div>
@@ -465,7 +464,7 @@ viewBox="0 0 75 75" style="enable-background:new 0 0 75 75;" xml:space="preserve
                 </div>
 
                 <!-- Prices and Balances -->
-                <div class="row posfixed placeholder" id="htb">
+                <div class="row posfixed" id="htb">
                     <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12 layout-spacing spacer2 align-self-end">
                         &nbsp;
                     </div>
@@ -478,11 +477,11 @@ viewBox="0 0 75 75" style="enable-background:new 0 0 75 75;" xml:space="preserve
                                     <table class="table table-borderless priceTable">
                                        <tr>
                                            <td>Price:</td>
-                                           <td id="susdPrice">[price here]</td>
+                                           <td id="sUSDPrice">[price here]</td>
                                        </tr>
                                        <tr>
                                         <td>Holders:</td>
-                                        <td id="susdHolders">[holders here]</td>
+                                        <td id="sUSDHolders">[holders here]</td>
                                     </tr>
                                     </table>
                                 </div>
@@ -491,11 +490,11 @@ viewBox="0 0 75 75" style="enable-background:new 0 0 75 75;" xml:space="preserve
                                     <table class="table table-borderless priceTable">
                                        <tr>
                                            <td>Price:</td>
-                                           <td id="sethPrice">[price here]</td>
+                                           <td id="sETHPrice">[price here]</td>
                                        </tr>
                                        <tr>
                                         <td>Holders:</td>
-                                        <td id="sethHolders">[holders here]</td>
+                                        <td id="sETHHolders">[holders here]</td>
                                     </tr>
                                     </table>
                                 </div>
@@ -521,6 +520,26 @@ viewBox="0 0 75 75" style="enable-background:new 0 0 75 75;" xml:space="preserve
                                     </div>
                                     <div class="float-end">
                                         <button class="calcBtn" id="calcBtn">CALCULATE</button>
+                                    </div>
+                                </div>
+                                
+                                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 resultsSpacer" id="calcResults">
+                                    <hr class="hrSpacer">
+                                    <div class="" id="results">
+                                        <table class="table table-borderless priceTable">
+                                            <tr>
+                                                <td>Current Balance:</td>
+                                                <td id="tokenBalance">[token balance here]</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Current Value <span id="tokenName">[token selected]:</span></td>
+                                                <td id="tokenValue">[token value here]</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Current Value (USD):</td>
+                                                <td id="tokenValueUSD">[token value here]</td>
+                                            </tr>
+                                         </table>
                                     </div>
                                 </div>
                                 
@@ -942,89 +961,106 @@ viewBox="0 0 75 75" style="enable-background:new 0 0 75 75;" xml:space="preserve
 
             }
 
-            function getSUSD(){
-                $.get("price.php").done(function(data){
-                    var data = JSON.parse(data);
-                    var price;
 
-                    price = data.price;
-                    
-                    alert(price);
-                });
+            function getTokenStats(){
+                $.post("token_stats.php").done(function(data){
+                    var data = JSON.parse(data);
+
+                    var sUSDholders, sUSDPrice; 
+                    var sETHholders, sETHPrice;
+
+                    $.each(data, function(i, item){
+                        sUSDholders =  item.susd_holders;
+                        sUSDPrice = item.susd_price;
+                        sETHholders =  item.seth_holders;
+                        sETHPrice = item.seth_price;
+
+                        
+
+                        $("#sUSDHolders").html(sUSDholders);
+                        $("#sUSDPrice").html(sUSDPrice);
+                        $("#sETHHolders").html(sETHholders);
+                        $("#sETHPrice").html(sETHPrice);
+
+                    });
                 
-                
+                }); 
             }
+
 
         $(document).ready(function() {
 
-            //getSUSD();
+            //initial call for token stats
+            getTokenStats();
+
+            //run getSUSDStats every 10 seconds
+            setInterval(function(){ 
+                getTokenStats();
+            }, 10000);
            
 
             $("#copyMSG").hide();
+            $("#calcResults").hide();
+
+            $('#tokenSelect').on('change', function() {
+                $("#tokenAmount").val("");
+                $("#calcResults").hide();
+                $("#tokenBalance").empty();
+                $("#tokenName").empty();
+                $("#tokenValue").empty();
+                $("#tokenValueUSD").empty();
+            });
 
 
             $("#calcBtn").click(function(){
-                var selectedToken = $("#tokenSelect").val();
+                var tokenSelected = $("#tokenSelect").val();
                 var tokenAmount = $("#tokenAmount").val();
-                var bUSDPrice = "";
-                var totalValue = "";
-                var totalUser = "";
                 
-                switch(selectedToken){
+                switch(tokenSelected){
                     case "sUSD":
                         
                         //get total supply of sUSD
-                        $.get("price.php").done(function(data){
+                        $.post("calc.php", {tokenSelected: tokenSelected, tokenAmount:tokenAmount}).done(function(data){
                             var data = JSON.parse(data);
-                            var totalsUSDSupply, totalbUSDBalance;
+                            var valueUSD, valueBNB;
+                            var tokenName = "BNB";
 
                             $.each(data, function(i, item){
-                                totalsUSDSupply = item.susd_total_supply;
-                                totalbUSDBalance = item.busd_total_balance;
+                                valueUSD = item.value_usd;
+                                valueBNB = item.value_bnb;
+
+                                $("#tokenBalance").html(tokenAmount + " sUSD");
+                                $("#tokenName").html("(" + tokenName + ")");
+                                $("#tokenValue").html(valueBNB);
+                                $("#tokenValueUSD").html("$" + valueUSD);
+
+                                $("#calcResults").show();
+
+
                             });
-
-                            alert("total sUSD Supply: " + totalsUSDSupply + "\ntotal busd balance: " + totalbUSDBalance);
                         });
-
-
-                        //get the current price of bUSD, calculate total value and user value
-                        $.get( "https://api.covalenthq.com/v1/56/address/0xe9e7cea3dedca5984780bafc599bd69add087d56/balances_v2/?quote-currency=USD&limit=1&key=ckey_43c97667ea9547c594b5c51cf0e", function( data ) {
-                            
-
-                            var result = [];
-                            getPrice(data, "quote_rate");
-                            bUSDPrice =  result.join(", ");
-
-                            function getPrice(obj, name) {
-                                for (var key in obj) {
-                                    if (obj.hasOwnProperty(key)) {
-                                        if ("object" == typeof(obj[key])) {
-                                            getPrice(obj[key], name);
-                                        } else if (key == name) {
-                                            result.push(obj[key]);
-                                        }
-                                    }
-                                }
-                            }
-
-
-                        }).done(function(){
-                            //calculate total value
-                            totalValue = (totalbUSDBalance / totalsUSDSupply) * bUSDPrice;
-                            
-                            totalUser = (totalValue * tokenAmount);
-
-                            alert(totalUser);
-                        });
-
-                        //calculate total value
-
-
-                        //calculate users value
 
                         break;
                     case "sETH":
-                        alert(selectedToken);
+                        $.post("calc.php", {tokenSelected: tokenSelected, tokenAmount:tokenAmount}).done(function(data){
+                            var data = JSON.parse(data);
+                            var valueUSD, valueETH;
+                            var tokenName = "ETH";
+
+                            $.each(data, function(i, item){
+                                valueUSD = item.value_usd;
+                                valueETH = item.value_eth;
+
+                                $("#tokenBalance").html(tokenAmount + " sETH");
+                                $("#tokenName").html("(" + tokenName + ")");
+                                $("#tokenValue").html(valueETH);
+                                $("#tokenValueUSD").html("$" + valueUSD);
+
+                                $("#calcResults").show();
+
+
+                            });
+                        });
                         break;
                     default:
                         break;
