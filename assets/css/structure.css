@@ -8,6 +8,11 @@
 			@Import	Mixins
 	===============================
 */
+
+.placeholder {
+  display: none;
+}
+
 html {
   min-height: 100%; 
 }
