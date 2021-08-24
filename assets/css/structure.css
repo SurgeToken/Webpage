@@ -8,6 +8,11 @@
 			@Import	Mixins
 	===============================
 */
+
+.placeholder {
+  display: none;
+}
+
 html {
   min-height: 100%; 
 }
@@ -141,6 +146,8 @@ h4, h5, h6 {
     right:0;
     display: none;
 }
+
+
 
 p {
   margin-top: 0;
@@ -328,7 +335,6 @@ code {
     margin-top: 14px
   }
 }
-
 .header-container {
   background: transparent;
   background-color: rgba(0,0,0,0.5); }
