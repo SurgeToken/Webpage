@@ -1,9 +1,9 @@
-name: deploy
+name: deploy-staging
 on:
   push:
     branches:
-      - main
-      - master
+      - stable
+      - staging
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
@@ -18,4 +18,4 @@ jobs:
         run: ssh-keyscan -H ${{ secrets.GA_SSH_IPADDRESS }} >> ~/.ssh/known_hosts
 
       - name: Run prod script
-        run: ssh ${{ secrets.GA_SSH_USER }}@${{ secrets.GA_SSH_IPADDRESS }} "bash /home/Projects/SurgeToken/SurgeDevops/deploy_prod_web.sh"
+        run: ssh ${{ secrets.GA_SSH_USER }}@${{ secrets.GA_SSH_IPADDRESS }} "bash /home/Projects/SurgeToken/SurgeDevops/deploy_staging_web.sh"
