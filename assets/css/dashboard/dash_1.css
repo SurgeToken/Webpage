@@ -93,10 +93,12 @@
     width:70%;
     margin-top: 10px;
 }
+@media screen and (max-width: 450px) {
+    .logoNav1{
+        width:100% !important;
+    }
+  }
 
-.logoNav1{
-    width:100% !important;
-}
 
 .logoNav2{
     width:50% !important;

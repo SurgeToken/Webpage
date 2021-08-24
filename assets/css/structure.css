@@ -322,7 +322,7 @@ code {
   }
 }
 
-@media screen and (max-width: 999px) {
+@media screen and (max-width: 991px) {
   .dApp a {
     right: 12px;
     margin-top: 14px
@@ -350,7 +350,7 @@ code {
   .navbar.expand-header {
     margin: 0; }
   .navbar .nav-logo a.navbar-brand img {
-    width: 40px;
+    /* width: 40px; */
     height: 40px;
     border-radius: 5px; }
   .navbar .nav-logo a.navbar-brand .navbar-brand-name {
