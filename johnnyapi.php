@@ -1,308 +1,43 @@
-<?php
+    <?php
 
+include("simple_html_dom.php");
 
-///////////////////////////
-//     CONNECT TO DB     //
-///////////////////////////
+    $tokens = 23851621090;
+    echo "Token Amount: " . $tokens  . "<br/>";
+    //get the total supply of sETH
+    $get_total_supply_seth = file_get_html('https://bscscan.com/token/0x5b1d1bbdcc432213f83b15214b93dc24d31855ef');
+    $total_supply_seth = $get_total_supply_seth->find('span[class="hash-tag text-truncate"]',0)->plaintext;
+    $total_supply_seth_no_commas = str_replace(',', '', $total_supply_seth);
+    echo "Total Supply sETH: " . $total_supply_seth_no_commas . "<br/>";
 
+    //get the total balance of wETH
+    $get_total_balance_weth = file_get_html('https://bscscan.com/token/0x2170ed0880ac9a755fd29b2688956bd959f933f8?a=0x5b1d1bbdcc432213f83b15214b93dc24d31855ef');
+    $total_balance_weth = $get_total_balance_weth->find('div[id="ContentPlaceHolder1_divFilteredHolderBalance"]',0)->plaintext;
+    $total_balance_weth_trimmed = substr($total_balance_weth, 8, -5);
+    $total_balance_weth_no_commas = str_replace(',', '', $total_balance_weth_trimmed);
+    echo "Total Balance wETH: " . $total_balance_weth_no_commas . "<br/>";
 
-///////////////////////////
-//      DEBUG MODE       //
-///////////////////////////
-//include_once("../rdebug/loader.php");
-//
+    //get current price of wETH
+    $get_weth_price = file_get_html('https://bscscan.com/token/0x2170ed0880ac9a755fd29b2688956bd959f933f8?a=0x5b1d1bbdcc432213f83b15214b93dc24d31855ef');
+    $weth_price = $get_weth_price->find('div[id="ContentPlaceHolder1_tr_valuepertoken"]',0)->plaintext;
+    $weth_price_trimmed = substr($weth_price, 12, 8);
+    $weth_price_no_commas = str_replace(',', '', $weth_price_trimmed);
+    echo "Current wETH Price: " . $weth_price_no_commas . "<br/>";
 
-
-///////////////////////////
-//     BEST PRACTICES    //
-///////////////////////////
-/*
-/* #RESTful Methods Scheme:
-/* get = get resource
-/* post = insert resource at a non-precise URI path
-/* put = insert resource at a precise URI path
-/* patch = update a resource partially
-/* update = update a resource completely
-/* delete = remove a resource
-/* head = get debug information, meta information, or description about a resource.
-/* options = returns available API methods and URI paths
-/*
-/* #Example of URI:
-/* http://programmers.stackexchange.com/questions/218798/what-is-the-limit-on-rest-api-resource-levels
-/*
-/* #PATH_INFO
-/* E.g. If the request line is 
-/*      GET http://example.com/test.php/testing/123/hello/
-/* Then $_SERVER['PATH_INFO'] returns the string:
-/*      "testing/123/hello/"
-/* If the request line hadn't ended in a forward slash, add
-/* a / to the end.
-/* Then exploding that string with delimiter '/' returns:
-/*      ["testing", "123", "hello"]
-/* To see for yourself, turn on debug mode and log to file: 
-/*      rdebug($request);
-*/
-
-
-//Prepare DB auth, HTTP method, and URI Path
-/* if(!isset($conn)) die(json_encode(array("_error"=>"\$conn not set. Did you put the database connect code near the top of the page yet? Or did you save the link identifier returned by mysqli_connect() as another name besides \$conn?")));
-$method = $_SERVER['REQUEST_METHOD'];
-$path_info = "";
-$path_info = @$_SERVER['PATH_INFO'];
-if($path_info[strlen($path_info)-1]!='/') $path_info .= "/";
-$request = explode("/", substr($path_info, 1));
-if($request[count($request)-1]=="") array_pop($request); // Edge case: last element empty "" */
-
-//Prepare RESTful HTTP methods
-$_PARAMS = array();
-if (($stream = fopen('php://input', "r")) !== FALSE) {
-   parse_str(stream_get_contents($stream), $_PARAMS);
-}
-
-//Prepare URI Path levels for IF statements
-$LEVEL0=count($request)>0 && $request[0]!=""?true:false;
-$LEVEL1=count($request)>1?true:false;
-$LEVEL2=count($request)>2?true:false;
-$LEVEL3=count($request)>3?true:false;
-$LEVEL4=count($request)>4?true:false;
-$LEVEL5=count($request)>5?true:false;
-
-date_default_timezone_set("America/New_York");
-
-//Reroute based on method
-switch ($method) {
-  case 'GET':
-    get($request);  
-    break;
-  case 'POST':
-    post($request);  
-    break;
-  case 'PUT':
-    put($request);  
-    break;
-  case 'PATCH':
-    patch($request);  
-    break;
-  case 'UPDATE':
-    update($request);  
-    break;
-  case 'DELETE':
-    delete($request);  
-    break;
-  case 'HEAD':
-    head($request);  
-    break;
-  case 'OPTIONS':
-    options($request);    
-    break;
-  default:
-    error($request);  
-    break;
-} // switch
-        
-function get($request) {
-    global $LEVEL0, $LEVEL1, $LEVEL2, $LEVEL3, $LEVEL4, $LEVEL5;
+    //calculate sETH Price
+    $seth_price = $total_balance_weth_no_commas / $total_supply_seth_no_commas;
+    $seth_trimmed = rtrim(sprintf('%.12f', floatval($seth_price)),'0');
+    echo "sETH Price: " . $seth_trimmed . "<br/>";
     
-    if(!$LEVEL0) 
-        die(json_encode(error_arr()));
-    else if($request[0]=="getValue"){
+    //calculate the value of sETH
+    $user_seth_value = $seth_trimmed * $tokens;
+    $user_seth_value_trimmed = rtrim(sprintf('%.4f', floatval($user_seth_value)),'0');
+    $row['value_eth'] = $user_seth_value_trimmed;
+    echo "ETH Value: " . $user_seth_value_trimmed . "<br/>";
 
-        $sUSD_Address = "";
-        $bUSD_Address = "";
-        $sETH_Address = "";
-        $bETH_Address = "";
-
-        
-
-
-
-        $data = array();
-                
-        while($links = sqlsrv_fetch_array($sql_stmt)){
-            
-                                
-            array_push($data, $row);
-        }
-        die(json_encode($data));
-    }
-    else if($request[0]=="getsUSD"){
-
-        $data = array();
-
-        //get the total supply of sUSD
-        $total_supply_susd_url = "https://api.bscscan.com/api?module=stats&action=tokensupply&contractaddress=0x14fee7d23233ac941add278c123989b86ea7e1ff&apikey=7BY2SX3KIF1NT1QEPY82VZB2WBTJFMN75R";
-        $total_supply_susd_json = file_get_contents($total_supply_susd_url);
-        $total_supply_susd_json_data = json_decode($total_supply_susd_json, true);
-        $row['susd_total_supply'] = $total_supply_susd_json_data["result"];
-
-        //get the total balance of bUSD
-        $total_balance_busd_url = "https://api.bscscan.com/api?module=account&action=tokenbalance&contractaddress=0xe9e7cea3dedca5984780bafc599bd69add087d56&address=0x14fee7d23233ac941add278c123989b86ea7e1ff&tag=latest&apikey=7BY2SX3KIF1NT1QEPY82VZB2WBTJFMN75R";
-        $total_balance_busd_json = file_get_contents($total_balance_busd_url);
-        $total_balance_busd_json_data = json_decode($total_balance_busd_json, true);
-        $row['busd_total_balance'] = $total_balance_busd_json_data["result"];
-
-
-
-
-        array_push($data, $row);
-
-        die(json_encode($data));
-    }
-    else
-        die(json_encode(error_arr()));
-    
-} // get
-
-        
-function post($request) {
-    global $conn;
-    global $LEVEL0, $LEVEL1, $LEVEL2, $LEVEL3, $LEVEL4, $LEVEL5;
-    
-    if(!$LEVEL0) 
-        die(json_encode(error_arr()));
-    else if($request[0]=="blah"){
-
-    }
-    else
-        die(json_encode(error_arr()));
-} // post
-
-        
-function put($request) {
-    global $conn;
-    global $_PARAMS;
-    $_PUT = $_PARAMS;
-    global $LEVEL0, $LEVEL1, $LEVEL2, $LEVEL3, $LEVEL4, $LEVEL5;
-    
-} // put
-        
-
-function patch($request) {
-    global $conn;
-    global $_PARAMS;
-    $_PATCH = $_PARAMS;
-    global $LEVEL0, $LEVEL1, $LEVEL2, $LEVEL3, $LEVEL4, $LEVEL5;
-    
-} // patch
-
-function update($request) {
-    global $conn;
-    global $_PARAMS;
-    $_UPDATE = $_PARAMS;
-    global $LEVEL0, $LEVEL1, $LEVEL2, $LEVEL3, $LEVEL4, $LEVEL5;
-    
-    if(!$LEVEL0) die(json_encode(error_arr()));
-} // update
-        
-
-function delete($request) {
-    global $conn;
-    global $_PARAMS;
-    $_DELETE = $_PARAMS;
-    global $LEVEL0, $LEVEL1, $LEVEL2, $LEVEL3, $LEVEL4, $LEVEL5;
-    
-} // delete
-        
-
-function head($request) {
-    global $conn;
-    global $_PARAMS;
-    $_HEAD = $_PARAMS;
-    global $LEVEL0, $LEVEL1, $LEVEL2, $LEVEL3, $LEVEL4, $LEVEL5;
-    
-} // head
-        
-
-function options($request) {
-    global $conn;
-    global $_PARAMS;
-    $_OPTIONS = $_PARAMS;
-    global $LEVEL0, $LEVEL1, $LEVEL2, $LEVEL3, $LEVEL4, $LEVEL5;
-    
-} // options
-
-        
-///////////////////////////
-//       FUNCTIONS       //
-///////////////////////////
-/* If you want to keep code
-/* organized, the functions
-/* that your mysqli code
-/* call to transform/amend
-/* information before it
-/* echoes to ajax should
-/* be defined below. 
-/* Alternately, you could
-/* include a file that
-/* implements the functions 
-/* so you don't have to
-/* scroll up and down.
-*/
-
-function method_error($request) {
-    global $conn;
-    
-} // method_error
-
-function error_arr() {
-    $strExtra = "";
-    if(func_num_args()>0) $strExtra = ". Code '" . func_get_arg(0) . "'";
-    
-    return array("error"=>"Invalid connection" . $strExtra . ".");
-}
-
-/*FUNCTIONS WITH SHARED VARIABLES
-Eg.
-$username = new Username(1, "Admin");
-var_dump($username->get_info());
-*/
-class Username {
-    private $user_id;
-    private $username;
-
-    public function Username($user_id_, $username_) {
-        $this->user_id=$user_id_;
-        $this->username=$username_;
-    } // constructor
-
-    public function get_info() {
-        return array("user_id"=>$this->user_id, "username"=>$this->username);	
-    } // get_info
-    public function get_user_id() {
-        return $this->user_id;
-    } // get_info
-    
-    public function get_username() {
-        return $this->username;
-    } // get_info
-} // class
-
-/*FUNCTIONS WITH EXPLICIT RELATIONSHIP*/
-//Eg.
-//var_dump(Settings::anonymousMode());
-class Settings {
-	public static function anonymousMode() {
-		return true;
- 	}
-}
-
-/*FUNCTIONS CALLED GLOBALLY*/
-//Eg.
-//var_dump(now());
-BASIC_FUNCTIONS:
-	function now() {
-		return date("M. d, Y g:m:s a", time());
-	}
-END_BASIC_FUNCTIONS: //
-
-/*IN SUMMARY*/
-//
-//$username = new Username(1, "Admin");
-//var_dump($username->get_info());
-//
-//var_dump(Settings::anonymousMode());
-//
-//var_dump(error_arr());
-//
-
-?>
+    //calculate users value in ETH
+    $user_usd_value = $user_seth_value_trimmed * $weth_price_no_commas;
+    $user_usd_value_trimmed = rtrim(sprintf('%.2f', floatval($user_usd_value)),'0');
+    $row['value_eth'] = $user_eth_value_trimmed;
+    echo "sETH USD Value: " . $user_usd_value_trimmed . "<br/>";
+            ?>

@@ -148,6 +148,10 @@
     background-color: transparent !important;
 }
 
+.hrSpacer{
+    margin-top: 3%;
+}
+
 .priceTable > tbody > tr > td{
     font-size: 15px;
 }
