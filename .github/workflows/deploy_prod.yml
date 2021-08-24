@@ -4,15 +4,10 @@ on:
     branches:
       - main
       - master
-  schedule:
-    - cron: '0 0 * * *' # Everyday at 12am
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
-      - uses: actions/setup-node@v1
-
       - name: Install SSH Key
         uses: shimataro/ssh-key-action@v2
         with:
@@ -22,5 +17,5 @@ jobs:
       - name: Adding Known Hosts
         run: ssh-keyscan -H ${{ secrets.GA_SSH_IPADDRESS }} >> ~/.ssh/known_hosts
 
-      - name: Deploy with rsync
-        run: rsync -avz ./ ${{ secrets.GA_SSH_USER }}@${{ secrets.GA_SSH_IPADDRESS }}:/var/www/html/
+      - name: Run prod script
+        run: ssh ${{ secrets.GA_SSH_USER }}@${{ secrets.GA_SSH_IPADDRESS }} "bash /home/Projects/SurgeToken/SurgeDevops/deploy_prod_web.sh"
