@@ -464,7 +464,7 @@ viewBox="0 0 75 75" style="enable-background:new 0 0 75 75;" xml:space="preserve
                 </div>
 
                 <!-- Prices and Balances -->
-                <div class="row posfixed" id="htb">
+                <div class="row posfixed placeholder" id="htb">
                     <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12 layout-spacing spacer2 align-self-end">
                         &nbsp;
                     </div>
@@ -577,7 +577,7 @@ viewBox="0 0 75 75" style="enable-background:new 0 0 75 75;" xml:space="preserve
                 </div>
 
                 <!-- Copied Token Address -->
-                <div class="centerpoint widgetMsg" id="copyMSG">
+                <div class="centerpoint widgetMsg" id="copyMSG" style="display:none">
                     <div class="dialog" id="dialog"></div>
                 </div>
 
@@ -939,9 +939,10 @@ viewBox="0 0 75 75" style="enable-background:new 0 0 75 75;" xml:space="preserve
     <!-- <script src="bootstrap/js/popper.min.js"></script>
     <script src="bootstrap/js/bootstrap.min.js"></script> -->
     <script src="assets/js/app.js"></script>
+
     <script>
 
-            function copyAddress(id){
+function copyAddress(id){
                 var r = document.createRange();
                 var message = "";
                 r.selectNode(document.getElementById(id));
@@ -960,6 +961,13 @@ viewBox="0 0 75 75" style="enable-background:new 0 0 75 75;" xml:space="preserve
                 }, 2000);
 
             }
+            
+
+    </script>
+ 
+    <script>
+
+
 
 
             function getTokenStats(){
@@ -991,12 +999,12 @@ viewBox="0 0 75 75" style="enable-background:new 0 0 75 75;" xml:space="preserve
         $(document).ready(function() {
 
             //initial call for token stats
-            getTokenStats();
+            //getTokenStats();
 
             //run getSUSDStats every 10 seconds
-            setInterval(function(){ 
-                getTokenStats();
-            }, 10000);
+            //setInterval(function(){ 
+            //    getTokenStats();
+            //}, 10000);
            
 
             $("#copyMSG").hide();
