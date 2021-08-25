@@ -577,7 +577,7 @@ viewBox="0 0 75 75" style="enable-background:new 0 0 75 75;" xml:space="preserve
                 </div>
 
                 <!-- Copied Token Address -->
-                <div class="centerpoint widgetMsg" id="copyMSG">
+                <div class="centerpoint widgetMsg" id="copyMSG" style="display:none">
                     <div class="dialog" id="dialog"></div>
                 </div>
 
@@ -961,9 +961,10 @@ function copyAddress(id){
                 }, 2000);
 
             }
+            
 
     </script>
-    <!--
+ 
     <script>
 
 
@@ -998,12 +999,12 @@ function copyAddress(id){
         $(document).ready(function() {
 
             //initial call for token stats
-            getTokenStats();
+            //getTokenStats();
 
             //run getSUSDStats every 10 seconds
-            setInterval(function(){ 
-                getTokenStats();
-            }, 10000);
+            //setInterval(function(){ 
+            //    getTokenStats();
+            //}, 10000);
            
 
             $("#copyMSG").hide();
@@ -1076,7 +1077,7 @@ function copyAddress(id){
 
             
         });
-    </script>-->
+    </script>
 
     <script src="assets/js/custom.js"></script>
     <script src="assets/js/dashboard/dash_1.js"></script>
