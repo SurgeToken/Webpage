@@ -11,15 +11,14 @@ include("simple_html_dom.php");
     echo "Total Supply sETH: " . $total_supply_seth_no_commas . "<br/>";
 
     //get the total balance of wETH
-    $get_total_balance_weth = file_get_html('https://bscscan.com/token/0x2170ed0880ac9a755fd29b2688956bd959f933f8?a=0x5b1d1bbdcc432213f83b15214b93dc24d31855ef');
-    $total_balance_weth = $get_total_balance_weth->find('div[id="ContentPlaceHolder1_divFilteredHolderBalance"]',0)->plaintext;
+    $weth_html = file_get_html('https://bscscan.com/token/0x2170ed0880ac9a755fd29b2688956bd959f933f8?a=0x5b1d1bbdcc432213f83b15214b93dc24d31855ef');
+    $total_balance_weth = $weth_html->find('div[id="ContentPlaceHolder1_divFilteredHolderBalance"]',0)->plaintext;
     $total_balance_weth_trimmed = substr($total_balance_weth, 8, -5);
     $total_balance_weth_no_commas = str_replace(',', '', $total_balance_weth_trimmed);
     echo "Total Balance wETH: " . $total_balance_weth_no_commas . "<br/>";
 
     //get current price of wETH
-    $get_weth_price = file_get_html('https://bscscan.com/token/0x2170ed0880ac9a755fd29b2688956bd959f933f8?a=0x5b1d1bbdcc432213f83b15214b93dc24d31855ef');
-    $weth_price = $get_weth_price->find('div[id="ContentPlaceHolder1_tr_valuepertoken"]',0)->plaintext;
+    $weth_price = $weth_html->find('div[id="ContentPlaceHolder1_tr_valuepertoken"]',0)->plaintext;
     $weth_price_trimmed = substr($weth_price, 12, 8);
     $weth_price_no_commas = str_replace(',', '', $weth_price_trimmed);
     echo "Current wETH Price: " . $weth_price_no_commas . "<br/>";
