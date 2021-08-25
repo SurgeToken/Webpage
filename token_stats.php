@@ -5,7 +5,6 @@
     
 
     //open tokenstats.txt file
-    chmod("tokenstats.txt",0644);
     $token_stats_file = fopen("tokenstats.txt", "w") or die("Unable to open file!");
 
     /* SurgeUSD Stats */
