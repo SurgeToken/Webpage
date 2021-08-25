@@ -463,7 +463,7 @@ viewBox="0 0 75 75" style="enable-background:new 0 0 75 75;" xml:space="preserve
                 </div>
 
                 <!-- Prices and Balances -->
-                <div class="row posfixed placeholder" id="htb">
+                <div class="row posfixed" id="htb">
                     <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12 layout-spacing spacer2 align-self-end">
                         &nbsp;
                     </div>
@@ -970,7 +970,7 @@ function copyAddress(id){
 
 
             function getTokenStats(){
-                $.post("token_stats.php").done(function(data){
+                $.post("get_token_stats.php").done(function(data){
                     var data = JSON.parse(data);
 
                     var sUSDholders, sUSDPrice; 
@@ -998,12 +998,12 @@ function copyAddress(id){
         $(document).ready(function() {
 
             //initial call for token stats
-            //getTokenStats();
+            getTokenStats();
 
             //run getSUSDStats every 10 seconds
-            //setInterval(function(){ 
-            //    getTokenStats();
-            //}, 10000);
+            setInterval(function(){ 
+                getTokenStats();
+            }, 10000);
            
 
             $("#copyMSG").hide();
