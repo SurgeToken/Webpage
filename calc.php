@@ -34,7 +34,8 @@
             //calculate the USD value of sUSD
             $user_susd_usd_price = $susd_price * $tokens;
             $user_susd_usd_price_trimmed = rtrim(sprintf('%.2f', floatval($user_susd_usd_price)),'0');
-            $row['value_usd'] = $user_susd_usd_price_trimmed;
+            
+            $row['value_usd'] = number_format($user_susd_usd_price_trimmed, 2, '.', '');
 
             //calculate users value in BNB
             $user_bnb_value = $user_susd_usd_price / $bnb_price;
@@ -70,7 +71,8 @@
             //calculate users value in ETH
             $user_usd_value = $user_seth_value_trimmed * $get_weth_price;
             $user_usd_value_trimmed = rtrim(sprintf('%.2f', floatval($user_usd_value)),'0');
-            $row['value_usd'] = $user_usd_value_trimmed;
+            
+            $row['value_usd'] = number_format($user_usd_value_trimmed, 2, '.', '');
 
             //push all $row variables into the $data array
             array_push($data, $row);

@@ -988,36 +988,11 @@ viewBox="0 0 75 75" style="enable-background:new 0 0 75 75;" xml:space="preserve
                 }); 
             }
 
+            function calc(tokenSelect, tokenAmount){
+                var tS = tokenSelect;
+                var tA = tokenAmount;
 
-        $(document).ready(function() {
-
-            //initial call for token stats
-            getTokenStats();
-
-            //run getSUSDStats every 10 seconds
-            setInterval(function(){ 
-                getTokenStats();
-            }, 10000);
-           
-
-            $("#copyMSG").hide();
-            $("#calcResults").hide();
-
-            $('#tokenSelect').on('change', function() {
-                $("#tokenAmount").val("");
-                $("#calcResults").hide();
-                $("#tokenBalance").empty();
-                $("#tokenName").empty();
-                $("#tokenValue").empty();
-                $("#tokenValueUSD").empty();
-            });
-
-
-            $("#calcBtn").click(function(){
-                var tokenSelected = $("#tokenSelect").val();
-                var tokenAmount = $("#tokenAmount").val();
-                
-                switch(tokenSelected){
+                switch(tS){
                     case "noToken":
                         $("#dialog").html("No Token Selected!");
                         $("#copyMSG").show();
@@ -1030,7 +1005,7 @@ viewBox="0 0 75 75" style="enable-background:new 0 0 75 75;" xml:space="preserve
                     case "sUSD":
                         
                         //get total supply of sUSD
-                        $.post("calc.php", {tokenSelected: tokenSelected, tokenAmount:tokenAmount}).done(function(data){
+                        $.post("calc.php", {tokenSelected: tS, tokenAmount:tA}).done(function(data){
                             var data = JSON.parse(data);
                             var valueUSD, valueBNB;
                             var tokenName = "BNB";
@@ -1052,7 +1027,7 @@ viewBox="0 0 75 75" style="enable-background:new 0 0 75 75;" xml:space="preserve
 
                         break;
                     case "sETH":
-                        $.post("calc.php", {tokenSelected: tokenSelected, tokenAmount:tokenAmount}).done(function(data){
+                        $.post("calc.php", {tokenSelected: tS, tokenAmount:tA}).done(function(data){
                             var data = JSON.parse(data);
                             var valueUSD, valueETH;
                             var tokenName = "ETH";
@@ -1076,9 +1051,65 @@ viewBox="0 0 75 75" style="enable-background:new 0 0 75 75;" xml:space="preserve
                     default:
                         break;
                 }
+            }
+
+
+        $(document).ready(function() {
+
+            //initial call for token stats
+            getTokenStats();
+
+            //run getSUSDStats every 10 seconds
+            setInterval(function(){ 
+                getTokenStats();
+            }, 30000);
+           
+            $("#copyMSG").hide();
+            $("#calcResults").hide();
+
+            $('#tokenSelect').on('change', function() {
+                $("#tokenAmount").val("");
+                $("#calcResults").hide();
+                $("#tokenBalance").empty();
+                $("#tokenName").empty();
+                $("#tokenValue").empty();
+                $("#tokenValueUSD").empty();
             });
 
+            $("#calcBtn").click(function(){
+                var tokenSelected = $("#tokenSelect").val();
+                var tokenAmount = $("#tokenAmount").val();
+                
+                calc(tokenSelected, tokenAmount);
+                
+            });
+
+            setInterval(function(){ 
+                if($("#calcResults").is(":visible")){
+
+                    var ts = $("#tokenSelect").val();
+                    var ta = $("#tokenAmount").val()
+
+                    calc(ts, ta);
+                    console.log("calc go");
+
+                } else {
+                    //do nothing
+                    console.log("calc nogo")
+                }
+            }, 10000);
+
+            if($("#tokenSelect").val() != "noToken" || $("#calcResults").is(":visible")){
+
+
+                var ts = $("#tokenSelect").val();
+                var ta = $("#tokenAmount").val()
+
+                calc(ts, ta);
+
+            }
             
+
         });
     </script>
 

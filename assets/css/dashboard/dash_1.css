@@ -205,6 +205,11 @@
     background-color: transparent !important;
 }
 
+.calcResults .priceTable {
+    width: 70%;
+    margin: 0 auto;
+}
+
 .hrSpacer{
     margin-top: 3%;
 }
