@@ -5,7 +5,7 @@
     
 
     //open tokenstats.txt file
-    $token_stats_file = fopen("tokenstats.txt", "rw") or die("Unable to open file!");
+    $token_stats_file = fopen("tokenstats.txt", "w") or die("Unable to open file!");
 
     /* SurgeUSD Stats */
 
