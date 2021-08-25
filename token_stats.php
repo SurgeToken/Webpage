@@ -52,6 +52,10 @@
     //strip commas from sETH
     $total_supply_seth_no_commas = str_replace(',', '', $total_supply_seth);
 
+    //strip commas from wETH
+    $weth_price_trimmed = substr($weth_price, 12, 8);
+    $weth_price_no_commas = str_replace(',', '', $weth_price_trimmed);
+
     //remove unneeded data from total balance wETH
     $total_balance_weth_trimmed = substr($total_balance_weth, 8, -5);
 
@@ -72,12 +76,6 @@
     $bnb_price = $get_bnb_price->find('div[id="ContentPlaceHolder1_tr_valuepertoken"]',0)->plaintext;
     $bnb_price_trimmed = substr($bnb_price, 12, 6);
     $bnb_price = $bnb_price_trimmed;
-
-    //get current price of wETH
-    $get_weth_price = file_get_html('https://bscscan.com/token/0x2170ed0880ac9a755fd29b2688956bd959f933f8?a=0x5b1d1bbdcc432213f83b15214b93dc24d31855ef');
-    $weth_price = $get_weth_price->find('div[id="ContentPlaceHolder1_tr_valuepertoken"]',0)->plaintext;
-    $weth_price_trimmed = substr($weth_price, 12, 8);
-    $weth_price_no_commas = str_replace(',', '', $weth_price_trimmed);
 
     //push data into $data array
     array_push($data, trim($susd_holders));
