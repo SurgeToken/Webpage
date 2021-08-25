@@ -33,7 +33,7 @@
 
     <!-- BEGIN PAGE LEVEL PLUGINS/CUSTOM STYLES -->
     <link href="plugins/apex/apexcharts.css" rel="stylesheet" type="text/css">
-    <link href="assets/css/dashboard/dash_1.css?v=1.31" rel="stylesheet" type="text/css" />
+    <link href="assets/css/dashboard/dash_1.css?v=1.32" rel="stylesheet" type="text/css" />
     <link href="assets/css/structure.css?v=1.59" rel="stylesheet" type="text/css" />
     <!-- END PAGE LEVEL PLUGINS/CUSTOM STYLES -->
 
@@ -503,7 +503,7 @@ viewBox="0 0 75 75" style="enable-background:new 0 0 75 75;" xml:space="preserve
                                 <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 col-xl-6">
                                     <div class="form-group">
                                         <select class="form-select surgeSelect" aria-label="Token Select" id="tokenSelect">
-                                            <option selected value="0">Choose Your Token</option>
+                                            <option selected value="noToken">Choose Your Token</option>
                                             <option value="sUSD">
                                                 SurgeUSD
                                             </option>
@@ -523,8 +523,10 @@ viewBox="0 0 75 75" style="enable-background:new 0 0 75 75;" xml:space="preserve
                                 </div>
                                 
                                 <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 resultsSpacer" id="calcResults">
-                                    <hr class="hrSpacer">
-                                    <div class="" id="results">
+                                    
+                                    <div class="calcResults" id="results">
+                                        <h3>Your Amount</h3>
+                                        <hr class="hrSpacer">
                                         <table class="table table-borderless priceTable">
                                             <tr>
                                                 <td>Current Balance:</td>
@@ -941,7 +943,7 @@ viewBox="0 0 75 75" style="enable-background:new 0 0 75 75;" xml:space="preserve
 
     <script>
 
-function copyAddress(id){
+            function copyAddress(id){
                 var r = document.createRange();
                 var message = "";
                 r.selectNode(document.getElementById(id));
@@ -961,14 +963,6 @@ function copyAddress(id){
 
             }
             
-
-    </script>
- 
-    <script>
-
-
-
-
             function getTokenStats(){
                 $.post("get_token_stats.php").done(function(data){
                     var data = JSON.parse(data);
@@ -1024,6 +1018,15 @@ function copyAddress(id){
                 var tokenAmount = $("#tokenAmount").val();
                 
                 switch(tokenSelected){
+                    case "noToken":
+                        $("#dialog").html("No Token Selected!");
+                        $("#copyMSG").show();
+
+                        setTimeout(function () {
+                            // Closing the alert
+                            $("#copyMSG").hide();
+                        }, 2000);
+                        break;
                     case "sUSD":
                         
                         //get total supply of sUSD
@@ -1069,6 +1072,7 @@ function copyAddress(id){
                             });
                         });
                         break;
+
                     default:
                         break;
                 }
