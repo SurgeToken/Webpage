@@ -79,7 +79,7 @@
 .cAddress{
     background-color: #011b1f94;
     padding: 4px 10px 4px 1em;
-    /* width: 82%; */
+    width: 100%;
     margin-top: 10px;
     border: 1px solid #006a7b87;
     margin-left: 6px;
@@ -87,6 +87,30 @@
 
 .cAddress i {
     margin-left: 5px;
+}
+
+@media screen and (max-width: 579px) {
+    .cAddress {
+        font-size: 2.2vw;
+    }
+}
+
+@media screen and (min-width: 580px) and (max-width: 767px) {
+.cAddress {
+    font-size: 2.6vw;
+    }
+}
+
+@media screen and (min-width: 768px) and (max-width: 1199px) {
+.cAddress {
+    font-size: 1.1vw;
+    }
+}
+
+@media screen and (min-width: 1200px) {
+    .cAddress {
+        font-size: 1.2vw;
+    }
 }
 
 .logoNav{
@@ -1094,18 +1118,16 @@ display:flex !important;
     .contractAddress{
         margin-top: 2em;
         margin-bottom: 3em;
-        margin-left:22%;
     }
 }
 @media(min-width:1430px){
     .contractAddress{
         margin-top: 2em;
         margin-bottom: 3em;
-        margin-left:37%;
-    }
+    }   
 }
 @media(max-width: 1430px) and (min-width: 1200px) {
-    /*
+    /*  
         ===========================
             Top Selling Product
         ===========================
@@ -1126,7 +1148,13 @@ display:flex !important;
     .contractAddress{
         margin-top: 2em;
         margin-bottom: 3em;
-        margin-left:22%;
+    }
+}
+
+@media(max-width: 1199px) {
+    .contractAddress {
+        margin-top: 2em;
+        margin-bottom: 3em;
     }
 }
 
@@ -1138,7 +1166,6 @@ display:flex !important;
     .contractAddress{
         margin-top: 2em;
         margin-bottom: 3em;
-        margin-left:22%;
     }
 }
 @media(max-width: 575px) {
@@ -1216,7 +1243,6 @@ display:flex !important;
     .contractAddress{
         margin-top: 2em;
         margin-bottom: 3em;
-        margin-left:22%;
     }
 
 }
