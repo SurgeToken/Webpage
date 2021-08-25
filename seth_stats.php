@@ -4,14 +4,16 @@ include("simple_html_dom.php");
 $data = array();
 
 //get the # of holders for sETH
-$seth_html = file_get_html('https://bscscan.com/token/0x5b1d1bbdcc432213f83b15214b93dc24d31855ef');
+$get_holders = file_get_html('https://bscscan.com/token/0x5b1d1bbdcc432213f83b15214b93dc24d31855ef');
 
-$holders = $seth_html->find('div[class="mr-3"]',0)->plaintext;
+$holders = $get_holders->find('div[class="mr-3"]',0)->plaintext;
 //echo "Holders: " . $holders . "<br/>";
 $row['holders'] = $holders;
 
 //get the total supply of sETH
-$total_supply = $seth_html->find('span[class="hash-tag text-truncate"]',0)->plaintext;
+$get_total_supply = file_get_html('https://bscscan.com/token/0x5b1d1bbdcc432213f83b15214b93dc24d31855ef');
+
+$total_supply = $get_total_supply->find('span[class="hash-tag text-truncate"]',0)->plaintext;
 
 $total_supply_no_commas = str_replace(',', '', $total_supply);
 //echo "Total Supply sETH: " . $total_supply  . "<br/>";
@@ -19,9 +21,9 @@ $total_supply_no_commas = str_replace(',', '', $total_supply);
 $row['total_supply_seth'] = $total_supply_no_commas;
 
 //get the total balance of bUSD
-$busd_html = file_get_html('https://bscscan.com/token/0x2170ed0880ac9a755fd29b2688956bd959f933f8?a=0x5b1d1bbdcc432213f83b15214b93dc24d31855ef');
+$get_total_balance = file_get_html('https://bscscan.com/token/0x2170ed0880ac9a755fd29b2688956bd959f933f8?a=0x5b1d1bbdcc432213f83b15214b93dc24d31855ef');
 
-$total_balance = $busd_html->find('div[id="ContentPlaceHolder1_divFilteredHolderBalance"]',0)->plaintext;
+$total_balance = $get_total_balance->find('div[id="ContentPlaceHolder1_divFilteredHolderBalance"]',0)->plaintext;
 
 $total_balance_trimmed = substr($total_balance, 8, -5);
 $total_balance_no_commas = str_replace(',', '', $total_balance_trimmed);
@@ -32,7 +34,9 @@ $total_balance_no_commas = str_replace(',', '', $total_balance_trimmed);
 $row['total_balance_weth'] = $total_balance_no_commas;
 
 //get current price of BUSD
-$weth_price = $busd_html->find('div[id="ContentPlaceHolder1_tr_valuepertoken"]',0)->plaintext;
+$get_weth_price = file_get_html('https://bscscan.com/token/0x2170ed0880ac9a755fd29b2688956bd959f933f8?a=0x5b1d1bbdcc432213f83b15214b93dc24d31855ef');
+
+$weth_price = $get_weth_price->find('div[id="ContentPlaceHolder1_tr_valuepertoken"]',0)->plaintext;
 
 $weth_price_trimmed = substr($weth_price, 12, 6);
 //echo "WETH Price: " . $weth_price_trimmed . "<br/>";
