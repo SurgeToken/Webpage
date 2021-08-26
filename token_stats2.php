@@ -86,5 +86,7 @@
     $redis->set("wETH Price", trim($weth_price_no_commas));
     $redis->set("sETH Price", trim($seth_trimmed));
     $redis->set("BNB Price", trim($bnb_price_trimmed));
+
+    echo "1";
     
 ?>

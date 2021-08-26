@@ -132,7 +132,7 @@ h4, h5, h6 {
 
 @media screen and (min-width: 768px) and (max-width: 1299px) {
   .spacer2{
-    margin-top:-30%;
+    margin-top:-200px;
 }
 }
 
