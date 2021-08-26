@@ -5,6 +5,7 @@
    echo "Connection to server sucessfully\n"; 
    //set the data in redis string 
    // Get the stored data and print it 
-   $example_data = $redis->get("testdata");
+   //$example_data = $redis->get("testdata");
+   $example_data = $redis->keys('*');
    echo "Data: $example_data";
 ?>
