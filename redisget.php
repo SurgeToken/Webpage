@@ -12,8 +12,9 @@
 
    $keys = array_keys($example_data);
    foreach($example_data as $key => $value) {
+    echo $value . "<br>";
     echo $redis->get($value);
-    echo "<br>";
+    echo "<br><br>";
   }
 
 ?>
