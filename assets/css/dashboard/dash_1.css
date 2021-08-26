@@ -100,7 +100,7 @@
         font-size: 1.8vw;
     }
 
-    .priceTable{
+    .priceTable > tbody > tr > td{
         font-size: 4vw ;
     }
 }
@@ -109,7 +109,7 @@
     .cAddress {
         font-size: 2vw;
     }
-    .priceTable{
+    .priceTable > tbody > tr > td{
         font-size: 4.2vw ;
     }
 }
@@ -119,7 +119,7 @@
         font-size: 2.1vw;
     }
 
-    .priceTable{
+    .priceTable > tbody > tr > td{
         font-size: 4.3vw ;
     }
 }
@@ -128,7 +128,7 @@
     .cAddress {
         font-size: 2.6vw;
     }
-    .priceTable{
+    .priceTable > tbody > tr > td{
         font-size: 4vw ;
     }
 }
@@ -137,7 +137,7 @@
     .cAddress {
         font-size: 1.1vw;
     }
-    .priceTable{
+    .priceTable > tbody > tr > td{
         font-size: 4vw ;
     }
 }
@@ -146,7 +146,7 @@
     .cAddress {
         font-size: 1.2em;
     }
-    .priceTable{
+    .priceTable > tbody > tr > td{
         font-size: 4vw ;
     }
 }
@@ -233,11 +233,6 @@
 .hrSpacer{
     margin-top: 3%;
 }
-
-.priceTable > tbody > tr > td{
-    font-size: 15px;
-}
-
 
 
 .navbar .navbar-item .nav-item.user-profile-dropdown a.user .media .media-body, .navbar .nav-logo {
