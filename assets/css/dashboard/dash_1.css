@@ -93,6 +93,10 @@
     .cAddress {
         font-size: 1.5vw;
     }
+
+    .priceTable > tbody > tr > td{
+        font-size: 3.5vw ;
+    }
 }
 
 @media screen and (min-width: 330px) and (max-width: 364px) {

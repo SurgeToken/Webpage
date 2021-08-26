@@ -98,8 +98,48 @@ h4, h5, h6 {
     margin-top: 10%;
 }
 
-.spacer2{
+
+
+@media screen and (max-width: 329px) {
+  .spacer2{
     margin-top:-11%;
+  }
+}
+
+@media screen and (min-width: 330px) and (max-width: 364px) {
+  .spacer2{
+    margin-top:-11%;
+  }
+}
+
+@media screen and (min-width: 365px) and (max-width: 399px) {
+  .spacer2{
+    margin-top:-11%;
+}
+}
+
+@media screen and (min-width: 400px) and (max-width: 579px) {
+  .spacer2{
+    margin-top:-11%;
+}
+}
+
+@media screen and (min-width: 580px) and (max-width: 767px) {
+  .spacer2{
+    margin-top:-11%;
+}
+}
+
+@media screen and (min-width: 768px) and (max-width: 1299px) {
+  .spacer2{
+    margin-top:-11%;
+}
+}
+
+@media screen and (min-width: 1300px) {
+  .spacer2{
+    margin-top:-11%;
+}
 }
 
 .spacer3{
