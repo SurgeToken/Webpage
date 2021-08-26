@@ -9,6 +9,10 @@
    $example_data = $redis->keys('*');
    print_r($example_data);
    print("<br>")
-   foreach(array_keys($example_data) as $key)
-   echo $redis->get($key) . "<br>";
+
+   $keys = array_keys($example_data);
+   foreach($keys as $key) {
+       echo($redis->get($key));
+   }
+
 ?>
