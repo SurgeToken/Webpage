@@ -12,7 +12,7 @@
 
    $keys = array_keys($example_data);
    foreach($keys as $key => $value) {
-       print($value);
+       print(keys[$value]);
        print($redis->get($value));
    }
 
