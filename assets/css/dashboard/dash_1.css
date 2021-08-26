@@ -218,6 +218,13 @@
     font-size: 15px;
 }
 
+@media only screen and (max-width: 600px) {
+    .priceTable{
+        font-size: 0.9em;
+    }
+  }
+
+
 .navbar .navbar-item .nav-item.user-profile-dropdown a.user .media .media-body, .navbar .nav-logo {
 display:flex !important; 
 }
