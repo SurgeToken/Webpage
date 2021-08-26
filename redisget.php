@@ -11,9 +11,9 @@
    print("<br>");
 
    $keys = array_keys($example_data);
-   foreach($keys as $key) {
-       print($key);
-       print($redis->get($key));
+   foreach($keys as $key => $value) {
+       print($value);
+       print($redis->get($value));
    }
 
 ?>
