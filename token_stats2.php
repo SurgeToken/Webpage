@@ -76,7 +76,6 @@
 
     //set the data in redis string 
     $redis->set("sUSD Holders", trim($susd_holders));
-    echo $redis->get("sUSD Holders");
     $redis->set("sUSD Total Supply", trim($total_supply_susd_no_commas));
     $redis->set("bUSD Total Balance", trim($total_balance_busd_no_commas));
     $redis->set("bUSD Price", trim($busd_price_trimmed));

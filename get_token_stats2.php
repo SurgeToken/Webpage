@@ -3,6 +3,9 @@
     //Connecting to Redis server on localhost 
     include("redis_config.php");
 
+    $test = $redis->get("sUSD Holders");
+    echo $test;
+
     $row['susd_holders'] = $redis->get("sUSD Holders");
     $row['total_supply_susd'] = $redis->get("sUSD Total Supply");
     $row['total_balance_busd'] = $redis->get("bUSD Total Balance");
