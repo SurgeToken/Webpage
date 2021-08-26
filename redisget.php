@@ -11,7 +11,7 @@
    print("<br>");
 
    $keys = array_keys($example_data);
-   foreach($keys as $key => $value) {
+   foreach($example_data as $key => $value) {
     echo "$key is at $value";
   }
 
