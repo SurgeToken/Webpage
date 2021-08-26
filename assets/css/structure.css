@@ -148,6 +148,7 @@ h4, h5, h6 {
   flex-wrap: nowrap;
   justify-content: center;
   width: 100%;
+  display: none;
 }
 .navSocialFooter svg {
   width: 10vw !important;
@@ -1300,7 +1301,7 @@ code {
   }
 
   .navSocialFooter{
-    position: absolute;
+    position: inherit;
     left: 0px;
     display: flex;
     flex-wrap: nowrap;
