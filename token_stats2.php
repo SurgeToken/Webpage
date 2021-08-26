@@ -2,9 +2,7 @@
     include("simple_html_dom.php");
 
     //Connecting to Redis server on localhost 
-    $redis = new Redis(); 
-    $redis->connect('redis', 6379); 
-    echo "Connection to server sucessfully\n"; 
+    include("redis_config.php");
    
     /* SurgeUSD Stats */
 
@@ -78,6 +76,7 @@
 
     //set the data in redis string 
     $redis->set("sUSD Holders", trim($susd_holders));
+    echo $redis->get("sUSD Holders");
     $redis->set("sUSD Total Supply", trim($total_supply_susd_no_commas));
     $redis->set("bUSD Total Balance", trim($total_balance_busd_no_commas));
     $redis->set("bUSD Price", trim($busd_price_trimmed));
