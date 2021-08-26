@@ -86,7 +86,7 @@
     $redis->set("sETH Total Supply", trim($total_supply_seth_no_commas));
     $redis->set("wETH Total Balance", trim($total_balance_weth_no_commas));
     $redis->set("wETH Price", trim($weth_price_no_commas));
-    $redis->set("sETH Price", rim($seth_trimmed));
+    $redis->set("sETH Price", trim($seth_trimmed));
     $redis->set("BNB Price", trim($bnb_price_trimmed));
     
 ?>

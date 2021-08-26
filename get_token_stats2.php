@@ -5,8 +5,6 @@
     $redis->connect('redis', 6379); 
     echo "Connection to server sucessfully\n"; 
 
-    $example_data = 
-
     $row['susd_holders'] = $redis->get("sUSD Holders");
     $row['total_supply_susd'] = $redis->get("sUSD Total Supply");
     $row['total_balance_busd'] = $redis->get("bUSD Total Balance");
