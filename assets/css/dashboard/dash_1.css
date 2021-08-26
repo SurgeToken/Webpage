@@ -142,7 +142,7 @@
         font-size: 1.1vw;
     }
     .priceTable > tbody > tr > td{
-        font-size: 1.5vw ;
+        font-size: 1vw ;
     }
 }
 
@@ -151,7 +151,7 @@
         font-size: 1.2em;
     }
     .priceTable > tbody > tr > td{
-        font-size: 1.5vw ;
+        font-size: 1vw ;
     }
 }
 
@@ -230,7 +230,7 @@
 }
 
 .calcResults .priceTable {
-    width: 70%;
+    width: 82%;
     margin: 0 auto;
 }
 
