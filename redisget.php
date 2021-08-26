@@ -8,7 +8,7 @@
    //$example_data = $redis->get("testdata");
    $example_data = $redis->keys('*');
    print_r($example_data);
-   print("<br>")
+   print("<br>");
 
    $keys = array_keys($example_data);
    foreach($keys as $key) {
