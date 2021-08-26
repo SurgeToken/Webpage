@@ -1,9 +1,7 @@
 <?php
 
     //Connecting to Redis server on localhost 
-    $redis = new Redis(); 
-    $redis->connect('redis', 6379); 
-    echo "Connection to server sucessfully\n"; 
+    include("redis_config.php");
 
     $row['susd_holders'] = $redis->get("sUSD Holders");
     $row['total_supply_susd'] = $redis->get("sUSD Total Supply");
