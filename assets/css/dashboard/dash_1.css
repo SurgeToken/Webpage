@@ -100,7 +100,7 @@
         font-size: 1.8vw;
     }
 
-    .statsTable > tbody > tr > td{
+    .priceTable > tbody > tr > td{
         font-size: 4vw ;
     }
 }
@@ -109,7 +109,7 @@
     .cAddress {
         font-size: 2vw;
     }
-    .statsTable > tbody > tr > td{
+    .priceTable > tbody > tr > td{
         font-size: 4.2vw ;
     }
 }
@@ -119,7 +119,7 @@
         font-size: 2.1vw;
     }
 
-    .statsTable > tbody > tr > td{
+    .priceTable > tbody > tr > td{
         font-size: 4.3vw ;
     }
 }
@@ -128,7 +128,7 @@
     .cAddress {
         font-size: 2.6vw;
     }
-    .statsTable > tbody > tr > td{
+    .priceTable > tbody > tr > td{
         font-size: 4vw ;
     }
 }
@@ -137,7 +137,7 @@
     .cAddress {
         font-size: 1.1vw;
     }
-    .statsTable > tbody > tr > td{
+    .priceTable > tbody > tr > td{
         font-size: 2vw ;
     }
 }
@@ -146,7 +146,7 @@
     .cAddress {
         font-size: 1.2em;
     }
-    .statsTable > tbody > tr > td{
+    .priceTable > tbody > tr > td{
         font-size: 2vw ;
     }
 }
@@ -220,12 +220,12 @@
     text-align: center;
 }
 
-.priceTable .statsTable{
+.priceTable{
     margin-top: 1em;
     background-color: transparent !important;
 }
 
-.calcResults .priceTable .statsTable {
+.calcResults .priceTable {
     width: 70%;
     margin: 0 auto;
 }
