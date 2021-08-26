@@ -12,7 +12,8 @@
 
    $keys = array_keys($example_data);
    foreach($keys as $key) {
-       echo($redis->get($key));
+       print($key);
+       print($redis->get($key));
    }
 
 ?>
