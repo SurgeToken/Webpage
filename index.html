@@ -33,8 +33,8 @@
 
     <!-- BEGIN PAGE LEVEL PLUGINS/CUSTOM STYLES -->
     <link href="plugins/apex/apexcharts.css" rel="stylesheet" type="text/css">
-    <link href="assets/css/dashboard/dash_1.css?v=1.31" rel="stylesheet" type="text/css" />
-    <link href="assets/css/structure.css?v=1.59" rel="stylesheet" type="text/css" />
+    <link href="assets/css/dashboard/dash_1.css?v=1.33" rel="stylesheet" type="text/css" />
+    <link href="assets/css/structure.css?v=1.60" rel="stylesheet" type="text/css" />
     <!-- END PAGE LEVEL PLUGINS/CUSTOM STYLES -->
 
 </head>
@@ -463,7 +463,7 @@ viewBox="0 0 75 75" style="enable-background:new 0 0 75 75;" xml:space="preserve
                 </div>
 
                 <!-- Prices and Balances -->
-                <div class="row posfixed placeholder" id="htb">
+                <div class="row  placeholder" id="htb">
                     <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12 layout-spacing spacer2 align-self-end">
                         &nbsp;
                     </div>
@@ -503,7 +503,7 @@ viewBox="0 0 75 75" style="enable-background:new 0 0 75 75;" xml:space="preserve
                                 <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 col-xl-6">
                                     <div class="form-group">
                                         <select class="form-select surgeSelect" aria-label="Token Select" id="tokenSelect">
-                                            <option selected value="0">Choose Your Token</option>
+                                            <option selected value="noToken">Choose Your Token</option>
                                             <option value="sUSD">
                                                 SurgeUSD
                                             </option>
@@ -523,8 +523,10 @@ viewBox="0 0 75 75" style="enable-background:new 0 0 75 75;" xml:space="preserve
                                 </div>
                                 
                                 <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 resultsSpacer" id="calcResults">
-                                    <hr class="hrSpacer">
-                                    <div class="" id="results">
+                                    
+                                    <div class="calcResults" id="results">
+                                        <h3>Your Amount</h3>
+                                        <hr class="hrSpacer">
                                         <table class="table table-borderless priceTable">
                                             <tr>
                                                 <td>Current Balance:</td>
@@ -941,7 +943,7 @@ viewBox="0 0 75 75" style="enable-background:new 0 0 75 75;" xml:space="preserve
 
     <script>
 
-function copyAddress(id){
+            function copyAddress(id){
                 var r = document.createRange();
                 var message = "";
                 r.selectNode(document.getElementById(id));
@@ -961,16 +963,8 @@ function copyAddress(id){
 
             }
             
-
-    </script>
- 
-    <script>
-
-
-
-
             function getTokenStats(){
-                $.post("token_stats.php").done(function(data){
+                $.post("get_token_stats.php").done(function(data){
                     var data = JSON.parse(data);
 
                     var sUSDholders, sUSDPrice; 
@@ -994,40 +988,24 @@ function copyAddress(id){
                 }); 
             }
 
+            function calc(tokenSelect, tokenAmount){
+                var tS = tokenSelect;
+                var tA = tokenAmount;
 
-        $(document).ready(function() {
+                switch(tS){
+                    case "noToken":
+                        $("#dialog").html("No Token Selected!");
+                        $("#copyMSG").show();
 
-            //initial call for token stats
-            //getTokenStats();
-
-            //run getSUSDStats every 10 seconds
-            //setInterval(function(){ 
-            //    getTokenStats();
-            //}, 10000);
-           
-
-            $("#copyMSG").hide();
-            $("#calcResults").hide();
-
-            $('#tokenSelect').on('change', function() {
-                $("#tokenAmount").val("");
-                $("#calcResults").hide();
-                $("#tokenBalance").empty();
-                $("#tokenName").empty();
-                $("#tokenValue").empty();
-                $("#tokenValueUSD").empty();
-            });
-
-
-            $("#calcBtn").click(function(){
-                var tokenSelected = $("#tokenSelect").val();
-                var tokenAmount = $("#tokenAmount").val();
-                
-                switch(tokenSelected){
+                        setTimeout(function () {
+                            // Closing the alert
+                            $("#copyMSG").hide();
+                        }, 2000);
+                        break;
                     case "sUSD":
                         
                         //get total supply of sUSD
-                        $.post("calc.php", {tokenSelected: tokenSelected, tokenAmount:tokenAmount}).done(function(data){
+                        $.post("calc.php", {tokenSelected: tS, tokenAmount:tA}).done(function(data){
                             var data = JSON.parse(data);
                             var valueUSD, valueBNB;
                             var tokenName = "BNB";
@@ -1049,7 +1027,7 @@ function copyAddress(id){
 
                         break;
                     case "sETH":
-                        $.post("calc.php", {tokenSelected: tokenSelected, tokenAmount:tokenAmount}).done(function(data){
+                        $.post("calc.php", {tokenSelected: tS, tokenAmount:tA}).done(function(data){
                             var data = JSON.parse(data);
                             var valueUSD, valueETH;
                             var tokenName = "ETH";
@@ -1069,12 +1047,69 @@ function copyAddress(id){
                             });
                         });
                         break;
+
                     default:
                         break;
                 }
+            }
+
+
+        $(document).ready(function() {
+
+            //initial call for token stats
+            getTokenStats();
+
+            //run getSUSDStats every 10 seconds
+            setInterval(function(){ 
+                getTokenStats();
+            }, 30000);
+           
+            $("#copyMSG").hide();
+            $("#calcResults").hide();
+
+            $('#tokenSelect').on('change', function() {
+                $("#tokenAmount").val("");
+                $("#calcResults").hide();
+                $("#tokenBalance").empty();
+                $("#tokenName").empty();
+                $("#tokenValue").empty();
+                $("#tokenValueUSD").empty();
             });
 
+            $("#calcBtn").click(function(){
+                var tokenSelected = $("#tokenSelect").val();
+                var tokenAmount = $("#tokenAmount").val();
+                
+                calc(tokenSelected, tokenAmount);
+                
+            });
+
+            setInterval(function(){ 
+                if($("#calcResults").is(":visible")){
+
+                    var ts = $("#tokenSelect").val();
+                    var ta = $("#tokenAmount").val()
+
+                    calc(ts, ta);
+                    console.log("calc go");
+
+                } else {
+                    //do nothing
+                    console.log("calc nogo")
+                }
+            }, 10000);
+
+            if($("#tokenSelect").val() != "noToken" || $("#calcResults").is(":visible")){
+
+
+                var ts = $("#tokenSelect").val();
+                var ta = $("#tokenAmount").val()
+
+                calc(ts, ta);
+
+            }
             
+
         });
     </script>
 
