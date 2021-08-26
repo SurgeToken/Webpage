@@ -1292,8 +1292,8 @@ code {
     width: 100%;
   }
 
-  .logoM, .navSocial{
-    display: none;
+  .logoM, .navSocial {
+    visibility: hidden;
   }
 
   .navLogo{
@@ -1309,8 +1309,8 @@ code {
     width: 100%;
 }
 .navSocialFooter svg {
-  width: 10vw !important;
-  margin: 0px 2vw 6px 2vw !important;
+  width: 8vw !important;
+  margin: 0px 4vw 8px 4vw !important;
   position: relative !important;
   left: 0 !important;
 }
