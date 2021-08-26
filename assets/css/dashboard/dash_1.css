@@ -220,12 +220,12 @@
     text-align: center;
 }
 
-.priceTable{
+.priceTable .statsTable{
     margin-top: 1em;
     background-color: transparent !important;
 }
 
-.calcResults .priceTable {
+.calcResults .priceTable .statsTable {
     width: 70%;
     margin: 0 auto;
 }
