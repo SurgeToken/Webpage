@@ -943,6 +943,8 @@ viewBox="0 0 75 75" style="enable-background:new 0 0 75 75;" xml:space="preserve
 
     <script>
 
+        var tempsUSDValueUSD, tempsUSDValueBNB, tempsETHValueUSD, tempsETHValueETH;
+
             function copyAddress(id){
                 var r = document.createRange();
                 var message = "";
@@ -964,7 +966,7 @@ viewBox="0 0 75 75" style="enable-background:new 0 0 75 75;" xml:space="preserve
             }
             
             function getTokenStats(){
-                $.post("get_token_stats.php").done(function(data){
+                $.post("get_token_stats2.php").done(function(data){
                     var data = JSON.parse(data);
 
                     var sUSDholders, sUSDPrice; 
@@ -1005,7 +1007,7 @@ viewBox="0 0 75 75" style="enable-background:new 0 0 75 75;" xml:space="preserve
                     case "sUSD":
                         
                         //get total supply of sUSD
-                        $.post("calc.php", {tokenSelected: tS, tokenAmount:tA}).done(function(data){
+                        $.post("calc2.php", {tokenSelected: tS, tokenAmount:tA}).done(function(data){
                             var data = JSON.parse(data);
                             var valueUSD, valueBNB;
                             var tokenName = "BNB";
@@ -1013,6 +1015,9 @@ viewBox="0 0 75 75" style="enable-background:new 0 0 75 75;" xml:space="preserve
                             $.each(data, function(i, item){
                                 valueUSD = item.value_usd;
                                 valueBNB = item.value_bnb;
+
+                                tempsUSDValueUSD = item.value_usd;
+                                tempsUSDValueBNB = item.value_bnb;
 
                                 $("#tokenBalance").html(tokenAmount + " sUSD");
                                 $("#tokenName").html("(" + tokenName + ")");
@@ -1035,6 +1040,8 @@ viewBox="0 0 75 75" style="enable-background:new 0 0 75 75;" xml:space="preserve
                             $.each(data, function(i, item){
                                 valueUSD = item.value_usd;
                                 valueETH = item.value_eth;
+                                tempsETHValueUSD = item.value_usd;
+                                tempsETHValueETH = item.value_eth;
 
                                 $("#tokenBalance").html(tokenAmount + " sETH");
                                 $("#tokenName").html("(" + tokenName + ")");
@@ -1087,8 +1094,23 @@ viewBox="0 0 75 75" style="enable-background:new 0 0 75 75;" xml:space="preserve
             setInterval(function(){ 
                 if($("#calcResults").is(":visible")){
 
+                    //swap the variables with temps
+                    switch($("#tokenSelect").val()){
+                        case "sUSD":
+                            $("#tokenValue").html(tempsUSDValueBNB);
+                            $("#tokenValueUSD").html("$" + tempsUSDValueUSD);
+                            break;
+                        case "sETH":
+                            $("#tokenValue").html(tempsETHValueETH);
+                            $("#tokenValueUSD").html("$" + tempsETHValueUSD);
+                            break;
+                        default:
+                            break
+
+                    }
+
                     var ts = $("#tokenSelect").val();
-                    var ta = $("#tokenAmount").val()
+                    var ta = $("#tokenAmount").val();
 
                     calc(ts, ta);
                     console.log("calc go");

@@ -1,35 +1,36 @@
 <?php
     include("simple_html_dom.php");
 
+    //Connecting to Redis server on localhost 
+    $redis = new Redis(); 
+    $redis->connect('redis', 6379); 
+    echo "Connection to server sucessfully\n"; 
+
     $token_selected = $_POST['tokenSelected'];
     $token_post = $_POST['tokenAmount'];
 
     $tokens = str_replace(',', '', $token_post);
 
-    //get token data from tokenstats.txt
-    $token_stats_file = fopen("tokenstats.txt", "r") or die("Unable to open file!");
-
-    $file_data = explode("\n", file_get_contents('tokenstats.txt'));
-
     $data = array();
+
 
     switch($token_selected){
         case "sUSD":
 
             //get the total supply of sUSD
-            $total_supply_susd = $file_data[1];
+            $total_supply_susd = $redis->get("sUSD Total Supply");
 
             //get the total balance of bUSD
-            $total_balance_busd = $file_data[2];
+            $total_balance_busd = $redis->get("bUSD Total Balance");
 
             //get current price of BUSD
-            $busd_price = $file_data[3];
+            $busd_price = $redis->get("bUSD Price");
 
             //calculate sUSD Price
-            $susd_price = $file_data[4];
+            $susd_price = $redis->get("sUSD Price");
             
             //get the current price of BNB
-            $bnb_price = $file_data[10];
+            $bnb_price = $redis->get("BNB Price");
             
             //calculate the USD value of sUSD
             $user_susd_usd_price = $susd_price * $tokens;
@@ -52,16 +53,16 @@
         case "sETH":
 
             //get the total supply of sETH
-            $get_total_supply_seth = $file_data[6];
+            $get_total_supply_seth = $redis->get("sETH Total Supply");
            
             //get the total balance of wETH
-            $get_total_balance_weth = $file_data[7];
+            $get_total_balance_weth = $redis->get("wETH Total Balance");
             
             //get current price of wETH
-            $get_weth_price = $file_data[8];
+            $get_weth_price = $redis->get("wETH Price");
             
             //calculate sETH Price
-            $seth_price = $file_data[9];
+            $seth_price = $redis->get("sETH Price");
             
             //calculate the value of sETH
             $user_seth_value = $seth_price * $tokens;
