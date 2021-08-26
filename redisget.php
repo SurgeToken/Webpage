@@ -7,12 +7,13 @@
    // Get the stored data and print it 
    //$example_data = $redis->get("testdata");
    $example_data = $redis->keys('*');
-   print_r($example_data);
+   //print_r($example_data);
    print("<br>");
 
    $keys = array_keys($example_data);
    foreach($example_data as $key => $value) {
-    echo "$key is at $value";
+    echo $redis->get($value);
+    echo "<br>"
   }
 
 ?>
