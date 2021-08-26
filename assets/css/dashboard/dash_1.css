@@ -100,7 +100,7 @@
         font-size: 1.8vw;
     }
 
-    .priceTable > tbody > tr > td{
+    .statsTable > tbody > tr > td{
         font-size: 4vw ;
     }
 }
@@ -109,7 +109,7 @@
     .cAddress {
         font-size: 2vw;
     }
-    .priceTable > tbody > tr > td{
+    .statsTable > tbody > tr > td{
         font-size: 4.2vw ;
     }
 }
@@ -119,7 +119,7 @@
         font-size: 2.1vw;
     }
 
-    .priceTable > tbody > tr > td{
+    .statsTable > tbody > tr > td{
         font-size: 4.3vw ;
     }
 }
@@ -128,7 +128,7 @@
     .cAddress {
         font-size: 2.6vw;
     }
-    .priceTable > tbody > tr > td{
+    .statsTable > tbody > tr > td{
         font-size: 4vw ;
     }
 }
@@ -137,8 +137,8 @@
     .cAddress {
         font-size: 1.1vw;
     }
-    .priceTable > tbody > tr > td{
-        font-size: 4vw ;
+    .statsTable > tbody > tr > td{
+        font-size: 2vw ;
     }
 }
 
@@ -146,8 +146,8 @@
     .cAddress {
         font-size: 1.2em;
     }
-    .priceTable > tbody > tr > td{
-        font-size: 4vw ;
+    .statsTable > tbody > tr > td{
+        font-size: 2vw ;
     }
 }
 
