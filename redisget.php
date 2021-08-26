@@ -12,8 +12,7 @@
 
    $keys = array_keys($example_data);
    foreach($keys as $key => $value) {
-       print($keys[$value]);
-       print($redis->get($value));
-   }
+    echo "$key is at $value";
+  }
 
 ?>
