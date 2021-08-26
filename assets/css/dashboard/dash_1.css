@@ -99,11 +99,18 @@
     .cAddress {
         font-size: 1.8vw;
     }
+
+    .priceTable{
+        font-size: 4vw ;
+    }
 }
 
 @media screen and (min-width: 365px) and (max-width: 399px) {
     .cAddress {
         font-size: 2vw;
+    }
+    .priceTable{
+        font-size: 4.2vw ;
     }
 }
 
@@ -111,23 +118,36 @@
     .cAddress {
         font-size: 2.1vw;
     }
+
+    .priceTable{
+        font-size: 4.3vw ;
+    }
 }
 
 @media screen and (min-width: 580px) and (max-width: 767px) {
-.cAddress {
-    font-size: 2.6vw;
+    .cAddress {
+        font-size: 2.6vw;
+    }
+    .priceTable{
+        font-size: 4vw ;
     }
 }
 
 @media screen and (min-width: 768px) and (max-width: 1299px) {
-.cAddress {
-    font-size: 1.1vw;
+    .cAddress {
+        font-size: 1.1vw;
+    }
+    .priceTable{
+        font-size: 4vw ;
     }
 }
 
 @media screen and (min-width: 1300px) {
     .cAddress {
         font-size: 1.2em;
+    }
+    .priceTable{
+        font-size: 4vw ;
     }
 }
 
@@ -218,13 +238,6 @@
     font-size: 15px;
 }
 
-/* iPhone 5: */
-@media screen and (device-aspect-ratio: 40/71) {
-    .priceTable{
-        font-size: 0.9em !important;
-    }
-    
-}
 
 
 .navbar .navbar-item .nav-item.user-profile-dropdown a.user .media .media-body, .navbar .nav-logo {
