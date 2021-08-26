@@ -221,7 +221,7 @@
 /* iPhone 5: */
 @media screen and (device-aspect-ratio: 40/71) {
     .priceTable{
-        font-size: 0.9em;
+        font-size: 0.9em !important;
     }
     
 }
