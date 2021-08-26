@@ -7,5 +7,5 @@
    // Get the stored data and print it 
    //$example_data = $redis->get("testdata");
    $example_data = $redis->keys('*');
-   print_r(example_data);
+   print_r($example_data);
 ?>
