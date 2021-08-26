@@ -3,8 +3,17 @@
     //Connecting to Redis server on localhost 
     include("redis_config.php");
 
-    $test = $redis->get("sUSD Holders");
-    echo $test;
+    $susd_holders = $redis->get("sUSD Holders");
+    $susd_total_supply = $redis->get("sUSD Total Supply");
+    $rbusd_total_balance = $redis->get("bUSD Total Balance");
+    $busd_price = $redis->get("bUSD Price");
+    $susd_price = $redis->get("sUSD Price");
+    $seth_holders = $redis->get("sETH Holders");
+    $total_supply_seth = $redis->get("sETH Total Supply");
+    $total_balance_weth = $redis->get("wETH Total Balance");
+    $weth_price = $redis->get("wETH Price");
+    $seth_price = $redis->get("sETH Price");
+    echo $susd_holders . "<br/>" . $susd_total_supply;
 
     $row['susd_holders'] = $redis->get("sUSD Holders");
     $row['total_supply_susd'] = $redis->get("sUSD Total Supply");
