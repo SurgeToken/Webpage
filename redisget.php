@@ -10,6 +10,6 @@
    print_r($example_data);
    print("<br>")
    foreach ($example_data as $key) {
-    echo "$redis->get($key)";
+    echo $redis->get($key);
 }
 ?>
