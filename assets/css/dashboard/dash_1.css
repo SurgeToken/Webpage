@@ -82,7 +82,6 @@
     width: 100%;
     margin-top: 10px;
     border: 1px solid #006a7b87;
-    margin-left: 6px;
 }
 
 .cAddress i {
@@ -91,67 +90,149 @@
 
 @media screen and (max-width: 329px) {
     .cAddress {
-        font-size: 1.5vw;
+        font-size: 2.1vw;
     }
 
     .priceTable > tbody > tr > td{
-        font-size: 3.5vw ;
+        font-size: 3vw ;
+    }
+
+    .container{
+        background-color: #00081085;
+        max-width: 95vw;
     }
 }
 
 @media screen and (min-width: 330px) and (max-width: 364px) {
     .cAddress {
-        font-size: 1.8vw;
+        font-size: 2.1vw;
     }
 
     .priceTable > tbody > tr > td{
-        font-size: 4vw ;
+        font-size: 3vw ;
+    }
+
+    .container{
+        background-color: #00081085;
+        max-width: 95vw;
     }
 }
 
 @media screen and (min-width: 365px) and (max-width: 399px) {
     .cAddress {
-        font-size: 2vw;
+        font-size: 2.3vw;
     }
     .priceTable > tbody > tr > td{
-        font-size: 4.2vw ;
+        font-size: 3vw ;
+    }
+
+    .container{
+        background-color: #00081085;
+        max-width: 95vw;
     }
 }
 
 @media screen and (min-width: 400px) and (max-width: 579px) {
     .cAddress {
-        font-size: 2.1vw;
+        font-size: 2vw;
     }
 
     .priceTable > tbody > tr > td{
-        font-size: 4.3vw ;
+        font-size: 2.7vw ;
+    }
+
+    .container{
+        background-color: #00081085;
+        max-width: 95vw;
     }
 }
 
 @media screen and (min-width: 580px) and (max-width: 767px) {
     .cAddress {
-        font-size: 2.6vw;
+        font-size: 1.52vw;
     }
     .priceTable > tbody > tr > td{
-        font-size: 4vw ;
+        font-size: 2.7vw ;
+    }
+
+    .container{
+        background-color: #00081085;
+        max-width: 75vw;
     }
 }
 
-@media screen and (min-width: 768px) and (max-width: 1299px) {
+@media screen and (min-width: 768px) and (max-width: 836px) {
     .cAddress {
-        font-size: 1.1vw;
+        font-size: .72vw;
     }
     .priceTable > tbody > tr > td{
         font-size: 1vw ;
     }
+
+    .container{
+        background-color: #00081085;
+        max-width: 95vw;
+    }
+    .surgeSelect{
+        background-color: #1b2e4b;
+        color: #009688;
+        border: 1px solid #1b2e4b;
+        padding: 9px 2.25rem 9px .75rem;
+        margin-bottom: 10px;
+        height: calc(1.4em + 1.4rem + 2px);
+    }
+}
+
+@media screen and (min-width: 837px) and (max-width: 1299px) {
+    .cAddress {
+        font-size: .8vw;
+    }
+    .priceTable > tbody > tr > td{
+        font-size: 1vw ;
+    }
+
+    .container{
+        background-color: #00081085;
+        max-width: 95vw;
+    }
+    .surgeSelect{
+        background-color: #1b2e4b;
+        color: #009688;
+        border: 1px solid #1b2e4b;
+        padding: 9px 2.25rem 9px .75rem;
+        margin-bottom: 10px;
+        height: calc(1.4em + 1.4rem + 2px);
+        font-size: .9vw;
+    }
+    .surgeAmount{
+        font-size: .9vw;
+    }
+    
 }
 
 @media screen and (min-width: 1300px) {
     .cAddress {
-        font-size: 1.2em;
+        font-size: .85vw;
     }
     .priceTable > tbody > tr > td{
         font-size: 1vw ;
+    }
+
+    .container{
+        background-color: #00081085;
+        max-width: 75vw;
+    }
+    .surgeSelect{
+        background-color: #1b2e4b;
+        color: #009688;
+        border: 1px solid #1b2e4b;
+        padding: 9px 2.25rem 9px .75rem;
+        margin-bottom: 10px;
+        height: calc(1.4em + 1.4rem + 2px);
+        font-size: .9vw;
+    }
+    .surgeAmount{
+        font-size: .9vw;
     }
 }
 
@@ -238,14 +319,7 @@
     margin-top: 3%;
 }
 
-.container{
-    background-color: #00081085;
-    max-width: 90vw;
-}
 
-.intro{
-    padding-top: 25px;
-}
 
 
 .navbar .navbar-item .nav-item.user-profile-dropdown a.user .media .media-body, .navbar .nav-logo {

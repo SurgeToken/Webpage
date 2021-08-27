@@ -1332,9 +1332,15 @@ code {
     width: 100%;
   }
 
-  .logoM, .navSocial {
+  .navSocial {
     visibility: hidden;
   }
+
+  .logoM {
+    display: none;
+  }
+
+  
 
   .navLogo{
     margin-top: 15px;

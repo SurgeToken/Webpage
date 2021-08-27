@@ -32,6 +32,7 @@ footer, header, hgroup, main, menu, nav, section {
 body {
   line-height: 1.618;
   font-family: 'Open Sans' !important; 
+  max-width: 100vw;
 }
 
 ol, ul {
@@ -111,21 +112,125 @@ html {
   padding: 1.5em;
 }
 
-.masonry-wrapper {
-  padding: 1.5em;
-  max-width: 85vw;
-  margin-right: auto;
-  margin-left: auto;
-}
+
 .masonry {
   display: grid;
   max-width: 90vw;
     margin-right: auto;
     margin-left: auto;
-    padding: 2em;
     padding-top: 5%;
     column-gap: 50px;
 }
+
+.cResults{
+  display: none;
+}
+
+
+@media screen and (max-width: 329px) {
+  .masonry-wrapper {
+    padding: .5em;
+    max-width: 95vw;
+    margin-right: auto;
+    margin-left: auto;
+  }
+  .widget {
+    padding: 20px !important;
+    margin-top: 0;
+    margin-bottom: 0;
+    border-radius: 6px;
+    border: 1px solid #09343c8c;
+    background-color: rgba(3, 19, 27, 68%);
+    box-shadow: 0 0 19px 0 rgba(9, 202, 222, 18%); }
+}
+
+@media screen and (min-width: 330px) and (max-width: 364px) {
+  .masonry-wrapper {
+    padding: .5em;
+    max-width: 95vw;
+    margin-right: auto;
+    margin-left: auto;
+  }
+  .widget {
+    padding: 20px !important;
+    margin-top: 0;
+    margin-bottom: 0;
+    border-radius: 6px;
+    border: 1px solid #09343c8c;
+    background-color: rgba(3, 19, 27, 68%);
+    box-shadow: 0 0 19px 0 rgba(9, 202, 222, 18%); }
+}
+
+@media screen and (min-width: 365px) and (max-width: 399px) {
+  .masonry-wrapper {
+    padding: .5em;
+    max-width: 95vw;
+    margin-right: auto;
+    margin-left: auto;
+  }
+  .widget {
+    padding: 20px !important;
+    margin-top: 0;
+    margin-bottom: 0;
+    border-radius: 6px;
+    border: 1px solid #09343c8c;
+    background-color: rgba(3, 19, 27, 68%);
+    box-shadow: 0 0 19px 0 rgba(9, 202, 222, 18%); }
+}
+
+@media screen and (min-width: 400px) and (max-width: 579px) {
+  .masonry-wrapper {
+    padding: 1.5em;
+    max-width: 85vw;
+    margin-right: auto;
+    margin-left: auto;
+  }
+  .widget {
+    padding: 20px !important;
+    margin-top: 0;
+    margin-bottom: 0;
+    border-radius: 6px;
+    border: 1px solid #09343c8c;
+    background-color: rgba(3, 19, 27, 68%);
+    box-shadow: 0 0 19px 0 rgba(9, 202, 222, 18%); }
+}
+
+@media screen and (min-width: 580px) and (max-width: 767px) {
+  .masonry-wrapper {
+    padding: 1.5em;
+    max-width: 85vw;
+    margin-right: auto;
+    margin-left: auto;
+  }
+  .widget {
+    padding: 20px !important;
+    margin-top: 0;
+    margin-bottom: 0;
+    border-radius: 6px;
+    border: 1px solid #09343c8c;
+    background-color: rgba(3, 19, 27, 68%);
+    box-shadow: 0 0 19px 0 rgba(9, 202, 222, 18%); }
+  
+}
+
+@media screen and (min-width: 768px) and (max-width: 1299px) {
+  .masonry-wrapper {
+    padding: 1.5em;
+    max-width: 85vw;
+    margin-right: auto;
+    margin-left: auto;
+  }
+}
+
+@media screen and (min-width: 1300px) {
+  .masonry-wrapper {
+    padding: 1.5em;
+    max-width: 85vw;
+    margin-right: auto;
+    margin-left: auto;
+  }
+}
+
 @media only screen and (max-width: 1023px) and (min-width: 768px) {
   .masonry {
     grid-template-columns: repeat(2, minmax(100px,1fr));
