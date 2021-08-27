@@ -119,7 +119,7 @@ html {
 }
 .masonry {
   display: grid;
-  max-width: 65vw;
+  max-width: 90vw;
     margin-right: auto;
     margin-left: auto;
     padding: 2em;
