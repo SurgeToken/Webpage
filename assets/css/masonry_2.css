@@ -130,10 +130,16 @@ html {
   .masonry {
     grid-template-columns: repeat(2, minmax(100px,1fr));
   }
+  .masonry-intro {
+    grid-template-columns: repeat(1, minmax(100px,1fr));
+  }
 }
 @media only screen and (min-width: 1024px) {
   .masonry {
     grid-template-columns: repeat(2, minmax(100px,1fr));
+  }
+  .masonry-intro {
+    grid-template-columns: repeat(1, minmax(100px,1fr));
   }
 }
 .masonry-item, .masonry-content {
