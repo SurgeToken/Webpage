@@ -169,12 +169,10 @@ html {
 }
 .masonry-footer {
   font-size: .75em;
-  opacity: .25;
   text-align: center;
   padding-top: 3em; 
   padding-bottom: 3em;
   margin-bottom: -1.5em;
-  transition: opacity 1s ease-in-out;
 }
 .masonry-footer a {
   color: currentColor;

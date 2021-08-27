@@ -243,6 +243,10 @@
     max-width: 90vw;
 }
 
+.intro{
+    padding-top: 25px;
+}
+
 
 .navbar .navbar-item .nav-item.user-profile-dropdown a.user .media .media-body, .navbar .nav-logo {
 display:flex !important; 
