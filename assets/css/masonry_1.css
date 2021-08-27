@@ -121,7 +121,14 @@ html {
 }
 .masonry {
   columns: 1;
-  column-gap: 20px;
+  
+  max-width: 65vw;
+    margin-right: auto;
+    margin-left: auto;
+    padding: 2em;
+    padding-top: 5%;
+    column-gap: 74px;
+
 }
 .masonry-item {
   display: inline-block;
