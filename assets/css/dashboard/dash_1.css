@@ -184,7 +184,6 @@
     }
     .surgeAmount{
         font-size: .9vw;
-        padding: 9px 2.25rem 9px .75rem;
     }
 }
 
@@ -207,11 +206,10 @@
         padding: 9px 2.25rem 9px .75rem;
         margin-bottom: 10px;
         height: calc(1.4em + 1.4rem + 2px);
-        font-size: 1.6vw;
+        font-size: .9vw;
     }
     .surgeAmount{
         font-size: .9vw;
-        padding: 9px 2.25rem 9px .75rem;
     }
     
 }
@@ -235,11 +233,10 @@
         padding: 9px 2.25rem 9px .75rem;
         margin-bottom: 10px;
         height: calc(1.4em + 1.4rem + 2px);
-        font-size: 1.6vw;
+        font-size: .9vw;
     }
     .surgeAmount{
         font-size: .9vw;
-        padding: 9px 2.25rem 9px .75rem;
     }
 }
 
