@@ -488,11 +488,216 @@ viewBox="0 0 75 75" style="enable-background:new 0 0 75 75;" xml:space="preserve
       </main>
     
 
+      <script>
+
+        var tempsUSDValueUSD, tempsUSDValueBNB, tempsETHValueUSD, tempsETHValueETH;
+
+            function copyAddress(id){
+                var r = document.createRange();
+                var message = "";
+                r.selectNode(document.getElementById(id));
+                window.getSelection().removeAllRanges();
+                window.getSelection().addRange(r);
+                document.execCommand('copy');
+                window.getSelection().removeAllRanges();
+
+                $("#dialog").html(id + " Contract Address Copied!");
+                $("#copyMSG").show();
+
+                setTimeout(function () {
+
+                    // Closing the alert
+                    $("#copyMSG").hide();
+                }, 2000);
+
+            }
+            
+            function getTokenStats(){
+                $.post("get_token_stats2.php").done(function(data){
+                    var data = JSON.parse(data);
+
+                    var sUSDholders, sUSDPrice; 
+                    var sETHholders, sETHPrice;
+
+                    $.each(data, function(i, item){
+                        sUSDholders =  item.susd_holders;
+                        sUSDPrice = item.susd_price;
+                        sETHholders =  item.seth_holders;
+                        sETHPrice = item.seth_price;
+
+                        
+
+                        $("#sUSDHolders").html(sUSDholders);
+                        $("#sUSDPrice").html(sUSDPrice);
+                        $("#sETHHolders").html(sETHholders);
+                        $("#sETHPrice").html(sETHPrice);
+
+                    });
+                
+                }); 
+            }
+
+            function calc(tokenSelect, tokenAmount){
+                var tS = tokenSelect;
+                var tA = tokenAmount;
+
+                switch(tS){
+                    case "noToken":
+                        $("#dialog").html("No Token Selected!");
+                        $("#copyMSG").show();
+
+                        setTimeout(function () {
+                            // Closing the alert
+                            $("#copyMSG").hide();
+                        }, 2000);
+                        break;
+                    case "sUSD":
+                        
+                        //get total supply of sUSD
+                        $.post("calc2.php", {tokenSelected: tS, tokenAmount:tA}).done(function(data){
+                            var data = JSON.parse(data);
+                            var valueUSD, valueBNB;
+                            var tokenName = "BNB";
+
+                            $.each(data, function(i, item){
+                                valueUSD = item.value_usd;
+                                valueBNB = item.value_bnb;
+
+                                tempsUSDValueUSD = item.value_usd;
+                                tempsUSDValueBNB = item.value_bnb;
+
+                                $("#tokenBalance").html(tokenAmount + " sUSD");
+                                $("#tokenName").html("(" + tokenName + ")");
+                                $("#tokenValue").html(valueBNB);
+                                $("#tokenValueUSD").html("$" + valueUSD);
+
+                                $("#calcResults").show();
+
+
+                            });
+                        });
+
+                        break;
+                    case "sETH":
+                        $.post("calc.php", {tokenSelected: tS, tokenAmount:tA}).done(function(data){
+                            var data = JSON.parse(data);
+                            var valueUSD, valueETH;
+                            var tokenName = "ETH";
+
+                            $.each(data, function(i, item){
+                                valueUSD = item.value_usd;
+                                valueETH = item.value_eth;
+                                tempsETHValueUSD = item.value_usd;
+                                tempsETHValueETH = item.value_eth;
+
+                                $("#tokenBalance").html(tokenAmount + " sETH");
+                                $("#tokenName").html("(" + tokenName + ")");
+                                $("#tokenValue").html(valueETH);
+                                $("#tokenValueUSD").html("$" + valueUSD);
+
+                                $("#calcResults").show();
+
+
+                            });
+                        });
+                        break;
+
+                    default:
+                        break;
+                }
+            }
+
+
+        $(document).ready(function() {
+
+            //initial call for token stats
+            getTokenStats();
+
+            //run getSUSDStats every 10 seconds
+            setInterval(function(){ 
+                getTokenStats();
+            }, 30000);
+           
+            $("#copyMSG").hide();
+            $("#calcResults").hide();
+
+            $('#tokenSelect').on('change', function() {
+                $("#tokenAmount").val("");
+                $("#calcResults").hide();
+                $("#tokenBalance").empty();
+                $("#tokenName").empty();
+                $("#tokenValue").empty();
+                $("#tokenValueUSD").empty();
+            });
+
+            $("#calcBtn").click(function(){
+                var tokenSelected = $("#tokenSelect").val();
+                var tokenAmount = $("#tokenAmount").val();
+                
+                calc(tokenSelected, tokenAmount);
+                
+            });
+
+            setInterval(function(){ 
+                if($("#calcResults").is(":visible")){
+
+                    //swap the variables with temps
+                    switch($("#tokenSelect").val()){
+                        case "sUSD":
+                            $("#tokenValue").html(tempsUSDValueBNB);
+                            $("#tokenValueUSD").html("$" + tempsUSDValueUSD);
+                            break;
+                        case "sETH":
+                            $("#tokenValue").html(tempsETHValueETH);
+                            $("#tokenValueUSD").html("$" + tempsETHValueUSD);
+                            break;
+                        default:
+                            break
+
+                    }
+
+                    var ts = $("#tokenSelect").val();
+                    var ta = $("#tokenAmount").val();
+
+                    calc(ts, ta);
+                    console.log("calc go");
+
+                } else {
+                    //do nothing
+                    console.log("calc nogo")
+                }
+            }, 10000);
+
+            if($("#tokenSelect").val() != "noToken" || $("#calcResults").is(":visible")){
+
+
+                var ts = $("#tokenSelect").val();
+                var ta = $("#tokenAmount").val()
+
+                calc(ts, ta);
+
+            }
+            
+
+        });
+    </script>
+
     <!-- Masonry Script -->
     <script src="https://cdn.jsdelivr.net/npm/masonry-layout@4.2.2/dist/masonry.pkgd.min.js" integrity="sha384-GNFwBvfVxBkLMJpYMOABq3c+d3KnQxudP/mGPkzpZSTYykLBNsZEnG2D9G/X/+7D" crossorigin="anonymous" async></script>
 
-    <!-- BEGIN GLOBAL MANDATORY SCRIPTS -->
-    <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+     <!-- BEGIN GLOBAL MANDATORY SCRIPTS -->
+     <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+
+     <!-- Optional JavaScript; choose one of the two! -->
+ 
+     <!-- Option 1: Bootstrap Bundle with Popper -->
+     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj" crossorigin="anonymous"></script>
+
+     <script src="assets/js/custom.js"></script>
+    <script src="assets/js/dashboard/dash_1.js"></script>
+
+
+ 
 
 </body>
 </html>
