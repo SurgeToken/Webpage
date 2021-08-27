@@ -137,7 +137,7 @@ html {
     columns: 2;
   }
 }
-.masonry-item, .masonry-content {
+.masonry-content {
   border-radius: 4px;
   overflow: hidden;
 }
@@ -153,7 +153,6 @@ html {
 }
 .masonry-item {
   color: #111111;
-  background-color: #f9f9f9;
 }
 .masonry-title, .masonry-description {
   margin: 0;
