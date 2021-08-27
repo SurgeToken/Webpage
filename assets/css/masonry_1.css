@@ -31,7 +31,6 @@ footer, header, hgroup, main, menu, nav, section {
 
 body {
   line-height: 1.618;
-  font-family: Arial, Helvetica, sans-serif;
 }
 
 ol, ul {
@@ -113,10 +112,6 @@ html {
   margin-right: auto;
   margin-left: auto;
   padding: 1.5em;
-}
-body {
-  background-color: #cccccc;
-  color: #333333;
 }
 .masonry-wrapper {
   padding: 1.5em;
