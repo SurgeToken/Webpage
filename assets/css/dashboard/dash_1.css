@@ -297,6 +297,11 @@
   
   }
 
+  .navLogo{
+    margin-top: 15px;
+    margin-bottom: 15px;
+  }
+
 .calcResults{
     flex: 0 0 auto;
     width: 100%;
