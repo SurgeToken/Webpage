@@ -129,7 +129,6 @@ html {
 
 @media screen and (max-width: 329px) {
   .masonry-wrapper {
-    padding: .5em;
     max-width: 95vw;
     margin-right: auto;
     margin-left: auto;
@@ -146,7 +145,6 @@ html {
 
 @media screen and (min-width: 330px) and (max-width: 364px) {
   .masonry-wrapper {
-    padding: .5em;
     max-width: 95vw;
     margin-right: auto;
     margin-left: auto;
@@ -163,7 +161,6 @@ html {
 
 @media screen and (min-width: 365px) and (max-width: 399px) {
   .masonry-wrapper {
-    padding: .5em;
     max-width: 95vw;
     margin-right: auto;
     margin-left: auto;
@@ -180,8 +177,7 @@ html {
 
 @media screen and (min-width: 400px) and (max-width: 579px) {
   .masonry-wrapper {
-    padding: .5em;
-    max-width: 85vw;
+    max-width: 95vw;
     margin-right: auto;
     margin-left: auto;
   }
