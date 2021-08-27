@@ -16,7 +16,7 @@ function resizeMasonryItem(item){
     var rowGap = parseInt(window.getComputedStyle(grid).getPropertyValue('grid-row-gap')),
         rowHeight = parseInt(window.getComputedStyle(grid).getPropertyValue('grid-auto-rows')),
         gridImagesAsContent = item.querySelector('img.masonry-content');
-
+ 
     /*
      * Spanning for any brick = S
      * Grid's row-gap = G

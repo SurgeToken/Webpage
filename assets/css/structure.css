@@ -252,7 +252,7 @@ code {
 .main-container-fluid > .main-content > .container {
   float: left;
   width: 100%; }
-
+ 
 #content > .wrapper {
   -webkit-transition: margin ease-in-out .1s;
   -moz-transition: margin ease-in-out .1s;
