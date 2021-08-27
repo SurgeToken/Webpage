@@ -114,6 +114,10 @@ html {
   margin-left: auto;
   padding: 1.5em;
 }
+body {
+  background-color: #cccccc;
+  color: #333333;
+}
 .masonry-wrapper {
   padding: 1.5em;
   max-width: 960px;
@@ -125,21 +129,15 @@ html {
   grid-template-columns: repeat(1, minmax(100px,1fr));
   grid-gap: 10px;
   grid-auto-rows: 0;
-  max-width: 65vw;
-    margin-right: auto;
-    margin-left: auto;
-    padding: 2em;
-    padding-top: 5%;
-    column-gap: 74px;
 }
 @media only screen and (max-width: 1023px) and (min-width: 768px) {
   .masonry {
-    columns: 2;
+    grid-template-columns: repeat(2, minmax(100px,1fr));
   }
 }
 @media only screen and (min-width: 1024px) {
   .masonry {
-    columns: 2;
+    grid-template-columns: repeat(3, minmax(100px,1fr));
   }
 }
 .masonry-item, .masonry-content {
@@ -158,6 +156,7 @@ html {
 }
 .masonry-item {
   color: #111111;
+  background-color: #f9f9f9;
 }
 .masonry-title, .masonry-description {
   margin: 0;
