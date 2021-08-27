@@ -26,11 +26,12 @@ time, mark, audio, video {
 
 article, aside, details, figcaption, figure,
 footer, header, hgroup, main, menu, nav, section {
-  display: grid;
+  display: block;
 }
 
 body {
   line-height: 1.618;
+  font-family: Arial, Helvetica, sans-serif;
 }
 
 ol, ul {
@@ -56,6 +57,9 @@ a {
   text-decoration: none;
 }
 
+code, pre, samp {
+  font-family: monospace;
+}
 
 /**
  * BASIC TYPE
@@ -112,29 +116,24 @@ html {
 }
 .masonry-wrapper {
   padding: 1.5em;
-  max-width: 1200px;
+  max-width: 960px;
   margin-right: auto;
   margin-left: auto;
 }
 .masonry {
-  columns: 1;
-  
-    max-width: 65vw;
+  display: grid;
+  grid-template-columns: repeat(1, minmax(100px,1fr));
+  grid-gap: 10px;
+  grid-auto-rows: 0;
+  max-width: 65vw;
     margin-right: auto;
     margin-left: auto;
     padding: 2em;
     padding-top: 5%;
     column-gap: 74px;
-
 }
-.masonry-item {
-  display: inline-block;
-  vertical-align: top;
-  margin-bottom: 20px;
-}
-
-
-@media only screen and (max-width: 1023px) and (min-width: 768px) {  .masonry {
+@media only screen and (max-width: 1023px) and (min-width: 768px) {
+  .masonry {
     columns: 2;
   }
 }
@@ -143,7 +142,7 @@ html {
     columns: 2;
   }
 }
-.masonry-content {
+.masonry-item, .masonry-content {
   border-radius: 4px;
   overflow: hidden;
 }
