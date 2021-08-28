@@ -100,7 +100,7 @@
 
     .container{
         background-color: #00081085;
-        max-width: 100vw;
+        min-width: 100vw;
         padding: 0;
     }
 }
@@ -116,7 +116,7 @@
 
     .container{
         background-color: #00081085;
-        max-width: 100vw;
+        min-width: 100vw;
         padding: 0;
     }
 }
@@ -131,7 +131,7 @@
 
     .container{
         background-color: #00081085;
-        max-width: 100vw;
+        min-width: 100vw;
         padding: 0;
     }
 }
@@ -147,7 +147,7 @@
 
     .container{
         background-color: #00081085;
-        max-width: 100vw;
+        min-width: 100vw;
         padding: 0;
     }
 }

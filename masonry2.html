@@ -395,7 +395,7 @@
             <div class="masonry-intro">
                 <div class="masonry-content widget2">
                     <div class="row" id="home">
-                        <div class="col-xl-9 col-lg-9 col-md-9 col-sm-12 col-xs-12 layout-spacing spacer3" id="home">
+                        <div class="col-xl-9 col-lg-9 col-md-9 col-sm-12 col-xs-12  spacer3" id="home">
                             <div class="widget-chart-one">
                                 <div class="">
                                     <h3 class="">Welcome to <strong>xSURGE</strong></h3>
@@ -407,7 +407,7 @@
                             </div>
                         </div>
             
-                        <div class="col-3 layout-spacing spacer3 logoM">
+                        <div class="col-3 logoM">
                             <img class="logo rounded mx-auto d-block" src="assets/img/xlogo.png" alt="coming_soon">
                         </div>
                     </div>
@@ -416,7 +416,7 @@
             <div class="masonry">
 
                 <!-- How It Works Section -->
-                <div class="masonry-item widget widget-chart-one">
+                <div class="masonry-item widget widget-chart-one gridCard1">
                     <div class="masonry-content">
                         <div class="blocks">
                             <h3 class="">How Surge is different</h3>
@@ -441,7 +441,7 @@
                 </div>
 
                 <!-- How To Buy -->
-                <div class="masonry-item widget widget-chart-one">
+                <div class="masonry-item widget widget-chart-one gridCard2">
                     <div class="masonry-content">
                         <div class="howto">
                             <em><h3>Here's how to buy:</h3></em>
@@ -461,7 +461,7 @@
                 </div>
             
                 <!-- Token Addresses -->
-                <div class="masonry-item widget widget-chart-one">
+                <div class="masonry-item widget widget-chart-one gridCard3">
                     <div class="masonry-content">
                         <div class="">
                             <em><h3>Find your favorite <strong>Token</strong> contract address here:</h3></em>
@@ -479,7 +479,7 @@
                 </div>
 
                 <!-- Pricing/Balance Section -->
-                <div class="masonry-item widget widget-chart-one" id="pnb">
+                <div class="masonry-item widget widget-chart-one gridCard4" id="pnb">
                     <div class="masonry-content">
                         <div class="spacer4">
                             <h3 class="">Token Statistics</h3>
@@ -541,7 +541,7 @@
                 </div>
 
                 <!-- xToken Addresses -->
-                <div class="masonry-item widget widget-chart-one" id="xtkn">
+                <div class="masonry-item widget widget-chart-one gridCard5" id="xtkn">
                     <div class="masonry-content">
                         <div class="">
                             <em><h3>Find your favorite <strong>xToken</strong> contract address here:</h3></em>
@@ -551,7 +551,7 @@
                 </div>
 
                 <!-- Calculator Results -->
-                <div class="masonry-item widget widget-chart-one cResults" id="results">
+                <div class="masonry-item widget widget-chart-one cResults gridCard6" id="results">
                     <div class="masonry-content">
                         <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 resultsSpacer" id="calcResults">
                                 
@@ -1161,7 +1161,7 @@
     var rowSpan = Math.ceil((item.querySelector('.masonry-content').getBoundingClientRect().height+rowGap)/(rowHeight+rowGap));
 
     /* Set the spanning as calculated above (S) */
-    item.style.gridRowEnd = 'span '+rowSpan;
+    //item.style.gridRowEnd = 'span '+rowSpan;
     if(gridImagesAsContent) {
       item.querySelector('img.masonry-content').style.height = item.getBoundingClientRect().height + "px";
     }

@@ -5,7 +5,7 @@
     include("redis_config.php");
 
     $token_selected = $_POST['tokenSelected'];
-    $token_post = $_POST['tokenAmount'];
+    $token_post = strip_tags($_POST['tokenAmount']);
 
     $tokens = str_replace(',', '', $token_post);
 
