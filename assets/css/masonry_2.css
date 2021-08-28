@@ -29,11 +29,11 @@ footer, header, hgroup, main, menu, nav, section {
   display: block;
 }
 
-body {
+/* body {
   line-height: 1.618;
   font-family: 'Open Sans' !important; 
   max-width: 100vw;
-}
+} */
 
 ol, ul {
   list-style: none;
