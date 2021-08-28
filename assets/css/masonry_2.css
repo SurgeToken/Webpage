@@ -101,23 +101,100 @@ html {
   display: none;
 }
 
-
-@media screen and (max-width: 329px) {
-  .masonry-wrapper {
-    padding-top: 1.5em;
-    max-width: 100vw;
-    margin-right: auto;
-    margin-left: auto;
+/* Media Queries for Masonry items */
+@media screen and (max-width: 333px) {
+  
+  .gridCard1{
+    grid-row-end: span 18;
   }
-  .widget {
-    padding: 20px !important;
-    margin-top: 0;
-    margin-bottom: 0;
-    border-radius: 6px;
-    border: 1px solid #09343c8c;
-    background-color: rgba(3, 19, 27, 68%);
-    box-shadow: 0 0 19px 0 rgba(9, 202, 222, 18%); 
+  .gridCard2{
+    grid-row-end: span 12;
   }
+  .gridCard3{
+    grid-row-end: span 12;
+  }
+  .gridCard4{
+    grid-row-end: span 12;
+  }
+  .gridCard5{
+    grid-row-end: span 12;
+  }
+  
+}
+@media screen and (min-width: 330px) and (max-width: 364px) {
+  
+  .gridCard1{
+    grid-row-end: span 17;
+  }
+  .gridCard2{
+    grid-row-end: span 12;
+  }
+  .gridCard3{
+    grid-row-end: span 12;
+  }
+  .gridCard4{
+    grid-row-end: span 12;
+  }
+  .gridCard5{
+    grid-row-end: span 12;
+  }
+}
+@media screen and (min-width: 365px) and (max-width: 371px) {
+  
+  .gridCard1{
+    grid-row-end: span 17;
+  }
+  .gridCard2{
+    grid-row-end: span 12;
+  }
+  .gridCard3{
+    grid-row-end: span 12;
+  }
+  .gridCard4{
+    grid-row-end: span 12;
+  }
+  .gridCard5{
+    grid-row-end: span 12;
+  }
+}
+@media screen and (min-width: 372px) and (max-width: 398px) {
+  
+  .gridCard1{
+    grid-row-end: span 16;
+  }
+  .gridCard2{
+    grid-row-end: span 12;
+  }
+  .gridCard3{
+    grid-row-end: span 12;
+  }
+  .gridCard4{
+    grid-row-end: span 12;
+  }
+  .gridCard5{
+    grid-row-end: span 12;
+  }
+}
+@media screen and (min-width: 400px) and (max-width: 579px) {
+  
+  .gridCard1{
+    grid-row-end: span 12;
+  }
+  .gridCard2{
+    grid-row-end: span 12;
+  }
+  .gridCard3{
+    grid-row-end: span 12;
+  }
+  .gridCard4{
+    grid-row-end: span 12;
+  }
+  .gridCard5{
+    grid-row-end: span 12;
+  }
+}
+@media screen and (min-width: 580px) and (max-width: 767px) {
+  
   .gridCard1{
     grid-row-end: span 12;
   }
@@ -135,6 +212,79 @@ html {
   }
   
 }
+@media screen and (min-width: 768px) and (max-width: 805px) {
+  
+  .gridCard1{
+    grid-row-end: span 12;
+  }
+  .gridCard2{
+    grid-row-end: span 12;
+  }
+  .gridCard3{
+    grid-row-end: span 12;
+  }
+  .gridCard4{
+    grid-row-end: span 12;
+  }
+  .gridCard5{
+    grid-row-end: span 12;
+  }
+}
+@media screen and (min-width: 768px) and (max-width: 1299px) {
+  
+  .gridCard1{
+    grid-row-end: span 12;
+  }
+  .gridCard2{
+    grid-row-end: span 12;
+  }
+  .gridCard3{
+    grid-row-end: span 12;
+  }
+  .gridCard4{
+    grid-row-end: span 12;
+  }
+  .gridCard5{
+    grid-row-end: span 12;
+  }
+}
+@media screen and (min-width: 1300px) {
+  
+  .gridCard1{
+    grid-row-end: span 15;
+  }
+  .gridCard2{
+    grid-row-end: span 12;
+  }
+  .gridCard3{
+    grid-row-end: span 12;
+  }
+  .gridCard4{
+    grid-row-end: span 12;
+  }
+  .gridCard5{
+    grid-row-end: span 12;
+  }
+}
+/* End Media Queries for Masonry Items */
+
+@media screen and (max-width: 329px) {
+  .masonry-wrapper {
+    padding-top: 1.5em;
+    max-width: 100vw;
+    margin-right: auto;
+    margin-left: auto;
+  }
+  .widget {
+    padding: 20px !important;
+    margin-top: 0;
+    margin-bottom: 0;
+    border-radius: 6px;
+    border: 1px solid #09343c8c;
+    background-color: rgba(3, 19, 27, 68%);
+    box-shadow: 0 0 19px 0 rgba(9, 202, 222, 18%); 
+  }
+}
 
 @media screen and (min-width: 330px) and (max-width: 364px) {
   .masonry-wrapper {
@@ -151,21 +301,6 @@ html {
     border: 1px solid #09343c8c;
     background-color: rgba(3, 19, 27, 68%);
     box-shadow: 0 0 19px 0 rgba(9, 202, 222, 18%); 
-  }
-  .gridCard1{
-    grid-row-end: span 12;
-  }
-  .gridCard2{
-    grid-row-end: span 12;
-  }
-  .gridCard3{
-    grid-row-end: span 12;
-  }
-  .gridCard4{
-    grid-row-end: span 12;
-  }
-  .gridCard5{
-    grid-row-end: span 12;
   }
 }
 
@@ -185,21 +320,6 @@ html {
     background-color: rgba(3, 19, 27, 68%);
     box-shadow: 0 0 19px 0 rgba(9, 202, 222, 18%); 
   }
-  .gridCard1{
-    grid-row-end: span 12;
-  }
-  .gridCard2{
-    grid-row-end: span 12;
-  }
-  .gridCard3{
-    grid-row-end: span 12;
-  }
-  .gridCard4{
-    grid-row-end: span 12;
-  }
-  .gridCard5{
-    grid-row-end: span 12;
-  }
 }
 
 @media screen and (min-width: 400px) and (max-width: 579px) {
@@ -217,21 +337,6 @@ html {
     border: 1px solid #09343c8c;
     background-color: rgba(3, 19, 27, 68%);
     box-shadow: 0 0 19px 0 rgba(9, 202, 222, 18%); 
-  }
-  .gridCard1{
-    grid-row-end: span 12;
-  }
-  .gridCard2{
-    grid-row-end: span 12;
-  }
-  .gridCard3{
-    grid-row-end: span 12;
-  }
-  .gridCard4{
-    grid-row-end: span 12;
-  }
-  .gridCard5{
-    grid-row-end: span 12;
   }
 }
 
@@ -251,23 +356,9 @@ html {
     background-color: rgba(3, 19, 27, 68%);
     box-shadow: 0 0 19px 0 rgba(9, 202, 222, 18%); 
   }
-  .gridCard1{
-    grid-row-end: span 12;
-  }
-  .gridCard2{
-    grid-row-end: span 12;
-  }
-  .gridCard3{
-    grid-row-end: span 12;
-  }
-  .gridCard4{
-    grid-row-end: span 12;
-  }
-  .gridCard5{
-    grid-row-end: span 12;
-  }
   
 }
+
 
 @media screen and (min-width: 768px) and (max-width: 1299px) {
   .masonry-wrapper {
@@ -275,21 +366,6 @@ html {
     max-width: 100vw;
     margin-right: auto;
     margin-left: auto;
-  }
-  .gridCard1{
-    grid-row-end: span 12;
-  }
-  .gridCard2{
-    grid-row-end: span 12;
-  }
-  .gridCard3{
-    grid-row-end: span 12;
-  }
-  .gridCard4{
-    grid-row-end: span 12;
-  }
-  .gridCard5{
-    grid-row-end: span 12;
   }
 }
 
@@ -301,21 +377,6 @@ html {
     margin-left: auto;
   }
 
-  .gridCard1{
-    grid-row-end: span 12;
-  }
-  .gridCard2{
-    grid-row-end: span 12;
-  }
-  .gridCard3{
-    grid-row-end: span 12;
-  }
-  .gridCard4{
-    grid-row-end: span 12;
-  }
-  .gridCard5{
-    grid-row-end: span 12;
-  }
 }
 
 @media only screen and (max-width: 1023px) and (min-width: 768px) {
