@@ -415,7 +415,7 @@ code {
 
 .navbar {
   z-index: 1030;
-  padding: 20px 0 20px 0;
+  padding: 5px;
   background: transparent;
   margin: 0 32px; }
   .navbar.expand-header {
