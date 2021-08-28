@@ -178,8 +178,9 @@ h4, h5, h6 {
 
 .navSocial{
     position: absolute;
-    top:20px;
     right:0;
+    margin-top: 15px;
+    
 }
 .navSocialFooter{
   position: absolute;
@@ -381,7 +382,7 @@ code {
 @media screen and (min-width: 1000px) {
   .nav-logo .dApp a {
     right: 27em;
-    margin-top: 1px;
+    margin-top: 15px;
   }
 }
 
