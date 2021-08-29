@@ -90,11 +90,11 @@ html {
   display: grid;
   max-width: 90vw;
   grid-template-columns: repeat(1, minmax(100px,1fr));
-  grid-gap: 50px;
+  grid-gap: 10px;
   grid-auto-rows: 0;
-    margin-right: auto;
-    margin-left: auto;
-    margin-top: 50px;
+  margin-right: auto;
+  margin-left: auto;
+  margin-top: 50px;
 }
 
 .cResults{
@@ -102,13 +102,14 @@ html {
 }
 
 /* Media Queries for Masonry items */
-@media screen and (max-width: 333px) {
+@media screen and (max-width: 329px) {
   
   .gridCard1{
-    grid-row-end: span 18;
+    grid-row-end: span 88;
+    margin-bottom: 50px;
   }
   .gridCard2{
-    grid-row-end: span 12;
+    grid-row-end: span 13;
   }
   .gridCard3{
     grid-row-end: span 12;
@@ -127,7 +128,7 @@ html {
     grid-row-end: span 17;
   }
   .gridCard2{
-    grid-row-end: span 12;
+    grid-row-end: span 13;
   }
   .gridCard3{
     grid-row-end: span 12;
@@ -145,7 +146,7 @@ html {
     grid-row-end: span 17;
   }
   .gridCard2{
-    grid-row-end: span 12;
+    grid-row-end: span 13;
   }
   .gridCard3{
     grid-row-end: span 12;
@@ -163,7 +164,7 @@ html {
     grid-row-end: span 16;
   }
   .gridCard2{
-    grid-row-end: span 12;
+    grid-row-end: span 13;
   }
   .gridCard3{
     grid-row-end: span 12;
@@ -181,7 +182,7 @@ html {
     grid-row-end: span 16;
   }
   .gridCard2{
-    grid-row-end: span 12;
+    grid-row-end: span 13;
   }
   .gridCard3{
     grid-row-end: span 12;
