@@ -499,54 +499,55 @@
                         </table>
                     </div>
                     <hr>
+                    <div class="row spacer4">
+                        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-6 col-xl-6">
+                            <div class="form-group">
+                                <select class="form-select surgeSelect" aria-label="Token Select" id="tokenSelect">
+                                    <option selected value="noToken">Choose Your Token</option>
+                                    <option value="sUSD">
+                                        SurgeUSD
+                                    </option>
+                                    <option value="sETH">
+                                        SurgeETH
+                                    </option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-6 col-xl-6">
+                            <div class="input-group mb-3 ">
+                                <input type="text" class="form-control surgeAmount" placeholder="Token Amount" aria-label="Token Amount" aria-describedby="basic-addon1" id="tokenAmount">
+                            </div>
+                            <div class="float-end">
+                                <button class="calcBtn" id="calcBtn">CALCULATE</button>
+                            </div>
+                        </div>
+                        
+                        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 resultsSpacer" id="calcResults">
+                                    
+                            <div class="calcResults" id="results">
+                                <h3>Your Amount</h3>
+                                <hr class="hrSpacer">
+                                <table class="table table-borderless priceTable">
+                                    <tr>
+                                        <td>Current Balance:</td>
+                                        <td id="tokenBalance">[token balance here]</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Current Value <span id="tokenName">[token selected]:</span></td>
+                                        <td id="tokenValue">[token value here]</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Current Value (USD):</td>
+                                        <td id="tokenValueUSD">[token value here]</td>
+                                    </tr>
+                                </table>
+                            </div>
+                        </div>
+                        
+                        
+                    </div>
                 </div>
-                <div class="row spacer4">
-                    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-6 col-xl-6">
-                        <div class="form-group">
-                            <select class="form-select surgeSelect" aria-label="Token Select" id="tokenSelect">
-                                <option selected value="noToken">Choose Your Token</option>
-                                <option value="sUSD">
-                                    SurgeUSD
-                                </option>
-                                <option value="sETH">
-                                    SurgeETH
-                                </option>
-                            </select>
-                        </div>
-                    </div>
-                    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-6 col-xl-6">
-                        <div class="input-group mb-3 ">
-                            <input type="text" class="form-control surgeAmount" placeholder="Token Amount" aria-label="Token Amount" aria-describedby="basic-addon1" id="tokenAmount">
-                        </div>
-                        <div class="float-end">
-                            <button class="calcBtn" id="calcBtn">CALCULATE</button>
-                        </div>
-                    </div>
-                    
-                    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 resultsSpacer" id="calcResults">
-                                
-                        <div class="calcResults" id="results">
-                            <h3>Your Amount</h3>
-                            <hr class="hrSpacer">
-                            <table class="table table-borderless priceTable">
-                                <tr>
-                                    <td>Current Balance:</td>
-                                    <td id="tokenBalance">[token balance here]</td>
-                                </tr>
-                                <tr>
-                                    <td>Current Value <span id="tokenName">[token selected]:</span></td>
-                                    <td id="tokenValue">[token value here]</td>
-                                </tr>
-                                <tr>
-                                    <td>Current Value (USD):</td>
-                                    <td id="tokenValueUSD">[token value here]</td>
-                                </tr>
-                            </table>
-                        </div>
-                    </div>
-                    
-                    
-                </div>
+                
             </div>
             <div class="box ">
                 <div class="widget widget-chart-one spacer5">
