@@ -94,7 +94,6 @@ html {
   grid-auto-rows: 0;
     margin-right: auto;
     margin-left: auto;
-    margin-top: 50px;
 }
 
 .cResults{
@@ -157,7 +156,7 @@ html {
     grid-row-end: span 12;
   }
 }
-@media screen and (min-width: 372px) and (max-width: 398px) {
+@media screen and (min-width: 372px) and (max-width: 399px) {
   
   .gridCard1{
     grid-row-end: span 16;
