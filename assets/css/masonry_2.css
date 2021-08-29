@@ -175,10 +175,46 @@ html {
     grid-row-end: span 12;
   }
 }
-@media screen and (min-width: 400px) and (max-width: 579px) {
+@media screen and (min-width: 400px) and (max-width: 473px) {
   
   .gridCard1{
+    grid-row-end: span 16;
+  }
+  .gridCard2{
     grid-row-end: span 12;
+  }
+  .gridCard3{
+    grid-row-end: span 12;
+  }
+  .gridCard4{
+    grid-row-end: span 12;
+  }
+  .gridCard5{
+    grid-row-end: span 12;
+  }
+}
+@media screen and (min-width: 474px) and (max-width: 523px) {
+  
+  .gridCard1{
+    grid-row-end: span 15;
+  }
+  .gridCard2{
+    grid-row-end: span 12;
+  }
+  .gridCard3{
+    grid-row-end: span 12;
+  }
+  .gridCard4{
+    grid-row-end: span 12;
+  }
+  .gridCard5{
+    grid-row-end: span 12;
+  }
+}
+@media screen and (min-width: 524px) and (max-width: 579px) {
+  
+  .gridCard1{
+    grid-row-end: span 14;
   }
   .gridCard2{
     grid-row-end: span 12;
@@ -196,7 +232,7 @@ html {
 @media screen and (min-width: 580px) and (max-width: 767px) {
   
   .gridCard1{
-    grid-row-end: span 12;
+    grid-row-end: span 14;
   }
   .gridCard2{
     grid-row-end: span 12;
@@ -215,7 +251,7 @@ html {
 @media screen and (min-width: 768px) and (max-width: 805px) {
   
   .gridCard1{
-    grid-row-end: span 12;
+    grid-row-end: span 20;
   }
   .gridCard2{
     grid-row-end: span 12;
@@ -230,10 +266,10 @@ html {
     grid-row-end: span 12;
   }
 }
-@media screen and (min-width: 768px) and (max-width: 1299px) {
+@media screen and (min-width: 806px) and (max-width: 1299px) {
   
   .gridCard1{
-    grid-row-end: span 12;
+    grid-row-end: span 20;
   }
   .gridCard2{
     grid-row-end: span 12;
