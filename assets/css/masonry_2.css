@@ -105,7 +105,7 @@ html {
 @media screen and (max-width: 329px) {
   
   .gridCard1{
-    grid-row-end: span 88;
+    grid-row-end: span 13;
     margin-bottom: 50px;
   }
   .gridCard2{
