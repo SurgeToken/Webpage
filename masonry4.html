@@ -1,0 +1,60 @@
+<meta content="width=device-width, initial-scale=1" name="viewport" />
+<style>
+
+.container {
+    background-color: #cacaca;
+    overflow: hidden;
+    width: 900px;
+    margin: 0 auto;
+    height: 100%;
+}
+.box {
+    width: 50%;
+    margin: 0 auto;
+}
+
+@media only screen and (min-width: 600px) {
+    .box:nth-child(odd) {
+    float:left;
+    clear: left;
+}
+.box:nth-child(even) {
+    float:right;
+    clear: right;
+}
+}
+
+.box1 {
+    background-color: lime;
+}
+.box2 {
+    background-color: blue;
+
+}
+.box3 {
+    background-color: red;
+
+}
+.box4 {
+    background-color: green;
+}
+
+</style>
+
+<div class="container">
+    <div class="box box1">child 1
+
+        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Similique qui ea ipsa dolores quae saepe perferendis accusamus quasi reiciendis corporis sed, quidem voluptates deleniti aut, distinctio corrupti ipsum obcaecati quam!
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Praesentium ab rem adipisci corporis consequuntur, ipsa soluta illo error pariatur, nostrum inventore velit commodi eveniet accusamus at unde vitae possimus placeat?
+        
+    </div>
+    <div class="box box2">child 2
+
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloribus quas beatae rerum ullam eos nobis. Expedita fugit a alias tempore consequuntur officiis placeat reiciendis omnis fuga odit. Laborum, autem perferendis?
+        Lorem ipsum dolor, sit amet consectetur adipisicing elit. Odio porro molestias iste minus fuga. Autem nulla, quod illum ad cum possimus ipsa, cumque neque sequi facere cupiditate recusandae, quam dolorem?
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Praesentium explicabo natus molestias libero perspiciatis minus illo nostrum, voluptate eaque aliquam atque eveniet, consequatur at deserunt possimus recusandae optio quaerat! Ullam?
+
+    </div>
+    <div class="box box3">child 3</div>
+    <div class="box box4">child 4</div>
+</div>
