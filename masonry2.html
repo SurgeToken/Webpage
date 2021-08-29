@@ -35,7 +35,7 @@
   <link href="plugins/apex/apexcharts.css" rel="stylesheet" type="text/css">
   <link href="assets/css/dashboard/dash_1.css?v=1.48" rel="stylesheet" type="text/css" />
   <link href="assets/css/structure.css?v=1.72" rel="stylesheet" type="text/css" />
-  <link href="assets/css/masonry_2.css?v=1.12" rel="stylesheet" type="text/css">
+  <link href="assets/css/masonry_2.css?v=1.11" rel="stylesheet" type="text/css">
   <!-- END PAGE LEVEL PLUGINS/CUSTOM STYLES -->
 
   
@@ -1208,7 +1208,7 @@ function waitForImages() {
     for(var i=0;i<allItems.length;i++){
       imagesLoaded( allItems[i], function(instance) {
         var item = instance.elements[0];
-        resizeMasonryItem(item);
+        //resizeMasonryItem(item);
       } );
     }
   }
@@ -1221,7 +1221,7 @@ masonryEvents.forEach( function(event) {
 } );
 
 /* Do a resize once more when all the images finish loading */
-//waitForImages();
+waitForImages();
 
 </script>
 
