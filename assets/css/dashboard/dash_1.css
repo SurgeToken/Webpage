@@ -283,8 +283,18 @@
     width:100%;
 }
 
-.logo{
-    width: 75%;
+
+
+@media screen and (min-width: 992px and max-width: 1299px) {
+    .logo{
+        width: 75%;
+    }
+}
+
+@media screen and (min-width: 1300px) {
+    .logo{
+        width: 75%;
+    }
 }
 .copyIcon{
     margin-left: 15px;
