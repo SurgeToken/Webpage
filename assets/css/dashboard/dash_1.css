@@ -127,6 +127,10 @@
         min-width: 100vw;
         padding: 0;
     }
+
+    .spacerSF{
+        margin-bottom: 2%;
+    }
 }
 
 @media screen and (min-width: 365px) and (max-width: 399px) {
@@ -144,6 +148,10 @@
         background-color: #00081085;
         min-width: 100vw;
         padding: 0;
+    }
+
+    .spacerSF{
+        margin-bottom: 2%;
     }
 }
 
@@ -164,6 +172,10 @@
         min-width: 100vw;
         padding: 0;
     }
+
+    .spacerSF{
+        margin-bottom: 2%;
+    }
 }
 
 @media screen and (min-width: 580px) and (max-width: 767px) {
@@ -183,6 +195,9 @@
         padding: 0;
     }
 
+    .spacerSF{
+        margin-bottom: 2%;
+    }
     
 }
 
