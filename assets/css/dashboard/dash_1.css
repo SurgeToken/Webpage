@@ -188,7 +188,7 @@
 
     .container{
         background-color: #00081085;
-        min-width: 100vw;
+        min-width: 95vw;
         margin: 0 auto;
         height: 100%;
         padding:0;
@@ -218,7 +218,7 @@
 
     .container{
         background-color: #00081085;
-        min-width: 100vw;
+        min-width: 95vw;
         margin: 0 auto;
         height: 100%;
         padding:0;
@@ -249,7 +249,7 @@
 
     .container{
         background-color: #00081085;
-        min-width: 100vw;
+        min-width: 95vw;
         margin: 0 auto;
         height: 100%;
         padding:0;
@@ -301,8 +301,42 @@
 }
 
 .logo{
-    width: 75%;
+    width: 65%;
 }
+
+.box {
+    width: 50%;
+    margin: 0 auto;
+}
+.boxIntro {
+    width: 100%;
+    margin: 0 auto;
+}
+
+@media screen and (min-width: 329px) and (max-width: 767px) {
+    .box {
+        width: 100%;
+        margin: 0 auto;
+    }
+
+
+}
+
+@media only screen and (min-width: 600px) {
+        .box:nth-child(odd) {
+        float:right;
+        clear: right;
+    }
+    .box:nth-child(even) {
+        float:left;
+        clear: left;
+    }
+}
+
+.logoPad{
+    padding: 1.5%;
+}
+
 .copyIcon{
     margin-left: 15px;
     font-size: 1.1rem;
