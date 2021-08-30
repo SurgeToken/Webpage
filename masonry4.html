@@ -1172,7 +1172,7 @@
         if (window.matchMedia("(max-width: 767px)").matches) {
             htb.replaceWith(thiw);
             hiw.replaceWith(thtb);
-        } else {
+        } else if(window.matchMedia("(min-width: 768px)").matches){
             htb.replaceWith(thtb);
             hiw.replaceWith(thiw);
         }
