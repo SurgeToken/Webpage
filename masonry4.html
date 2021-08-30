@@ -1163,21 +1163,28 @@
 </script>
 
 <script>
-    var hiw = $('#hiw');
-    var htb = $('#htb');
+    function windowResize(){
+        var hiw = $('#hiw');
+        var htb = $('#htb');
 
-    var thiw = hiw.clone();
-    var thtb = htb.clone();
+        var thiw = hiw.clone();
+        var thtb = htb.clone();
 
-    if (window.matchMedia("(max-width: 767px)").matches) {
-        htb.replaceWith(thiw);
-        hiw.replaceWith(thtb);
-    } 
-    
-    if(window.matchMedia("(min-width: 768px)").matches){
-        htb.replaceWith(thtb);
-        hiw.replaceWith(thiw);
+        if (window.matchMedia("(max-width: 767px)").matches) {
+            htb.replaceWith(thiw);
+            hiw.replaceWith(thtb);
+        } 
+
+        if(window.matchMedia("(min-width: 768px)").matches){
+            htb.replaceWith(thtb);
+            hiw.replaceWith(thiw);
+        }
     }
+
+    $(function() {
+        $(window).resize(windowResize).trigger('resize');
+    });
+    
 </script>
 
 <script src="assets/js/custom.js"></script>
