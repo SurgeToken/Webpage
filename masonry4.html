@@ -1177,29 +1177,11 @@
         } 
     }
 
-    function desktopOrder(y) {
-        var hiw = $('#hiw');
-        var htb = $('#htb');
-
-        var thiw = hiw.clone();
-        var thtb = htb.clone();
-        
-        if (y.matches) {
-            htb.replaceWith(thtb);
-            hiw.replaceWith(thiw);
-        }
-    }
-
-
     var x = window.matchMedia("(max-width: 767px)");
-    var y = window.matchMedia("(min-width: 768px)");
-    
     
     mobileOrder(x);// Call listener function at run time
-    desktopOrder(y);
     
-    x.addListener(mobileOrder); // Attach listener function on state changes 
-    y.addListener(desktopOrder);                             
+    x.addListener(mobileOrder); // Attach listener function on state changes                           
     
     
 </script>
