@@ -1164,18 +1164,20 @@
 
 <script>
     var hiw = $('#hiw');
-        var htb = $('#htb');
+    var htb = $('#htb');
 
-        var thiw = hiw.clone();
-        var thtb = htb.clone();
+    var thiw = hiw.clone();
+    var thtb = htb.clone();
 
-        if (window.matchMedia("(max-width: 767px)").matches) {
-            htb.replaceWith(thiw);
-            hiw.replaceWith(thtb);
-        } else if(window.matchMedia("(min-width: 768px)").matches){
-            htb.replaceWith(thtb);
-            hiw.replaceWith(thiw);
-        }
+    if (window.matchMedia("(max-width: 767px)").matches) {
+        htb.replaceWith(thiw);
+        hiw.replaceWith(thtb);
+    } 
+    
+    if(window.matchMedia("(min-width: 768px)").matches){
+        htb.replaceWith(thtb);
+        hiw.replaceWith(thiw);
+    }
 </script>
 
 <script src="assets/js/custom.js"></script>
