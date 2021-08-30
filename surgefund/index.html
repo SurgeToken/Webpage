@@ -60,7 +60,8 @@
         }
 
         .connectText{
-            color: #0000FF;
+            color: #567fff;
+            font-weight: 800;
         }
 
         .dot {
@@ -78,6 +79,13 @@
         #tutorial-img {
             width: 46em;
         }
+        .container {
+            background-color: #030e19a8 !important;
+        }
+        .cAddress {
+        text-align: center; 
+        }
+        
         </style>
 
 <div class="fullscreen-bg">
@@ -92,7 +100,7 @@
           
                     <div class="nav-logo align-self-center">
                         <div class="navLogo">
-                            <a class="navbar-brand" href="index.html"><img class="logoNav1" src="/assets/img/xsurge.png" ></a>
+                            <a class="navbar-brand" href="https://xsurge.net/index.html"><img class="logoNav1" src="/assets/img/xsurge.png" ></a>
                         </div>
                         <div class="dApp">
                             <a href="https://app.xsurge.net">Trade</a>
@@ -434,24 +442,17 @@
                 </div>
             </div>
             
-            <div class="row rowPad">
-                <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12 text-center align-self-center widget spacerSF">
-                    <h3>
-                        Start by verifying the contract addess for accuracy.  Look at the lower tabs and select Contract from the tab.
-                    </h3>
-                </div>
-                <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12">
-                    <img class=" mx-auto d-block" src="/assets/img/surgefund1.png" alt="coming_soon" id="tutorial-img">
-                </div>
-            </div>
 
             <div class="row rowPad">
                 <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12 text-center align-self-center widget spacerSF">
-                    <h3>
-                        Select Read Contract.<br/>
-                        At this point you'll be looking at various function calls within the contract.<br/>
-                        This is what we'll use to verify our wallet address and reimbursement amount in the next steps.
-                    </h3>
+                    <h3>First Step - Browse to the Contract</h3>
+                    <h5><strong><a href="https://bscscan.com/address/0x95c8eE08b40107f5bd70c28c4Fd96341c8eaD9c7#readContract" alt="BscScan Contract Address">Click Here</a></strong> to go to the Surge Fund Contract on BscScan
+                    <br><br><strong>Ensure you are using this Contract Address:</strong>
+                    <div class="contractAddress text-end">
+                        <p class="cAddress" id="contractAddress">0x95c8eE08b40107f5bd70c28c4Fd96341c8eaD9c7  <i onclick="copyAddress('contractAddress');return false;" class="far fa-copy"></i></p>
+                    </div>
+                    </h5>
+                    
                 </div>
                 <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12">
                     <img class=" mx-auto d-block" src="/assets/img/surgefund2.png" alt="coming_soon" id="tutorial-img">
@@ -614,8 +615,10 @@
                 </div>
                 <div class="col-xl-8 col-lg-8 col-md-8 col-sm-12 col-xs-12 text-center align-self-center">
                     <h3>
-                        This concludes the How To tutorial for the Surge Fund Contract.<br>If you have any questions or concerns, <a href="https://discord.gg/XSURGE">Click Here</a> to contact a moderator on the Official Discord</a>.
-                    </h3>
+                        This concludes the How To tutorial for the Surge Fund Contract.</h3><br><h4>If you have any questions or concerns, <a href="https://discord.gg/XSURGE" class="connectText">Click Here</a> to contact a moderator on the Official Discord</a>.
+                    <br><br>
+                <a href="https://xsurge.net/index.html" class="connectText">Click Here</a> to go back to the Homepage.
+                </h4>
                 </div>
                
                     
@@ -951,7 +954,9 @@
                 </div>
             </div>
         </div>
-
+        <div class="centerpoint widgetMsg" id="copyMSG" style="display:none">
+            <div class="dialog" id="dialog"></div>
+        </div>
         <!-- BEGIN GLOBAL MANDATORY SCRIPTS -->
         <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
 
@@ -970,5 +975,27 @@
 <script src="/assets/js/dashboard/dash_1.js"></script>
 <!-- END GLOBAL MANDATORY SCRIPTS -->
 <script src="//unpkg.com/imagesloaded@4/imagesloaded.pkgd.min.js"></script>
+<script>
 
+function copyAddress(id){
+                var r = document.createRange();
+                var message = "";
+                r.selectNode(document.getElementById(id));
+                window.getSelection().removeAllRanges();
+                window.getSelection().addRange(r);
+                document.execCommand('copy');
+                window.getSelection().removeAllRanges();
+
+                $("#dialog").html("Contract Address Copied!");
+                $("#copyMSG").show();
+
+                setTimeout(function () {
+
+                    // Closing the alert
+                    $("#copyMSG").hide();
+                }, 2000);
+
+            }
+
+</script>
 </body>
