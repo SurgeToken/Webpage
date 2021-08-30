@@ -33,9 +33,9 @@
 
   <!-- BEGIN PAGE LEVEL PLUGINS/CUSTOM STYLES -->
   <link href="plugins/apex/apexcharts.css" rel="stylesheet" type="text/css">
-  <link href="assets/css/dashboard/dash_1.css?v=1.61" rel="stylesheet" type="text/css" />
-  <link href="assets/css/structure.css?v=1.85" rel="stylesheet" type="text/css" />
-  <link href="assets/css/masonry_2.css?v=1.24" rel="stylesheet" type="text/css">
+  <link href="assets/css/dashboard/dash_1.css?v=1.62" rel="stylesheet" type="text/css" />
+  <link href="assets/css/structure.css?v=1.86" rel="stylesheet" type="text/css" />
+  <link href="assets/css/masonry_2.css?v=1.25" rel="stylesheet" type="text/css">
   <!-- END PAGE LEVEL PLUGINS/CUSTOM STYLES -->
 
   
@@ -461,7 +461,7 @@
             </div>
             
             <!-- 1 -->
-            <div class="box mobileBox1">
+            <div class="box" id="htb">
                 <div class="howto widget widget-chart-one spacer5">
                     <em><h3>Here's how to buy:</h3></em>
                     <h5 class="">Buy BNB & Convert to BSC</h5>
@@ -478,7 +478,7 @@
                 </div>
             </div>
             <!-- 2 -->
-            <div class="box mobileBox2">
+            <div class="box" id="hiw">
                 <div class="widget widget-chart-one spacer5">
                     <div class="blocks">
                         <h3 class="">How Surge is different</h3>
@@ -1158,7 +1158,18 @@
 
         }
         
+        var hiw = $('#hiw');
+        var htb = $('#htb');
 
+        var thiw = hiw.clone();
+        var thtb = htb.clone();
+
+
+        var mq = window.matchMedia( "(max-width: 767px)" );
+        if (mq.matches) {
+            htb.replaceWith(thiw);
+            hiw.replaceWith(thtb);
+        }
     });
 </script>
 

@@ -202,15 +202,7 @@
         padding: 0;
     }
 
-    .mobileBox1{
-        float: left !important;
-        clear: left !important;
-    }
-
-    .mobileBox2{
-        float: right !important;
-        clear: right !important;
-    }
+    
 }
 
 @media screen and (min-width: 768px) and (max-width: 836px) {
