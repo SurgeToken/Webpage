@@ -364,7 +364,12 @@
     text-align: center;
 }
 
-.priceTable .statsTable {
+.priceTable  {
+    margin-top: 1em;
+    background-color: transparent !important;
+}
+
+.statsTable  {
     margin-top: 1em;
     background-color: transparent !important;
 }
