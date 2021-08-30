@@ -85,7 +85,17 @@
         .cAddress {
         text-align: center; 
         }
-        
+        .clickHere {
+            color: #42beff;
+        }
+        .introSF {
+            max-width: 96vw;
+            margin: 0 auto;
+ 
+        }
+        body > div.container > div:nth-child(2) > div h5 {
+            font-size: 16px !important;
+        }
         </style>
 
 <div class="fullscreen-bg">
@@ -433,12 +443,24 @@
           
                 </header>
             </div>
-            <div class="row rowPad" style="margin-top: 3%; margin-bottom: -2%;">
-                <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12 text-center align-self-center widget spacerSF">
-                    <h2 style="margin-bottom: 8px;">Surge Fund</h2>
-                    <h3 style="margin-bottom: 8px;">About</h3>
-                    <h5 style="margin-bottom: 8px;">On August 16th, 2021, SurgeBNB token was exploited.</h5>
-                    <h3>Instructions</h3>
+            <div class="row rowPad" style="margin-top: 3%; margin-bottom: -2%;background-color: rgb(1 19 29 / 84%);">
+                <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12 text-center align-self-center widget spacerSF introSF">
+                    <h2 style="margin-bottom: 16px;margin-top:8px;">Surge Fund</h2>
+                    <h3 style="margin-bottom: 12px;">About</h3>
+                    <h5 style="margin-bottom: 8px;">
+                        Surge Fund is a charitable fund created for the victims of the August 16th attack on SurgeBNB. Once per day, victims of the attack can claim BNB from the fund, permitting there are funds available to claim.
+                        </h5><br>
+                        <h3>What Caused The Exploit</h3><h5>
+                        SurgeBNB is the only Surge token that was vulnerable to this exploit. The exploit was from an error in the sell() function, which in the event of a sale would send BNB to a user before updating the total supply. 
+                        
+                        A malicious smart contract could send it directly back to Surge, allowing them to purchase at a lower price because of the disparity in the total supply. This allowed the attacker to mint septillions of SBNB Tokens. 
+                        
+                        Other Surge tokens do NOT trigger this contract functionality, and as such, no other Surge token is vulnerable to this exploit. 
+                        
+                        We will continue to expand on the Surge Ecosystem, and donate a percentage of all future token taxes and profits toward the Surge Fund until the lost BNB has been recouped! Those who would like to donate to the fund are welcome to, as well!
+                    
+                    </h5>
+                    <h3></h3>
                     <h5></h5>
                     <h3>Donate</h3>
                 </div>
@@ -456,7 +478,7 @@
             <div class="row rowPad">
                 <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12 text-center align-self-center widget spacerSF">
                     <h3>First Step - Browse to the Contract</h3>
-                    <h5><strong><a href="https://bscscan.com/address/0x95c8eE08b40107f5bd70c28c4Fd96341c8eaD9c7#readContract" alt="BscScan Contract Address" target="_blank">CLICK HERE</a></strong> to go to the Surge Fund Contract on BscScan
+                    <h5><strong><a href="https://bscscan.com/address/0x95c8eE08b40107f5bd70c28c4Fd96341c8eaD9c7#readContract" alt="BscScan Contract Address" target="_blank" class="clickHere">Click Here</a></strong> to go to the Surge Fund Contract on BscScan
                     <br><br><strong>Ensure you are using this Contract Address:</strong>
                     <div class="contractAddress text-end">
                         <p class="cAddress" id="contractAddress">0x95c8eE08b40107f5bd70c28c4Fd96341c8eaD9c7  <i onclick="copyAddress('contractAddress');return false;" class="far fa-copy"></i></p>
@@ -538,7 +560,7 @@
                 </div>
                 <div class="col-xl-9 col-lg-9 col-md-9 col-sm-12 col-xs-12 text-center align-self-center">
                     <h3>
-                        If you have any issues with the amounts of your wallet is not included in the victim list, contact any moderator on the <a href="https://discord.gg/XSURGE" class="connectText">Discord</a>.  We will point you in the right direction.<br/><br/>
+                        If you have any issues with the amounts of your wallet is not included in the victim list, contact any moderator on the <a href="https://discord.gg/XSURGE" class="clickHere">Discord</a>.  We will point you in the right direction.<br/><br/>
                         Next "How To" will cover taking claims from the contract.
                     </h3>
                 </div>
@@ -625,9 +647,9 @@
                 </div>
                 <div class="col-xl-8 col-lg-8 col-md-8 col-sm-12 col-xs-12 text-center align-self-center">
                     <h3>
-                        This concludes the How To tutorial for the Surge Fund Contract.</h3><br><h4>If you have any questions or concerns, <a href="https://discord.gg/XSURGE" class="connectText">Click Here</a> to contact a moderator on the Official Discord.
+                        This concludes the How To tutorial for the Surge Fund Contract.</h3><br><h4>If you have any questions or concerns, <a href="https://discord.gg/XSURGE" class="clickHere">Click Here</a> to contact a moderator on the Official Discord.
                     <br><br>
-                <a href="https://xsurge.net/index.html" class="connectText">Click Here</a> to go back to the Homepage.
+                <a href="httpClick Heres://xsurge.net/index.html" class="clickHere"></a> to go back to the Homepage.
                 </h4>
                 </div>
                
