@@ -1163,22 +1163,28 @@
 </script>
 
 <script>
-    function windowResize(){
+
+    function myFunction(x) {
         var hiw = $('#hiw');
         var htb = $('#htb');
 
         var thiw = hiw.clone();
         var thtb = htb.clone();
-
-        if (window.matchMedia("(max-width: 767px)").matches) {
+        if (x.matches) { // If media query matches
             htb.replaceWith(thiw);
             hiw.replaceWith(thtb);
-        } 
+        } else {
+            htb.replaceWith(thtb);
+            hiw.replaceWith(thiw);
+        }
     }
 
-    $(function() {
-        $(window).resize(windowResize).trigger('resize');
-    });
+    var x = window.matchMedia("(max-width: 767px)")
+    
+    myFunction(x) // Call listener function at run time
+    
+    x.addListener(myFunction) // Attach listener function on state changes                              
+    
     
 </script>
 
