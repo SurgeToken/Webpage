@@ -203,13 +203,13 @@
     }
 
     .mobileBox1{
-        float: left;
-        clear: left;
+        float: left !important;
+        clear: left !important;
     }
 
     .mobileBox2{
-        float: right;
-        clear: right;
+        float: right !important;
+        clear: right !important;
     }
 }
 
