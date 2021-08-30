@@ -1164,9 +1164,7 @@
         var thiw = hiw.clone();
         var thtb = htb.clone();
 
-
-        var mq = window.matchMedia( "(max-width: 767px)" );
-        if (mq.matches) {
+        if (window.matchMedia("(max-width: 767px)").matches) {
             htb.replaceWith(thiw);
             hiw.replaceWith(thtb);
         } else {
