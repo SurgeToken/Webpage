@@ -287,13 +287,13 @@
 
 @media screen and (min-width: 992px) and (max-width: 1299px) {
     .logo{
-        width: 75%;
+        width: 13rem;
     }
 }
 
 @media screen and (min-width: 1300px) {
     .logo{
-        width: 50%;
+        width: 13rem;
     }
 }
 
