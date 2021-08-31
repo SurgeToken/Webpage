@@ -20,7 +20,6 @@
   <script src="/assets/js/loader.js"></script>
 
   <link href="../assets/lightbox.js-master/lightbox/lightbox.min.css" rel="stylesheet">
-    <script src="../assets/lightbox.js-master/lightbox/lightbox.min.js"></script>
   
   <!-- BEGIN GLOBAL MANDATORY STYLES -->
   <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin>
@@ -509,9 +508,7 @@
                     
                 </div>
                 <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12">
-                    <a class=" mx-auto d-block tutorial-img" href="/assets/img/surgefund2.png" data-lightbox="gallery" data-image-alt="img1">
-                    </a>
-                    
+                    <img class=" mx-auto d-block tutorial-img" src="/assets/img/surgefund2.png" alt="coming_soon" >
                 </div>
             </div>
 
@@ -688,11 +685,14 @@
             </div>
 
             <!-- The Modal -->
-            <div id="modal" hidden>
-                <div class="modal-content">
-                  <h3>Welcome!</h3>
-                </div>
-              </div>
+            <div id="myModal" class="modal">
+
+                <!-- The Close Button -->
+                <span class="close">&times;</span>
+            
+                <!-- Modal Content (The Image) -->
+                <img class="modal-content" id="img01">
+            </div>
             
 
             <!-- Footer -->
@@ -1041,6 +1041,7 @@
 
 <script src="/assets/js/custom.js"></script>
 <script src="/assets/js/dashboard/dash_1.js"></script>
+<script src="/assets/lightbox.js-master/lightbox/lightbox.min.js"></script>
 <!-- END GLOBAL MANDATORY SCRIPTS -->
 <script src="//unpkg.com/imagesloaded@4/imagesloaded.pkgd.min.js"></script>
 <script>
@@ -1066,25 +1067,4 @@ function copyAddress(id){
             }
 
 </script>
-
-<!-- <script>
-    // Get the modal
-    var modal = document.getElementById("myModal");
-
-    var modalImg = document.getElementById("img01");
-
-    function zoomImg(img){
-        modal.style.display = "block";
-        modalImg.src = img.src;
-    }
-
-
-    // Get the <span> element that closes the modal
-    var span = document.getElementsByClassName("close")[0];
-
-    // When the user clicks on <span> (x), close the modal
-    span.onclick = function() {
-    modal.style.display = "none";
-    }
-</script> -->
 </body>
