@@ -728,7 +728,7 @@
                     </h4>
                 </div>
                 <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12 align-self-center">
-                    <img id="surgeFund10"  class=" mx-auto d-block" src="/assets/img/surgefund10.png" alt="coming_soon" id="tutorial-img">
+                    <img class=" mx-auto d-block" src="/assets/img/surgefund10.png" alt="coming_soon" id="tutorial-img" onclick="zoomImg(this.src)">
                 </div>
             </div>
 
@@ -1150,49 +1150,9 @@ function copyAddress(id){
 
     var modalImg = document.getElementById("img01");
 
-    surgeFund2.onclick = function(){
-    modal.style.display = "block";
-    modalImg.src = this.src;
-    }
-
-    surgeFund3.onclick = function(){
-    modal.style.display = "block";
-    modalImg.src = this.src;
-    }
-
-    surgeFund4.onclick = function(){
-    modal.style.display = "block";
-    modalImg.src = this.src;
-    }
-
-    surgeFund5.onclick = function(){
-    modal.style.display = "block";
-    modalImg.src = this.src;
-    }
-
-    surgeFund6.onclick = function(){
-    modal.style.display = "block";
-    modalImg.src = this.src;
-    }
-
-    surgeFund7.onclick = function(){
-    modal.style.display = "block";
-    modalImg.src = this.src;
-    }
-
-    surgeFund8.onclick = function(){
-    modal.style.display = "block";
-    modalImg.src = this.src;
-    }
-
-    surgeFund9.onclick = function(){
-    modal.style.display = "block";
-    modalImg.src = this.src;
-    }
-
-    surgeFund10.onclick = function(){
-    modal.style.display = "block";
-    modalImg.src = this.src;
+    function zoomImg(src){
+        modal.style.display = "block";
+        modalImg.src = this.src;
     }
 
 
