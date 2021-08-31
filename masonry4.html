@@ -1096,7 +1096,7 @@
         //run getSUSDStats every 10 seconds
         setInterval(function(){ 
             getTokenStats();
-        }, 30000);
+        }, 15000);
        
         $("#copyMSG").hide();
         $("#calcResults").hide();
@@ -1146,7 +1146,7 @@
                 //do nothing
                 console.log("calc nogo")
             }
-        }, 10000);
+        }, 15000);
 
         if($("#tokenSelect").val() != "noToken" || $("#calcResults").is(":visible")){
 
