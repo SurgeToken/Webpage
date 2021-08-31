@@ -99,22 +99,14 @@
             background-color: rgb(6 31 43 / 80%);
         }
 
-        #surgeFund2, #surgeFund3, #surgeFund4, #surgeFund5, #surgeFund6, #surgeFund7, #surgeFund8, #surgeFund9, #surgeFund10  {
+        #tutorial-img  {
             border-radius: 5px;
             cursor: pointer;
             transition: 0.3s;
         }
         
 
-        #surgeFund2:hover {opacity: 0.7;}
-        #surgeFund3:hover {opacity: 0.7;}
-        #surgeFund4:hover {opacity: 0.7;}
-        #surgeFund5:hover {opacity: 0.7;}
-        #surgeFund6:hover {opacity: 0.7;}
-        #surgeFund7:hover {opacity: 0.7;}
-        #surgeFund8:hover {opacity: 0.7;}
-        #surgeFund9:hover {opacity: 0.7;}
-        #surgeFund10:hover {opacity: 0.7;}
+        #tutorial-img:hover {opacity: 0.7;}
 
         /* The Modal (background) */
         .modal {
@@ -728,7 +720,7 @@
                     </h4>
                 </div>
                 <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12 align-self-center">
-                    <img class=" mx-auto d-block" src="/assets/img/surgefund10.png" alt="coming_soon" id="tutorial-img" onclick="zoomImg(this.src)">
+                    <img class=" mx-auto d-block" src="/assets/img/surgefund10.png" alt="coming_soon" id="tutorial-img" onclick="zoomImg()">
                 </div>
             </div>
 
@@ -1137,22 +1129,11 @@ function copyAddress(id){
     // Get the modal
     var modal = document.getElementById("myModal");
 
-    // Get the image and insert it inside the modal - use its "alt" text as a caption
-    var surgeFund2 = document.getElementById("surgeFund2");
-    var surgeFund3 = document.getElementById("surgeFund3");
-    var surgeFund4 = document.getElementById("surgeFund4");
-    var surgeFund5 = document.getElementById("surgeFund5");
-    var surgeFund6 = document.getElementById("surgeFund6");
-    var surgeFund7 = document.getElementById("surgeFund7");
-    var surgeFund8 = document.getElementById("surgeFund8");
-    var surgeFund9 = document.getElementById("surgeFund9");
-    var surgeFund10 = document.getElementById("surgeFund10");
-
     var modalImg = document.getElementById("img01");
 
-    function zoomImg(src){
+    function zoomImg(){
         modal.style.display = "block";
-        modalImg.src = this.src;
+        modalImg.src = this.find('img').attr('src');
     }
 
 
