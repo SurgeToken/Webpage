@@ -19,3 +19,6 @@ jobs:
 
       - name: Run prod script
         run: ssh ${{ secrets.GA_SSH_PORT }} ${{ secrets.GA_SSH_USER }}@${{ secrets.GA_SSH_IPADDRESS }} "bash /home/Projects/SurgeToken/SurgeDevops/deploy_staging_web.sh"
+
+      - name: cleanup docker
+        run: ssh -p ${{ secrets.GA_SSH_PORT }} ${{ secrets.GA_SSH_USER }}@${{ secrets.GA_SSH_IPADDRESS }} "bash /home/Projects/SurgeToken/SurgeDevops/cleanup.sh"

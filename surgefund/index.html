@@ -49,6 +49,7 @@
             width: 100%;
             margin: 0 auto;
             height: 100%;
+            background-color: #03111bb8 !important;
         }
 
         .rowPad{
@@ -60,7 +61,8 @@
         }
 
         .connectText{
-            color: #0000FF;
+            color: #567fff;
+            font-weight: 800;
         }
 
         .dot {
@@ -71,8 +73,31 @@
             display: inline-block;
         }
 
-        
-        
+        #howto-img {
+            width: 40em;
+            margin-top: 4%;
+        }
+        #tutorial-img {
+            width: 46em;
+        }
+        .cAddress {
+        text-align: center; 
+        }
+        .clickHere {
+            color: #42beff;
+            font-weight: 800;
+        }
+        .introSF {
+            max-width: 96vw;
+            margin: 0 auto;
+ 
+        }
+        body > div.container > div:nth-child(2) > div h5 {
+            font-size: 16px !important;
+        }
+        .introSF {
+            background-color: rgb(6 31 43 / 80%);
+        }
         </style>
 
 <div class="fullscreen-bg">
@@ -87,7 +112,7 @@
           
                     <div class="nav-logo align-self-center">
                         <div class="navLogo">
-                            <a class="navbar-brand" href="/index.html"><img class="logoNav1" src="/assets/img/xsurge.png" ></a>
+                            <a class="navbar-brand" href="https://xsurge.net/index.html"><img class="logoNav1" src="/assets/img/xsurge.png" ></a>
                         </div>
                         <div class="dApp">
                             <a href="https://app.xsurge.net">Trade</a>
@@ -420,36 +445,59 @@
           
                 </header>
             </div>
+            <div class="row rowPad" style="margin-top: 2%; margin-bottom: -2%;">
+                <div class="col-xl-10 col-lg-10 col-md-12 col-sm-12 col-xs-12 text-center align-self-center widget spacerSF introSF">
+                    <h2 style="margin-bottom: 16px;margin-top:4px;">Surge Fund</h2>
+                    <h3 style="margin-bottom: 12px;">About</h3>
+                    <h5 style="margin-bottom: 8px;">
+                        Surge Fund is a charitable fund created for the victims of the August 16th attack on SurgeBNB. Once per day, victims of the attack can claim BNB from the fund, permitting there are funds available to claim.
+                        </h5><br>
+                        <h3>What Caused The Exploit</h3><h5>
+                        SurgeBNB is the only Surge token that was vulnerable to this exploit. The exploit was from an error in the sell() function, which in the event of a sale would send BNB to a user before updating the total supply. 
+                        
+                        A malicious smart contract could send it directly back to Surge, allowing them to purchase at a lower price because of the disparity in the total supply. This allowed the attacker to mint septillions of SBNB Tokens. 
+                        
+                        Other Surge tokens do NOT trigger this contract functionality, and as such, no other Surge token is vulnerable to this exploit. 
+                        
+                        We will continue to expand on the Surge Ecosystem, and donate a percentage of all future token taxes and profits toward the Surge Fund until the lost BNB has been recouped! Those who would like to donate to the fund are welcome to, as well!
+                    
+                    </h5>
+                    <h3></h3>
+                    <h5></h5>
+                    <h3>Instructions</h3>
+                    <h5>Those affected by the exploit may scroll down for instructions on how to claim from the Surge Fund.</h5><br>
+                    <h3>Donations</h3>
+                    <h5>
 
+                        If you wish to donate to the Fund for the Victims of the August 16th Exploit, BEP20 tokens or Smart Chain BNB may be sent directly to the SurgeFund contract address. 
+
+                    </h5>
+     
+                </div>
+          
+            </div> 
             <div class="boxIntro ">
                 <div class="row introSpacer">
                     <div class="col-xl-12 col-lg-9 col-md-9 col-sm-12 col-xs-12 text-center align-self-center">
-                        <img class=" mx-auto d-block" src="/assets/img/surgefundhowto1.png" alt="coming_soon">
+                        <img class=" mx-auto d-block" src="/assets/img/surgefundhowto1.png" alt="coming_soon" id="howto-img">
                     </div>
                 </div>
             </div>
-            
-            <div class="row rowPad">
-                <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12 text-center align-self-center widget spacerSF">
-                    <h3>
-                        Start by verifying the contract addess for accuracy.  Look at the lower tabs and select Contract from the tab.
-                    </h3>
-                </div>
-                <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12">
-                    <img class=" mx-auto d-block" src="/assets/img/surgefund1.png" alt="coming_soon">
-                </div>
-            </div>
+
 
             <div class="row rowPad">
                 <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12 text-center align-self-center widget spacerSF">
-                    <h3>
-                        Select Read Contract.<br/>
-                        At this point you'll be looking at various function calls within the contract.<br/>
-                        This is what we'll use to verify our wallet address and reimbursement amount in the next steps.
-                    </h3>
+                    <h3>First Step - Browse to the Contract</h3>
+                    <h5><strong><a href="https://bscscan.com/address/0x95c8eE08b40107f5bd70c28c4Fd96341c8eaD9c7#readContract" alt="BscScan Contract Address" target="_blank" class="clickHere">Click Here</a></strong> to go to the Surge Fund Contract on BscScan
+                    <br><br><strong>Surge Fund Contract Address:</strong>
+                    <div class="contractAddress text-end">
+                        <p class="cAddress" id="contractAddress">0x95c8eE08b40107f5bd70c28c4Fd96341c8eaD9c7  <i onclick="copyAddress('contractAddress');return false;" class="far fa-copy"></i></p>
+                    </div>
+                    </h5>
+                    
                 </div>
                 <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12">
-                    <img class=" mx-auto d-block" src="/assets/img/surgefund2.png" alt="coming_soon">
+                    <img class=" mx-auto d-block" src="/assets/img/surgefund2.png" alt="coming_soon" id="tutorial-img">
                 </div>
             </div>
 
@@ -467,7 +515,7 @@
                     </h5>
                 </div>
                 <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12 align-self-center">
-                    <img class=" mx-auto d-block" src="/assets/img/surgefund3.png" alt="coming_soon">
+                    <img class=" mx-auto d-block" src="/assets/img/surgefund3.png" alt="coming_soon" id="tutorial-img">
                 </div>
             </div>
 
@@ -484,7 +532,7 @@
                     </h5>
                 </div>
                 <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12 align-self-center">
-                    <img class=" mx-auto d-block" src="/assets/img/surgefund4.png" alt="coming_soon">
+                    <img class=" mx-auto d-block" src="/assets/img/surgefund4.png" alt="coming_soon" id="tutorial-img">
                 </div>
             </div>
 
@@ -498,7 +546,7 @@
                     </h4>
                 </div>
                 <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12 align-self-center">
-                    <img class=" mx-auto d-block" src="/assets/img/surgefund5.png" alt="coming_soon">
+                    <img class=" mx-auto d-block" src="/assets/img/surgefund5.png" alt="coming_soon" id="tutorial-img">
                 </div>
             </div>
 
@@ -508,30 +556,30 @@
                         Unit Converter
                     </h3>
                     <h4>
-                        By selecting a blue linked value from the contract, it brings up the converter page shown to the right.  You need only pay attention to the BNB Amount shown.
+                        By selecting a blue linked value from the contract, it brings up the converter page shown to the right. Check the number next to BNB(1). That is your amount available to claim.
                     </h4>
                 </div>
                 <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12 align-self-center">
-                    <img class=" mx-auto d-block" src="/assets/img/surgefund6.png" alt="coming_soon">
+                    <img class=" mx-auto d-block" src="/assets/img/surgefund6.png" alt="coming_soon" id="tutorial-img">
                 </div>
             </div>
             <div class="row rowPad">
                 <div class="col-xl-3 col-lg-3 col-md-3 col-sm-12 col-xs-12 logoM  align-self-center">
-                    <img class="logo rounded mx-auto d-block" src="/assets/img/xlogo.png" alt="coming_soon">
+                    <img class="logo rounded mx-auto d-block" src="/assets/img/xlogo.png" alt="coming_soon" style="margin-top:-4em;">
                     
                 </div>
                 <div class="col-xl-9 col-lg-9 col-md-9 col-sm-12 col-xs-12 text-center align-self-center">
-                    <h3>
-                        If you have any issues with the amounts of your waller is not included in the victim list, contact any moderator.  We will point you in the right direction.<br/><br/>
+                    <h4>
+                        If you have any issues with the amounts of your wallet is not included in the victim list, contact any moderator on the <a href="https://discord.gg/XSURGE" class="clickHere">Discord</a>.  We will point you in the right direction.<br/><br/>
                         Next "How To" will cover taking claims from the contract.
-                    </h3>
+                    </h4>
                 </div>
             </div>
 
             <div class="boxIntro ">
                 <div class="row introSpacer">
                     <div class="col-xl-12 col-lg-9 col-md-9 col-sm-12 col-xs-12 text-center align-self-center">
-                        <img class=" mx-auto d-block" src="/assets/img/surgefundhowto2.png" alt="coming_soon">
+                        <img class=" mx-auto d-block" src="/assets/img/surgefundhowto2.png" alt="coming_soon" id="tutorial-img">
                     </div>
                 </div>
             </div>
@@ -540,11 +588,16 @@
                 <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12 text-center align-self-center widget spacerSF">
                     <h4>
                         Start by verifying the contract address for accuracy.<br/>
-                        Look at the lower tabs and select {<span class="contractText">Contract</span>} from the tab
+                        Look at the lower tabs and select {<span class="contractText">Contract</span>} from the tab<br>
+                        <br><strong>Surge Fund Contract Address:</strong>
+                        <div class="contractAddress text-end" style="margin-top: 18px;">
+                            <p class="cAddress" id="contractAddress">0x95c8eE08b40107f5bd70c28c4Fd96341c8eaD9c7  <i onclick="copyAddress('contractAddress');return false;" class="far fa-copy"></i></p>
+                        </div>
                     </h4>
+                    
                 </div>
                 <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12 align-self-center">
-                    <img class=" mx-auto d-block" src="/assets/img/surgefund7.png" alt="coming_soon">
+                    <img class=" mx-auto d-block" src="/assets/img/surgefund7.png" alt="coming_soon" id="tutorial-img">
                 </div>
             </div>
 
@@ -554,14 +607,14 @@
                         Select Write Contract
                     </h3>
                     <h4>
-                        At this point you'll be looking at various function calls within the contract.  Select {<span class="dot"></span><span class="connectText"> Connect to Web</span>} and connect to your wallet.  This is what we'll usse to claim our reimbursement from the contract as new funds are added.
+                        At this point you'll be looking at various function calls within the contract.  Select {<span class="dot"></span><span class="connectText"> Connect to Web</span>} and connect to your wallet.  This is what we'll use to claim our reimbursement from the contract as new funds are added.
                     </h4>
-                    <h5>Connecting may either be done through:</h5>
-                    <img class=" mx-auto d-block" src="/assets/img/surgefundconnect.png" alt="coming_soon">
+                    <h5>Connecting may either be done through:</h5><br>
+                    <img class=" mx-auto d-block" src="/assets/img/surgefundconnect.png" alt="coming_soon" style="width: 20rem">
                 </div>
                 <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12 align-self-center">
                     
-                    <img class=" mx-auto d-block" src="/assets/img/surgefund8.png" alt="coming_soon">
+                    <img class=" mx-auto d-block" src="/assets/img/surgefund8.png" alt="coming_soon" id="tutorial-img">
                 </div>
             </div>
 
@@ -571,111 +624,50 @@
                         Function 3. Claim
                     </h3>
                     <h4>
-                        Once connected to your waller, Click the "Write" button.  This will Claim your portion of the BNB that is currently in the pool.
+                        Once connected to your wallet, Click the "Write" button.  This will Claim your portion of the BNB that is currently in the pool.
                     </h4>
-                    <h4 class="contractText">
-                        Note:<br/>
-                        The amount you can expect depends on how much BNB is in the pool, and how much BNB you have yet to claim.
+               
+                        <h3>Note:</h3>
+                        <h4>  The amount you can expect depends on how much BNB is in the pool, and how much BNB you have yet to claim.
                     </h4>
                     <h4 class="contractText">
                         i.e. If I have 10 BNB left to claim, and there is 100 BNB left in the pool to distribute to everyone, that means I get 10/100 or 1/10th of however much BNB is in the contract.
                     </h4>
                 </div>
                 <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12 align-self-center">
-                    <img class=" mx-auto d-block" src="/assets/img/surgefund9.png" alt="coming_soon">
+                    <img class=" mx-auto d-block" src="/assets/img/surgefund9.png" alt="coming_soon" id="tutorial-img">
                 </div>
             </div>
             
             <div class="row rowPad">
                 <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12 text-center align-self-center widget spacerSF">
-                    <h3>
+                    <h2>
                         More Information
-                    </h3>
-                    <h4 class="contractText">
+                    </h2>
+                    <h4>
                         Users may claim once every 24 hours. <br/>
                         The minimum claim for each user is 0.00005 BNB.<br/>
                         To verify exactly what your claim is for that day, refer to Function 17 of the contract (usersCurrentClaim), outlined in the (Community Review) Section of this tutorial.
                     </h4>
                 </div>
                 <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12 align-self-center">
-                    <img class=" mx-auto d-block" src="/assets/img/surgefund10.png" alt="coming_soon">
+                    <img class=" mx-auto d-block" src="/assets/img/surgefund10.png" alt="coming_soon" id="tutorial-img">
                 </div>
             </div>
 
             <div class="row rowPad">
                 <div class="col-xl-2 col-lg-2 col-md-2 col-sm-12 col-xs-12 logoM  align-self-center">
-                    <img class="logo rounded mx-auto d-block" src="/assets/img/xlogo.png" alt="coming_soon">
+                    <img class="logo rounded mx-auto d-block" src="/assets/img/xlogo.png" alt="coming_soon" style="margin-top: -14%">
                     
                 </div>
-                <div class="col-xl-5 col-lg-5 col-md-5 col-sm-12 col-xs-12 text-center align-self-center">
+                <div class="col-xl-8 col-lg-8 col-md-8 col-sm-12 col-xs-12 text-center align-self-center">
                     <h3>
-                        This concludes the How To tutorial for the Surge Fund Contract.  If you have anyq Questions or Concerns, contact a moderator at:
-                    </h3>
+                        This concludes the How To tutorial for the Surge Fund Contract.</h3><br><h4>If you have any questions or concerns, <a href="https://discord.gg/XSURGE" class="clickHere">Click Here</a> to contact a moderator on the Official Discord.
+                    <br><br>
+                <strong><a href="https://xsurge.net/index.html" class="clickHere">Click Here</a> to go back to the Homepage.</strong>
+                </h4>
                 </div>
-                <div class="col-xl-5 col-lg-5 col-md-5 col-sm-12 col-xs-12 text-center align-self-center">
-                    <div class="col-2">
-                        <a class="" href="https://discord.gg/XSURGE">
-                            <svg version="1.1" class="social1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-        viewBox="0 0 75 75" style="enable-background:new 0 0 75 75;" xml:space="preserve">
-                                <style type="text/css">
-                                    .st0{fill:url(#XMLID_22_);}
-                                    .st1{fill:#FFFFFF;}
-                                    .st2{fill:url(#XMLID_24_);}
-                                    .st3{fill:url(#XMLID_25_);}
-                                    .st4{fill-rule:evenodd;clip-rule:evenodd;fill:#FFFFFF;}
-                                    .st5{fill:url(#XMLID_27_);}
-                                    .st6{fill:url(#XMLID_28_);}
-                                    .st7{fill:url(#XMLID_29_);}
-                                    .st8{fill:url(#XMLID_30_);}
-                                    .st9{fill:url(#XMLID_31_);}
-                                    .st10{fill:url(#XMLID_32_);}
-                                    .st11{fill:url(#XMLID_33_);}
-                                    .st12{fill:url(#XMLID_34_);}
-                                    .st13{fill:url(#XMLID_35_);}
-                                    .st14{fill:url(#XMLID_36_);}
-                                    .st15{fill:url(#XMLID_37_);}
-                                    .st16{fill:url(#XMLID_38_);}
-                                    .st17{fill:url(#XMLID_39_);}
-                                    .st18{fill-rule:evenodd;clip-rule:evenodd;fill:#FFFFFF;stroke:#222221;stroke-width:1.2685;stroke-miterlimit:10;}
-                                    .st19{fill:url(#XMLID_40_);}
-                                    .st20{fill:url(#XMLID_41_);}
-                                </style>
-                                <g id="XMLID_1442_">
-                                    <linearGradient id="XMLID_22_" gradientUnits="userSpaceOnUse" x1="8.7726" y1="61.6051" x2="66.2273" y2="13.3949">
-                                        <stop  offset="0" style="stop-color:#55BEC3"/>
-                                        <stop  offset="0.1071" style="stop-color:#3B8D97"/>
-                                        <stop  offset="0.2204" style="stop-color:#2C6573"/>
-                                        <stop  offset="0.3381" style="stop-color:#224758"/>
-                                        <stop  offset="0.4582" style="stop-color:#1B3344"/>
-                                        <stop  offset="0.5815" style="stop-color:#162436"/>
-                                        <stop  offset="0.7094" style="stop-color:#131B2D"/>
-                                        <stop  offset="0.8447" style="stop-color:#111627"/>
-                                        <stop  offset="1" style="stop-color:#101425"/>
-                                    </linearGradient>
-                                    <path id="XMLID_1446_" class="st0" d="M37.5,75L37.5,75C16.8,75,0,58.2,0,37.5l0,0C0,16.8,16.8,0,37.5,0l0,0
-                                        C58.2,0,75,16.8,75,37.5l0,0C75,58.2,58.2,75,37.5,75z"/>
-                                    <path class="st1" d="M52.5,49.8c-0.4-0.3-0.7-0.5-1-0.8c-0.1-0.1-0.2,0-0.3,0c-2.4,1.1-4.8,1.9-7.4,2.4c-3.1,0.6-6.3,0.8-9.5,0.5
-                                        c-2.7-0.3-5.3-0.9-7.9-1.8c-0.9-0.3-1.8-0.7-2.6-1.1c-0.2-0.1-0.3-0.1-0.4,0.1c-0.2,0.2-0.5,0.4-0.7,0.5c-0.2,0.2-0.2,0.2,0,0.3
-                                        c1.3,0.8,2.7,1.4,4.1,2c0.3,0.1,0.3,0.2,0.2,0.4c-0.8,1.5-1.7,3-2.7,4.4c-0.1,0.2-0.3,0.1-0.4,0.1c-3.5-1.1-6.9-2.6-10-4.5
-                                        c-1.2-0.7-2.3-1.5-3.4-2.3c-0.2-0.1-0.2-0.2-0.2-0.4c-0.2-2.5-0.3-5-0.1-7.5c0.2-3,0.7-6,1.4-8.9c0.6-2.3,1.4-4.5,2.3-6.6
-                                        c1.2-2.8,2.7-5.4,4.4-7.9c0.1-0.2,0.3-0.3,0.5-0.4c2.8-1.3,5.7-2.3,8.7-2.9c0.7-0.2,1.4-0.3,2.1-0.4c0.2-0.1,0.3,0,0.4,0.2
-                                        c0.4,0.8,0.8,1.6,1.2,2.4c0.1,0.2,0.2,0.3,0.4,0.2c3-0.4,6-0.5,9-0.3c1,0.1,1.9,0.2,2.9,0.3c0.3,0.1,0.5,0,0.6-0.3
-                                        c0.3-0.8,0.7-1.6,1.1-2.3c0.1-0.2,0.2-0.2,0.4-0.2c2.7,0.5,5.4,1.2,8,2.2c1,0.4,2,0.8,3,1.2c0.1,0.1,0.2,0.1,0.3,0.2
-                                        c2.2,3.3,4.1,6.9,5.5,10.7c1.3,3.5,2.1,7,2.5,10.7c0.3,3.2,0.3,6.4,0.1,9.6c0,0.2-0.1,0.4-0.3,0.5c-2.6,1.9-5.3,3.5-8.2,4.8
-                                        c-1.7,0.8-3.4,1.4-5.2,2c-0.2,0.1-0.3,0-0.4-0.2c-1-1.4-1.9-2.8-2.7-4.4C47.8,52,48,52,48.2,51.9c1.4-0.6,2.8-1.2,4.1-2
-                                        C52.4,49.9,52.4,49.8,52.5,49.8z M33.3,38.1c0-1.7-0.5-3-1.5-4.2c-1.7-1.9-4.5-2-6.4-0.4c-2.5,2.2-2.6,6.4-0.1,8.7
-                                        c1.5,1.3,3.2,1.7,5,0.9C32.4,42.1,33.2,40.2,33.3,38.1z M51.6,38.4c0-1.6-0.3-2.6-0.9-3.5c-1.7-2.9-5.5-3.2-7.7-0.6
-                                        c-1.9,2.2-1.7,5.8,0.3,7.9c1.5,1.6,3.8,1.9,5.6,0.8C50.8,41.8,51.5,40,51.6,38.4z"/>
-                                </g>
-                                </svg>
-                        </a>
-                    </div>
-                    <div class="col-10">
-                        <h3 class="connectText">
-                            HTTPS://DISCORD.GG/XSURGE
-                        </h3>
-                    </div>
-                    
+               
                     
                 </div>
                 
@@ -1009,7 +1001,9 @@
                 </div>
             </div>
         </div>
-
+        <div class="centerpoint widgetMsg" id="copyMSG" style="display:none">
+            <div class="dialog" id="dialog"></div>
+        </div>
         <!-- BEGIN GLOBAL MANDATORY SCRIPTS -->
         <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
 
@@ -1028,5 +1022,27 @@
 <script src="/assets/js/dashboard/dash_1.js"></script>
 <!-- END GLOBAL MANDATORY SCRIPTS -->
 <script src="//unpkg.com/imagesloaded@4/imagesloaded.pkgd.min.js"></script>
+<script>
 
+function copyAddress(id){
+                var r = document.createRange();
+                var message = "";
+                r.selectNode(document.getElementById(id));
+                window.getSelection().removeAllRanges();
+                window.getSelection().addRange(r);
+                document.execCommand('copy');
+                window.getSelection().removeAllRanges();
+
+                $("#dialog").html("Contract Address Copied!");
+                $("#copyMSG").show();
+
+                setTimeout(function () {
+
+                    // Closing the alert
+                    $("#copyMSG").hide();
+                }, 2000);
+
+            }
+
+</script>
 </body>
