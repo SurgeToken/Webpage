@@ -65,7 +65,7 @@
             //calculate the value of sETH
             $user_seth_value = $seth_price * $tokens;
             $user_seth_value_trimmed = rtrim(sprintf('%.4f', floatval($user_seth_value)),'0');
-            $row['value_eth'] = $user_seth_value_trimmed;
+            $row['value_eth'] = $user_seth_value;
 
             //calculate users value in ETH
             $user_usd_value = $user_seth_value_trimmed * $get_weth_price;
