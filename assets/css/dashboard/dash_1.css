@@ -107,6 +107,14 @@
         min-width: 100vw;
         padding: 0;
     }
+
+    .aImg{
+        display: none;
+    }
+
+    .iImg{
+        display:block;
+    }
 }
 
 @media screen and (min-width: 330px) and (max-width: 364px) {
@@ -131,6 +139,14 @@
     .spacerSF{
         margin-bottom: 2%;
     }
+
+    .aImg{
+        display: none;
+    }
+
+    .iImg{
+        display:block;
+    }
 }
 
 @media screen and (min-width: 365px) and (max-width: 399px) {
@@ -152,6 +168,14 @@
 
     .spacerSF{
         margin-bottom: 2%;
+    }
+
+    .aImg{
+        display: none;
+    }
+
+    .iImg{
+        display:block;
     }
 }
 
@@ -176,6 +200,14 @@
     .spacerSF{
         margin-bottom: 2%;
     }
+
+    .aImg{
+        display: none;
+    }
+
+    .iImg{
+        display:block;
+    }
 }
 
 @media screen and (min-width: 580px) and (max-width: 767px) {
@@ -197,6 +229,14 @@
 
     .spacerSF{
         margin-bottom: 2%;
+    }
+
+    .aImg{
+        display: none;
+    }
+
+    .iImg{
+        display:block;
     }
     
 }
@@ -230,6 +270,14 @@
     .surgeAmount{
         font-size: .9vw;
     }
+
+    .aImg{
+        display: block;
+    }
+
+    .iImg{
+        display:none;
+    }
 }
 
 @media screen and (min-width: 837px) and (max-width: 1299px) {
@@ -260,6 +308,14 @@
     }
     .surgeAmount{
         font-size: .9vw;
+    }
+
+    .aImg{
+        display: block;
+    }
+
+    .iImg{
+        display:none;
     }
     
 }
@@ -292,6 +348,14 @@
     }
     .surgeAmount{
         font-size: .9vw;
+    }
+
+    .aImg{
+        display: block;
+    }
+
+    .iImg{
+        display:none;
     }
 }
 
