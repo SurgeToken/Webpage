@@ -1059,7 +1059,7 @@
 
                     break;
                 case "sETH":
-                    $.post("calc.php", {tokenSelected: tS, tokenAmount:tA}).done(function(data){
+                    $.post("calc2.php", {tokenSelected: tS, tokenAmount:tA}).done(function(data){
                         var data = JSON.parse(data);
                         var valueUSD, valueETH;
                         var tokenName = "ETH";

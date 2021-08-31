@@ -64,7 +64,6 @@
             $seth_price = $redis->get("sETH Price");
             
             //calculate the value of sETH
-            $row['user_tokens'] = $tokens;
             $user_seth_value = $seth_price * $tokens;
             $user_seth_value_trimmed = rtrim(sprintf('%.4f', floatval($user_seth_value)),'0');
             $row['value_eth'] = $user_seth_value;
