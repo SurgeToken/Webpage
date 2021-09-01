@@ -22,8 +22,34 @@ $susd = json_decode($json_susd);
 $seth_result = $seth->result;
 $susd_result =  $susd->result;
 
-echo ("sETH Result: " . $seth_result . "\n");
-echo ("sUSD Result: " . $susd_result);
+
+
+/* sETH Results */
+
+//get current price of wETH
+$get_weth_price = $redis->get("wETH Price");
+            
+//calculate sETH Price
+$seth_price = $redis->get("sETH Price");
+
+//calculate the value of sETH
+$user_seth_value = $seth_price * $seth_result;
+$user_seth_value_trimmed = rtrim(sprintf('%.4f', floatval($user_seth_value)),'0');
+//$row['value_eth'] = $user_seth_value_trimmed;
+
+echo("sETH Price: " . user_seth_value_trimmed . "\n");
+
+
+
+//calculate users value in ETH
+$user_usd_value = $user_seth_value_trimmed * $get_weth_price;
+$user_usd_value_trimmed = rtrim(sprintf('%.2f', floatval($user_usd_value)),'0');
+
+//$row['value_usd'] = number_format($user_usd_value_trimmed, 2, '.', ',');
+$value_usd = number_format($user_usd_value_trimmed, 2, '.', ',');
+echo("ETH Price: " . value_usd . "\n");
+
+
 
 
 ?>
