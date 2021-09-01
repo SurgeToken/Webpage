@@ -23,6 +23,9 @@
 
     /* sUSD Results */
 
+    //calculate sUSD Price
+    $susd_price = $redis->get("sUSD Price");
+
     //get the current price of BNB
     $bnb_price = $redis->get("BNB Price");
                 
