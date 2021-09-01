@@ -1090,6 +1090,19 @@
 
     $(document).ready(function() {
 
+         //Login Functions   
+         $('#tokenAmount').keypress(function (e) {
+                var key = e.which;
+                if(key == 13)  // the enter key code
+                {
+                    var ts = $("#tokenSelect").val();
+                    var ta = $("#tokenAmount").val();
+                    calc(ts, ta);
+
+                    return false;  
+                }
+            });
+
         //initial call for token stats
         getTokenStats();
 
