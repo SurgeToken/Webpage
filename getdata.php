@@ -37,7 +37,7 @@ $user_seth_value = $seth_price * $seth_result;
 $user_seth_value_trimmed = rtrim(sprintf('%.4f', floatval($user_seth_value)),'0');
 //$row['value_eth'] = $user_seth_value_trimmed;
 
-echo("sETH Price: " . user_seth_value_trimmed . "\n");
+echo("sETH Price: " . $user_seth_value_trimmed . "\n");
 
 
 
@@ -47,7 +47,7 @@ $user_usd_value_trimmed = rtrim(sprintf('%.2f', floatval($user_usd_value)),'0');
 
 //$row['value_usd'] = number_format($user_usd_value_trimmed, 2, '.', ',');
 $value_usd = number_format($user_usd_value_trimmed, 2, '.', ',');
-echo("ETH Price: " . value_usd . "\n");
+echo("ETH Price: " . $value_usd . "\n");
 
 
 
