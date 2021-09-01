@@ -1021,73 +1021,36 @@
             }); 
         }
 
-        function calc(tokenSelect, tokenAmount){
-            var tS = tokenSelect;
-            var tA = tokenAmount;
-
-            switch(tS){
-                case "noToken":
-                    $("#dialog").html("No Token Selected!");
-                    $("#copyMSG").show();
-
-                    setTimeout(function () {
-                        // Closing the alert
-                        $("#copyMSG").hide();
-                    }, 2000);
-                    break;
-                case "sUSD":
-                    
-                    //get total supply of sUSD
-                    $.post("calc2.php", {tokenSelected: tS, tokenAmount:tA}).done(function(data){
+        function calc(walletAddress){
+            var wA = walletAddress;
+            
+            $.post("getdata.php", {walletAddress: wA}).done(function(data){
                         var data = JSON.parse(data);
-                        var valueUSD, valueBNB;
-                        var tokenName = "BNB";
+                        var susdAmount, valueBNB, valuesusdUSD;
+                        var sethAmount, valueETH, valuesethUSD;
 
                         $.each(data, function(i, item){
-                            valueUSD = item.value_usd;
+                            susdAmount = item.susd_amount;
                             valueBNB = item.value_bnb;
-
-                            tempsUSDValueUSD = item.value_usd;
-                            tempsUSDValueBNB = item.value_bnb;
-
-                            $("#tokenBalance").html(tokenAmount + " sUSD");
-                            $("#tokenName").html("(" + tokenName + ")");
-                            $("#tokenValue").html(valueBNB);
-                            $("#tokenValueUSD").html("$" + valueUSD);
-
-                            $("#calcResults").show();
-
-                        });
-                    });
-
-                    break;
-                case "sETH":
-                    $.post("calc2.php", {tokenSelected: tS, tokenAmount:tA}).done(function(data){
-                        var data = JSON.parse(data);
-                        var valueUSD, valueETH;
-                        var tokenName = "ETH";
-
-                        $.each(data, function(i, item){
-                            valueUSD = item.value_usd;
+                            valuesusdUSD = item.value_susd_usd;
+                            sethAmount = item.seth_amount;
                             valueETH = item.value_eth;
-                            tempsETHValueUSD = item.value_usd;
-                            tempsETHValueETH = item.value_eth;
+                            valuesethUSD = item.value_seth_usd;
 
-                            $("#tokenBalance").html(tokenAmount + " sETH");
-                            $("#tokenName").html("(" + tokenName + ")");
-                            $("#tokenValue").html(valueETH);
-                            $("#tokenValueUSD").html("$" + valueUSD);
+
+                            $("#tokenBalanceSUSD").html(susdAmount + " sUSD");
+                            $("#tokenValueBNB").html(valueBNB);
+                            $("#tokenValuesusdUSD").html("$" + valuesusdUSD);
+                            $("#tokenBalanceSETH").html(sethAmount + " sETH");
+                            $("#tokenValueETH").html(valueETH);
+                            $("#tokenValuesethUSD").html("$" + valuesethUSD);
 
                             $("#calcResults").show();
 
-
                         });
                     });
-                    break;
 
-                default:
-                    break;
-            }
+           
         }
 
 
@@ -1129,39 +1092,16 @@
         $("#calcBtn").click(function(){
             var walletAddress = $("#walletAddress").val();
             
-            $.post("getdata.php", {walletAddress: walletAddress}).done(function(data){
-                        var data = JSON.parse(data);
-                        var susdAmount, valueBNB, valuesusdUSD;
-                        var sethAmount, valueETH, valuesethUSD;
-
-                        $.each(data, function(i, item){
-                            susdAmount = item.susd_amount;
-                            valueBNB = item.value_bnb;
-                            valuesusdUSD = item.value_susd_usd;
-                            sethAmount = item.seth_amount;
-                            valueETH = item.value_eth;
-                            valuesethUSD = item.value_seth_usd;
-
-
-                            $("#tokenBalanceSUSD").html(susdAmount + " sUSD");
-                            $("#tokenValueBNB").html(valueBNB);
-                            $("#tokenValuesusdUSD").html("$" + valuesusdUSD);
-                            $("#tokenBalanceSETH").html(sethAmount + " sETH");
-                            $("#tokenValueETH").html(valueETH);
-                            $("#tokenValuesethUSD").html("$" + valuesethUSD);
-
-                            $("#calcResults").show();
-
-                        });
-                    });
+            calc(walletAddress);
+            
             
         });
 
-        /* setInterval(function(){ 
+        setInterval(function(){ 
             if($("#calcResults").is(":visible")){
 
                 //swap the variables with temps
-                switch($("#tokenSelect").val()){
+                /* switch($("#tokenSelect").val()){
                     case "sUSD":
                         $("#tokenValue").html(tempsUSDValueBNB);
                         $("#tokenValueUSD").html("$" + tempsUSDValueUSD);
@@ -1173,19 +1113,17 @@
                     default:
                         break
 
-                }
+                } */
 
-                var ts = $("#tokenSelect").val();
-                var ta = $("#tokenAmount").val();
-
-                calc(ts, ta);
-                console.log("calc go");
+                var walletAddress = $("#walletAddress").val();
+            
+                calc(walletAddress);
 
             } else {
                 //do nothing
                 console.log("calc nogo")
             }
-        }, 15000); */
+        }, 15000);
 
         /* if($("#tokenSelect").val() != "noToken" || $("#calcResults").is(":visible")){
 
