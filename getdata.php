@@ -39,8 +39,6 @@ $user_seth_value_trimmed = rtrim(sprintf('%.4f', floatval($user_seth_value)),'0'
 
 echo("sETH Price: " . $user_seth_value_trimmed . "\n");
 
-
-
 //calculate users value in ETH
 $user_usd_value = $user_seth_value_trimmed * $get_weth_price;
 $user_usd_value_trimmed = rtrim(sprintf('%.2f', floatval($user_usd_value)),'0');
