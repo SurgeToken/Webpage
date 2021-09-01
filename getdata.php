@@ -16,10 +16,13 @@ $susd_url = "https://api.bscscan.com/api?module=account&action=tokenbalance&cont
 $json_seth = file_get_contents($seth_url);
 $json_susd = file_get_contents($susd_url);
 
-$seth_result = $json_seth->result;
-$susd_result =  $json_susd->result;
+$seth = json_decode($json_seth);
+$susd = json_decode($json_susd);
 
-echo ("sETH Result: " . $seth_result);
+$seth_result = $seth->result;
+$susd_result =  $susd->result;
+
+echo ("sETH Result: " . $seth_result . "\n");
 echo ("sUSD Result: " . $susd_result);
 
 
