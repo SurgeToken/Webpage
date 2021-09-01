@@ -6,8 +6,7 @@ $url2 = "https://api.bscscan.com/api?module=account&action=tokenbalance&contract
 ";
 
 $json = file_get_contents($url1);
-$obj = json_decode($json);
-echo $obj
+echo json_encode($json);
 
 
 ?>
