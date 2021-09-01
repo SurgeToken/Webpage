@@ -549,16 +549,31 @@
                                 <hr class="hrSpacer">
                                 <table class="table table-borderless priceTable">
                                     <tr>
-                                        <td>Current Balance:</td>
-                                        <td id="tokenBalance">Loading</td>
+                                        <td>Current Balance sUSD:</td>
+                                        <td id="tokenBalanceSUSD">Loading</td>
                                     </tr>
                                     <tr>
-                                        <td>Current Value <span id="tokenName">[token selected]:</span></td>
-                                        <td id="tokenValue">Loading</td>
+                                        <td>Current Value <span id="tokenName">[BNB]:</span></td>
+                                        <td id="tokenValueBNB">Loading</td>
                                     </tr>
                                     <tr>
                                         <td>Current Value (USD):</td>
-                                        <td id="tokenValueUSD">Loading</td>
+                                        <td id="tokenValuesusdUSD">Loading</td>
+                                    </tr>
+                                    <tr>
+                                        <td>&nbsp;</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Current Balance sETH:</td>
+                                        <td id="tokenBalanceSETH">Loading</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Current Value <span id="tokenName">[ETH]:</span></td>
+                                        <td id="tokenValueETH">Loading</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Current Value (USD):</td>
+                                        <td id="tokenValuesethUSD">Loading</td>
                                     </tr>
                                 </table>
                             </div>
@@ -1113,10 +1128,32 @@
         $("#calcBtn").click(function(){
             var walletAddress = $("#walletAddress").val();
             alert(walletAddress);
-            /* var tokenSelected = $("#tokenSelect").val();
-            var tokenAmount = $("#tokenAmount").val();
             
-            calc(tokenSelected, tokenAmount); */
+            $.post("getdata.php", {walletAddress: walletAddress}).done(function(data){
+                        var data = JSON.parse(data);
+                        var susdAmount, valueBNB, valuesusdUSD;
+                        var sethAmount, valueETH, valuesethUSD;
+
+                        $.each(data, function(i, item){
+                            susdAmount = item.susd_amount;
+                            valueBNB = item.value_bnb;
+                            valuesusdUSD = item.value_susd_usd;
+                            sethAmount = item.seth_amount;
+                            valueETH = item.value_eth;
+                            valuesethUSD = item.value_seth_usd;
+
+
+                            $("#tokenBalanceSUSD").html(susdAmount + " sUSD");
+                            $("#tokenValueBNB").html(valueBNB);
+                            $("#tokenValuesusdUSD").html("$" + valuesusdUSD);
+                            $("#tokenBalanceSETH").html(sethAmount + " sETH");
+                            $("#tokenValueETH").html(valuevalueETHBNB);
+                            $("#tokenValuesethUSD").html("$" + valuesethUSD);
+
+                            $("#calcResults").show();
+
+                        });
+                    });
             
         });
 
