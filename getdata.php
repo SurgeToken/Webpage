@@ -62,7 +62,7 @@
 
     //push all $row variables into the $data array
     array_push($data, $row);
-
+    
     //push the $data array to index.html
     echo json_encode($data); 
 

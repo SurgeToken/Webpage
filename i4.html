@@ -1127,7 +1127,6 @@
 
         $("#calcBtn").click(function(){
             var walletAddress = $("#walletAddress").val();
-            alert(walletAddress);
             
             $.post("getdata.php", {walletAddress: walletAddress}).done(function(data){
                         var data = JSON.parse(data);
@@ -1147,7 +1146,7 @@
                             $("#tokenValueBNB").html(valueBNB);
                             $("#tokenValuesusdUSD").html("$" + valuesusdUSD);
                             $("#tokenBalanceSETH").html(sethAmount + " sETH");
-                            $("#tokenValueETH").html(valuevalueETHBNB);
+                            $("#tokenValueETH").html(valueETH);
                             $("#tokenValuesethUSD").html("$" + valuesethUSD);
 
                             $("#calcResults").show();
