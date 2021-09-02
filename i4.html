@@ -554,40 +554,45 @@
                         
                         <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 resultsSpacer" id="calcResults">
                              
+                            <!--Loader while waiting for results-->
+                            <div class="loader" id="loader"></div>
                             <!--Results for Wallet Address-->
                             <div class="calcResults" id="resultsWallet">
                                 <h3>Your Amount</h3>
                                 <hr class="hrSpacer">
-                                <table class="table table-borderless priceTable" id="susdResults">
-                                    <tr>
-                                        <td>Current Balance sUSD:</td>
-                                        <td id="tokenBalanceSUSD">Loading</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Current Value (BNB):</td>
-                                        <td id="tokenValueBNB">Loading</td>
-                                    </tr>
-                                    <tr class="rSPacer">
-                                        <td>Current Value (USD):</td>
-                                        <td id="tokenValuesusdUSD">Loading</td>
-                                    </tr>
-                                </table>
-                                <div id="rSpacer"></div>
-                                <table class="table table-borderless priceTable" id="sethResults">
-                                    <tr>
-                                        <td>Current Balance sETH:</td>
-                                        <td id="tokenBalanceSETH">Loading</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Current Value (ETH):</td>
-                                        <td id="tokenValueETH">Loading</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Current Value (USD):</td>
-                                        <td id="tokenValuesethUSD">Loading</td>
-                                    </tr>
-                                </table>
-                                <p><em>Powered by BscScan.com APIs</em></p>
+                                <div class="loader" id="resultsLoading"></div>
+                                <div id="walletResultsDiv">
+                                    <table class="table table-borderless priceTable" id="susdResults">
+                                        <tr>
+                                            <td>Current Balance sUSD:</td>
+                                            <td id="tokenBalanceSUSD">Loading</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Current Value (BNB):</td>
+                                            <td id="tokenValueBNB">Loading</td>
+                                        </tr>
+                                        <tr class="rSPacer">
+                                            <td>Current Value (USD):</td>
+                                            <td id="tokenValuesusdUSD">Loading</td>
+                                        </tr>
+                                    </table>
+                                    <div id="rSpacer"></div>
+                                    <table class="table table-borderless priceTable" id="sethResults">
+                                        <tr>
+                                            <td>Current Balance sETH:</td>
+                                            <td id="tokenBalanceSETH">Loading</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Current Value (ETH):</td>
+                                            <td id="tokenValueETH">Loading</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Current Value (USD):</td>
+                                            <td id="tokenValuesethUSD">Loading</td>
+                                        </tr>
+                                    </table>
+                                    <p><em>Powered by BscScan.com APIs</em></p>
+                                </div>
                             </div>
 
                             <!--Results per Token-->
@@ -1057,51 +1062,61 @@
 
         function calcWallet(walletAddress){
             var wA = walletAddress;
+
+            $.ajax({
+                url: 'getdata.php',
+                type: 'post',
+                data: {walletAddress: wA},
+                beforeSend: function(){
+                    // Show image container
+                    $("#loader").show();
+                },
+                complete:function(data){
+                    // Hide image container
+                    $("#loader").hide();
+
+                    var data = JSON.parse(data);
+                    var susdAmount, valueBNB, valuesusdUSD;
+                    var sethAmount, valueETH, valuesethUSD;
+
+                    $.each(data, function(i, item){
+                        susdAmount = item.susd_amount;
+                        valueBNB = item.value_bnb;
+                        valuesusdUSD = item.value_susd_usd;
+                        sethAmount = item.seth_amount;
+                        valueETH = item.value_eth;
+                        valuesethUSD = item.value_seth_usd;
+
+                        if(susdAmount === "0"){
+                            $("#susdResults").css('display', 'none');
+                            $("#rSpacer").css('display', 'none');
+                        } else {
+                            $("#susdResults").show();
+                            $("#rSpacer").show();
+                        }
+
+                        if(sethAmount === "0"){
+                            $("#rSpacer").css('display', 'none');
+                            $("#sethResults").css('display', 'none');
+                        } else {
+                            $("#rSpacer").show();
+                            $("#sethResults").show();
+                        }
             
-            $.post("getdata.php", {walletAddress: wA}).done(function(data){
-                        var data = JSON.parse(data);
-                        var susdAmount, valueBNB, valuesusdUSD;
-                        var sethAmount, valueETH, valuesethUSD;
+                        $("#tokenBalanceSUSD").html(susdAmount + " sUSD");
+                        $("#tokenValueBNB").html(valueBNB);
+                        $("#tokenValuesusdUSD").html("$" + valuesusdUSD);
+                        $("#tokenBalanceSETH").html(sethAmount + " sETH");
+                        $("#tokenValueETH").html(valueETH);
+                        $("#tokenValuesethUSD").html("$" + valuesethUSD);
 
-                        $.each(data, function(i, item){
-                            susdAmount = item.susd_amount;
-                            valueBNB = item.value_bnb;
-                            valuesusdUSD = item.value_susd_usd;
-                            sethAmount = item.seth_amount;
-                            valueETH = item.value_eth;
-                            valuesethUSD = item.value_seth_usd;
+                        $('#calcResults').show();
+                        $("#resultsWallet").show();
+                        $("#resultsToken").hide();
 
-                            console.log(susdAmount);
-                            if(susdAmount === "0"){
-                                $("#susdResults").css('display', 'none');
-                                $("#rSpacer").css('display', 'none');
-                            } else {
-                                $("#susdResults").show();
-                                $("#rSpacer").show();
-                            }
-
-                            if(sethAmount === "0"){
-                                $("#rSpacer").css('display', 'none');
-                                $("#sethResults").css('display', 'none');
-                            } else {
-                                $("#rSpacer").show();
-                                $("#sethResults").show();
-                            }
-
-                            
-                            $("#tokenBalanceSUSD").html(susdAmount + " sUSD");
-                            $("#tokenValueBNB").html(valueBNB);
-                            $("#tokenValuesusdUSD").html("$" + valuesusdUSD);
-                            $("#tokenBalanceSETH").html(sethAmount + " sETH");
-                            $("#tokenValueETH").html(valueETH);
-                            $("#tokenValuesethUSD").html("$" + valuesethUSD);
-
-                            $('#calcResults').show();
-                            $("#resultsWallet").show();
-                            $("#resultsToken").hide();
-
-                        });
                     });
+                }
+            });
 
            
         }
