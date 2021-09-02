@@ -560,34 +560,33 @@
                                 <hr class="hrSpacer">
                                 <table class="table table-borderless priceTable">
                                     <div id="susdResults">
-                                    <tr>
-                                        <td>Current Balance sUSD:</td>
-                                        <td id="tokenBalanceSUSD">Loading</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Current Value (BNB):</td>
-                                        <td id="tokenValueBNB">Loading</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Current Value (USD):</td>
-                                        <td id="tokenValuesusdUSD">Loading</td>
-                                    </tr>
+                                        <tr>
+                                            <td>Current Balance sUSD:</td>
+                                            <td id="tokenBalanceSUSD">Loading</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Current Value (BNB):</td>
+                                            <td id="tokenValueBNB">Loading</td>
+                                        </tr>
+                                        <tr class="rSPacer">
+                                            <td>Current Value (USD):</td>
+                                            <td id="tokenValuesusdUSD">Loading</td>
+                                        </tr>
                                     </div>
-                                    <tr>
-                                        <td>&nbsp;</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Current Balance sETH:</td>
-                                        <td id="tokenBalanceSETH">Loading</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Current Value (ETH):</td>
-                                        <td id="tokenValueETH">Loading</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Current Value (USD):</td>
-                                        <td id="tokenValuesethUSD">Loading</td>
-                                    </tr>
+                                    <div id="sethResults">
+                                        <tr>
+                                            <td>Current Balance sETH:</td>
+                                            <td id="tokenBalanceSETH">Loading</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Current Value (ETH):</td>
+                                            <td id="tokenValueETH">Loading</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Current Value (USD):</td>
+                                            <td id="tokenValuesethUSD">Loading</td>
+                                        </tr>
+                                    </div>
                                 </table>
                                 <p><em>Powered by BscScan.com APIs</em></p>
                             </div>
@@ -1072,6 +1071,14 @@
                             sethAmount = item.seth_amount;
                             valueETH = item.value_eth;
                             valuesethUSD = item.value_seth_usd;
+
+                            if(susdAmount == 0){
+                                $("#susdResults").hide();
+                            }
+
+                            if(sethAmount == 0){
+                                $("#sethResults").hide();
+                            }
 
 
                             $("#tokenBalanceSUSD").html(susdAmount + " sUSD");
