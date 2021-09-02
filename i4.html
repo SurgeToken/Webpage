@@ -573,6 +573,11 @@
                                             <td id="tokenValuesusdUSD">Loading</td>
                                         </tr>
                                     </div>
+                                    <div class="rSpacer">
+                                        <tr>
+                                            <td>&nbsp;/td>
+                                        </tr>
+                                    </div>
                                     <div id="sethResults">
                                         <tr>
                                             <td>Current Balance sETH:</td>
@@ -1074,9 +1079,11 @@
 
                             if(susdAmount == 0){
                                 $("#susdResults").hide();
+                                $("#rSpacer").hide();
                             }
 
                             if(sethAmount == 0){
+                                $("#rSpacer").hide();
                                 $("#sethResults").hide();
                             }
 
