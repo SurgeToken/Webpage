@@ -1229,7 +1229,6 @@
                     $("#calcBtn").html("Calculate");
                     $("#calcBtn").show();
                     $("#tokenBalance").html("Loading");
-                    $("#tokenName").html("(BNB)");
                     $("#tokenValue").html("Loading");
                     $("#tokenValueUSD").html("Loading");
                     break;
@@ -1240,7 +1239,6 @@
                     $("#calcBtn").html("Calculate");
                     $("#calcBtn").show();
                     $("#tokenBalance").html("Loading");
-                    $("#tokenName").html("(ETH)");
                     $("#tokenValue").html("Loading");
                     $("#tokenValueUSD").html("Loading");
                     break;
@@ -1275,11 +1273,13 @@
                 case "wallet":
                     var walletAddress = $("#userInput").val();
                     calcWallet(walletAddress);
+                    break;
                 case "sUSD":
                 case "sETH":
                     var ts = $("#userSelect").val();
                     var ta = $("#userInput").val();
                     calc(ts, ta);
+                    break;
                 default:
                     break;
             }
