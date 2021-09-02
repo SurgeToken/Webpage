@@ -600,7 +600,7 @@
                                         <td id="tokenBalance">Loading</td>
                                     </tr>
                                     <tr>
-                                        <td>Current Value <span id="tokenName">[token selected]:</span></td>
+                                        <td id="tokenName"></td>
                                         <td id="tokenValue">Loading</td>
                                     </tr>
                                     <tr>
@@ -1119,7 +1119,7 @@
                             tempsUSDValueBNB = item.value_bnb;
 
                             $("#tokenBalance").html(tokenAmount + " sUSD");
-                            $("#tokenName").html("(BNB)");
+                            $("#tokenName").html("Current Value (BNB)");
                             $("#tokenValue").html(valueBNB);
                             $("#tokenValueUSD").html("$" + valueUSD);
 
@@ -1145,7 +1145,7 @@
                             tempsETHValueETH = item.value_eth;
 
                             $("#tokenBalance").html(tokenAmount + " sETH");
-                            $("#tokenName").html("(ETH)");
+                            $("#tokenName").html("Current Value (ETH)");
                             $("#tokenValue").html(valueETH);
                             $("#tokenValueUSD").html("$" + valueUSD);
 
