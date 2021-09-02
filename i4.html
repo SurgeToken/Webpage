@@ -1073,16 +1073,16 @@
 
                             console.log(susdAmount);
                             if(susdAmount === "0"){
-                                $("#susdResults").hide();
-                                $("#rSpacer").hide();
+                                $("#susdResults").css('display', 'none');
+                                $("#rSpacer").css('display', 'none');
                             } else {
                                 $("#susdResults").show();
                                 $("#rSpacer").show();
                             }
 
                             if(sethAmount === "0"){
-                                $("#rSpacer").hide();
-                                $("#sethResults").hide();
+                                $("#rSpacer").css('display', 'none');
+                                $("#sethResults").css('display', 'none');
                             } else {
                                 $("#rSpacer").show();
                                 $("#sethResults").show();
