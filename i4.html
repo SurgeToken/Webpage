@@ -1256,11 +1256,13 @@
                 case "wallet":
                     var walletAddress = $("#userInput").val();
                     calcWallet(walletAddress);
+                    break;
                 case "sUSD":
                 case "sETH":
                     var ts = $("#userSelect").val();
                     var ta = $("#userInput").val();
                     calcToken(ts, ta);
+                    break;
                 default:
                     break;
             }
