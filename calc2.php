@@ -71,7 +71,7 @@
             
 
             //calculate users value in ETH
-            $user_usd_value = $user_seth_value_trimmed * $get_weth_price;
+            $user_usd_value = $user_seth_value * $get_weth_price;
             $user_usd_value_trimmed = rtrim(sprintf('%.2f', floatval($user_usd_value)),'0');
             
             $row['value_usd'] = number_format($user_usd_value_trimmed, 2, '.', ',');
