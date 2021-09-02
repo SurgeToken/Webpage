@@ -558,40 +558,34 @@
                             <div class="calcResults" id="resultsWallet">
                                 <h3>Your Amount</h3>
                                 <hr class="hrSpacer">
-                                <table class="table table-borderless priceTable">
-                                    <div id="susdResults">
-                                        <tr>
-                                            <td>Current Balance sUSD:</td>
-                                            <td id="tokenBalanceSUSD">Loading</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Current Value (BNB):</td>
-                                            <td id="tokenValueBNB">Loading</td>
-                                        </tr>
-                                        <tr class="rSPacer">
-                                            <td>Current Value (USD):</td>
-                                            <td id="tokenValuesusdUSD">Loading</td>
-                                        </tr>
-                                    </div>
-                                    <div id="rSpacer">
-                                        <tr>
-                                            <td>&nbsp;</td>
-                                        </tr>
-                                    </div>
-                                    <div id="sethResults">
-                                        <tr>
-                                            <td>Current Balance sETH:</td>
-                                            <td id="tokenBalanceSETH">Loading</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Current Value (ETH):</td>
-                                            <td id="tokenValueETH">Loading</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Current Value (USD):</td>
-                                            <td id="tokenValuesethUSD">Loading</td>
-                                        </tr>
-                                    </div>
+                                <table class="table table-borderless priceTable" id="susdResults">
+                                    <tr>
+                                        <td>Current Balance sUSD:</td>
+                                        <td id="tokenBalanceSUSD">Loading</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Current Value (BNB):</td>
+                                        <td id="tokenValueBNB">Loading</td>
+                                    </tr>
+                                    <tr class="rSPacer">
+                                        <td>Current Value (USD):</td>
+                                        <td id="tokenValuesusdUSD">Loading</td>
+                                    </tr>
+                                </table>
+                                <div id="rSpacer">&nbsp;</div>
+                                <table class="table table-borderless priceTable" id="sethResults">
+                                    <tr>
+                                        <td>Current Balance sETH:</td>
+                                        <td id="tokenBalanceSETH">Loading</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Current Value (ETH):</td>
+                                        <td id="tokenValueETH">Loading</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Current Value (USD):</td>
+                                        <td id="tokenValuesethUSD">Loading</td>
+                                    </tr>
                                 </table>
                                 <p><em>Powered by BscScan.com APIs</em></p>
                             </div>
@@ -1079,13 +1073,13 @@
 
                             console.log(susdAmount);
                             if(susdAmount === "0"){
-                                $("#susdResults").css('display', 'none');
-                                $("#rSpacer").css('display', 'none');
+                                $("#susdResults").hide();
+                                $("#rSpacer").hide();
                             }
 
                             if(sethAmount === "0"){
-                                $("#rSpacer").css('display', 'none');
-                                $("#sethResults").css('display', 'none');
+                                $("#rSpacer").hide();
+                                $("#sethResults").hide();
                             }
 
                             
