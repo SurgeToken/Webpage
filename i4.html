@@ -1220,7 +1220,18 @@
                     $("#tokenBalanceSETH").html("Loading");
                     $("#tokenValueETH").html("Loading");
                     $("#tokenValuesethUSD").html("Loading");
+                    break;
                 case "sUSD":
+                    $("#calcResults").hide();
+                    $("#userInput").val("");
+                    $("#userInput").attr("placeholder", "Enter Token Amount");
+                    $("#calcBtn").html("Calculate");
+                    $("#calcBtn").show();
+                    $("#tokenBalance").html("Loading");
+                    $("#tokenName").html("BNB");
+                    $("#tokenValue").html("Loading");
+                    $("#tokenValueUSD").html("Loading");
+                    break;
                 case "sETH":
                     $("#calcResults").hide();
                     $("#userInput").val("");
@@ -1228,9 +1239,10 @@
                     $("#calcBtn").html("Calculate");
                     $("#calcBtn").show();
                     $("#tokenBalance").html("Loading");
-                    $("#tokenName").empty();
+                    $("#tokenName").html("ETH");
                     $("#tokenValue").html("Loading");
                     $("#tokenValueUSD").html("Loading");
+                    break;
                 default:
                     break;
             }
