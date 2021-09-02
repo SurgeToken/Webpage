@@ -1079,16 +1079,16 @@
 
                             console.log(susdAmount);
                             if(susdAmount === "0"){
-                                $("#susdResults").hide();
-                                $("#rSpacer").hide();
+                                $("#susdResults").css('display', 'none');
+                                $("#rSpacer").css('display', 'none');
                             }
 
                             if(sethAmount === "0"){
-                                $("#rSpacer").hide();
-                                $("#sethResults").hide();
+                                $("#rSpacer").css('display', 'none');
+                                $("#sethResults").css('display', 'none');
                             }
 
-                            $("#susdResults").hide();
+                            
                             $("#tokenBalanceSUSD").html(susdAmount + " sUSD");
                             $("#tokenValueBNB").html(valueBNB);
                             $("#tokenValuesusdUSD").html("$" + valuesusdUSD);
