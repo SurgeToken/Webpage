@@ -1079,7 +1079,7 @@
                             $("#tokenValueETH").html(valueETH);
                             $("#tokenValuesethUSD").html("$" + valuesethUSD);
 
-                            $("#calcResults").show();
+                            $('#calcResults').css('display','block');
                             $("#resultsWallet").show();
                             $("#resultsToken").hide();
 
@@ -1123,7 +1123,7 @@
                             $("#tokenValue").html(valueBNB);
                             $("#tokenValueUSD").html("$" + valueUSD);
 
-                            $("#calcResults").show();
+                            $('#calcResults').css('display','block');
                             $("#resultsWallet").hide();
                             $("#resultsToken").show();
 
@@ -1149,7 +1149,7 @@
                             $("#tokenValue").html(valueETH);
                             $("#tokenValueUSD").html("$" + valueUSD);
 
-                            $("#calcResults").show();
+                            $('#calcResults').css('display','block');
                             $("#resultsWallet").hide();
                             $("#resultsToken").show();
 
@@ -1166,8 +1166,9 @@
 
     $(document).ready(function() {
 
+        
         $("#calcBtn").hide();
-        $("#calcResults").hide();
+        $('#calcResults').css('display','none');
         $("#copyMSG").hide();
 
          //Login Functions   
@@ -1209,7 +1210,7 @@
 
             switch($("#userSelect").val()){
                 case "wallet":
-                    $("#calcResults").hide();
+                    $('#calcResults').css('display','none');
                     $("#userInput").val("");
                     $("#userInput").attr("placeholder", "Enter Wallet Address");
                     $("#calcBtn").html("Show");
@@ -1222,7 +1223,7 @@
                     $("#tokenValuesethUSD").html("Loading");
                     break;
                 case "sUSD":
-                    $("#calcResults").hide();
+                    $('#calcResults').css('display','none');
                     $("#userInput").val("");
                     $("#userInput").attr("placeholder", "Enter Token Amount");
                     $("#calcBtn").html("Calculate");
@@ -1233,7 +1234,7 @@
                     $("#tokenValueUSD").html("Loading");
                     break;
                 case "sETH":
-                    $("#calcResults").hide();
+                    $('#calcResults').css('display','none');
                     $("#userInput").val("");
                     $("#userInput").attr("placeholder", "Enter Token Amount");
                     $("#calcBtn").html("Calculate");
