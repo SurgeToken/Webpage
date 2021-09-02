@@ -1179,13 +1179,13 @@
                     switch($("#userSelect").val()){
                         case "wallet":
                             var walletAddress = $("#userInput").val();
-                            calc(walletAddress);
+                            calcWallet(walletAddress);
                             break;
                         case "sUSD":
                         case "sETH":
                             var ts = $("#userSelect").val();
                             var ta = $("#userInput").val();
-                            calc(ts, ta);
+                            calcToken(ts, ta);
                             break;
                         default:
                             break;
@@ -1213,6 +1213,7 @@
                     $("#userInput").val("");
                     $("#userInput").attr("placeholder", "Enter Wallet Address");
                     $("#calcBtn").html("Show");
+                    $("#calcBtn").show();
                     $("#tokenBalanceSUSD").html("Loading");
                     $("#tokenValueBNB").html("Loading");
                     $("#tokenValuesusdUSD").html("Loading");
