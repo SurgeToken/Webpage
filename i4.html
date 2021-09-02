@@ -1285,20 +1285,23 @@
         });
 
         setInterval(function(){ 
-            switch($("#userSelect").val() && $("#calcResults").is(":visible")){
-                case "wallet":
-                    var walletAddress = $("#userInput").val();
-                    calcWallet(walletAddress);
-                    break;
-                case "sUSD":
-                case "sETH":
-                    var ts = $("#userSelect").val();
-                    var ta = $("#userInput").val();
-                    calc(ts, ta);
-                    break;
-                default:
-                    break;
+            if($("#calcResults").is(":visible")){
+                switch($("#userSelect").val()){
+                    case "wallet":
+                        var walletAddress = $("#userInput").val();
+                        calcWallet(walletAddress);
+                        break;
+                    case "sUSD":
+                    case "sETH":
+                        var ts = $("#userSelect").val();
+                        var ta = $("#userInput").val();
+                        calc(ts, ta);
+                        break;
+                    default:
+                        break;
+                }
             }
+            
         }, 15000);
         
         
