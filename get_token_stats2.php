@@ -10,6 +10,8 @@
     $row['total_balance_busd'] = $redis->get("bUSD Total Balance");
     $row['busd_price'] = $redis->get("bUSD Price");
     $row['susd_price'] = $redis->get("sUSD Price");
+
+    
     $row['seth_holders'] = $redis->get("sETH Holders");
     $row['total_supply_seth'] = $redis->get("sETH Total Supply");
     $row['total_balance_weth'] = $redis->get("wETH Total Balance");

@@ -560,35 +560,7 @@
                                 <hr class="hrSpacer">
                                 <div class="loader" id="resultsLoading"></div>
                                 <div id="walletResultsDiv">
-                                    <table class="table table-borderless priceTable" id="susdResults">
-                                        <tr>
-                                            <td>Current Balance sUSD:</td>
-                                            <td id="tokenBalanceSUSD">Loading</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Current Value (BNB):</td>
-                                            <td id="tokenValueBNB">Loading</td>
-                                        </tr>
-                                        <tr class="rSPacer">
-                                            <td>Current Value (USD):</td>
-                                            <td id="tokenValuesusdUSD">Loading</td>
-                                        </tr>
-                                    </table>
-                                    <div id="rSpacer"></div>
-                                    <table class="table table-borderless priceTable" id="sethResults">
-                                        <tr>
-                                            <td>Current Balance sETH:</td>
-                                            <td id="tokenBalanceSETH">Loading</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Current Value (ETH):</td>
-                                            <td id="tokenValueETH">Loading</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Current Value (USD):</td>
-                                            <td id="tokenValuesethUSD">Loading</td>
-                                        </tr>
-                                    </table>
+                                    <table class="table table-borderless priceTable" id="walletResults"></table>
                                     <p><em>Powered by BscScan.com APIs</em></p>
                                 </div>
                             </div>
@@ -639,8 +611,17 @@
             <!-- 5 Keeps the xTokens Addresses Div on the left with the Token Address Div-->
             <div class="box holderDiv">
                 <div class="widget widget-chart-one spacer5">
-                    <em><h3>Find your favorite <strong>xToken</strong> contract address here:</h3></em>
-                    <p>Relaunch Coming Soon</p>
+                    <div class="ethsurge">
+                        <img class="logo2" src="assets/img/.png" >
+                    </div>
+                    
+                    <br/>
+                     <div id="timer">
+                        <div class="days"><span class="count">--</span> <span class="text">Days</span></div>
+                        <div class="hours"><span class="count">--</span> <span class="text">Hours</span></div>
+                        <div class="min"><span class="count">--</span> <span class="text">Mins</span></div>
+                        <div class="sec"><span class="count">--</span> <span class="text">Secs</span></div>
+                    </div>  
                 </div>
             </div>
 
@@ -998,11 +979,46 @@
 
         <!-- BEGIN GLOBAL MANDATORY SCRIPTS -->
         <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/js-cookie@3.0.1/dist/js.cookie.min.js"></script>
 
     <!-- Optional JavaScript; choose one of the two! -->
 
     <!-- Option 1: Bootstrap Bundle with Popper -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj" crossorigin="anonymous"></script>
+
+    <script>
+        // Set the date we're counting down to
+        var getYear = new Date().getFullYear();
+        var countDownDate = new Date("Sept 19, "+ getYear +" 13:00:00").getTime();
+
+        // Update the count down every 1 second
+        var countdownfunction = setInterval(function() {
+
+        // Get todays date and time
+        var now = new Date().getTime();
+        
+        // Find the distance between now an the count down date
+        var distance = countDownDate - now;
+        
+        // Time calculations for days, hours, minutes and seconds
+        var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+        var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+        var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+        
+        // Output the result in an element with id="demo"
+        document.getElementById("timer").innerHTML = '<div class="days"><span class="count">' + days + '</span> <span class="text">Days</span></div>' +
+        '<div class="hours"><span class="count">'+ hours +'</span> <span class="text">Hours</span></div>' +
+        '<div class="min"><span class="count">'+ minutes +'</span> <span class="text">Mins</span></div>' +
+        '<div class="sec"><span class="count">'+ seconds +'</span> <span class="text">Secs</span></div>';
+        
+        // If the count down is over, write some text 
+        if (distance < 0) {
+            clearInterval(countdownfunction);
+            document.getElementById("timer").innerHTML = "LAUNCH!";
+        }
+        }, 1000);
+    </script>
 
 
 <!-- <script src="bootstrap/js/popper.min.js"></script>
@@ -1013,6 +1029,7 @@
 
     var tempsUSDValueUSD, tempsUSDValueBNB, tempsETHValueUSD, tempsETHValueETH;
 
+        
         function copyAddress(id){
             var r = document.createRange();
             var message = "";
@@ -1060,6 +1077,9 @@
 
         function calcWallet(walletAddress){
             var wA = walletAddress;
+
+            //set the wallet address cookie
+            Cookies.set('user_wallet_address', walletAddress);
             
             $.post("getdata.php", {walletAddress: wA}).done(function(data){
                         var data = JSON.parse(data);
@@ -1125,6 +1145,9 @@
                     break;
                 case "sUSD":
                     
+                    //set the susd holdings cookie
+                    Cookies.set('user_susd_holdings', sUSDHoldings);
+
                     //get total supply of sUSD
                     $.post("calc2.php", {tokenSelected: tS, tokenAmount:tA}).done(function(data){
                         var data = JSON.parse(data);
@@ -1153,6 +1176,10 @@
 
                     break;
                 case "sETH":
+
+                    //set the seth holdigns cookie
+                    Cookies.set('user_seth_holdings', sETHHoldings);
+
                     $.post("calc2.php", {tokenSelected: tS, tokenAmount:tA}).done(function(data){
                         var data = JSON.parse(data);
                         var valueUSD, valueETH;
@@ -1183,6 +1210,13 @@
             }
         }
 
+        // Original JavaScript code by Chirp Internet: chirpinternet.eu
+    // Please acknowledge use of this code by including this header.
+  
+    var today = new Date();
+    var expiry = new Date(today.getTime() + 30 * 24 * 3600 * 1000); // plus 30 days
+  
+    
 
     $(document).ready(function() {
 
@@ -1241,28 +1275,22 @@
                     $("#tokenBalanceSETH").html("Loading");
                     $("#tokenValueETH").html("Loading");
                     $("#tokenValuesethUSD").html("Loading");
+
+                    //if cookies exists, load data into userInput
+                    $("#userInput").val() == Cookies.get('user_wallet_address');
+
+
                     break;
-                case "sUSD":
-                    $('#calcResults').hide();
-                    $("#userInput").val("");
-                    $("#userInput").attr("placeholder", "Enter Token Amount");
-                    $("#calcBtn").html("Calculate");
-                    $("#calcBtn").show();
-                    $("#tokenBalance").html("Loading");
-                    $("#tokenValue").html("Loading");
-                    $("#tokenValueUSD").html("Loading");
-                    break;
-                case "sETH":
-                    $('#calcResults').hide();
-                    $("#userInput").val("");
-                    $("#userInput").attr("placeholder", "Enter Token Amount");
-                    $("#calcBtn").html("Calculate");
-                    $("#calcBtn").show();
-                    $("#tokenBalance").html("Loading");
-                    $("#tokenValue").html("Loading");
-                    $("#tokenValueUSD").html("Loading");
-                    break;
+                //For all other tokens
                 default:
+                    $('#calcResults').hide();
+                    $("#userInput").val("");
+                    $("#userInput").attr("placeholder", "Enter Token Amount");
+                    $("#calcBtn").html("Calculate");
+                    $("#calcBtn").show();
+                    $("#tokenBalance").html("Loading");
+                    $("#tokenValue").html("Loading");
+                    $("#tokenValueUSD").html("Loading");
                     break;
             }
         });
@@ -1275,13 +1303,11 @@
                     var walletAddress = $("#userInput").val();
                     calcWallet(walletAddress);
                     break;
-                case "sUSD":
-                case "sETH":
+                //For all other tokens
+                default:
                     var ts = $("#userSelect").val();
                     var ta = $("#userInput").val();
                     calcToken(ts, ta);
-                    break;
-                default:
                     break;
             }
             
@@ -1311,6 +1337,7 @@
         
     });
 </script>
+
 
 <script>
 

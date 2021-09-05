@@ -8,7 +8,6 @@
     $token_post = strip_tags($_POST['tokenAmount']);
 
     $tokens = str_replace(',', '', $token_post);
-    
 
     $data = array();
 
