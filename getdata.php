@@ -58,6 +58,8 @@
                     $user_usd_value = $user_token_value * $get_utoken_price;
                     $user_usd_value_trimmed = rtrim(sprintf('%.12f', floatval($user_usd_value)),'0');
                     break;
+                default:
+                    break;
 
             }
 
