@@ -37,7 +37,7 @@
                     $user_token_usd_value_trimmed = rtrim(sprintf('%.2f', floatval($user_token_usd_value)),'0');
                     
                     //calculate users value in BNB
-                    $user_token_value = $user_token_usd_value * $get_utoken_price;
+                    $user_token_value = $user_token_usd_value / $get_utoken_price;
                     $user_token_value_trimmed = rtrim(sprintf('%.12f', floatval($user_token_value)),'0');
                     break;
                 case "SETH":
@@ -55,7 +55,7 @@
                     $user_token_usd_value_trimmed = rtrim(sprintf('%.4f', floatval($user_token_usd_value)),'0');
                     
                     //calculate users value in ETH
-                    $user_token_value = $user_token_usd_value * $get_utoken_price;
+                    $user_token_value = $user_token_usd_value / $get_utoken_price;
                     $user_token_value_trimmed = rtrim(sprintf('%.2f', floatval($user_token_value)),'0');
                     break;
                 default:
