@@ -559,35 +559,7 @@
                                 <hr class="hrSpacer">
                                 <div class="loader" id="resultsLoading"></div>
                                 <div id="walletResultsDiv">
-                                    <table class="table table-borderless priceTable" id="walletResults">
-                                        <tr>
-                                            <td>Current Balance sUSD:</td>
-                                            <td id="tokenBalanceSUSD">Loading</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Current Value (BNB):</td>
-                                            <td id="tokenValueBNB">Loading</td>
-                                        </tr>
-                                        <tr class="rSPacer">
-                                            <td>Current Value (USD):</td>
-                                            <td id="tokenValuesusdUSD">Loading</td>
-                                        </tr>
-                                    </table>
-                                    <div id="rSpacer"></div>
-                                    <table class="table table-borderless priceTable" id="sethResults">
-                                        <tr>
-                                            <td>Current Balance sETH:</td>
-                                            <td id="tokenBalanceSETH">Loading</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Current Value (ETH):</td>
-                                            <td id="tokenValueETH">Loading</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Current Value (USD):</td>
-                                            <td id="tokenValuesethUSD">Loading</td>
-                                        </tr>
-                                    </table>
+                                    <table class="table table-borderless priceTable" id="walletResults"></table>
                                     <p><em>Powered by BscScan.com APIs</em></p>
                                 </div>
                             </div>
@@ -1122,45 +1094,20 @@
             
             $.post("getdata.php", {walletAddress: wA}).done(function(data){
                         var data = JSON.parse(data);
-                        var susdAmount, valueBNB, valuesusdUSD;
-                        var sethAmount, valueETH, valuesethUSD;
+                        var tokenAmount, uTokenValue, tokenUSD, uToken, sToken;
                         var displayHTML = "";
 
                         $.each(data, function(i, item){
-                            susdAmount = item.susd_amount;
-                            valueBNB = item.value_bnb;
-                            valuesusdUSD = item.value_susd_usd;
-                            sethAmount = item.seth_amount;
-                            valueETH = item.value_eth;
-                            valuesethUSD = item.value_seth_usd;
+                            sToken = item.s_token;
+                            tokenAmount = item.token_amount;
+                            uToken = item.u_token;
+                            uTokenValue = item.value_utoken;
+                            tokenUSD = item.value_token_usd;
 
-                            console.log(susdAmount);
-                            if(susdAmount === "0"){
-                                $("#susdResults").css('display', 'none');
-                                $("#rSpacer").css('display', 'none');
-                            } else {
-                                $("#susdResults").show();
-                                $("#rSpacer").show();
-                            }
-
-                            if(sethAmount === "0"){
-                                $("#rSpacer").css('display', 'none');
-                                $("#sethResults").css('display', 'none');
-                            } else {
-                                $("#rSpacer").show();
-                                $("#sethResults").show();
-                            }
-
-
-                            displayHTML += "";
+                            displayHTML += "<tr><td>Current Balance"+sToken+":</td><td>"+tokenAmount+"</td></tr><tr><td>Current Value ("+uToken+"):</td><td>"+uTokenValue+"</td></tr><tr class='rSPacer'><td>Current Value (USD):</td><td>"+tokenUSD+"</td></tr>";
                             
-                            $("#tokenBalanceSUSD").html(susdAmount + " sUSD");
-                            $("#tokenValueBNB").html(valueBNB);
-                            $("#tokenValuesusdUSD").html("$" + valuesusdUSD);
-                            $("#tokenBalanceSETH").html(sethAmount + " sETH");
-                            $("#tokenValueETH").html(valueETH);
-                            $("#tokenValuesethUSD").html("$" + valuesethUSD);
-
+                            
+                            $("#walletResults").append(displayHTML);
                             $('#calcResults').show();
                             $("#resultsWallet").show();
                             $("#resultsToken").hide();
