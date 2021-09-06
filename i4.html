@@ -560,7 +560,35 @@
                                 <hr class="hrSpacer">
                                 <div class="loader" id="resultsLoading"></div>
                                 <div id="walletResultsDiv">
-                                    <table class="table table-borderless priceTable" id="walletResults"></table>
+                                    <table class="table table-borderless priceTable" id="walletResults">
+                                        <tr>
+                                            <td>Current Balance sUSD:</td>
+                                            <td id="tokenBalanceSUSD">Loading</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Current Value (BNB):</td>
+                                            <td id="tokenValueBNB">Loading</td>
+                                        </tr>
+                                        <tr class="rSPacer">
+                                            <td>Current Value (USD):</td>
+                                            <td id="tokenValuesusdUSD">Loading</td>
+                                        </tr>
+                                    </table>
+                                    <div id="rSpacer"></div>
+                                    <table class="table table-borderless priceTable" id="sethResults">
+                                        <tr>
+                                            <td>Current Balance sETH:</td>
+                                            <td id="tokenBalanceSETH">Loading</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Current Value (ETH):</td>
+                                            <td id="tokenValueETH">Loading</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Current Value (USD):</td>
+                                            <td id="tokenValuesethUSD">Loading</td>
+                                        </tr>
+                                    </table>
                                     <p><em>Powered by BscScan.com APIs</em></p>
                                 </div>
                             </div>
@@ -1089,6 +1117,7 @@
                         var data = JSON.parse(data);
                         var susdAmount, valueBNB, valuesusdUSD;
                         var sethAmount, valueETH, valuesethUSD;
+                        var displayHTML = "";
 
                         $.each(data, function(i, item){
                             susdAmount = item.susd_amount;
@@ -1115,6 +1144,8 @@
                                 $("#sethResults").show();
                             }
 
+
+                            displayHTML += "";
                             
                             $("#tokenBalanceSUSD").html(susdAmount + " sUSD");
                             $("#tokenValueBNB").html(valueBNB);
