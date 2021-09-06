@@ -18,6 +18,18 @@
     $row['weth_price'] = $redis->get("wETH Price");
     $row['seth_price'] = $redis->get("sETH Price");
 
+    /* $row['sbtc_holders'] = $redis->get("sBTC Holders");
+    $row['total_supply_sbtc'] = $redis->get("sBTC Total Supply");
+    $row['total_balance_bbtc'] = $redis->get("bBTC Total Balance");
+    $row['bbtc_price'] = $redis->get("bBTC Price");
+    $row['sbtc_price'] = $redis->get("sBTC Price"); */
+
+    /* $row['sada_holders'] = $redis->get("sADA Holders");
+    $row['total_supply_sada'] = $redis->get("sADA Total Supply");
+    $row['total_balance_bada'] = $redis->get("bADA Total Balance");
+    $row['bada_price'] = $redis->get("bADA Price");
+    $row['sada_price'] = $redis->get("sADA Price"); */
+
     //push all $row variables into the $data array
     array_push($data, $row);
 
