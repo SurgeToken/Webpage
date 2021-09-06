@@ -42,7 +42,7 @@
   
 </head>
 
-<body onload="checkCookie()">
+<body>
     <style>
 
         .container {
@@ -1236,13 +1236,8 @@
 
         function checkCookie() {
             let cookieAddress = getCookie("user_wallet_address");
-            /* let susdHolding = getCookie("");
-            let sethHolding = getCookie("");
- */
-
-            if (cookieAddress != "") {
-                alert("Wallet Address " + cookieAddress);
-            }
+            let susdHolding = getCookie("sUSD");
+            let sethHolding = getCookie("sETH");
         }
   
     
@@ -1296,7 +1291,7 @@
                     
 
                     $('#calcResults').hide();
-                    $("#userInput").val("");
+                    $("#userInput").val(getCookie("user_wallet_address"));
                     $("#userInput").attr("placeholder", "Enter Wallet Address");
                     $("#calcBtn").html("Show");
                     $("#calcBtn").show();
@@ -1308,15 +1303,27 @@
                     $("#tokenValuesethUSD").html("Loading");
                     break;
                 //For all other tokens
-                default:
+                case "sETH":
                     $('#calcResults').hide();
-                    $("#userInput").val("");
+                    $("#userInput").val(getCookie("sETH"));
                     $("#userInput").attr("placeholder", "Enter Token Amount");
                     $("#calcBtn").html("Calculate");
                     $("#calcBtn").show();
                     $("#tokenBalance").html("Loading");
                     $("#tokenValue").html("Loading");
                     $("#tokenValueUSD").html("Loading");
+                    break;
+                case "sUSD":
+                    $('#calcResults').hide();
+                    $("#userInput").val(getCookie("sUSD"));
+                    $("#userInput").attr("placeholder", "Enter Token Amount");
+                    $("#calcBtn").html("Calculate");
+                    $("#calcBtn").show();
+                    $("#tokenBalance").html("Loading");
+                    $("#tokenValue").html("Loading");
+                    $("#tokenValueUSD").html("Loading");
+                    break;
+                default:
                     break;
             }
         });
