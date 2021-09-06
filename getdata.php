@@ -52,11 +52,11 @@
 
                     //calculate the ETH value of sETH
                     $user_token_value = $seth_price * $token_result;
-                    $user_token_value_trimmed = rtrim(sprintf('%.2f', floatval($user_token_value)),'0');
+                    $user_token_value_trimmed = rtrim(sprintf('%.4f', floatval($user_token_value)),'0');
                     
                     //calculate users value in ETH
                     $user_token_usd_value = $user_token_value * $get_weth_price;
-                    $user_token_usd_value_trimmed = rtrim(sprintf('%.4f', floatval($user_token_usd_value)),'0');
+                    $user_token_usd_value_trimmed = rtrim(sprintf('%.2f', floatval($user_token_usd_value)),'0');
                     break;
                 default:
                     break;
