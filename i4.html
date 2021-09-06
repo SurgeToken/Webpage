@@ -33,7 +33,7 @@
 
   <!-- BEGIN PAGE LEVEL PLUGINS/CUSTOM STYLES -->
   <link href="plugins/apex/apexcharts.css" rel="stylesheet" type="text/css">
-  <link href="assets/css/dashboard/dash_1.css?v=1.67" rel="stylesheet" type="text/css" />
+  <link href="assets/css/dashboard/dash_1.css?v=1.68" rel="stylesheet" type="text/css" />
   <link href="assets/css/structure.css?v=1.89" rel="stylesheet" type="text/css" />
   <link href="assets/css/masonry_2.css?v=1.28" rel="stylesheet" type="text/css">
   <link href="assets/css/pages/coming-soon/style.css?v=1.02" rel="stylesheet" type="text/css">
@@ -1104,7 +1104,7 @@
                             uTokenValue = item.value_utoken;
                             tokenUSD = item.value_token_usd;
 
-                            displayHTML += "<tr><td>Current Balance"+sToken+":</td><td>"+tokenAmount+"</td></tr><tr><td>Current Value ("+uToken+"):</td><td>"+uTokenValue+"</td></tr><tr class='rSPacer'><td>Current Value (USD):</td><td>"+tokenUSD+"</td></tr>";
+                            displayHTML += "<tr><td>Current Balance:</td><td>"+tokenAmount+ " "+sToken+"</td></tr><tr><td>Current Value ("+uToken+"):</td><td>"+uTokenValue+"</td></tr><tr class='rSPacer'><td>Current Value (USD):</td><td>"+tokenUSD+"</td></tr>";
                             
                             $("#walletResults").empty();
                             $("#walletResults").append(displayHTML);
