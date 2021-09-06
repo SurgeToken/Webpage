@@ -42,7 +42,7 @@
   
 </head>
 
-<body>
+<body onload="checkCookie()">
     <style>
 
         .container {
@@ -1008,7 +1008,7 @@
     <script>
         // Set the date we're counting down to
         var getYear = new Date().getFullYear();
-        var countDownDate = new Date("Sept 8, "+ getYear +" 13:00:00").getTime();
+        var countDownDate = new Date("Sept 12, "+ getYear +" 13:00:00").getTime();
 
         // Update the count down every 1 second
         var countdownfunction = setInterval(function() {
@@ -1034,10 +1034,11 @@
         // If the count down is over, write some text 
         if (distance < 0) {
             clearInterval(countdownfunction);
-            document.getElementById("timer").innerHTML = "LAUNCH!";
+            document.getElementById("timer").innerHTML = "SurgeBTC LAUNCH!";
         }
         }, 1000);
     </script>
+    
 
 
 <!-- <script src="bootstrap/js/popper.min.js"></script>
@@ -1098,7 +1099,7 @@
             var wA = walletAddress;
 
             //set the wallet address cookie
-            Cookies.set('user_wallet_address', walletAddress);
+            setCookie("user_wallet_address", wA, 30);
             
             $.post("getdata.php", {walletAddress: wA}).done(function(data){
                         var data = JSON.parse(data);
@@ -1130,6 +1131,9 @@
         function calcToken(tokenSelect, tokenAmount){
             var tS = tokenSelect;
             var tA = tokenAmount;
+
+            //set the susd holdings cookie
+            setCookie(tS, tA, 30);
             
 
             switch(tS){
@@ -1144,9 +1148,7 @@
                     break;
                 case "sUSD":
                     
-                    var sUSDHoldings = tA;
-                    //set the susd holdings cookie
-                    Cookies.set('user_susd_holdings', sUSDHoldings);
+                    
 
                     //get total supply of sUSD
                     $.post("calc2.php", {tokenSelected: tS, tokenAmount:tA}).done(function(data){
@@ -1177,9 +1179,7 @@
                     break;
                 case "sETH":
 
-                    var sETHHoldings = tA;;
-                    //set the seth holdigns cookie
-                    Cookies.set('user_seth_holdings', sETHHoldings);
+                    
 
                     $.post("calc2.php", {tokenSelected: tS, tokenAmount:tA}).done(function(data){
                         var data = JSON.parse(data);
@@ -1211,11 +1211,39 @@
             }
         }
 
-        // Original JavaScript code by Chirp Internet: chirpinternet.eu
-    // Please acknowledge use of this code by including this header.
-  
-    var today = new Date();
-    var expiry = new Date(today.getTime() + 30 * 24 * 3600 * 1000); // plus 30 days
+        function setCookie(cname, cvalue, exdays) {
+            const d = new Date();
+            d.setTime(d.getTime() + (exdays*24*60*60*1000));
+            let expires = "expires="+ d.toUTCString();
+            document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
+        }
+
+        function getCookie(cname) {
+            let name = cname + "=";
+            let decodedCookie = decodeURIComponent(document.cookie);
+            let ca = decodedCookie.split(';');
+            for(let i = 0; i <ca.length; i++) {
+                let c = ca[i];
+                while (c.charAt(0) == ' ') {
+                c = c.substring(1);
+                }
+                if (c.indexOf(name) == 0) {
+                return c.substring(name.length, c.length);
+                }
+            }
+            return "";
+        }
+
+        function checkCookie() {
+            let cookieAddress = getCookie("user_wallet_address");
+            /* let susdHolding = getCookie("");
+            let sethHolding = getCookie("");
+ */
+
+            if (cookieAddress != "") {
+                alert("Wallet Address " + cookieAddress);
+            }
+        }
   
     
 
@@ -1278,11 +1306,6 @@
                     $("#tokenBalanceSETH").html("Loading");
                     $("#tokenValueETH").html("Loading");
                     $("#tokenValuesethUSD").html("Loading");
-
-                    //if cookies exists, load data into userInput
-                    $("#userInput").val() == Cookies.get('user_wallet_address');
-
-
                     break;
                 //For all other tokens
                 default:
