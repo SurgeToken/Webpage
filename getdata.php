@@ -33,12 +33,12 @@
                     $s_token = "sUSD";
 
                     //calculate the USD value of sUSD
-                    $user_token_value = $token_price * $token_result;
-                    $user_token_value_trimmed = rtrim(sprintf('%.2f', floatval($user_token_value)),'0');
+                    $user_token_usd_value = $token_price * $token_result;
+                    $user_token_usd_value_trimmed = rtrim(sprintf('%.2f', floatval($user_token_usd_value)),'0');
                     
                     //calculate users value in BNB
-                    $user_usd_value = $user_token_value * $get_utoken_price;
-                    $user_usd_value_trimmed = rtrim(sprintf('%.12f', floatval($user_usd_value)),'0');
+                    $user_token_value = $user_token_usd_value * $get_utoken_price;
+                    $user_token_value_trimmed = rtrim(sprintf('%.12f', floatval($user_token_value)),'0');
                     break;
                 case "SETH":
                     //get current price of wETH
