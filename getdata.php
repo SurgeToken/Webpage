@@ -46,6 +46,7 @@
                             
                     //calculate sETH Price
                     $token_price = $redis->get("sETH Price");
+                    echo $token_price;
 
                     $u_token = "ETH";
                     $s_token = "sETH";
