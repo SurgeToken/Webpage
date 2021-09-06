@@ -1112,7 +1112,7 @@
                             uTokenValue = item.value_utoken;
                             tokenUSD = item.value_token_usd;
 
-                            displayHTML += "<tr><td>Current Balance:</td><td>"+tokenAmount+ " "+sToken+"</td></tr><tr><td>Current Value ("+uToken+"):</td><td>"+uTokenValue+"</td></tr><tr><td>Current Value (USD):</td><td>"+tokenUSD+"</td></tr><tr><td>&nbsp;</td></tr>";
+                            displayHTML += "<tr><td>Current Balance:</td><td>"+tokenAmount+ " "+sToken+"</td></tr><tr><td>Current Value ("+uToken+"):</td><td>"+uTokenValue+"</td></tr><tr><td>Current Value (USD):</td><td>$"+tokenUSD+"</td></tr><tr><td>&nbsp;</td></tr>";
                             
                             $("#walletResults").empty();
                             $("#walletResults").append(displayHTML);
@@ -1130,6 +1130,7 @@
         function calcToken(tokenSelect, tokenAmount){
             var tS = tokenSelect;
             var tA = tokenAmount;
+            
 
             switch(tS){
                 case "noToken":
@@ -1143,6 +1144,7 @@
                     break;
                 case "sUSD":
                     
+                    var sUSDHoldings = tA;
                     //set the susd holdings cookie
                     Cookies.set('user_susd_holdings', sUSDHoldings);
 
@@ -1175,6 +1177,7 @@
                     break;
                 case "sETH":
 
+                    var sETHHoldings = tA;;
                     //set the seth holdigns cookie
                     Cookies.set('user_seth_holdings', sETHHoldings);
 
@@ -1262,6 +1265,8 @@
 
             switch($("#userSelect").val()){
                 case "wallet":
+                    
+
                     $('#calcResults').hide();
                     $("#userInput").val("");
                     $("#userInput").attr("placeholder", "Enter Wallet Address");
