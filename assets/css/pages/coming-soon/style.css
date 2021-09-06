@@ -8,26 +8,7 @@
 			@Import	Mixins
 	===============================
 */
-html {
-  height: 100%; }
 
-body {
-  height: 100%;
-  overflow: auto;
-  margin: 0;
-  padding: 0;
-  background: #060818; }
-
-.navbar{
-  color: #888ea8 !important;
-}
-
-.logo {
-  width: 60% !important;
-}
-.logo2 {
-  width: 60% !important;
-}
 
 .ethsurge{
   margin-left: -20px;
@@ -37,26 +18,12 @@ body {
   display: flex; }
 
 .coming-soon-cont {
-  width: 50%;
+  width: 100%;
   display: flex;
   flex-direction: column;
   min-height: 100%;
-  height: 100vh; }
-  .coming-soon-cont .coming-soon-wrap {
-    max-width: 480px;
-    margin: 0 auto;
-    min-width: 311px;
-    min-height: 100%; }
-  .coming-soon-cont .coming-soon-container {
-    align-items: center;
-    display: flex;
-    flex-grow: 1;
-    padding: 30px 30px;
-    width: 100%;
-    min-height: 100%; }
-    .coming-soon-cont .coming-soon-container .coming-soon-content {
-      display: block;
-      width: 100%; }
+  }
+
   .coming-soon-cont .coming-soon-content > h4 {
     font-size: 40px;
     margin-top: 30px;

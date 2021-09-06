@@ -36,7 +36,7 @@
   <link href="assets/css/dashboard/dash_1.css?v=1.67" rel="stylesheet" type="text/css" />
   <link href="assets/css/structure.css?v=1.89" rel="stylesheet" type="text/css" />
   <link href="assets/css/masonry_2.css?v=1.28" rel="stylesheet" type="text/css">
-  <link href="assets/css/pages/coming-soon/style.css?v=1.01" rel="stylesheet" type="text/css">
+  <link href="assets/css/pages/coming-soon/style.css?v=1.02" rel="stylesheet" type="text/css">
   <!-- END PAGE LEVEL PLUGINS/CUSTOM STYLES -->
 
   
@@ -46,7 +46,7 @@
     <style>
 
         .container {
-            
+            overflow: hidden;
             width: 100%;
             margin: 0 auto;
             height: 100%;
@@ -89,9 +89,7 @@
         .holderDiv{
             display: none;
         }
-        
-        
-        
+
         </style>
 
 <div class="fullscreen-bg">
@@ -642,19 +640,23 @@
                 </div>
             </div>
 
-            <!-- 5 Keeps the xTokens Addresses Div on the left with the Token Address Div-->
+            <!-- 5 Countdown Div-->
             <div class="box">
                 <div class="widget widget-chart-one spacer5">
-                    <div class="ethsurge">
-                        <img class="sWordmark" src="assets/img/SURGEBTCWhite.png" >
+                    <div class="coming-soon-cont">
+
+                        <div class="">
+                            <img class="sWordmark" src="assets/img/SURGEBTCWhite.png" >
+                        </div>
+                        <br/>
+                         <div id="timer">
+                            <div class="days"><span class="count">--</span> <span class="text">Days</span></div>
+                            <div class="hours"><span class="count">--</span> <span class="text">Hours</span></div>
+                            <div class="min"><span class="count">--</span> <span class="text">Mins</span></div>
+                            <div class="sec"><span class="count">--</span> <span class="text">Secs</span></div>
+                        </div> 
                     </div>
-                    <br/>
-                     <div id="timer">
-                        <div class="days"><span class="count">--</span> <span class="text">Days</span></div>
-                        <div class="hours"><span class="count">--</span> <span class="text">Hours</span></div>
-                        <div class="min"><span class="count">--</span> <span class="text">Mins</span></div>
-                        <div class="sec"><span class="count">--</span> <span class="text">Secs</span></div>
-                    </div>  
+                     
                 </div>
             </div>
 
@@ -1018,6 +1020,10 @@
 
     <!-- Option 1: Bootstrap Bundle with Popper -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj" crossorigin="anonymous"></script>
+
+    
+    <!-- END GLOBAL MANDATORY SCRIPTS -->
+    <script src="assets/js/pages/coming-soon/coming-soon.js"></script>
 
     <script>
         // Set the date we're counting down to
