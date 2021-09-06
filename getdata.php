@@ -24,39 +24,38 @@
             switch($token_name){
                 case "SUSD":
                     //get the current price of BNB
-                    $get_utoken_price = $redis->get("BNB Price");
+                    $get_bnb_price = $redis->get("BNB Price");
 
                     //calculate sUSD Price
-                    $token_price = $redis->get("sUSD Price");
+                    $susd_price = $redis->get("sUSD Price");
 
                     $u_token = "BNB";
                     $s_token = "sUSD";
 
                     //calculate the USD value of sUSD
-                    $user_token_usd_value = $token_price * $token_result;
+                    $user_token_usd_value = $susd_price * $token_result;
                     $user_token_usd_value_trimmed = rtrim(sprintf('%.2f', floatval($user_token_usd_value)),'0');
                     
                     //calculate users value in BNB
-                    $user_token_value = $user_token_usd_value / $get_utoken_price;
+                    $user_token_value = $user_token_usd_value / $get_bnb_price;
                     $user_token_value_trimmed = rtrim(sprintf('%.12f', floatval($user_token_value)),'0');
                     break;
                 case "SETH":
                     //get current price of wETH
-                    $get_utoken_price = $redis->get("wETH Price");
+                    $get_weth_price = $redis->get("wETH Price");
                             
                     //calculate sETH Price
-                    $token_price = $redis->get("sETH Price");
-                    echo $token_price;
+                    $seth_price = $redis->get("sETH Price");
 
                     $u_token = "ETH";
                     $s_token = "sETH";
 
                     //calculate the USD value of sETH
-                    $user_token_usd_value = $token_price * $token_result;
+                    $user_token_usd_value = $seth_price * $token_result;
                     $user_token_usd_value_trimmed = rtrim(sprintf('%.2f', floatval($user_token_usd_value)),'0');
                     
                     //calculate users value in ETH
-                    $user_token_value = $user_token_usd_value / $get_utoken_price;
+                    $user_token_value = $user_token_usd_value / $get_weth_price;
                     $user_token_value_trimmed = rtrim(sprintf('%.4f', floatval($user_token_value)),'0');
                     break;
                 default:
