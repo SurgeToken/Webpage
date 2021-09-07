@@ -19,7 +19,7 @@
 
         $token_result = $token->result;
 
-        if($token_result != 0){
+        if($token_result != "0"){
             
             switch($token_name){
                 case "SUSD":
