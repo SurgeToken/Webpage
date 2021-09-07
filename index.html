@@ -468,7 +468,7 @@
             </div>
             
             <!-- 5 Countdown -->
-            <div class="box">
+            <div class="box" id="countdown">
                 <div class="widget widget-chart-one spacer5">
                     <div class="coming-soon-cont">
 
@@ -502,7 +502,7 @@
                     </div>
                     <div class="blocks">
                         <h3 class="">How about the fees?</h3>
-                        <h5 class="">6% fee when you buy, 6% fee when you sell, 7% fee across coins & 2% for wallet-to-wallet transfers</h5>
+                        <h5 class="">6% fee to buy, 6% fee to sell, 7% fee to navigate between tokens (i.e., SETH to SBTC) & 2% fee for wallet-to-wallet transfers</h5>
                         <hr>
                     </div>
                     <div class="blocks">
@@ -531,7 +531,7 @@
             </div>
 
             <!-- 4 Token Addresses -->
-            <div class="box ">
+            <div class="box " id="tok">
                 <div class="widget widget-chart-one spacer5">
                     <em><h3>Find your favorite <strong>Token</strong> contract address here:</h3></em>
                     <img class="sWordmark" src="assets/img/SURGEUSDWhite.png" >
@@ -546,13 +546,18 @@
                     <!-- <hr>
                     <img class="sWordmark" src="assets/img/SURGEBTCWhite.png" >
                     <div class="contractAddress text-end">
-                        <p class="cAddress" id="SurgeBTC">inserthere  <i onclick="copyAddress('SurgeETH');return false;" class="far fa-copy"></i></p>
+                        <p class="cAddress" id="SurgeBTC">inserthere  <i onclick="copyAddress('SurgeBTC');return false;" class="far fa-copy"></i></p>
+                    </div> -->
+                    <!-- <hr>
+                    <img class="sWordmark" src="assets/img/SURGEADAWhite.png" >
+                    <div class="contractAddress text-end">
+                        <p class="cAddress" id="SurgeADA">inserthere  <i onclick="copyAddress('SurgeADA');return false;" class="far fa-copy"></i></p>
                     </div> -->
                 </div>
             </div>
 
             <!-- 3 Token Stats/Balances-->
-            <div class="box ">
+            <div class="box " id="tokbal">
                 <div class="widget widget-chart-one spacer5">
                     <h3 class="">Token Statistics</h3>
                     <div>
@@ -581,6 +586,32 @@
                             </tr>
                         </table><br>(Token Stats, to include your amount, auto refresh every 15-30 seconds)
                     </div>
+                    <!-- <div>
+                        <img class="sWordmark" src="assets/img/SURGEBTCWhite.png" >
+                        <table class="table table-borderless statsTable">
+                            <tr>
+                                <td>Price:</td>
+                                <td id="sBTCPrice">Loading</td>
+                            </tr>
+                            <tr>
+                                <td>Holders:</td>
+                                <td id="sBTCHolders">Loading</td>
+                            </tr>
+                        </table><br>(Token Stats, to include your amount, auto refresh every 15-30 seconds)
+                    </div> -->
+                    <!-- <div>
+                        <img class="sWordmark" src="assets/img/SURGEADAWhite.png" >
+                        <table class="table table-borderless statsTable">
+                            <tr>
+                                <td>Price:</td>
+                                <td id="sADAPrice">Loading</td>
+                            </tr>
+                            <tr>
+                                <td>Holders:</td>
+                                <td id="sADAHolders">Loading</td>
+                            </tr>
+                        </table><br>(Token Stats, to include your amount, auto refresh every 15-30 seconds)
+                    </div> -->
                     <hr>
                     <div class="row spacer4">
                         <div class="col-xs-12 col-sm-12 col-md-12 col-lg-6 col-xl-6">
@@ -590,6 +621,8 @@
                                         <option value="wallet">Wallet Address</option>
                                         <option value="sUSD">SurgeUSD</option>
                                         <option value="sETH">SurgeETH</option>
+                                        <!-- <option value="sBTC">SurgeBTC</option> -->
+                                        <!-- <option value="sADA">SurgeADA</option> -->
                                 </select>
                             </div>
                         </div>
@@ -643,7 +676,7 @@
             </div>
 
             <!-- 6 xToken Addresses -->
-            <div class="box ">
+            <div class="box " id="xtok">
                 <div class="widget widget-chart-one spacer5">
                     <em><h3>Find your favorite <strong>xToken</strong> contract address here:</h3></em>
                     <p>Relaunch Coming Soon</p>
@@ -1377,16 +1410,33 @@
 <script>
 
     function mobileOrder(x) {
-        var hiw = $('#hiw');
-        var htb = $('#htb');
 
-        var thiw = hiw.clone();
-        var thtb = htb.clone();
+        if($("#countdown").is(":visible")){
+            //do nothing
+            var tok = $("#tok");
+            var tokbal = $("#tokbal");
 
-        if (x.matches) { // If media query matches
-            htb.replaceWith(thiw);
-            hiw.replaceWith(thtb);
-        } 
+            var ttok = tok.clone();
+            var ttokbal = tokbal.clone();
+
+            if (x.matches) { // If media query matches
+                tok.replaceWith(ttokbal);
+                tokbal.replaceWith(ttok);
+            } 
+
+        } else {
+            var hiw = $('#hiw');
+            var htb = $('#htb');
+
+            var thiw = hiw.clone();
+            var thtb = htb.clone();
+
+            if (x.matches) { // If media query matches
+                htb.replaceWith(thiw);
+                hiw.replaceWith(thtb);
+            } 
+        }
+        
     }
 
     var x = window.matchMedia("(max-width: 767px)");
