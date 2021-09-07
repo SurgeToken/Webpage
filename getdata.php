@@ -78,7 +78,7 @@
     }
 
     //push the $data array to index.html
-    echo json_encode($data); 
+    echo json_encode(array_filter($data)); 
 
 
 ?>
