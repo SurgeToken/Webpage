@@ -96,6 +96,7 @@
 
     .priceTable > tbody > tr > td{
         font-size: 2.3vw ;
+        color:#fff;
     }
 
     .statsTable > tbody > tr > td{
@@ -106,6 +107,14 @@
         background-color: #00081085;
         min-width: 100vw;
         padding: 0;
+    }
+
+    .aImg{
+        display: none;
+    }
+
+    .iImg{
+        display:block;
     }
 }
 
@@ -116,6 +125,7 @@
 
     .priceTable > tbody > tr > td{
         font-size: 2.3vw ;
+        color:#fff;
     }
 
     .statsTable > tbody > tr > td{
@@ -130,6 +140,14 @@
 
     .spacerSF{
         margin-bottom: 2%;
+    }
+
+    .aImg{
+        display: none;
+    }
+
+    .iImg{
+        display:block;
     }
 }
 
@@ -139,6 +157,7 @@
     }
     .priceTable > tbody > tr > td{
         font-size: 2.6vw ;
+        color:#fff;
     }
     .statsTable > tbody > tr > td{
         font-size: 3.6vw ;
@@ -152,6 +171,14 @@
 
     .spacerSF{
         margin-bottom: 2%;
+    }
+
+    .aImg{
+        display: none;
+    }
+
+    .iImg{
+        display:block;
     }
 }
 
@@ -162,6 +189,7 @@
 
     .priceTable > tbody > tr > td{
         font-size: 2.8vw ;
+        color:#fff;
     }
     .statsTable > tbody > tr > td{
         font-size: 3.6vw ;
@@ -176,6 +204,14 @@
     .spacerSF{
         margin-bottom: 2%;
     }
+
+    .aImg{
+        display: none;
+    }
+
+    .iImg{
+        display:block;
+    }
 }
 
 @media screen and (min-width: 580px) and (max-width: 767px) {
@@ -184,6 +220,7 @@
     }
     .priceTable > tbody > tr > td{
         font-size: 2.7vw ;
+        color:#fff;
     }
     .statsTable > tbody > tr > td{
         font-size: 3vw ;
@@ -198,6 +235,14 @@
     .spacerSF{
         margin-bottom: 2%;
     }
+
+    .aImg{
+        display: none;
+    }
+
+    .iImg{
+        display:block;
+    }
     
 }
 
@@ -207,6 +252,7 @@
     }
     .priceTable > tbody > tr > td{
         font-size: 1vw ;
+        color:#fff;
     }
     .statsTable > tbody > tr > td{
         font-size: 1.7vw ;
@@ -230,6 +276,14 @@
     .surgeAmount{
         font-size: .9vw;
     }
+
+    .aImg{
+        display: block;
+    }
+
+    .iImg{
+        display:none;
+    }
 }
 
 @media screen and (min-width: 837px) and (max-width: 1299px) {
@@ -238,6 +292,7 @@
     }
     .priceTable > tbody > tr > td{
         font-size: 1.1vw ;
+        color:#fff;
     }
     .statsTable > tbody > tr > td{
         font-size: 1.7vw ;
@@ -261,6 +316,14 @@
     .surgeAmount{
         font-size: .9vw;
     }
+
+    .aImg{
+        display: block;
+    }
+
+    .iImg{
+        display:none;
+    }
     
 }
  
@@ -270,6 +333,7 @@
     }
     .priceTable > tbody > tr > td{
         font-size: 1vw ;
+        color:#fff;
     }
     .statsTable > tbody > tr > td{
         font-size: 1vw ;
@@ -292,6 +356,14 @@
     }
     .surgeAmount{
         font-size: .9vw;
+    }
+
+    .aImg{
+        display: block;
+    }
+
+    .iImg{
+        display:none;
     }
 }
 

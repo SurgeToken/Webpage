@@ -1,0 +1,44 @@
+{
+  "name": "lightbox.js",
+  "version": "0.0.6",
+  "description": "A simple and easily customizable lightbox.",
+  "main": "gulpfile.js",
+  "dependencies": {},
+  "devDependencies": {
+    "babel-core": "^6.26.3",
+    "babel-preset-env": "^1.7.0",
+    "browser-sync": "^2.24.6",
+    "gulp": "^3.9.1",
+    "gulp-autoprefixer": "^4.0.0",
+    "gulp-babel": "^7.0.0",
+    "gulp-combine-mq": "^0.4.0",
+    "gulp-concat": "^2.6.1",
+    "gulp-csso": "^3.0.0",
+    "gulp-eslint": "^4.0.0",
+    "gulp-imagemin": "^3.3.0",
+    "gulp-rename": "^1.4.0",
+    "gulp-sass": "^3.2.1",
+    "gulp-stylelint": "^5.0.0",
+    "gulp-uglify": "^3.0.1",
+    "imagemin-mozjpeg": "^6.0.0",
+    "imagemin-pngquant": "^5.0.1",
+    "stylelint-config-standard": "^17.0.0"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/victordieggo/lightbox.js.git"
+  },
+  "keywords": [
+    "lightbox",
+    "javascript"
+  ],
+  "author": "Victor Diego <victordieggo@gmail.com> (http://victordiego.com/)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/victordieggo/lightbox.js/issues"
+  },
+  "homepage": "https://github.com/victordieggo/lightbox.js#readme"
+}

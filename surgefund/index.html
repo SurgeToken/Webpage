@@ -18,6 +18,8 @@
   <link rel="icon" type="image/x-icon" href="/assets/img/logo.ico"/>
   <link href="/assets/css/loader.css" rel="stylesheet" type="text/css" />
   <script src="/assets/js/loader.js"></script>
+
+  <link href="/assets/lightbox.js-master/lightbox/lightbox.min.css?v=1.01" rel="stylesheet">
   
   <!-- BEGIN GLOBAL MANDATORY STYLES -->
   <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin>
@@ -33,9 +35,9 @@
 
   <!-- BEGIN PAGE LEVEL PLUGINS/CUSTOM STYLES -->
   <link href="/plugins/apex/apexcharts.css" rel="stylesheet" type="text/css">
-  <link href="/assets/css/dashboard/dash_1.css?v=1.67" rel="stylesheet" type="text/css" />
-  <link href="/assets/css/structure.css?v=1.89" rel="stylesheet" type="text/css" />
-  <link href="/assets/css/masonry_2.css?v=1.28" rel="stylesheet" type="text/css">
+  <link href="/assets/css/dashboard/dash_1.css?v=1.69" rel="stylesheet" type="text/css" />
+  <link href="/assets/css/structure.css?v=1.90" rel="stylesheet" type="text/css" />
+  <link href="/assets/css/masonry_2.css?v=1.29" rel="stylesheet" type="text/css">
   <!-- END PAGE LEVEL PLUGINS/CUSTOM STYLES -->
 
   
@@ -98,6 +100,95 @@
         .introSF {
             background-color: rgb(6 31 43 / 80%);
         }
+
+        .tutorial-img  {
+            border-radius: 5px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+        
+        .tutorial-img:hover {opacity: 0.7;}
+
+        @media screen and (max-width: 329px) {
+            .aImg{
+                display:none !important;
+            }
+
+            .iImg{
+                display:block !important;
+            }
+        }
+
+        @media screen and (min-width: 330px) and (max-width: 364px) {
+            .aImg{
+                display:none !important;
+            }
+
+            .iImg{
+                display:block !important;
+            }
+        }
+
+        @media screen and (min-width: 365px) and (max-width: 399px) {
+            .aImg{
+                display:none !important;
+            }
+
+            .iImg{
+                display:block !important;
+            }
+        }
+
+        @media screen and (min-width: 400px) and (max-width: 579px) {
+            .aImg{
+                display:none !important;
+            }
+
+            .iImg{
+                display:block !important;
+            }
+        }
+
+        @media screen and (min-width: 580px) and (max-width: 767px) {
+            .aImg{
+                display:none !important;
+            }
+
+            .iImg{
+                display:block !important;
+            }
+        }
+
+        @media screen and (min-width: 768px) and (max-width: 836px) {
+            .aImg{
+                display: block !important;
+            }
+
+            .iImg{
+                display:none !important;
+            }
+        }
+
+        @media screen and (min-width: 837px) and (max-width: 1299px) {
+            .aImg{
+                display: block !important;
+            }
+
+            .iImg{
+                display:none !important;
+            } 
+        }
+ 
+        @media screen and (min-width: 1300px) {
+            .aImg{
+                display: block !important;
+            }
+
+            .iImg{
+                display:none !important;
+            }
+        }
+
         </style>
 
 <div class="fullscreen-bg">
@@ -479,7 +570,7 @@
             <div class="boxIntro ">
                 <div class="row introSpacer">
                     <div class="col-xl-12 col-lg-9 col-md-9 col-sm-12 col-xs-12 text-center align-self-center">
-                        <img class=" mx-auto d-block" src="/assets/img/surgefundhowto1.png" alt="coming_soon" id="howto-img">
+                        <img  class=" mx-auto d-block" src="/assets/img/surgefundhowto1.png" alt="coming_soon" id="howto-img">
                     </div>
                 </div>
             </div>
@@ -497,7 +588,10 @@
                     
                 </div>
                 <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12">
-                    <img class=" mx-auto d-block" src="/assets/img/surgefund2.png" alt="coming_soon" id="tutorial-img">
+                    <a href="/assets/img/surgefund2.png" data-lightbox data-image-alt="Image Desc" class="aImg"> 
+                        <img class=" mx-auto d-block tutorial-img" src="/assets/img/surgefund2.png" alt="coming_soon" >
+                    </a>
+                    <img class=" mx-auto d-block tutorial-img iImg" src="/assets/img/surgefund2.png" alt="coming_soon" >
                 </div>
             </div>
 
@@ -515,7 +609,10 @@
                     </h5>
                 </div>
                 <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12 align-self-center">
-                    <img class=" mx-auto d-block" src="/assets/img/surgefund3.png" alt="coming_soon" id="tutorial-img">
+                    <a href="/assets/img/surgefund3.png" data-lightbox data-image-alt="Image Desc" class="data-image-alt="Image Desc" class="lbImgaImg""> 
+                        <img class="mx-auto d-block tutorial-img" src="/assets/img/surgefund3.png" alt="coming_soon" >
+                    </a>
+                    <img class=" mx-auto d-block tutorial-img iImg" src="/assets/img/surgefund3.png" alt="coming_soon" >
                 </div>
             </div>
 
@@ -532,7 +629,10 @@
                     </h5>
                 </div>
                 <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12 align-self-center">
-                    <img class=" mx-auto d-block" src="/assets/img/surgefund4.png" alt="coming_soon" id="tutorial-img">
+                    <a href="/assets/img/surgefund4.png" data-lightbox data-image-alt="Image Desc" class="data-image-alt="Image Desc" class="lbImgaImg""> 
+                        <img class="mx-auto d-block tutorial-img" src="/assets/img/surgefund4.png" alt="coming_soon" >
+                    </a>
+                    <img class=" mx-auto d-block tutorial-img iImg" src="/assets/img/surgefund4.png" alt="coming_soon" >
                 </div>
             </div>
 
@@ -546,7 +646,10 @@
                     </h4>
                 </div>
                 <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12 align-self-center">
-                    <img class=" mx-auto d-block" src="/assets/img/surgefund5.png" alt="coming_soon" id="tutorial-img">
+                    <a href="/assets/img/surgefund5.png" data-lightbox data-image-alt="Image Desc" class="data-image-alt="Image Desc" class="lbImgaImg""> 
+                        <img class="mx-auto d-block tutorial-img" src="/assets/img/surgefund5.png" alt="coming_soon" >
+                    </a>
+                    <img class=" mx-auto d-block tutorial-img iImg" src="/assets/img/surgefund5.png" alt="coming_soon" >
                 </div>
             </div>
 
@@ -560,7 +663,10 @@
                     </h4>
                 </div>
                 <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12 align-self-center">
-                    <img class=" mx-auto d-block" src="/assets/img/surgefund6.png" alt="coming_soon" id="tutorial-img">
+                    <a href="/assets/img/surgefund6.png" data-lightbox data-image-alt="Image Desc" class="data-image-alt="Image Desc" class="lbImgaImg""> 
+                        <img class="mx-auto d-block tutorial-img" src="/assets/img/surgefund6.png" alt="coming_soon" >
+                    </a>
+                    <img class=" mx-auto d-block tutorial-img iImg" src="/assets/img/surgefund6.png" alt="coming_soon" >
                 </div>
             </div>
             <div class="row rowPad">
@@ -579,7 +685,7 @@
             <div class="boxIntro ">
                 <div class="row introSpacer">
                     <div class="col-xl-12 col-lg-9 col-md-9 col-sm-12 col-xs-12 text-center align-self-center">
-                        <img class=" mx-auto d-block" src="/assets/img/surgefundhowto2.png" alt="coming_soon" id="tutorial-img">
+                        <img  class=" mx-auto d-block" src="/assets/img/surgefundhowto2.png" alt="coming_soon" >
                     </div>
                 </div>
             </div>
@@ -597,7 +703,10 @@
                     
                 </div>
                 <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12 align-self-center">
-                    <img class=" mx-auto d-block" src="/assets/img/surgefund7.png" alt="coming_soon" id="tutorial-img">
+                    <a href="/assets/img/surgefund7.png" data-lightbox data-image-alt="Image Desc" class="data-image-alt="Image Desc" class="lbImgaImg""> 
+                        <img class="mx-auto d-block tutorial-img" src="/assets/img/surgefund7.png" alt="coming_soon" >
+                    </a>
+                    <img class=" mx-auto d-block tutorial-img iImg" src="/assets/img/surgefund7.png" alt="coming_soon" >
                 </div>
             </div>
 
@@ -610,11 +719,13 @@
                         At this point you'll be looking at various function calls within the contract.  Select {<span class="dot"></span><span class="connectText"> Connect to Web</span>} and connect to your wallet.  This is what we'll use to claim our reimbursement from the contract as new funds are added.
                     </h4>
                     <h5>Connecting may either be done through:</h5><br>
-                    <img class=" mx-auto d-block" src="/assets/img/surgefundconnect.png" alt="coming_soon" style="width: 20rem">
+                    <img  class=" mx-auto d-block" src="/assets/img/surgefundconnect.png" alt="coming_soon" style="width: 20rem">
                 </div>
                 <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12 align-self-center">
-                    
-                    <img class=" mx-auto d-block" src="/assets/img/surgefund8.png" alt="coming_soon" id="tutorial-img">
+                    <a href="/assets/img/surgefund8.png" data-lightbox data-image-alt="Image Desc" class="data-image-alt="Image Desc" class="lbImgaImg""> 
+                        <img class="mx-auto d-block tutorial-img" src="/assets/img/surgefund8.png" alt="coming_soon" >
+                    </a>
+                    <img class=" mx-auto d-block tutorial-img iImg" src="/assets/img/surgefund8.png" alt="coming_soon" >
                 </div>
             </div>
 
@@ -635,7 +746,10 @@
                     </h4>
                 </div>
                 <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12 align-self-center">
-                    <img class=" mx-auto d-block" src="/assets/img/surgefund9.png" alt="coming_soon" id="tutorial-img">
+                    <a href="/assets/img/surgefund9.png" data-lightbox data-image-alt="Image Desc" class="data-image-alt="Image Desc" class="lbImgaImg""> 
+                        <img class="mx-auto d-block tutorial-img" src="/assets/img/surgefund9.png" alt="coming_soon" >
+                    </a>
+                    <img class=" mx-auto d-block tutorial-img iImg" src="/assets/img/surgefund9.png" alt="coming_soon" >
                 </div>
             </div>
             
@@ -651,7 +765,10 @@
                     </h4>
                 </div>
                 <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12 align-self-center">
-                    <img class=" mx-auto d-block" src="/assets/img/surgefund10.png" alt="coming_soon" id="tutorial-img">
+                    <a href="/assets/img/surgefund10.png" data-lightbox data-image-alt="Image Desc" class="data-image-alt="Image Desc" class="lbImgaImg""> 
+                        <img class="mx-auto d-block tutorial-img" src="/assets/img/surgefund10.png" alt="coming_soon" >
+                    </a>
+                    <img class=" mx-auto d-block tutorial-img iImg" src="/assets/img/surgefund10.png" alt="coming_soon" >
                 </div>
             </div>
 
@@ -662,15 +779,15 @@
                 </div>
                 <div class="col-xl-8 col-lg-8 col-md-8 col-sm-12 col-xs-12 text-center align-self-center">
                     <h3>
-                        This concludes the How To tutorial for the Surge Fund Contract.</h3><br><h4>If you have any questions or concerns, <a href="https://discord.gg/XSURGE" class="clickHere">Click Here</a> to contact a moderator on the Official Discord.
-                    <br><br>
-                <strong><a href="https://xsurge.net/index.html" class="clickHere">Click Here</a> to go back to the Homepage.</strong>
-                </h4>
+                        This concludes the How To tutorial for the Surge Fund Contract.
+                    </h3>
+                    <br>
+                    <h4>
+                        If you have any questions or concerns, <a href="https://discord.gg/XSURGE" class="clickHere">Click Here</a> to contact a moderator on the Official Discord.
+                        <br><br>
+                        <strong><a href="https://xsurge.net/index.html" class="clickHere">Click Here</a> to go back to the Homepage.</strong>
+                    </h4>
                 </div>
-               
-                    
-                </div>
-                
             </div>
             
 
@@ -1020,6 +1137,7 @@
 
 <script src="/assets/js/custom.js"></script>
 <script src="/assets/js/dashboard/dash_1.js"></script>
+<!-- <script src="/assets/lightbox.js-master/lightbox/lightbox.min.js"></script> -->
 <!-- END GLOBAL MANDATORY SCRIPTS -->
 <script src="//unpkg.com/imagesloaded@4/imagesloaded.pkgd.min.js"></script>
 <script>
@@ -1044,5 +1162,24 @@ function copyAddress(id){
 
             }
 
+</script>
+
+<script>
+
+    function dynamicallyLoadScript() {
+        var script = document.createElement("script");  // create a script DOM node
+        script.src = "/assets/lightbox.js-master/lightbox/lightbox.min.js";  // set its src to the provided URL
+
+        document.head.appendChild(script);  // add it to the end of the head section of the page (could change 'head' to 'body' to add it to the end of the body section instead)
+    }
+
+    var x = window.matchMedia("(min-width: 768px)");
+
+    if (x.matches) { // If media query matches
+        dynamicallyLoadScript();
+    } else {
+        //do something else
+        
+    }
 </script>
 </body>
