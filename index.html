@@ -531,7 +531,7 @@
             </div>
 
             <!-- 4 Token Addresses -->
-            <div class="box ">
+            <div class="box " id="tok">
                 <div class="widget widget-chart-one spacer5">
                     <em><h3>Find your favorite <strong>Token</strong> contract address here:</h3></em>
                     <img class="sWordmark" src="assets/img/SURGEUSDWhite.png" >
@@ -557,7 +557,7 @@
             </div>
 
             <!-- 3 Token Stats/Balances-->
-            <div class="box ">
+            <div class="box " id="tokbal">
                 <div class="widget widget-chart-one spacer5">
                     <h3 class="">Token Statistics</h3>
                     <div>
@@ -676,7 +676,7 @@
             </div>
 
             <!-- 6 xToken Addresses -->
-            <div class="box ">
+            <div class="box " id="xtok">
                 <div class="widget widget-chart-one spacer5">
                     <em><h3>Find your favorite <strong>xToken</strong> contract address here:</h3></em>
                     <p>Relaunch Coming Soon</p>
@@ -1413,6 +1413,17 @@
 
         if($("#countdown").is(":visible")){
             //do nothing
+            var tok = $("#tok");
+            var tokbal = $("#tokbal");
+
+            var ttok = tok.clone();
+            var ttokbal = tokbal.clone();
+
+            if (x.matches) { // If media query matches
+                tok.replaceWith(ttokbal);
+                tokbal.replaceWith(ttok);
+            } 
+
         } else {
             var hiw = $('#hiw');
             var htb = $('#htb');
