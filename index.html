@@ -468,7 +468,7 @@
             </div>
             
             <!-- 5 Countdown -->
-            <div class="box">
+            <div class="box" id="countdown">
                 <div class="widget widget-chart-one spacer5">
                     <div class="coming-soon-cont">
 
@@ -1410,16 +1410,22 @@
 <script>
 
     function mobileOrder(x) {
-        var hiw = $('#hiw');
-        var htb = $('#htb');
 
-        var thiw = hiw.clone();
-        var thtb = htb.clone();
+        if($("#countdown").is(":visible")){
+            //do nothing
+        } else {
+            var hiw = $('#hiw');
+            var htb = $('#htb');
 
-        if (x.matches) { // If media query matches
-            htb.replaceWith(thiw);
-            hiw.replaceWith(thtb);
-        } 
+            var thiw = hiw.clone();
+            var thtb = htb.clone();
+
+            if (x.matches) { // If media query matches
+                htb.replaceWith(thiw);
+                hiw.replaceWith(thtb);
+            } 
+        }
+        
     }
 
     var x = window.matchMedia("(max-width: 767px)");
