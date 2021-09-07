@@ -58,6 +58,42 @@
                     $user_token_usd_value = $user_token_value * $get_weth_price;
                     $user_token_usd_value_trimmed = rtrim(sprintf('%.2f', floatval($user_token_usd_value)),'0');
                     break;
+                /* case "SBTC":
+                    //get current price of bBTC
+                    $get_bbtc_price = $redis->get("bBTC Price");
+                                
+                    //calculate sBTC Price
+                    $sbtc_price = $redis->get("sBTC Price");
+    
+                    $u_token = "BTC";
+                    $s_token = "sBTC";
+    
+                    //calculate the BTC value of sBTC
+                    $user_token_value = $sbtc_price * $token_result;
+                    $user_token_value_trimmed = rtrim(sprintf('%.4f', floatval($user_token_value)),'0');
+                        
+                    //calculate users value in BTC
+                    $user_token_usd_value = $user_token_value * $get_bbtc_price;
+                    $user_token_usd_value_trimmed = rtrim(sprintf('%.2f', floatval($user_token_usd_value)),'0');
+                    break; */
+                /* case "SADA":
+                    //get current price of bBTC
+                    $get_bada_price = $redis->get("bADA Price");
+                                    
+                    //calculate sADA Price
+                    $sada_price = $redis->get("sADA Price");
+        
+                    $u_token = "ADA";
+                    $s_token = "sADA";
+        
+                    //calculate the ADA value of sADA
+                    $user_token_value = $sada_price * $token_result;
+                    $user_token_value_trimmed = rtrim(sprintf('%.4f', floatval($user_token_value)),'0');
+                            
+                    //calculate users value in ADA
+                    $user_token_usd_value = $user_token_value * $get_bada_price;
+                    $user_token_usd_value_trimmed = rtrim(sprintf('%.2f', floatval($user_token_usd_value)),'0');
+                    break; */
                 default:
                     break;
 
