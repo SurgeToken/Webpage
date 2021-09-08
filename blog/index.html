@@ -772,6 +772,9 @@
     <!-- Option 1: Bootstrap Bundle with Popper -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj" crossorigin="anonymous"></script>
 
+    <!--Firebase-->
+    <script src="https://www.gstatic.com/firebasejs/9.0.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.0.1/firebase-firestore.js"></script>  
  
     
 
@@ -780,41 +783,33 @@
 <script src="bootstrap/js/bootstrap.min.js"></script> -->
 <script src="/assets/js/app.js"></script>
 
-<script type="module">
-    // Import the functions you need from the SDKs you need
-    import { initializeApp } from "https://www.gstatic.com/firebasejs/9.0.1/firebase-app.js";
-    import { getAnalytics } from "https://www.gstatic.com/firebasejs/9.0.1/firebase-analytics.js";
-    // TODO: Add SDKs for Firebase products that you want to use
-    // https://firebase.google.com/docs/web/setup#available-libraries
-  
-    // Your web app's Firebase configuration
-    // For Firebase JS SDK v7.20.0 and later, measurementId is optional
-    const firebaseConfig = {
-      apiKey: "AIzaSyDZvkQrqNuP4IKaM52iPX-7jq0DxZUgJq0",
-      authDomain: "xsurge-d234b.firebaseapp.com",
-      projectId: "xsurge-d234b",
-      storageBucket: "xsurge-d234b.appspot.com",
-      messagingSenderId: "534796218765",
-      appId: "1:534796218765:web:b2773480a0bf34a3470dc4",
-      measurementId: "G-Z6J9ZBTY7Y"
-    };
-  
-    // Initialize Firebase
-    const app = initializeApp(firebaseConfig);
-    const analytics = getAnalytics(app);\
-    const db = getFirestore(app);
 
-    // Get a list of cities from your database
-    async function getBlogs(db) {
-    const blogsCol = collection(db, 'blogs');
-    const blogSnapshot = await getDocs(blogsCol);
-    const blogList = blogSnapshot.docs.map(doc => doc.data());
-    return blogList;
-    }
-
-</script>
 
 <script>
+
+    const firebase = require("firebase");
+    // Required for side-effects
+    require("firebase/firestore");
+
+    // Initialize Cloud Firestore through Firebase
+    firebase.initializeApp({
+        apiKey: "AIzaSyDZvkQrqNuP4IKaM52iPX-7jq0DxZUgJq0",
+        authDomain: "xsurge-d234b.firebaseapp.com",
+        projectId: "xsurge-d234b",
+        storageBucket: "xsurge-d234b.appspot.com",
+        messagingSenderId: "534796218765",
+        appId: "1:534796218765:web:b2773480a0bf34a3470dc4",
+        measurementId: "G-Z6J9ZBTY7Y"
+    });
+
+    var db = firebase.firestore();
+    
+    db.collection("blogs").get().then((querySnapshot) => {
+        querySnapshot.forEach((doc) => {
+            console.log(`${doc.id} => ${doc.data()}`);
+        });
+    });
+
 
     $(document).ready(function() {
 
