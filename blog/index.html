@@ -801,8 +801,17 @@
   
     // Initialize Firebase
     const app = initializeApp(firebaseConfig);
-    const analytics = getAnalytics(app);
-    
+    const analytics = getAnalytics(app);\
+    const db = getFirestore(app);
+
+    // Get a list of cities from your database
+    async function getBlogs(db) {
+    const blogsCol = collection(db, 'blogs');
+    const blogSnapshot = await getDocs(blogsCol);
+    const blogList = blogSnapshot.docs.map(doc => doc.data());
+    return blogList;
+    }
+
 </script>
 
 <script>
