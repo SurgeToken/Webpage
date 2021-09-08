@@ -424,6 +424,14 @@
           
                 </header>
             </div>
+
+            <div class="blog-container">
+
+            </div>
+
+            <div class="sidebar-container">
+
+            </div>
             
             <!-- 5 Countdown -->
             <div class="box" id="countdown">
@@ -789,6 +797,30 @@
 <!-- <script src="bootstrap/js/popper.min.js"></script>
 <script src="bootstrap/js/bootstrap.min.js"></script> -->
 <script src="assets/js/app.js"></script>
+
+<script type="module">
+    // Import the functions you need from the SDKs you need
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/9.0.1/firebase-app.js";
+    import { getAnalytics } from "https://www.gstatic.com/firebasejs/9.0.1/firebase-analytics.js";
+    // TODO: Add SDKs for Firebase products that you want to use
+    // https://firebase.google.com/docs/web/setup#available-libraries
+  
+    // Your web app's Firebase configuration
+    // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+    const firebaseConfig = {
+      apiKey: "AIzaSyDZvkQrqNuP4IKaM52iPX-7jq0DxZUgJq0",
+      authDomain: "xsurge-d234b.firebaseapp.com",
+      projectId: "xsurge-d234b",
+      storageBucket: "xsurge-d234b.appspot.com",
+      messagingSenderId: "534796218765",
+      appId: "1:534796218765:web:b2773480a0bf34a3470dc4",
+      measurementId: "G-Z6J9ZBTY7Y"
+    };
+  
+    // Initialize Firebase
+    const app = initializeApp(firebaseConfig);
+    const analytics = getAnalytics(app);
+</script>
 
 <script>
 
