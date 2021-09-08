@@ -779,6 +779,8 @@
 <!-- <script src="bootstrap/js/popper.min.js"></script>
 <script src="bootstrap/js/bootstrap.min.js"></script> -->
 <script src="/assets/js/app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/9.0.1/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/9.0.1/firebase-firestore.js"></script>
 
 <script type="module">
     // Import the functions you need from the SDKs you need
@@ -802,9 +804,23 @@
     // Initialize Firebase
     const app = initializeApp(firebaseConfig);
     const analytics = getAnalytics(app);
+
+    const db = getFirestore(app);
+
+    // Get a list of cities from your database
+    async function getBlogs(db) {
+    const blogsCol = collection(db, 'blogs');
+    const blogSnapshot = await getDocs(blogsCol);
+    const blogList = blogSnapshot.docs.map(doc => doc.data());
+    return blogList;
+    }
 </script>
 
 <script>
+
+    const firebase = require("firebase");
+    // Required for side-effects
+    require("firebase/firestore");
 
     $(document).ready(function() {
 
