@@ -236,7 +236,12 @@ function App() {
             <p>Relaunch Coming Soon</p>
           </WidgetData>
         </Card>
-      </div>
+
+        {/* CopyMSG */}
+        <div className="centerpoint widgetMsg" id="copyMSG" >
+                <div className="dialog" id="dialog"/>
+            </div>
+        </div>
     </div>
   );
 }

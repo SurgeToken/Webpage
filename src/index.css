@@ -1,6 +1,11 @@
 .layout-spacing {
     padding-bottom: 25px;
 }
+
+#copyMsg{
+  display: none;
+}
+
 .footer-wrapper {
     padding: 10px 0 10px 0;
     bottom: 0;
