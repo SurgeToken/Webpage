@@ -1,0 +1,272 @@
+/**
+ * RESET
+ * Reference: http://meyerweb.com/eric/tools/css/reset/
+ */
+
+
+
+article, aside, details, figcaption, figure,
+footer, header, hgroup, main, menu, nav, section {
+  display: block;
+}
+
+/* body {
+  line-height: 1.618;
+  font-family: 'Open Sans' !important; 
+  max-width: 100vw;
+} */
+
+ol, ul {
+  list-style: none;
+}
+
+blockquote, q {
+  quotes: none;
+}
+
+blockquote:before, blockquote:after,
+q:before, q:after {
+  content: '';
+  content: none;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+a {
+  text-decoration: none;
+}
+
+/**
+ * BASIC TYPE
+ */
+
+img{
+  max-width: 100%;
+  vertical-align: middle;
+}
+
+p:not(:last-child) {
+  margin: 0 0 1em;
+}
+
+h1, h2, h3{
+  color: #3bcfd2;
+  margin-bottom: 25px;
+  line-height: 1.5;
+  font-weight: 600;
+}
+
+h4, h5, h6 {
+  color: #ebedf2; 
+  margin-bottom: 25px;
+  line-height: 1.5;
+}
+
+/**
+ * BOX HACKING
+ */
+
+html {
+  box-sizing: border-box;
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}
+.wrapper { 
+  max-width: 1280px;
+  margin-right: auto;
+  margin-left: auto;
+  padding: 1.5em;
+}
+
+ 
+.masonry {
+  display: grid;
+  max-width: 90vw;
+  grid-template-columns: repeat(1, minmax(100px,1fr));
+  grid-gap: 10px;
+  grid-auto-rows: 0;
+  margin-right: auto;
+  margin-left: auto;
+  margin-top: 50px;
+}
+
+.cResults{
+  display: none;
+}
+
+
+
+@media screen and (max-width: 329px) {
+  .masonry-wrapper {
+    padding-top: 1.5em;
+    max-width: 100vw;
+    margin-right: auto;
+    margin-left: auto;
+  }
+  .widget {
+    padding: 20px !important;
+    margin-top: 0;
+    margin-bottom: 0;
+    border-radius: 6px;
+    border: 1px solid #09343c8c;
+    background-color: rgba(3, 19, 27, 68%);
+    box-shadow: 0 0 19px 0 rgba(9, 202, 222, 18%); 
+  }
+}
+
+@media screen and (min-width: 330px) and (max-width: 364px) {
+  .masonry-wrapper {
+    padding-top: 1.5em;
+    max-width: 100vw;
+    margin-right: auto;
+    margin-left: auto;
+  }
+  .widget {
+    padding: 20px !important;
+    margin-top: 0;
+    margin-bottom: 0;
+    border-radius: 6px;
+    border: 1px solid #09343c8c;
+    background-color: rgba(3, 19, 27, 68%);
+    box-shadow: 0 0 19px 0 rgba(9, 202, 222, 18%); 
+  }
+}
+
+@media screen and (min-width: 365px) and (max-width: 399px) {
+  .masonry-wrapper {
+    padding-top: 1.5em;
+    max-width: 100vw;
+    margin-right: auto;
+    margin-left: auto;
+  }
+  .widget {
+    padding: 20px !important;
+    margin-top: 0;
+    margin-bottom: 0;
+    border-radius: 6px;
+    border: 1px solid #09343c8c;
+    background-color: rgba(3, 19, 27, 68%);
+    box-shadow: 0 0 19px 0 rgba(9, 202, 222, 18%); 
+  }
+}
+
+@media screen and (min-width: 400px) and (max-width: 579px) {
+  .masonry-wrapper {
+    padding-top: 1.5em;
+    max-width: 100vw;
+    margin-right: auto;
+    margin-left: auto;
+  }
+  .widget {
+    padding: 20px !important;
+    margin-top: 0;
+    margin-bottom: 0;
+    border-radius: 6px;
+    border: 1px solid #09343c8c;
+    background-color: rgba(3, 19, 27, 68%);
+    box-shadow: 0 0 19px 0 rgba(9, 202, 222, 18%); 
+  }
+}
+
+@media screen and (min-width: 580px) and (max-width: 767px) {
+  .masonry-wrapper {
+    padding: 1.5em;
+    max-width: 100vw;
+    margin-right: auto;
+    margin-left: auto;
+  }
+  .widget {
+    padding: 20px !important;
+    margin-top: 0;
+    margin-bottom: 0;
+    border-radius: 6px;
+    border: 1px solid #09343c8c;
+    background-color: rgba(3, 19, 27, 68%);
+    box-shadow: 0 0 19px 0 rgba(9, 202, 222, 18%); 
+  }
+  
+}
+
+
+@media screen and (min-width: 768px) and (max-width: 1299px) {
+  .masonry-wrapper {
+    padding: 1.5em;
+    max-width: 100vw;
+    margin-right: auto;
+    margin-left: auto;
+  }
+}
+
+@media screen and (min-width: 1300px) {
+  .masonry-wrapper {
+    padding: 1.5em;
+    max-width: 85vw;
+    margin-right: auto;
+    margin-left: auto;
+  }
+
+}
+
+@media only screen and (max-width: 1023px) and (min-width: 768px) {
+  .masonry {
+    grid-template-columns: repeat(2, minmax(100px,1fr));
+  }
+  .masonry-intro {
+    grid-template-columns: repeat(1, minmax(100px,1fr));
+  }
+}
+@media only screen and (min-width: 1024px) {
+  .masonry {
+    grid-template-columns: repeat(2, minmax(100px,1fr));
+  }
+  .masonry-intro {
+    grid-template-columns: repeat(1, minmax(100px,1fr));
+  }
+}
+.masonry-item, .masonry-content {
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.masonry-item:hover {
+  filter: drop-shadow(0px 5px 5px rgba(0, 0, 0, .3));
+}
+.masonry-content {
+  overflow: hidden;
+}
+.masonry-item {
+  color: #111111;
+}
+.masonry-title, .masonry-description {
+  margin: 0;
+}
+.masonry-title {
+  font-weight: 700;
+  font-size: 1.1rem;
+  padding: 1rem 1.5rem;
+}
+.masonry-description {
+  padding: 1.5rem;
+  font-size: .75rem;
+  border-top: 1px solid rgba(0, 0, 0, .05);
+}
+.masonry-footer {
+  font-size: .75em;
+  text-align: center;
+  padding-top: 3em; 
+  padding-bottom: 3em;
+  margin-bottom: -1.5em;
+}
+.masonry-footer a {
+  color: currentColor;
+}
+.masonry-footer:hover, .masonry-footer:active, .masonry-footer:focus {
+  opacity: .75;
+}

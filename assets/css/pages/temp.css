@@ -1,0 +1,13 @@
+html {
+    height: 100%; }
+  
+  body {
+    height: 100%;
+    overflow: auto;
+    margin: 0;
+    padding: 0;
+    background: #060818; }
+  
+    .navbar{
+        background-color: #0e1726 !important;
+    }
