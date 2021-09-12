@@ -102,15 +102,21 @@
 
         }
 
-        //send data to array
-        $row['token_amount'] = $token_result;
-        $row['u_token'] = $u_token;
-        $row['s_token'] = $s_token;
-        $row['value_utoken'] = $user_token_value_trimmed;
-        $row['value_token_usd'] = number_format($user_token_usd_value_trimmed, 2, '.', ',');
+        if($token_result != "0"){
+            //send data to array
+            $row['token_amount'] = $token_result;
+            $row['u_token'] = $u_token;
+            $row['s_token'] = $s_token;
+            $row['value_utoken'] = $user_token_value_trimmed;
+            $row['value_token_usd'] = number_format($user_token_usd_value_trimmed, 2, '.', ',');
 
-        //push all $row variables into the $data array
-        array_push($data, $row);
+            //push all $row variables into the $data array
+            array_push($data, $row);
+        } else {
+            //do nothing
+        }
+
+        
          
     }
 
