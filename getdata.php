@@ -72,7 +72,7 @@
     
                     //calculate the BTC value of sBTC
                     $user_token_value = $sbtc_price * $token_result;
-                    $user_token_value_trimmed = rtrim(sprintf('%.4f', floatval($user_token_value)),'0');
+                    $user_token_value_trimmed = rtrim(sprintf('%.6f', floatval($user_token_value)),'0');
                         
                     //calculate users value in BTC
                     $user_token_usd_value = $user_token_value * $get_btcb_price;

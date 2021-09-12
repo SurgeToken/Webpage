@@ -589,7 +589,7 @@
                             </tr>
                         </table>
                     </div>
-                    <!-- <div>
+                    <div>
                         <img class="sWordmark" src="assets/img/SURGEBTCWhite.png" >
                         <table class="table table-borderless statsTable">
                             <tr>
@@ -601,7 +601,7 @@
                                 <td id="sBTCHolders">Loading</td>
                             </tr>
                         </table><br>(Token Stats, to include your amount, auto refresh every 15-30 seconds)
-                    </div> -->
+                    </div>
                     <!-- <div>
                         <img class="sWordmark" src="assets/img/SURGEADAWhite.png" >
                         <table class="table table-borderless statsTable">
@@ -1072,7 +1072,7 @@
         // If the count down is over, write some text 
         if (distance < 0) {
             clearInterval(countdownfunction);
-            document.getElementById("timer").innerHTML = "SurgeBTC LAUNCH!";
+            document.getElementById("timer").innerHTML = "<div class='dApp'><a href='https://app.xsurge.net'>Buy Now</a></div>";
         }
         }, 1000);
     </script>
@@ -1085,7 +1085,7 @@
 
 <script>
 
-    var tempsUSDValueUSD, tempsUSDValueBNB, tempsETHValueUSD, tempsETHValueETH;
+    var tempsUSDValueUSD, tempsUSDValueBNB, tempsETHValueUSD, tempsETHValueETH, tempsBTCValueUSD, tempsBTCValueBTC;
 
         
         function copyAddress(id){
@@ -1114,12 +1114,15 @@
 
                 var sUSDholders, sUSDPrice; 
                 var sETHholders, sETHPrice;
+                var sBTCholders, sBTCPrice;
 
                 $.each(data, function(i, item){
                     sUSDholders =  item.susd_holders;
                     sUSDPrice = item.susd_price;
                     sETHholders =  item.seth_holders;
                     sETHPrice = item.seth_price;
+                    sBTCholders = item.sbtc_holders;
+                    sBTCPrice = item.sbtc_price;
 
                     
 
@@ -1127,6 +1130,8 @@
                     $("#sUSDPrice").html(sUSDPrice);
                     $("#sETHHolders").html(sETHholders);
                     $("#sETHPrice").html(sETHPrice);
+                    $("#sBTCHolders").html(sBTCholders);
+                    $("#sBTCPrice").html(sBTCPrice);
 
                 });
             
@@ -1243,6 +1248,34 @@
                         });
                     });
                     break;
+                    case "sBTC":
+
+                    
+
+                        $.post("calc2.php", {tokenSelected: tS, tokenAmount:tA}).done(function(data){
+                            var data = JSON.parse(data);
+                            var valueUSD, valueBTC;
+                            var tokenName = "BTC";
+
+                            $.each(data, function(i, item){
+                                valueUSD = item.value_usd;
+                                valueBTC = item.value_btc;
+                                tempsBTCValueUSD = item.value_usd;
+                                tempsBTCValueBTC = item.value_btc;
+
+                                $("#tokenBalance").html(tokenAmount + " sBTC");
+                                $("#tokenName").html("Current Value (BTC)");
+                                $("#tokenValue").html(valueBTC);
+                                $("#tokenValueUSD").html("$" + valueUSD);
+
+                                $('#calcResults').show();
+                                $("#resultsWallet").hide();
+                                $("#resultsToken").show();
+
+
+                            });
+                        });
+                        break;
 
                 default:
                     break;
@@ -1300,6 +1333,7 @@
                             break;
                         case "sUSD":
                         case "sETH":
+                        case "sBTC":
                             var ts = $("#userSelect").val();
                             var ta = $("#userInput").val();
                             calcToken(ts, ta);
@@ -1327,7 +1361,6 @@
             switch($("#userSelect").val()){
                 case "wallet":
                     
-
                     $('#calcResults').hide();
                     $("#userInput").val(getCookie("user_wallet_address"));
                     $("#userInput").attr("placeholder", "Enter Wallet Address");
@@ -1339,6 +1372,9 @@
                     $("#tokenBalanceSETH").html("Loading");
                     $("#tokenValueETH").html("Loading");
                     $("#tokenValuesethUSD").html("Loading");
+                    $("#tokenBalanceSBTC").html("Loading");
+                    $("#tokenValueBTC").html("Loading");
+                    $("#tokenValuesbtcUSD").html("Loading");
                     break;
                 //For all other tokens
                 case "sETH":
@@ -1354,6 +1390,16 @@
                 case "sUSD":
                     $('#calcResults').hide();
                     $("#userInput").val(getCookie("sUSD"));
+                    $("#userInput").attr("placeholder", "Enter Token Amount");
+                    $("#calcBtn").html("Calculate");
+                    $("#calcBtn").show();
+                    $("#tokenBalance").html("Loading");
+                    $("#tokenValue").html("Loading");
+                    $("#tokenValueUSD").html("Loading");
+                    break;
+                case "sBTC":
+                    $('#calcResults').hide();
+                    $("#userInput").val(getCookie("sBTC"));
                     $("#userInput").attr("placeholder", "Enter Token Amount");
                     $("#calcBtn").html("Calculate");
                     $("#calcBtn").show();
@@ -1394,6 +1440,7 @@
                         break;
                     case "sUSD":
                     case "sETH":
+                    case "sBTC":
                         var ts = $("#userSelect").val();
                         var ta = $("#userInput").val();
                         calc(ts, ta);
