@@ -444,8 +444,21 @@ code {
   }
 }
 
+@media screen and (max-width: 480px) {
+  .dApp2 a {
+    right: 12px;
+    margin-top: 14px
+  }
+}
+
 @media screen and (max-width: 500px) {
   .nav-logo .dApp a {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .nav-logo .dApp2 a {
     display: none;
   }
 }
