@@ -394,6 +394,10 @@ code {
     right: 27em;
     margin-top: 11px;
   }
+  .dApp2 a {
+    right: 27em;
+    margin-top: 11px;
+  }
 }
 
 @media screen and (max-width: 991px) {
