@@ -8,8 +8,11 @@
 
     $wallet_address = $_POST["walletAddress"];
 
+    //Surge Token Array
     $tokens_array = array(
-        "SUSD"=>"0x14fEe7d23233AC941ADd278c123989b86eA7e1fF", "SETH"=>"0x5B1d1BBDCc432213F83b15214B93Dc24D31855Ef", "SBTC"=>"0xb68c9D9BD82BdF4EeEcB22CAa7F3Ab94393108a1"
+        "SUSD"=>"0x14fEe7d23233AC941ADd278c123989b86eA7e1fF", 
+        "SETH"=>"0x5B1d1BBDCc432213F83b15214B93Dc24D31855Ef", 
+        "SBTC"=>"0xb68c9D9BD82BdF4EeEcB22CAa7F3Ab94393108a1"
     );
 
     foreach($tokens_array as $token_name => $token_address) {
