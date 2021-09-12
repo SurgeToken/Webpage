@@ -360,7 +360,7 @@ code {
 =====================
 */
 
-.dApp a {
+.dApp .dApp2 a {
 
   text-decoration: none;
   color: white;
@@ -374,13 +374,13 @@ code {
 
 }
 
-.nav-logo .dApp a {
+.nav-logo .dApp .dApp2 a {
   margin-left: 4em;
   margin-right: 0;
   position: absolute;
 }
 
-.howto .dApp a {
+.howto .dApp .dApp2 a {
   border-radius: 12px;
   margin: 0 auto;
   width: 8em;
@@ -405,10 +405,18 @@ code {
     right: 12px;
     margin-top: 14px
   }
+  .dApp2 a {
+    right: 12px;
+    margin-top: 14px
+  }
 }
 
 @media screen and (max-width: 480px) {
   .nav-logo .dApp a {
+    right: 12px;
+    margin-top: 14px
+  }
+  .dApp2 a {
     right: 12px;
     margin-top: 14px
   }
@@ -417,6 +425,10 @@ code {
 @media screen and (max-width: 500px) {
   .nav-logo .dApp a {
     display: none;
+  }
+  .dApp2 a {
+    right: 12px;
+    margin-top: 14px
   }
 }
 
