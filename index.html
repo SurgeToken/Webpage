@@ -474,21 +474,21 @@
             <div class="box" id="countdown">
                 <div class="widget widget-chart-one spacer5">
                     <div class="coming-soon-cont">
-
-                        <div class="">
-                            <img class="sWordmark" src="assets/img/SURGEBTCWhite.png" >
+                        <img class="sWordmark spacer4" src="assets/img/SURGEADAWhite.png" >
+                        <div class="spacer4">
+                            <div id="timer">
+                                <div class="days"><span class="count">--</span> <span class="text">Days</span></div>
+                                <div class="hours"><span class="count">--</span> <span class="text">Hours</span></div>
+                                <div class="min"><span class="count">--</span> <span class="text">Mins</span></div>
+                                <div class="sec"><span class="count">--</span> <span class="text">Secs</span></div>
+                            </div> 
                         </div>
-                        <br/>
-                         <div id="timer">
-                            <div class="days"><span class="count">--</span> <span class="text">Days</span></div>
-                            <div class="hours"><span class="count">--</span> <span class="text">Hours</span></div>
-                            <div class="min"><span class="count">--</span> <span class="text">Mins</span></div>
-                            <div class="sec"><span class="count">--</span> <span class="text">Secs</span></div>
-                        </div> 
                     </div>
-                     
                 </div>
+                     
             </div>
+
+            
 
             <!-- 2 How it Works -->
             <div class="box" id="hiw">
@@ -512,6 +512,29 @@
                         <h3 class="">xSurge Whitepaper</h3>
                         <h5 class="">The xSurge Whitepaper will be available soon</h5>
                     </div>
+                </div>
+            </div>
+
+            <!-- Latest Updates -->
+            <div class="box" id="countdown">
+                <div class="widget widget-chart-one spacer5">
+                    <h3 class="">Latest Updates</h3>
+                    <div class="blocks">
+                        <h4 class="">SurgeBTC Launched!</h4>
+                        <div>
+                            <div class='dApp'>
+                                <a href='https://xt-rader.vercel.app/'>Buy Now</a>
+                            </div>
+                        </div>
+                    </div>
+                    <hr>
+                    <div class="blocks">
+                        <h4 class="">SurgeETH Certik Audit is Live</h4>
+                        <h5 class="">
+                            Social sentiment has a significant impact on the security score ratings for SurgeETH. We need everyone's help in boosting this rating by voting "Secure" on the audit scoreboard.  SurgeBTC audit coming next! Click <a href="https://www.certik.org/projects/surgeeth" target="_blank">here</a> to view the audit results.
+                        </h5>
+                    </div>
+                     
                 </div>
             </div>
 
@@ -1057,7 +1080,7 @@
     <script>
         // Set the date we're counting down to
         var getYear = new Date().getFullYear();
-        var countDownDate = new Date("Sept 12, "+ getYear +" 15:00:00 GMT-0400").getTime();
+        var countDownDate = new Date("Sept 19, "+ getYear +" 15:00:00 GMT-0400").getTime();
 
         // Update the count down every 1 second
         var countdownfunction = setInterval(function() {
@@ -1083,7 +1106,11 @@
         // If the count down is over, write some text 
         if (distance < 0) {
             clearInterval(countdownfunction);
+<<<<<<< Updated upstream
             document.getElementById("timer").innerHTML = "<div class='dApp'><a href='https://app.xsurge.net'>Buy SurgeBTC Now</a></div>";
+=======
+            document.getElementById("timer").innerHTML = "<div class='dApp'><a href='https://xt-rader.vercel.app/'>Buy SurgeADA Now</a></div>";
+>>>>>>> Stashed changes
         }
         }, 1000);
     </script>
