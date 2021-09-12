@@ -546,7 +546,7 @@
                     <!-- <hr>
                     <img class="sWordmark" src="assets/img/SURGEBTCWhite.png" >
                     <div class="contractAddress text-end">
-                        <p class="cAddress" id="SurgeBTC">inserthere  <i onclick="copyAddress('SurgeBTC');return false;" class="far fa-copy"></i></p>
+                        <p class="cAddress" id="SurgeBTC">0xb68c9D9BD82BdF4EeEcB22CAa7F3Ab94393108a1  <i onclick="copyAddress('SurgeBTC');return false;" class="far fa-copy"></i></p>
                     </div> -->
                     <!-- <hr>
                     <img class="sWordmark" src="assets/img/SURGEADAWhite.png" >
@@ -584,7 +584,7 @@
                                 <td>Holders:</td>
                                 <td id="sETHHolders">Loading</td>
                             </tr>
-                        </table><br>(Token Stats, to include your amount, auto refresh every 15-30 seconds)
+                        </table>
                     </div>
                     <!-- <div>
                         <img class="sWordmark" src="assets/img/SURGEBTCWhite.png" >
@@ -621,7 +621,7 @@
                                         <option value="wallet">Wallet Address</option>
                                         <option value="sUSD">SurgeUSD</option>
                                         <option value="sETH">SurgeETH</option>
-                                        <!-- <option value="sBTC">SurgeBTC</option> -->
+                                        <option value="sBTC">SurgeBTC</option>
                                         <!-- <option value="sADA">SurgeADA</option> -->
                                 </select>
                             </div>
@@ -1043,7 +1043,7 @@
     <script>
         // Set the date we're counting down to
         var getYear = new Date().getFullYear();
-        var countDownDate = new Date("Sept 12, "+ getYear +" 15:00:00").getTime();
+        var countDownDate = new Date("Sept 12, "+ getYear +" 15:00:00 GMT-0400").getTime();
 
         // Update the count down every 1 second
         var countdownfunction = setInterval(function() {
