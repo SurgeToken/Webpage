@@ -373,7 +373,6 @@ code {
   box-shadow: rgba(0, 195, 255, 0.16) 0px 0px 20px 0px;
 
 }
-
 .dApp2 a {
 
   text-decoration: none;
@@ -394,6 +393,12 @@ code {
   position: absolute;
 }
 
+.nav-logo .dApp2 a {
+  margin-left: 4em;
+  margin-right: 0;
+  position: absolute;
+}
+
 .howto .dApp a {
   border-radius: 12px;
   margin: 0 auto;
@@ -405,21 +410,28 @@ code {
 
 @media screen and (min-width: 1000px) {
   .nav-logo .dApp a {
-    right: 27em;
-    margin-top: 11px;
-  }
-  .dApp2 a {
-    right: 27em;
+    right: 32.5em;
     margin-top: 11px;
   }
 }
 
+@media screen and (min-width: 1000px){
+  .dApp2 a {
+    right: 27em;
+    margin-top: 11px;
+}
+}
+
+
 @media screen and (max-width: 991px) {
   .nav-logo .dApp a {
-    right: 12px;
+    right: 100px;
     margin-top: 14px
   }
-  .dApp2 a {
+}
+
+@media screen and (max-width: 991px) {
+  .nav-logo .dApp2 a {
     right: 12px;
     margin-top: 14px
   }
@@ -430,19 +442,11 @@ code {
     right: 12px;
     margin-top: 14px
   }
-  .dApp2 a {
-    right: 12px;
-    margin-top: 14px
-  }
 }
 
 @media screen and (max-width: 500px) {
   .nav-logo .dApp a {
     display: none;
-  }
-  .dApp2 a {
-    right: 12px;
-    margin-top: 14px
   }
 }
 
