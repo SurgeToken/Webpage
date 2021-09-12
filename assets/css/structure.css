@@ -457,6 +457,12 @@ code {
   }
 }
 
+@media screen and (min-width: 500px) {
+  .merch {
+    display: none;
+  }
+}
+
 @media screen and (max-width: 500px) {
   .nav-logo .dApp2 a {
     display: none;
