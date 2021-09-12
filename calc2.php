@@ -79,7 +79,7 @@
             echo json_encode($data); 
             
             break;
-        /* case "sBTC":
+        case "sBTC":
 
                 //get the total supply of sBTC
                 $get_total_supply_sbtc = $redis->get("sBTC Total Supply");
@@ -110,7 +110,7 @@
                 //push the $data array to index.html
                 echo json_encode($data); 
                 
-                break; */
+                break;
 
         /* case "sADA":
 
