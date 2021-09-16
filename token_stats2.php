@@ -47,9 +47,9 @@
 
         $bnb_price_json = file_get_contents($bnb_price_url);
         $bnb_price_encoded = json_encode($bnb_price_json);
-        $bnb_price = $bnb_price_encoded->result;
+        $bnb_price = $bnb_price_encoded->result->ethusd;
 
-        echo $bnb_price;
+        
     
     /* SurgeETH Stats */
 
@@ -183,6 +183,9 @@
         $redis->set("bADA Price", trim($bada_price_no_commas));
         $redis->set("sADA Price", trim($sada_trimmed)); */
 
+        $redis->set("BNB Price-Test", $bnb_price);
+        $bnb_price_test = $redis->get("BNB Price-Test");
+        echo $bnb_price_test;
         echo "1";
     
 ?>
