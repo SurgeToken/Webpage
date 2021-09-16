@@ -13,16 +13,14 @@
         //get total supply for sUSD
         $susd_token_total_supply_url = "https://api.bscscan.com/api?module=stats&action=tokensupply&contractaddress=0x14fee7d23233ac941add278c123989b86ea7e1ff&apikey=".$b_api_key."";
 
-        $susd_total_supply_json = file_get_contents($susd_token_total_supply_url);
-        $susd_token_total_supply = json_decode($susd_total_supply_json);
-        $susd_total_supply = $susd_token_total_supply->result;
+        $susd_total_supply_json = json_decode(file_get_contents($susd_token_total_supply_url));
+        $susd_total_supply = $susd_total_supply_json->result;
 
         //get total balance of busd
         $busd_token_total_balance_url = "https://api.bscscan.com/api?module=account&action=tokenbalance&contractaddress=0xe9e7cea3dedca5984780bafc599bd69add087d56&address=0x14fee7d23233ac941add278c123989b86ea7e1ff&tag=latest&apikey=".$b_api_key."";
 
-        $busd_total_balance_json = file_get_contents($busd_token_total_balance_url);
-        $busd_token_total_balance = json_decode($busd_total_balance_json);
-        $busd_total_balance = $busd_token_total_balance->result;
+        $busd_total_balance_json = json_decode(file_get_contents($busd_token_total_balance_url));
+        $busd_total_balance = $busd_total_balance_json->result;
 
         //get data from BSCScan for sUSD & bUSD
         $get_html_susd = file_get_html('https://bscscan.com/token/0x14fee7d23233ac941add278c123989b86ea7e1ff');
@@ -33,9 +31,8 @@
 
         //get busd price from covalent
         $busd_price_url = "https://api.covalenthq.com/v1/pricing/historical_by_addresses_v2/56/USD/0xe9e7cea3dedca5984780bafc599bd69add087d56/?&key="+$c_api_key+"";
-        $busd_price_json = file_get_contents($busd_price_url);
-        $busd_price_decoded = json_decode($busd_price_json);
-        $busd_price = $busd_price_decoded->data->prices->price;
+        $busd_price_json = json_decode(file_get_contents($busd_price_url));
+        $busd_price = $busd_price_json->data->prices->price;
         echo $busd_price;
         
         //format busd price
