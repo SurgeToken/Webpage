@@ -58,7 +58,7 @@
     
     /* SurgeETH Stats */
 
-        //get total supply for sETH
+        /* //get total supply for sETH
         $seth_token_total_supply_url = "https://api.bscscan.com/api?module=stats&action=tokensupply&contractaddress=0x5b1d1bbdcc432213f83b15214b93dc24d31855ef&apikey=".$api_key."";
 
         $seth_total_supply_json = file_get_contents($seth_token_total_supply_url);
@@ -100,12 +100,12 @@
         $seth_price = $total_balance_weth_no_commas / $total_supply_seth_no_commas;
 
         //format sETH price
-        $seth_trimmed = rtrim(sprintf('%.16f', floatval($seth_price)),'0');
+        $seth_trimmed = rtrim(sprintf('%.16f', floatval($seth_price)),'0'); */
 
     
     /* SurgeBTC Stats */
 
-        //get data from BSCScan for sBTC & BTCb
+        /* //get data from BSCScan for sBTC & BTCb
         $get_html_sbtc = file_get_html('https://bscscan.com/token/0xb68c9D9BD82BdF4EeEcB22CAa7F3Ab94393108a1');
         $get_html_btcb = file_get_html('https://bscscan.com/token/0x7130d2a12b9bcbfae4f2634d864a1ee1ce3ead9c?a=0xb68c9D9BD82BdF4EeEcB22CAa7F3Ab94393108a1');
 
@@ -135,12 +135,12 @@
         $sbtc_price = $total_balance_btcb_no_commas / $total_supply_sbtc_no_commas;
 
         //format sBTC price
-        $sbtc_trimmed = rtrim(sprintf('%.16f', floatval($sbtc_price)),'0');
+        $sbtc_trimmed = rtrim(sprintf('%.16f', floatval($sbtc_price)),'0'); */
 
 
     /* SurgeADA Stats */
 
-        //get data from BSCScan for sADA & bADA
+        /* //get data from BSCScan for sADA & bADA
         $get_html_sada = file_get_html('https://bscscan.com/token/0x5b1d1bbdcc432213f83b15214b93dc24d31855ef');
         $get_html_bada = file_get_html('https://bscscan.com/token/0x3ee2200efb3400fabb9aacf31297cbdd1d435d47?a=0x5b1d1bbdcc432213f83b15214b93dc24d31855ef');
 
@@ -170,7 +170,7 @@
         $sada_price = $total_balance_bada_no_commas / $total_supply_sada_no_commas;
 
         //format sADA price
-        $sada_trimmed = rtrim(sprintf('%.16f', floatval($sada_price)),'0');
+        $sada_trimmed = rtrim(sprintf('%.16f', floatval($sada_price)),'0'); */
 
     
     //set the data in redis string 
@@ -200,7 +200,7 @@
         $redis->set("sADA Price", trim($sada_trimmed)); */
 
         /* $redis->set("BNB Price-Test", $bnb_price);
-        $bnb_price_test = $redis->get("BNB Price-Test");
+        $bnb_price_test = $redis->get("BNB Price-Test");*/
         
         echo "1";
     
