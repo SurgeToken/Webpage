@@ -112,7 +112,7 @@
                 
                 break;
 
-        /* case "sADA":
+        case "sADA":
 
                     //get the total supply of sADA
                     $get_total_supply_sada = $redis->get("sADA Total Supply");
@@ -143,7 +143,7 @@
                     //push the $data array to index.html
                     echo json_encode($data); 
                     
-                    break; */
+                    break;
         default:
             break;
     }
