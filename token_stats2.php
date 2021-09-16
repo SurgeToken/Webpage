@@ -47,7 +47,7 @@
 
         $bnb_price_json = file_get_contents($bnb_price_url);
         $bnb_price_encoded = json_encode($bnb_price_json);
-        $bnb_price = $bnb_price_encoded.result.ethusd;
+        $bnb_price = $bnb_price_encoded->result;
 
         echo $bnb_price;
     
