@@ -14,8 +14,8 @@
 
         $susd_total_supply_json = file_get_contents($susd_token_total_supply_url);
         $susd_token_total_supply = json_decode($susd_total_supply_json);
-        $susd_total_supply = $susd_token_total_supply.result;
-        echo "sUSD Total Supply: " + $susd_total_supply + "<br/>";
+        $susd_total_supply = json_decode($susd_token_total_supply->result);
+        echo "sUSD Total Supply: " + $susd_total_supply[0]->ethusd + "<br/>";
 
         //get total balance of busd
         $busd_token_total_balance_url = "https://api.bscscan.com/api?module=account&action=tokenbalance&contractaddress=0xe9e7cea3dedca5984780bafc599bd69add087d56&address=0x14fee7d23233ac941add278c123989b86ea7e1ff&tag=latest&apikey=".$api_key."";
