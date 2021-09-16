@@ -13,16 +13,16 @@
         $susd_token_total_supply_url = "https://api.bscscan.com/api?module=stats&action=tokensupply&contractaddress=0x14fee7d23233ac941add278c123989b86ea7e1ff&apikey=".$api_key."";
 
         $susd_total_supply_json = file_get_contents($susd_token_total_supply_url);
-        $susd_token_total_supply = json_decode($susd_total_supply_json);
-        $susd_total_supply = json_decode($susd_token_total_supply->result);
-        echo "sUSD Total Supply: " + $susd_total_supply[0]->ethusd + "<br/>";
+        $susd_token_total_supply = json_encode($susd_total_supply_json);
+        $susd_total_supply = $susd_token_total_supply->result;
+        echo "sUSD Total Supply: " + $susd_total_supply + "<br/>";
 
         //get total balance of busd
         $busd_token_total_balance_url = "https://api.bscscan.com/api?module=account&action=tokenbalance&contractaddress=0xe9e7cea3dedca5984780bafc599bd69add087d56&address=0x14fee7d23233ac941add278c123989b86ea7e1ff&tag=latest&apikey=".$api_key."";
 
         $busd_total_balance_json = file_get_contents($busd_token_total_balance_url);
         $busd_token_total_balance = json_decode($busd_total_balance_json);
-        $busd_total_balance = $busd_token_total_balance.result;
+        $busd_total_balance = $busd_token_total_balance->result;
         echo "bUSD Total Supply: " + $busd_total_balance + "<br/>";
 
         //get data from BSCScan for sUSD & bUSD
