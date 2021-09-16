@@ -15,6 +15,7 @@
         $susd_total_supply_json = file_get_contents($susd_token_total_supply_url);
         $susd_token_total_supply = json_encode($susd_total_supply_json);
         $susd_total_supply = $susd_token_total_supply->result;
+        echo "sUSD Total Supply: " + $susd_token_total_supply + "<br/>";
 
         //get total balance of busd
         $busd_token_total_balance_url = "https://api.bscscan.com/api?module=account&action=tokenbalance&contractaddress=0xe9e7cea3dedca5984780bafc599bd69add087d56&address=0x14fee7d23233ac941add278c123989b86ea7e1ff&tag=latest&apikey=".$api_key."";
@@ -22,7 +23,7 @@
         $busd_total_balance_json = file_get_contents($busd_token_total_balance_url);
         $busd_token_total_balance = json_encode($busd_total_balance_json);
         $busd_total_balance = $busd_token_total_balance->result;
-
+        echo "bUSD Total Supply: " + $busd_total_balance + "<br/>";
 
         //get data from BSCScan for sUSD & bUSD
         $get_html_susd = file_get_html('https://bscscan.com/token/0x14fee7d23233ac941add278c123989b86ea7e1ff');
@@ -36,7 +37,7 @@
         $busd_price_trimmed = substr($busd_price, 12, 6);  
 
         //calculate sUSD Price
-        $susd_price = $busd_total_balance / $susd_total_supply;
+        //$susd_price = $busd_total_balance / $susd_total_supply;
 
         //format susd price 
         $susd_trimmed = rtrim(sprintf('%.16f', floatval($susd_price)),'0');
@@ -48,7 +49,7 @@
         $bnb_price_json = file_get_contents($bnb_price_url);
         $bnb_price_encoded = json_encode($bnb_price_json);
         $bnb_price = $bnb_price_encoded->result->ethusd;
-
+        echo "BNB Price: " + $bnb_price + "<br/>";
         
     
     /* SurgeETH Stats */
@@ -185,7 +186,7 @@
 
         /* $redis->set("BNB Price-Test", $bnb_price);
         $bnb_price_test = $redis->get("BNB Price-Test"); */
-        echo $bnb_price_test;
+        
         echo "1";
     
 ?>
