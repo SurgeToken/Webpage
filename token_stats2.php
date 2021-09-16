@@ -4,52 +4,44 @@
     //Connecting to Redis server on localhost 
     include("redis_config.php");
    
-    $api_key = "7BY2SX3KIF1NT1QEPY82VZB2WBTJFMN75R";
-
-
     /* SurgeUSD Stats */
 
         //get total supply for sUSD
-        $susd_token_total_supply_url = "https://api.bscscan.com/api?module=stats&action=tokensupply&contractaddress=0x14fee7d23233ac941add278c123989b86ea7e1ff&apikey=".$api_key."";
-
-        $susd_total_supply_json = file_get_contents($susd_token_total_supply_url);
-        $susd_token_total_supply = json_encode($susd_total_supply_json);
-        $susd_total_supply = $susd_token_total_supply->result;
-
-        //get total balance of busd
-        $busd_token_total_balance_url = "https://api.bscscan.com/api?module=account&action=tokenbalance&contractaddress=0xe9e7cea3dedca5984780bafc599bd69add087d56&address=0x14fee7d23233ac941add278c123989b86ea7e1ff&tag=latest&apikey=".$api_key."";
-
-        $busd_total_balance_json = file_get_contents($busd_token_total_balance_url);
-        $busd_token_total_balance = json_encode($busd_total_balance_json);
-        $busd_total_balance = $busd_token_total_balance->result;
-
-
+        
         //get data from BSCScan for sUSD & bUSD
         $get_html_susd = file_get_html('https://bscscan.com/token/0x14fee7d23233ac941add278c123989b86ea7e1ff');
         $get_html_busd = file_get_html('https://bscscan.com/token/0xe9e7cea3dedca5984780bafc599bd69add087d56?a=0x14fee7d23233ac941add278c123989b86ea7e1ff');
         
         //store data into variables
         $susd_holders = $get_html_susd->find('div[class="mr-3"]',0)->plaintext;
+        $total_supply_susd = $get_html_susd->find('span[class="hash-tag text-truncate"]',0)->plaintext;
+        $total_balance_busd = $get_html_busd->find('div[id="ContentPlaceHolder1_divFilteredHolderBalance"]',0)->plaintext;
         $busd_price = $get_html_busd->find('div[id="ContentPlaceHolder1_tr_valuepertoken"]',0)->plaintext;
+        
+        //strip commas from total supply susd
+        $total_supply_susd_no_commas = str_replace(',', '', $total_supply_susd);
+        
+        //remove unneeded data from total balance busd
+        $total_balance_busd_trimmed = substr($total_balance_busd, 8, -5);
+
+        //strip commas from total balance busd
+        $total_balance_busd_no_commas = str_replace(',', '', $total_balance_busd_trimmed);
         
         //format busd price
         $busd_price_trimmed = substr($busd_price, 12, 6);  
 
         //calculate sUSD Price
-        $susd_price = $busd_total_balance / $susd_total_supply;
+        $susd_price = $total_balance_busd_no_commas / $total_supply_susd_no_commas;
 
         //format susd price 
         $susd_trimmed = rtrim(sprintf('%.16f', floatval($susd_price)),'0');
 
         //get the current price of BNB
-        //get total supply for sUSD
-        $bnb_price_url = "https://api.bscscan.com/api?module=stats&action=bnbprice&apikey=".$api_key."";
+        $get_bnb_price = file_get_html('https://bscscan.com/token/0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c');
+        $bnb_price = $get_bnb_price->find('div[id="ContentPlaceHolder1_tr_valuepertoken"]',0)->plaintext;
+        $bnb_price_trimmed = substr($bnb_price, 12, 6);
+        $bnb_price = $bnb_price_trimmed;
 
-        $bnb_price_json = file_get_contents($bnb_price_url);
-        $bnb_price_encoded = json_encode($bnb_price_json);
-        $bnb_price = $bnb_price_encoded->result->ethusd;
-
-        
     
     /* SurgeETH Stats */
 
@@ -158,7 +150,7 @@
 
     
     //set the data in redis string 
-        /* $redis->set("sUSD Holders", trim($susd_holders));
+        $redis->set("sUSD Holders", trim($susd_holders));
         $redis->set("sUSD Total Supply", trim($total_supply_susd_no_commas));
         $redis->set("bUSD Total Balance", trim($total_balance_busd_no_commas));
         $redis->set("bUSD Price", trim($busd_price_trimmed));
@@ -181,11 +173,8 @@
         $redis->set("sADA Total Supply", trim($total_supply_sada_no_commas));
         $redis->set("bADA Total Balance", trim($total_balance_bada_no_commas));
         $redis->set("bADA Price", trim($bada_price_no_commas));
-        $redis->set("sADA Price", trim($sada_trimmed)); */
+        $redis->set("sADA Price", trim($sada_trimmed));
 
-        $redis->set("BNB Price-Test", $bnb_price);
-        $bnb_price_test = $redis->get("BNB Price-Test");
-        echo $bnb_price_test;
         echo "1";
     
 ?>
