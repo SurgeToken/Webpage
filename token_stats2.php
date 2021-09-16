@@ -158,7 +158,7 @@
 
     
     //set the data in redis string 
-        $redis->set("sUSD Holders", trim($susd_holders));
+        /* $redis->set("sUSD Holders", trim($susd_holders));
         $redis->set("sUSD Total Supply", trim($total_supply_susd_no_commas));
         $redis->set("bUSD Total Balance", trim($total_balance_busd_no_commas));
         $redis->set("bUSD Price", trim($busd_price_trimmed));
@@ -181,7 +181,7 @@
         $redis->set("sADA Total Supply", trim($total_supply_sada_no_commas));
         $redis->set("bADA Total Balance", trim($total_balance_bada_no_commas));
         $redis->set("bADA Price", trim($bada_price_no_commas));
-        $redis->set("sADA Price", trim($sada_trimmed));
+        $redis->set("sADA Price", trim($sada_trimmed)); */
 
         echo "1";
     
