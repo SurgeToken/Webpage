@@ -197,7 +197,7 @@
         $bnb_price_test = $redis->get("BNB Price-Test");*/
         
         echo "1";
+        echo $bnb_price;
         echo $busd_price;
-        echo $busd_price_json;
     
 ?>
