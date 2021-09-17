@@ -30,7 +30,7 @@
 
         //get busd price from covalent
         $busd_price_url = "https://api.covalenthq.com/v1/pricing/historical_by_addresses_v2/56/USD/0xe9e7cea3dedca5984780bafc599bd69add087d56/?&key=ckey_43c97667ea9547c594b5c51cf0e";
-        $busd_price_json = json_decode(file_get_contents($busd_price_url));
+        $busd_price_json = json_decode(file_get_contents($busd_price_url), true);
 
         $search_key = 'price';
         foreach($busd_price_json as $elem) {
