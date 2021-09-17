@@ -55,14 +55,14 @@
         $seth_token_total_supply_url = "https://api.bscscan.com/api?module=stats&action=tokensupply&contractaddress=0x5b1d1bbdcc432213f83b15214b93dc24d31855ef&apikey=".$api_key."";
 
         $seth_total_supply_json = json_decode(file_get_contents($seth_token_total_supply_url));
-        $seth_total_supply = $seth_token_total_supply->result;
+        $seth_total_supply = $seth_total_supply_json->result;
         print_r( "Total Supply: " + $seth_total_supply + "<br/>");
 
         //get total balance of bETH
         $beth_token_total_balance_url = "https://api.bscscan.com/api?module=account&action=tokenbalance&contractaddress=0x2170ed0880ac9a755fd29b2688956bd959f933f8&address=0x5b1d1bbdcc432213f83b15214b93dc24d31855ef&tag=latest&apikey=".$api_key."";
 
         $beth_total_balance_json = json_decode(file_get_contents($beth_token_total_balance_url));
-        $beth_total_balance = $beth_token_total_balance->result;
+        $beth_total_balance = $beth_total_balance_json->result;
         print_r( "Total Balance: " + $beth_total_balance + "<br/>");
 
         //get data from BSCScan for sETH & wETH
