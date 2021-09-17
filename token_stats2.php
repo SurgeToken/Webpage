@@ -34,7 +34,7 @@
 
         $search_key = 'price';
         foreach($busd_price_json as $elem) {
-            foreach ( $elem['price'] as $key => $val) {
+            foreach ( $elem['prices'] as $key => $val) {
                 if ($key == $search_key) {
                     echo("Price is: ".$val);
                 }
