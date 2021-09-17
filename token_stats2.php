@@ -7,8 +7,8 @@
     $b_api_key = "7BY2SX3KIF1NT1QEPY82VZB2WBTJFMN75R";
 
 
-    /* SurgeUSD Stats */
-
+    //token functions
+    function sUSD(){
         //get total supply for sUSD
         $susd_token_total_supply_url = "https://api.bscscan.com/api?module=stats&action=tokensupply&contractaddress=0x14fee7d23233ac941add278c123989b86ea7e1ff&apikey=7BY2SX3KIF1NT1QEPY82VZB2WBTJFMN75R";
 
@@ -47,10 +47,9 @@
         $bnb_price_json = file_get_contents($bnb_price_url);
         $bnb_price_encoded = json_decode($bnb_price_json);
         $bnb_price = $bnb_price_encoded->result->ethusd;
+    }
 
-    
-    /* SurgeETH Stats */
-
+    function sETH(){
         //get total supply for sETH
         $seth_token_total_supply_url = "https://api.bscscan.com/api?module=stats&action=tokensupply&contractaddress=0x5b1d1bbdcc432213f83b15214b93dc24d31855ef&apikey=".$b_api_key."";
 
@@ -83,12 +82,9 @@
 
         //format sETH price
         $seth_trimmed = rtrim(sprintf('%.16f', floatval($seth_price)),'0');
+    }
 
-        
-
-    
-    /* SurgeBTC Stats */
-
+    function sBTC(){
         //get total supply for sBTC
         $sbtc_token_total_supply_url = "https://api.bscscan.com/api?module=stats&action=tokensupply&contractaddress=0xb68c9D9BD82BdF4EeEcB22CAa7F3Ab94393108a1&apikey=".$b_api_key."";
 
@@ -119,12 +115,9 @@
 
         //format sBTC price
         $sbtc_trimmed = rtrim(sprintf('%.16f', floatval($sbtc_price)),'0');
+    }
 
-        
-
-
-    /* SurgeADA Stats */
-
+    function sADA(){
         /* //get data from BSCScan for sADA & bADA
         $get_html_sada = file_get_html('https://bscscan.com/token/0x5b1d1bbdcc432213f83b15214b93dc24d31855ef');
         $get_html_bada = file_get_html('https://bscscan.com/token/0x3ee2200efb3400fabb9aacf31297cbdd1d435d47?a=0x5b1d1bbdcc432213f83b15214b93dc24d31855ef');
@@ -156,6 +149,18 @@
 
         //format sADA price
         $sada_trimmed = rtrim(sprintf('%.16f', floatval($sada_price)),'0'); */
+    }
+
+    sUSD();
+    sleep(2);
+    sETH();
+    sleep(2);
+    sBTC();
+    sleep(2);
+    /* sADA();
+    sleep(2); */
+
+        
 
     
     //set the data in redis string 
