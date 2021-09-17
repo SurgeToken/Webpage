@@ -14,12 +14,14 @@
 
         $susd_total_supply_json = json_decode(file_get_contents($susd_token_total_supply_url));
         $susd_total_supply = $susd_total_supply_json->result;
+        print_r( "Total Supply: " + $susd_total_supply + "<br/>");
 
         //get total balance of busd
         $busd_token_total_balance_url = "https://api.bscscan.com/api?module=account&action=tokenbalance&contractaddress=0xe9e7cea3dedca5984780bafc599bd69add087d56&address=0x14fee7d23233ac941add278c123989b86ea7e1ff&tag=latest&apikey=".$b_api_key."";
 
         $busd_total_balance_json = json_decode(file_get_contents($busd_token_total_balance_url));
         $busd_total_balance = $busd_total_balance_json->result;
+        print_r( "Total Supply: " + $busd_total_balance + "<br/>");
 
         //get data from BSCScan for sUSD & bUSD
         $get_html_susd = file_get_html('https://bscscan.com/token/0x14fee7d23233ac941add278c123989b86ea7e1ff');
@@ -54,14 +56,14 @@
 
         $seth_total_supply_json = json_decode(file_get_contents($seth_token_total_supply_url));
         $seth_total_supply = $seth_token_total_supply->result;
-        print_r( "Total Supply: " + $seth_total_supply_json + "<br/>");
+        print_r( "Total Supply: " + $seth_total_supply + "<br/>");
 
         //get total balance of bETH
         $beth_token_total_balance_url = "https://api.bscscan.com/api?module=account&action=tokenbalance&contractaddress=0x2170ed0880ac9a755fd29b2688956bd959f933f8&address=0x5b1d1bbdcc432213f83b15214b93dc24d31855ef&tag=latest&apikey=".$api_key."";
 
         $beth_total_balance_json = json_decode(file_get_contents($beth_token_total_balance_url));
         $beth_total_balance = $beth_token_total_balance->result;
-        print_r( "Total Balance: " + $beth_total_balance_json + "<br/>");
+        print_r( "Total Balance: " + $beth_total_balance + "<br/>");
 
         //get data from BSCScan for sETH & wETH
         $get_html_seth = file_get_html('https://bscscan.com/token/0x5b1d1bbdcc432213f83b15214b93dc24d31855ef');
