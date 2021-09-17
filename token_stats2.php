@@ -23,7 +23,6 @@
 
         //get data from BSCScan for sUSD & bUSD
         $get_html_susd = file_get_html('https://bscscan.com/token/0x14fee7d23233ac941add278c123989b86ea7e1ff');
-        $get_html_busd = file_get_html('https://bscscan.com/token/0xe9e7cea3dedca5984780bafc599bd69add087d56?a=0x14fee7d23233ac941add278c123989b86ea7e1ff');
         
         //store data into variables
         $susd_holders = $get_html_susd->find('div[class="mr-3"]',0)->plaintext;
@@ -34,8 +33,6 @@
 
         $busd_price = $busd_price_json['data'][0]['prices'][0]['price'];
 
-        
-
         //calculate sUSD Price
         $susd_price = $busd_total_balance / $susd_total_supply;
 
@@ -43,28 +40,33 @@
         $susd_trimmed = rtrim(sprintf('%.16f', floatval($susd_price)),'0');
 
         //get the current price of BNB
-        //get total supply for sUSD
         $bnb_price_url = "https://api.bscscan.com/api?module=stats&action=bnbprice&apikey=".$api_key."";
 
         $bnb_price_json = file_get_contents($bnb_price_url);
         $bnb_price_encoded = json_decode($bnb_price_json);
         $bnb_price = $bnb_price_encoded->result->ethusd;
+
+        //set redis
+        /* $redis->set("sUSD Holders", trim($susd_holders));
+        $redis->set("sUSD Total Supply", trim($susd_total_supply));
+        $redis->set("bUSD Total Balance", trim($busd_total_balance));
+        $redis->set("bUSD Price", trim($busd_price));
+        $redis->set("sUSD Price", trim($susd_trimmed));
+        $redis->set("BNB Price", trim($bnb_price)); */
         
     
     /* SurgeETH Stats */
 
-        /* //get total supply for sETH
+        //get total supply for sETH
         $seth_token_total_supply_url = "https://api.bscscan.com/api?module=stats&action=tokensupply&contractaddress=0x5b1d1bbdcc432213f83b15214b93dc24d31855ef&apikey=".$api_key."";
 
-        $seth_total_supply_json = file_get_contents($seth_token_total_supply_url);
-        $seth_token_total_supply = json_decode($seth_total_supply_json);
+        $seth_total_supply_json = json_decode(file_get_contents($seth_token_total_supply_url));
         $seth_total_supply = $seth_token_total_supply->result;
 
         //get total balance of bETH
         $beth_token_total_balance_url = "https://api.bscscan.com/api?module=account&action=tokenbalance&contractaddress=0x2170ed0880ac9a755fd29b2688956bd959f933f8&address=0x5b1d1bbdcc432213f83b15214b93dc24d31855ef&tag=latest&apikey=".$api_key."";
 
-        $beth_total_balance_json = file_get_contents($beth_token_total_balance_url);
-        $beth_token_total_balance = json_decode($beth_total_balance_json);
+        $beth_total_balance_json = json_decode(file_get_contents($beth_token_total_balance_url));
         $beth_total_balance = $beth_token_total_balance->result;
 
         //get data from BSCScan for sETH & wETH
@@ -73,8 +75,14 @@
 
         //store data into variables
         $seth_holders = $get_html_seth->find('div[class="mr-3"]',0)->plaintext;
-        $weth_price = $get_html_weth->find('div[id="ContentPlaceHolder1_tr_valuepertoken"]',0)->plaintext;
 
+        //get the price of bETH
+        $beth_price_url = "https://api.covalenthq.com/v1/pricing/historical_by_addresses_v2/56/USD/0x2170ed0880ac9a755fd29b2688956bd959f933f8/?&key=ckey_43c97667ea9547c594b5c51cf0e";
+        $beth_price_json = json_decode(file_get_contents($beth_price_url), true);
+
+        $beth_price = $beth_price_json['data'][0]['prices'][0]['price'];
+        echo $beth_price;
+        
         //strip commas from sETH
         $total_supply_seth_no_commas = str_replace(',', '', $total_supply_seth);
 
@@ -95,7 +103,7 @@
         $seth_price = $total_balance_weth_no_commas / $total_supply_seth_no_commas;
 
         //format sETH price
-        $seth_trimmed = rtrim(sprintf('%.16f', floatval($seth_price)),'0'); */
+        $seth_trimmed = rtrim(sprintf('%.16f', floatval($seth_price)),'0');
 
     
     /* SurgeBTC Stats */
@@ -169,12 +177,7 @@
 
     
     //set the data in redis string 
-        /* $redis->set("sUSD Holders", trim($susd_holders));
-        $redis->set("sUSD Total Supply", trim($total_supply_susd_no_commas));
-        $redis->set("bUSD Total Balance", trim($total_balance_busd_no_commas));
-        $redis->set("bUSD Price", trim($busd_price_trimmed));
-        $redis->set("sUSD Price", trim($susd_trimmed));
-        $redis->set("BNB Price", $bnb_price);
+        /* 
 
         $redis->set("sETH Holders", trim($seth_holders));
         $redis->set("sETH Total Supply", trim($total_supply_seth_no_commas));
