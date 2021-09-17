@@ -32,10 +32,8 @@
         $busd_price_url = "https://api.covalenthq.com/v1/pricing/historical_by_addresses_v2/56/USD/0xe9e7cea3dedca5984780bafc599bd69add087d56/?&key=ckey_43c97667ea9547c594b5c51cf0e";
         $busd_price_json = json_decode(file_get_contents($busd_price_url));
         $busd_price = $busd_price_json->data->prices->price;
-        echo $busd_price;
         
-        //format busd price
-        $busd_price_trimmed = substr($busd_price, 12, 6);  
+         
 
         //calculate sUSD Price
         $susd_price = $busd_total_balance / $susd_total_supply;
@@ -199,5 +197,7 @@
         $bnb_price_test = $redis->get("BNB Price-Test");*/
         
         echo "1";
+        echo $busd_price;
+        echo $busd_price_json;
     
 ?>
