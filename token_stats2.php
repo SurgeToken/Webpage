@@ -33,6 +33,8 @@
         $busd_price_json = json_decode(file_get_contents($busd_price_url), true);
 
         print_r($busd_price_json);
+        $busd_price = $busd_price_json['data'][0]['prices'][0]['price'];
+        print_r($busd_price);
 
         
 
