@@ -19,7 +19,7 @@
 
     $beth_total_balance_json = json_decode(file_get_contents($beth_token_total_balance_url));
     $beth_total_balance = $beth_total_balance_json->result;
-    print_r($beth_total_balance + " ");
+    print_r($beth_total_balance);
 
     //get data from BSCScan for sETH & wETH
     $get_html_seth = file_get_html('https://bscscan.com/token/0x5b1d1bbdcc432213f83b15214b93dc24d31855ef');

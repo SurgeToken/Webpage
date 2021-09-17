@@ -11,7 +11,7 @@
 
     $sbtc_total_supply_json = json_decode(file_get_contents($sbtc_token_total_supply_url));
     $sbtc_total_supply = $sbtc_total_supply_json->result;
-    print_r($sbtc_total_supply + " ");
+    print_r($sbtc_total_supply);
     echo '<br/>';
 
     //get total balance of bBTC
@@ -19,7 +19,7 @@
 
     $bbtc_total_balance_json = json_decode(file_get_contents($bbtc_token_total_balance_url));
     $bbtc_total_balance = $bbtc_total_balance_json->result;
-    print_r($bbtc_total_balance + " ");
+    print_r($bbtc_total_balance);
 
     //get data from BSCScan for sBTC Holders
     $get_html_sbtc = file_get_html('https://bscscan.com/token/0xb68c9D9BD82BdF4EeEcB22CAa7F3Ab94393108a1');

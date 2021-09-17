@@ -11,7 +11,7 @@
 
     $susd_total_supply_json = json_decode(file_get_contents($susd_token_total_supply_url));
     $susd_total_supply = $susd_total_supply_json->result;
-    print_r($susd_total_supply + " ");
+    print_r($susd_total_supply);
     echo '<br/>';
 
     //get total balance of busd
@@ -19,7 +19,7 @@
 
     $busd_total_balance_json = json_decode(file_get_contents($busd_token_total_balance_url));
     $busd_total_balance = $busd_total_balance_json->result;
-    print_r($busd_total_balance + " ");
+    print_r($busd_total_balance);
 
     //get data from BSCScan for sUSD & bUSD
     $get_html_susd = file_get_html('https://bscscan.com/token/0x14fee7d23233ac941add278c123989b86ea7e1ff');
