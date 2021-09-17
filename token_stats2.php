@@ -152,11 +152,8 @@
     }
 
     sUSD();
-    sleep(2);
     sETH();
-    sleep(2);
     sBTC();
-    sleep(2);
     /* sADA();
     sleep(2); */
 
