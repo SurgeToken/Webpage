@@ -51,7 +51,5 @@
     $redis->set("sUSD Price", trim($susd_trimmed));
     $redis->set("BNB Price", trim($bnb_price));
     
-    //move to sETH
-    header( "refresh:5;url=https://dev.xsurge.net/getseth.php" );  
 
 ?>

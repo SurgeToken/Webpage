@@ -42,8 +42,6 @@
         $redis->set("bETH Total Balance", trim($beth_total_balance));
         $redis->set("bETH Price", trim($beth_price));
         $redis->set("sETH Price", trim($seth_trimmed));
-
-    //move to sETH
-    header( "refresh:5;url=https://dev.xsurge.net/getsbtc.php" );  
+ 
 
 ?>

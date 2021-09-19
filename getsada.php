@@ -41,9 +41,7 @@
     $redis->set("bADA Total Balance", trim($bada_total_balance));
     $redis->set("bADA Price", trim($bada_price));
     $redis->set("sADA Price", trim($sada_trimmed));
-
-    //move to sETH
-    header( "refresh:10;url=https://dev.xsurge.net/getsusd.php" );  
+ 
 
 
 
