@@ -47,18 +47,10 @@
         $bnb_price = $bnb_price_encoded->result->ethusd;
 
         $redis->set("sUSD Holders", trim($susd_holders));
-        $redis->set("sUSD Total Supply", trim($susd_total_supply));
-        $redis->set("bUSD Total Balance", trim($busd_total_balance));
         $redis->set("bUSD Price", trim($busd_price));
         $redis->set("sUSD Price", trim($susd_trimmed));
         $redis->set("BNB Price", trim($bnb_price));
 
-        print_r( $susd_holders );
-        print_r( $susd_total_supply );
-        print_r( $busd_total_balance );
-        print_r( $busd_price );
-        print_r( $susd_trimmed );
-        print_r( $bnb_price );
     }
 
     function sETH(){
@@ -93,8 +85,6 @@
         $seth_trimmed = rtrim(sprintf('%.16f', floatval($seth_price)),'0');
 
         $redis->set("sETH Holders", trim($seth_holders));
-        $redis->set("sETH Total Supply", trim($seth_total_supply));
-        $redis->set("bETH Total Balance", trim($beth_total_balance));
         $redis->set("bETH Price", trim($beth_price));
         $redis->set("sETH Price", trim($seth_trimmed));
     }
@@ -130,8 +120,6 @@
         $sbtc_trimmed = rtrim(sprintf('%.16f', floatval($sbtc_price)),'0');
 
         $redis->set("sBTC Holders", trim($sbtc_holders));
-        $redis->set("sBTC Total Supply", trim($sbtc_total_supply));
-        $redis->set("bBTC Total Balance", trim($bbtc_total_balance));
         $redis->set("bBTC Price", trim($bbtc_price));
         $redis->set("sBTC Price", trim($sbtc_trimmed));
     }
@@ -167,9 +155,7 @@
         $sada_trimmed = rtrim(sprintf('%.16f', floatval($sada_price)),'0');
 
         $redis->set("sADA Holders", trim($sada_holders));
-        $redis->set("sADA Total Supply", trim($total_supply_sada_no_commas));
-        $redis->set("bADA Total Balance", trim($total_balance_bada_no_commas));
-        $redis->set("bADA Price", trim($bada_price_no_commas));
+        $redis->set("bADA Price", trim($bada_price));
         $redis->set("sADA Price", trim($sada_trimmed));
     }
 
