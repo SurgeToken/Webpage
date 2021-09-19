@@ -39,7 +39,7 @@
         $redis->set("sBTC Holders", trim($sbtc_holders));
         $redis->set("sBTC Total Supply", trim($sbtc_total_supply));
         $redis->set("bBTC Total Balance", trim($bbtc_total_balance));
-        $redis->set("bBTC Price", trim($sbtc_price));
+        $redis->set("bBTC Price", trim($bbtc_price));
         $redis->set("sBTC Price", trim($sbtc_trimmed));
 
 
