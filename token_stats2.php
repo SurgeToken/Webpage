@@ -165,20 +165,6 @@
     sBTC();
     sADA();
 
-    
-    //set the data in redis string 
-
-        
-
-        //sETH-bETH
-        
-
-        //sBTC-bBTC
-        
-        
-        
-        
-
         echo "1";
     
 ?>
