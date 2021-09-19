@@ -154,7 +154,7 @@
         $sada_trimmed = rtrim(sprintf('%.16f', floatval($sada_price)),'0');
     }
 
-    sUSD();
+   /*  sUSD();
     sETH();
     sBTC();
     /* sADA();
