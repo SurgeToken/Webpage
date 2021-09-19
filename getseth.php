@@ -44,6 +44,6 @@
         $redis->set("sETH Price", trim($seth_trimmed));
 
     //move to sETH
-    header( "refresh:2;url=https://dev.xsurge.net/getsbtc.php" );  
+    header( "refresh:5;url=https://dev.xsurge.net/getsbtc.php" );  
 
 ?>

@@ -43,6 +43,6 @@
         $redis->set("sBTC Price", trim($sbtc_trimmed));
 
      //move to sETH
-     header( "refresh:2;url=https://dev.xsurge.net/getsada.php" );  
+     header( "refresh:5;url=https://dev.xsurge.net/getsada.php" );  
 
 ?>

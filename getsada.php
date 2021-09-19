@@ -43,7 +43,7 @@
     $redis->set("sADA Price", trim($sada_trimmed));
 
     //move to sETH
-    header( "refresh:15;url=https://dev.xsurge.net/getsusd.php" );  
+    header( "refresh:10;url=https://dev.xsurge.net/getsusd.php" );  
 
 
 
