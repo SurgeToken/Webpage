@@ -1235,8 +1235,6 @@
                     break;
                 case "sUSD":
                     
-                    
-
                     //get total supply of sUSD
                     $.post("calc2.php", {tokenSelected: tS, tokenAmount:tA}).done(function(data){
                         var data = JSON.parse(data);
@@ -1294,8 +1292,6 @@
                     break;
                 case "sBTC":
 
-                    
-
                         $.post("calc2.php", {tokenSelected: tS, tokenAmount:tA}).done(function(data){
                             var data = JSON.parse(data);
                             var valueUSD, valueBTC;
@@ -1319,6 +1315,33 @@
 
                             });
                         });
+                        break;
+                case "sADA":
+                    
+                    $.post("calc2.php", {tokenSelected: tS, tokenAmount:tA}).done(function(data){
+                            var data = JSON.parse(data);
+                            var valueUSD, valueADA;
+                            var tokenName = "ADA";
+
+                            $.each(data, function(i, item){
+                                valueUSD = item.value_usd;
+                                valueADA = item.value_ada;
+                                tempsADAValueUSD = item.value_usd;
+                                tempsADAValueADA = item.value_ada;
+
+                                $("#tokenBalance").html(tokenAmount + " sADA");
+                                $("#tokenName").html("Current Value (ADA)");
+                                $("#tokenValue").html(valueADA);
+                                $("#tokenValueUSD").html("$" + valueUSD);
+
+                                $('#calcResults').show();
+                                $("#resultsWallet").hide();
+                                $("#resultsToken").show();
+
+
+                            });
+                        });
+                        break;
                         break;
 
                 default:
@@ -1354,6 +1377,7 @@
             let susdHolding = getCookie("sUSD");
             let sethHolding = getCookie("sETH");
             let sbtcHolding = getCookie("sBTC");
+            let sadaHolding = getCookie("sADA");
         }
   
     

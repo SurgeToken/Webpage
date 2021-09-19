@@ -6,11 +6,13 @@
    
     $b_api_key = "7BY2SX3KIF1NT1QEPY82VZB2WBTJFMN75R";
 
-
+    //clear Redis
+    $redis->flushAll();
+    
     //token functions
     function sUSD(){
         //get total supply for sUSD
-        $susd_token_total_supply_url = "https://api.bscscan.com/api?module=stats&action=tokensupply&contractaddress=0x14fee7d23233ac941add278c123989b86ea7e1ff&apikey=7BY2SX3KIF1NT1QEPY82VZB2WBTJFMN75R";
+        $susd_token_total_supply_url = "https://api.bscscan.com/api?module=stats&action=tokensupply&contractaddress=0x14fee7d23233ac941add278c123989b86ea7e1ff&apikey=".$b_api_key."";
 
         $susd_total_supply_json = json_decode(file_get_contents($susd_token_total_supply_url));
         $susd_total_supply = $susd_total_supply_json->result;
