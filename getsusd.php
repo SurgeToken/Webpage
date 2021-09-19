@@ -11,15 +11,12 @@
 
     $susd_total_supply_json = json_decode(file_get_contents($susd_token_total_supply_url));
     $susd_total_supply = $susd_total_supply_json->result;
-    print_r($susd_total_supply);
-    echo '<br/>';
 
     //get total balance of busd
     $busd_token_total_balance_url = "https://api.bscscan.com/api?module=account&action=tokenbalance&contractaddress=0xe9e7cea3dedca5984780bafc599bd69add087d56&address=0x14fee7d23233ac941add278c123989b86ea7e1ff&tag=latest&apikey=".$b_api_key."";
 
     $busd_total_balance_json = json_decode(file_get_contents($busd_token_total_balance_url));
     $busd_total_balance = $busd_total_balance_json->result;
-    print_r($busd_total_balance);
 
     //get data from BSCScan for sUSD & bUSD
     $get_html_susd = file_get_html('https://bscscan.com/token/0x14fee7d23233ac941add278c123989b86ea7e1ff');
@@ -47,11 +44,11 @@
     $bnb_price = $bnb_price_encoded->result->ethusd;
 
     //sUSD-bUSD
-    /* $redis->set("sUSD Holders", trim($susd_holders));
+    $redis->set("sUSD Holders", trim($susd_holders));
     $redis->set("sUSD Total Supply", trim($susd_total_supply));
     $redis->set("bUSD Total Balance", trim($busd_total_balance));
     $redis->set("bUSD Price", trim($busd_price));
     $redis->set("sUSD Price", trim($susd_trimmed));
-    $redis->set("BNB Price", trim($bnb_price)); */
+    $redis->set("BNB Price", trim($bnb_price));
 
 ?>

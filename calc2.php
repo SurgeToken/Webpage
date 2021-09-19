@@ -53,10 +53,10 @@
             $get_total_supply_seth = $redis->get("sETH Total Supply");
            
             //get the total balance of wETH
-            $get_total_balance_weth = $redis->get("wETH Total Balance");
+            $get_total_balance_weth = $redis->get("bETH Total Balance");
             
             //get current price of wETH
-            $get_weth_price = $redis->get("wETH Price");
+            $get_weth_price = $redis->get("bETH Price");
             
             //calculate sETH Price
             $seth_price = $redis->get("sETH Price");
@@ -81,69 +81,68 @@
             break;
         case "sBTC":
 
-                //get the total supply of sBTC
-                $get_total_supply_sbtc = $redis->get("sBTC Total Supply");
+            //get the total supply of sBTC
+            $get_total_supply_sbtc = $redis->get("sBTC Total Supply");
                
-                //get the total balance of BTCb
-                $get_total_balance_btcb = $redis->get("BTCb Total Balance");
+            //get the total balance of BTCb
+            $get_total_balance_btcb = $redis->get("bBTC Total Balance");
                 
-                //get current price of BTCb
-                $get_btcb_price = $redis->get("BTCb Price");
+            //get current price of BTCb
+            $get_btcb_price = $redis->get("bBTC Price");
                 
-                //calculate sBTC Price
-                $sbtc_price = $redis->get("sBTC Price");
+            //calculate sBTC Price
+            $sbtc_price = $redis->get("sBTC Price");
                 
-                //calculate the value of sBTC
-                $user_sbtc_value = $sbtc_price * $tokens;
-                $user_sbtc_value_trimmed = rtrim(sprintf('%.4f', floatval($user_sbtc_value)),'0');
-                $row['value_btc'] = $user_sbtc_value_trimmed;
+            //calculate the value of sBTC
+            $user_sbtc_value = $sbtc_price * $tokens;
+            $user_sbtc_value_trimmed = rtrim(sprintf('%.4f', floatval($user_sbtc_value)),'0');
+            $row['value_btc'] = $user_sbtc_value_trimmed;
     
-                //calculate users value in BTC
-                $user_usd_value = $user_sbtc_value * $get_btcb_price;
-                $user_usd_value_trimmed = rtrim(sprintf('%.2f', floatval($user_usd_value)),'0');
+            //calculate users value in BTC
+            $user_usd_value = $user_sbtc_value * $get_btcb_price;
+            $user_usd_value_trimmed = rtrim(sprintf('%.2f', floatval($user_usd_value)),'0');
                 
-                $row['value_usd'] = number_format($user_usd_value_trimmed, 2, '.', ',');
+            $row['value_usd'] = number_format($user_usd_value_trimmed, 2, '.', ',');
     
-                //push all $row variables into the $data array
-                array_push($data, $row);
+            //push all $row variables into the $data array
+            array_push($data, $row);
     
-                //push the $data array to index.html
-                echo json_encode($data); 
+            //push the $data array to index.html
+            echo json_encode($data); 
                 
-                break;
+            break;
+        case "sADA":
 
-        /* case "sADA":
+            //get the total supply of sADA
+            $get_total_supply_sada = $redis->get("sADA Total Supply");
 
-                    //get the total supply of sADA
-                    $get_total_supply_sada = $redis->get("sADA Total Supply");
-                   
-                    //get the total balance of bADA
-                    $get_total_balance_bada = $redis->get("bADA Total Balance");
+            //get the total balance of bADA
+            $get_total_balance_bada = $redis->get("bADA Total Balance");
                     
-                    //get current price of bADA
-                    $get_bada_price = $redis->get("bADA Price");
+            //get current price of bADA
+            $get_bada_price = $redis->get("bADA Price");
                     
-                    //calculate sADA Price
-                    $sada_price = $redis->get("sADA Price");
+            //calculate sADA Price
+            $sada_price = $redis->get("sADA Price");
                     
-                    //calculate the value of sADA
-                    $user_sada_value = $sada_price * $tokens;
-                    $user_sada_value_trimmed = rtrim(sprintf('%.4f', floatval($user_sada_value)),'0');
-                    $row['value_ada'] = $user_sada_value_trimmed;
+            //calculate the value of sADA
+            $user_sada_value = $sada_price * $tokens;
+            $user_sada_value_trimmed = rtrim(sprintf('%.4f', floatval($user_sada_value)),'0');
+            $row['value_ada'] = $user_sada_value_trimmed;
         
-                    //calculate users value in ADA
-                    $user_usd_value = $user_sada_value * $get_bada_price;
-                    $user_usd_value_trimmed = rtrim(sprintf('%.2f', floatval($user_usd_value)),'0');
+            //calculate users value in ADA
+            $user_usd_value = $user_sada_value * $get_bada_price;
+            $user_usd_value_trimmed = rtrim(sprintf('%.2f', floatval($user_usd_value)),'0');
                     
-                    $row['value_usd'] = number_format($user_usd_value_trimmed, 2, '.', ',');
+            $row['value_usd'] = number_format($user_usd_value_trimmed, 2, '.', ',');
         
-                    //push all $row variables into the $data array
-                    array_push($data, $row);
+            //push all $row variables into the $data array
+            array_push($data, $row);
         
-                    //push the $data array to index.html
-                    echo json_encode($data); 
+            //push the $data array to index.html
+            echo json_encode($data); 
                     
-                    break; */
+            break;
         default:
             break;
     }

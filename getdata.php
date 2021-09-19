@@ -12,7 +12,8 @@
     $tokens_array = array(
         "SUSD"=>"0x14fEe7d23233AC941ADd278c123989b86eA7e1fF", 
         "SETH"=>"0x5B1d1BBDCc432213F83b15214B93Dc24D31855Ef", 
-        "SBTC"=>"0xb68c9D9BD82BdF4EeEcB22CAa7F3Ab94393108a1"
+        "SBTC"=>"0xb68c9D9BD82BdF4EeEcB22CAa7F3Ab94393108a1",
+        "SADA"=>"0xbF6bB9b8004942DFb3C1cDE3Cb950AF78ab8A5AF"
     );
 
     foreach($tokens_array as $token_name => $token_address) {
@@ -45,7 +46,7 @@
                 break;
             case "SETH":
                 //get current price of wETH
-                $get_weth_price = $redis->get("wETH Price");
+                $get_weth_price = $redis->get("bETH Price");
                         
                 //calculate sETH Price
                 $seth_price = $redis->get("sETH Price");
@@ -63,7 +64,7 @@
                 break;
             case "SBTC":
                 //get current price of bBTC
-                $get_btcb_price = $redis->get("BTCb Price");
+                $get_btcb_price = $redis->get("bBTC Price");
                             
                 //calculate sBTC Price
                 $sbtc_price = $redis->get("sBTC Price");
@@ -79,7 +80,7 @@
                 $user_token_usd_value = $user_token_value * $get_btcb_price;
                 $user_token_usd_value_trimmed = rtrim(sprintf('%.2f', floatval($user_token_usd_value)),'0');
                 break;
-            /* case "SADA":
+            case "SADA":
                 //get current price of bBTC
                 $get_bada_price = $redis->get("bADA Price");
                                 
@@ -91,12 +92,12 @@
     
                 //calculate the ADA value of sADA
                 $user_token_value = $sada_price * $token_result;
-                $user_token_value_trimmed = rtrim(sprintf('%.4f', floatval($user_token_value)),'0');
+                $user_token_value_trimmed = rtrim(sprintf('%.2f', floatval($user_token_value)),'0');
                         
                 //calculate users value in ADA
                 $user_token_usd_value = $user_token_value * $get_bada_price;
                 $user_token_usd_value_trimmed = rtrim(sprintf('%.2f', floatval($user_token_usd_value)),'0');
-                break; */
+                break;
             default:
                 break;
 
