@@ -78,6 +78,7 @@
                     
                 //calculate users value in BTC
                 $user_token_usd_value = $user_token_value * $get_btcb_price;
+                echo $get_btcb_price;
                 $user_token_usd_value_trimmed = rtrim(sprintf('%.2f', floatval($user_token_usd_value)),'0');
                 break;
             case "SADA":
