@@ -43,12 +43,8 @@
     $redis->set("sADA Price", trim($sada_trimmed));
 
     //move to sETH
-    sleep(15);
+    header( "refresh:15;url=https://dev.xsurge.net/getsusd" );  
 
-    //Redirect using the Location header.
-    header('Location: https://dev.xsurge.net/getsusd.php/');
 
-    //exit to prevent the rest of the script from executing
-    exit;
 
 ?>

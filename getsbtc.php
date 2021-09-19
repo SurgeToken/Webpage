@@ -42,13 +42,7 @@
         $redis->set("bBTC Price", trim($sbtc_price));
         $redis->set("sBTC Price", trim($sbtc_trimmed));
 
-    //move to sADA
-    sleep(5);
-
-    //Redirect using the Location header.
-    header('Location: https://dev.xsurge.net/getsada.php/');
-
-    //exit to prevent the rest of the script from executing
-    exit;
+     //move to sETH
+     header( "refresh:2;url=https://dev.xsurge.net/getsada" );  
 
 ?>
