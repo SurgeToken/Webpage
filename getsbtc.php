@@ -42,4 +42,7 @@
         $redis->set("bBTC Price", trim($sbtc_price));
         $redis->set("sBTC Price", trim($sbtc_trimmed));
 
+    //move to sADA
+    header( "refresh:2;url=getsada.php" );
+
 ?>

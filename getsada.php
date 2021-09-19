@@ -42,4 +42,7 @@
     $redis->set("bADA Price", trim($bada_price));
     $redis->set("sADA Price", trim($sada_trimmed));
 
+    //move to sETH
+    header( "refresh:15;url=getsusd.php" );
+
 ?>

@@ -50,5 +50,8 @@
     $redis->set("bUSD Price", trim($busd_price));
     $redis->set("sUSD Price", trim($susd_trimmed));
     $redis->set("BNB Price", trim($bnb_price));
+    
+    //move to sETH
+    header( "refresh:2;url=getseth.php" );
 
 ?>

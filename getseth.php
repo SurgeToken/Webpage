@@ -43,4 +43,7 @@
         $redis->set("bETH Price", trim($beth_price));
         $redis->set("sETH Price", trim($seth_trimmed));
 
+    //move to ssBTC
+    header( "refresh:2;url=getsbtc.php" );
+
 ?>
