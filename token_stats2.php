@@ -121,7 +121,7 @@
     }
 
     function sADA(){
-        /* //get data from BSCScan for sADA & bADA
+        //get data from BSCScan for sADA & bADA
         $get_html_sada = file_get_html('https://bscscan.com/token/0x5b1d1bbdcc432213f83b15214b93dc24d31855ef');
         $get_html_bada = file_get_html('https://bscscan.com/token/0x3ee2200efb3400fabb9aacf31297cbdd1d435d47?a=0x5b1d1bbdcc432213f83b15214b93dc24d31855ef');
 
@@ -151,7 +151,7 @@
         $sada_price = $total_balance_bada_no_commas / $total_supply_sada_no_commas;
 
         //format sADA price
-        $sada_trimmed = rtrim(sprintf('%.16f', floatval($sada_price)),'0'); */
+        $sada_trimmed = rtrim(sprintf('%.16f', floatval($sada_price)),'0');
     }
 
     sUSD();
