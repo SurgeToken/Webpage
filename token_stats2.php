@@ -4,119 +4,124 @@
     //Connecting to Redis server on localhost 
     include("redis_config.php");
    
-    /* SurgeUSD Stats */
+    $b_api_key = "7BY2SX3KIF1NT1QEPY82VZB2WBTJFMN75R";
 
+
+    //token functions
+    function sUSD(){
         //get total supply for sUSD
-        
+        $susd_token_total_supply_url = "https://api.bscscan.com/api?module=stats&action=tokensupply&contractaddress=0x14fee7d23233ac941add278c123989b86ea7e1ff&apikey=7BY2SX3KIF1NT1QEPY82VZB2WBTJFMN75R";
+
+        $susd_total_supply_json = json_decode(file_get_contents($susd_token_total_supply_url));
+        $susd_total_supply = $susd_total_supply_json->result;
+        print_r($susd_total_supply);
+        echo '<br/>';
+
+        //get total balance of busd
+        $busd_token_total_balance_url = "https://api.bscscan.com/api?module=account&action=tokenbalance&contractaddress=0xe9e7cea3dedca5984780bafc599bd69add087d56&address=0x14fee7d23233ac941add278c123989b86ea7e1ff&tag=latest&apikey=".$b_api_key."";
+
+        $busd_total_balance_json = json_decode(file_get_contents($busd_token_total_balance_url));
+        $busd_total_balance = $busd_total_balance_json->result;
+        print_r($busd_total_balance);
+
         //get data from BSCScan for sUSD & bUSD
         $get_html_susd = file_get_html('https://bscscan.com/token/0x14fee7d23233ac941add278c123989b86ea7e1ff');
-        $get_html_busd = file_get_html('https://bscscan.com/token/0xe9e7cea3dedca5984780bafc599bd69add087d56?a=0x14fee7d23233ac941add278c123989b86ea7e1ff');
         
         //store data into variables
         $susd_holders = $get_html_susd->find('div[class="mr-3"]',0)->plaintext;
-        $total_supply_susd = $get_html_susd->find('span[class="hash-tag text-truncate"]',0)->plaintext;
-        $total_balance_busd = $get_html_busd->find('div[id="ContentPlaceHolder1_divFilteredHolderBalance"]',0)->plaintext;
-        $busd_price = $get_html_busd->find('div[id="ContentPlaceHolder1_tr_valuepertoken"]',0)->plaintext;
-        
-        //strip commas from total supply susd
-        $total_supply_susd_no_commas = str_replace(',', '', $total_supply_susd);
-        
-        //remove unneeded data from total balance busd
-        $total_balance_busd_trimmed = substr($total_balance_busd, 8, -5);
 
-        //strip commas from total balance busd
-        $total_balance_busd_no_commas = str_replace(',', '', $total_balance_busd_trimmed);
-        
-        //format busd price
-        $busd_price_trimmed = substr($busd_price, 12, 6);  
+        //get busd price from covalent
+        $busd_price_url = "https://api.covalenthq.com/v1/pricing/historical_by_addresses_v2/56/USD/0xe9e7cea3dedca5984780bafc599bd69add087d56/?&key=ckey_43c97667ea9547c594b5c51cf0e";
+        $busd_price_json = json_decode(file_get_contents($busd_price_url), true);
+
+        $busd_price = $busd_price_json['data'][0]['prices'][0]['price'];
 
         //calculate sUSD Price
-        $susd_price = $total_balance_busd_no_commas / $total_supply_susd_no_commas;
+        $susd_price = $busd_total_balance / $susd_total_supply;
 
         //format susd price 
         $susd_trimmed = rtrim(sprintf('%.16f', floatval($susd_price)),'0');
 
         //get the current price of BNB
-        $get_bnb_price = file_get_html('https://bscscan.com/token/0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c');
-        $bnb_price = $get_bnb_price->find('div[id="ContentPlaceHolder1_tr_valuepertoken"]',0)->plaintext;
-        $bnb_price_trimmed = substr($bnb_price, 12, 6);
-        $bnb_price = $bnb_price_trimmed;
+        $bnb_price_url = "https://api.bscscan.com/api?module=stats&action=bnbprice&apikey=".$b_api_key."";
 
-    
-    /* SurgeETH Stats */
+        $bnb_price_json = file_get_contents($bnb_price_url);
+        $bnb_price_encoded = json_decode($bnb_price_json);
+        $bnb_price = $bnb_price_encoded->result->ethusd;
+    }
 
+    function sETH(){
+        //get total supply for sETH
+        $seth_token_total_supply_url = "https://api.bscscan.com/api?module=stats&action=tokensupply&contractaddress=0x5b1d1bbdcc432213f83b15214b93dc24d31855ef&apikey=".$b_api_key."";
+
+        $seth_total_supply_json = json_decode(file_get_contents($seth_token_total_supply_url));
+        $seth_total_supply = $seth_total_supply_json->result;
+        print_r($seth_total_supply);
+        echo '<br/>';
+
+        //get total balance of bETH
+        $beth_token_total_balance_url = "https://api.bscscan.com/api?module=account&action=tokenbalance&contractaddress=0x2170ed0880ac9a755fd29b2688956bd959f933f8&address=0x5b1d1bbdcc432213f83b15214b93dc24d31855ef&tag=latest&apikey=".$b_api_key."";
+
+        $beth_total_balance_json = json_decode(file_get_contents($beth_token_total_balance_url));
+        $beth_total_balance = $beth_total_balance_json->result;
+        print_r($beth_total_balance);
 
         //get data from BSCScan for sETH & wETH
         $get_html_seth = file_get_html('https://bscscan.com/token/0x5b1d1bbdcc432213f83b15214b93dc24d31855ef');
-        $get_html_weth = file_get_html('https://bscscan.com/token/0x2170ed0880ac9a755fd29b2688956bd959f933f8?a=0x5b1d1bbdcc432213f83b15214b93dc24d31855ef');
 
         //store data into variables
         $seth_holders = $get_html_seth->find('div[class="mr-3"]',0)->plaintext;
-        $total_supply_seth = $get_html_seth->find('span[class="hash-tag text-truncate"]',0)->plaintext;
-        $total_balance_weth = $get_html_weth->find('div[id="ContentPlaceHolder1_divFilteredHolderBalance"]',0)->plaintext;
-        $weth_price = $get_html_weth->find('div[id="ContentPlaceHolder1_tr_valuepertoken"]',0)->plaintext;
 
-        //strip commas from sETH
-        $total_supply_seth_no_commas = str_replace(',', '', $total_supply_seth);
+        //get the price of bETH
+        $beth_price_url = "https://api.covalenthq.com/v1/pricing/historical_by_addresses_v2/56/USD/0x2170ed0880ac9a755fd29b2688956bd959f933f8/?&key=ckey_43c97667ea9547c594b5c51cf0e";
+        $beth_price_json = json_decode(file_get_contents($beth_price_url), true);
 
-        //strip commas from wETH
-        $weth_price_trimmed = substr($weth_price, 12, 8);
-        $weth_price_no_commas = str_replace(',', '', $weth_price_trimmed);
+        $beth_price = $beth_price_json['data'][0]['prices'][0]['price'];
 
-        //remove unneeded data from total balance wETH
-        $total_balance_weth_trimmed = substr($total_balance_weth, 8, -5);
-
-        //strip commas from total balance wETH
-        $total_balance_weth_no_commas = str_replace(',', '', $total_balance_weth_trimmed);
-
-        //remove unneeded data from current price of wETH
-        $weth_price_trimmed = substr($weth_price, 12, 6);
-        
         //calculate sETH Price
-        $seth_price = $total_balance_weth_no_commas / $total_supply_seth_no_commas;
+        $seth_price = $beth_total_balance / $seth_total_supply;
+        
 
         //format sETH price
         $seth_trimmed = rtrim(sprintf('%.16f', floatval($seth_price)),'0');
+    }
 
-    
-    /* SurgeBTC Stats */
+    function sBTC(){
+        //get total supply for sBTC
+        $sbtc_token_total_supply_url = "https://api.bscscan.com/api?module=stats&action=tokensupply&contractaddress=0xb68c9D9BD82BdF4EeEcB22CAa7F3Ab94393108a1&apikey=".$b_api_key."";
 
-        //get data from BSCScan for sBTC & BTCb
+        $sbtc_total_supply_json = json_decode(file_get_contents($sbtc_token_total_supply_url));
+        $sbtc_total_supply = $sbtc_total_supply_json->result;
+        print_r($sbtc_total_supply);
+        echo '<br/>';
+
+        //get total balance of bBTC
+        $bbtc_token_total_balance_url = "https://api.bscscan.com/api?module=account&action=tokenbalance&contractaddress=0x7130d2a12b9bcbfae4f2634d864a1ee1ce3ead9c&address=0xb68c9D9BD82BdF4EeEcB22CAa7F3Ab94393108a1&tag=latest&apikey=".$b_api_key."";
+
+        $bbtc_total_balance_json = json_decode(file_get_contents($bbtc_token_total_balance_url));
+        $bbtc_total_balance = $bbtc_total_balance_json->result;
+        print_r($bbtc_total_balance);
+
+        //get data from BSCScan for sBTC Holders
         $get_html_sbtc = file_get_html('https://bscscan.com/token/0xb68c9D9BD82BdF4EeEcB22CAa7F3Ab94393108a1');
-        $get_html_btcb = file_get_html('https://bscscan.com/token/0x7130d2a12b9bcbfae4f2634d864a1ee1ce3ead9c?a=0xb68c9D9BD82BdF4EeEcB22CAa7F3Ab94393108a1');
-
-        //store data into variables
         $sbtc_holders = $get_html_sbtc->find('div[class="mr-3"]',0)->plaintext;
-        $total_supply_sbtc = $get_html_sbtc->find('span[class="hash-tag text-truncate"]',0)->plaintext;
-        $total_balance_btcb = $get_html_btcb->find('div[id="ContentPlaceHolder1_divFilteredHolderBalance"]',0)->plaintext;
-        $btcb_price = $get_html_btcb->find('div[id="ContentPlaceHolder1_tr_valuepertoken"]',0)->plaintext;
 
-        //strip commas from sBTC
-        $total_supply_sbtc_no_commas = str_replace(',', '', $total_supply_sbtc);
+        //get bBTC price from covalent
+        $bbtc_price_url = "https://api.covalenthq.com/v1/pricing/historical_by_addresses_v2/56/USD/0x7130d2a12b9bcbfae4f2634d864a1ee1ce3ead9c/?&key=ckey_43c97667ea9547c594b5c51cf0e";
 
-        //strip commas from btcb
-        $btcb_price_trimmed = substr($btcb_price, 12, 8);
-        $btcb_price_no_commas = str_replace(',', '', $btcb_price_trimmed);
+        $bbtc_price_json = json_decode(file_get_contents($bbtc_price_url), true);
 
-        //remove unneeded data from total balance btcb
-        $total_balance_btcb_trimmed = substr($total_balance_btcb, 8, -5);
-
-        //strip commas from total balance btcb
-        $total_balance_btcb_no_commas = str_replace(',', '', $total_balance_btcb_trimmed);
-
-        //remove unneeded data from current price of btcb
-        $btcb_price_trimmed = substr($btcb_price, 12, 6);
+        $bbtc_price = $bbtc_price_json['data'][0]['prices'][0]['price'];
         
         //calculate sBTC Price
-        $sbtc_price = $total_balance_btcb_no_commas / $total_supply_sbtc_no_commas;
+        $sbtc_price = $bbtc_total_balance / $sbtc_total_supply;
 
         //format sBTC price
         $sbtc_trimmed = rtrim(sprintf('%.16f', floatval($sbtc_price)),'0');
+    }
 
-
-    /* SurgeADA Stats */
-
-        //get data from BSCScan for sADA & bADA
+    function sADA(){
+        /* //get data from BSCScan for sADA & bADA
         $get_html_sada = file_get_html('https://bscscan.com/token/0x5b1d1bbdcc432213f83b15214b93dc24d31855ef');
         $get_html_bada = file_get_html('https://bscscan.com/token/0x3ee2200efb3400fabb9aacf31297cbdd1d435d47?a=0x5b1d1bbdcc432213f83b15214b93dc24d31855ef');
 
@@ -146,35 +151,53 @@
         $sada_price = $total_balance_bada_no_commas / $total_supply_sada_no_commas;
 
         //format sADA price
-        $sada_trimmed = rtrim(sprintf('%.16f', floatval($sada_price)),'0');
+        $sada_trimmed = rtrim(sprintf('%.16f', floatval($sada_price)),'0'); */
+    }
+
+    sUSD();
+    sETH();
+    sBTC();
+    /* sADA();
+    sleep(2); */
+
+        
 
     
     //set the data in redis string 
-        $redis->set("sUSD Holders", trim($susd_holders));
-        $redis->set("sUSD Total Supply", trim($total_supply_susd_no_commas));
-        $redis->set("bUSD Total Balance", trim($total_balance_busd_no_commas));
-        $redis->set("bUSD Price", trim($busd_price_trimmed));
-        $redis->set("sUSD Price", trim($susd_trimmed));
-        $redis->set("BNB Price", trim($bnb_price_trimmed));
 
-        $redis->set("sETH Holders", trim($seth_holders));
-        $redis->set("sETH Total Supply", trim($total_supply_seth_no_commas));
-        $redis->set("wETH Total Balance", trim($total_balance_weth_no_commas));
-        $redis->set("wETH Price", trim($weth_price_no_commas));
-        $redis->set("sETH Price", trim($seth_trimmed));
+        //sUSD-bUSD
+        /* $redis->set("sUSD Holders", trim($susd_holders));
+        $redis->set("sUSD Total Supply", trim($susd_total_supply));
+        $redis->set("bUSD Total Balance", trim($busd_total_balance));
+        $redis->set("bUSD Price", trim($busd_price));
+        $redis->set("sUSD Price", trim($susd_trimmed));
+        $redis->set("BNB Price", trim($bnb_price)); */
         
-        $redis->set("sBTC Holders", trim($sbtc_holders));
-        $redis->set("sBTC Total Supply", trim($total_supply_sbtc_no_commas));
-        $redis->set("BTCb Total Balance", trim($total_balance_btcb_no_commas));
-        $redis->set("BTCb Price", trim($btcb_price_no_commas));
-        $redis->set("sBTC Price", trim($sbtc_trimmed));
+
+        //sETH-bETH
+        /* $redis->set("sETH Holders", trim($seth_holders));
+        $redis->set("sETH Total Supply", trim($seth_total_supply));
+        $redis->set("bETH Total Balance", trim($beth_total_balance));
+        $redis->set("bETH Price", trim($beth_price));
+        $redis->set("sETH Price", trim($seth_trimmed)); */
+
+        //sBTC-bBTC
+        /* $redis->set("sBTC Holders", trim($sbtc_holders));
+        $redis->set("sBTC Total Supply", trim($sbtc_total_supply));
+        $redis->set("bBTC Total Balance", trim($bbtc_total_balance));
+        $redis->set("bBTC Price", trim($sbtc_price));
+        $redis->set("sBTC Price", trim($sbtc_trimmed)); */
         
-        $redis->set("sADA Holders", trim($sada_holders));
+        
+        /* $redis->set("sADA Holders", trim($sada_holders));
         $redis->set("sADA Total Supply", trim($total_supply_sada_no_commas));
         $redis->set("bADA Total Balance", trim($total_balance_bada_no_commas));
         $redis->set("bADA Price", trim($bada_price_no_commas));
-        $redis->set("sADA Price", trim($sada_trimmed));
+        $redis->set("sADA Price", trim($sada_trimmed)); */
 
-        echo "1";
+        /* $redis->set("BNB Price-Test", $bnb_price);
+        $bnb_price_test = $redis->get("BNB Price-Test");*/
+        
+        //echo "1";
     
 ?>
