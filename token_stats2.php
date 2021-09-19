@@ -53,12 +53,12 @@
         $redis->set("sUSD Price", trim($susd_trimmed));
         $redis->set("BNB Price", trim($bnb_price));
 
-        echo $susd_holders;
-        echo $susd_total_supply;
-        echo $busd_total_balance;
-        echo $busd_price;
-        echo $susd_trimmed;
-        echo $bnb_price;
+        print_r( $susd_holders );
+        print_r( $susd_total_supply );
+        print_r( $busd_total_balance );
+        print_r( $busd_price );
+        print_r( $susd_trimmed );
+        print_r( $bnb_price );
     }
 
     function sETH(){
