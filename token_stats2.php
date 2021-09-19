@@ -6,9 +6,7 @@
    
     $b_api_key = "7BY2SX3KIF1NT1QEPY82VZB2WBTJFMN75R";
 
-    //clear Redis
-    $redis->flushAll();
-    
+
     //token functions
     function sUSD(){
         //get total supply for sUSD

@@ -1476,6 +1476,16 @@
                     $("#tokenValue").html("Loading");
                     $("#tokenValueUSD").html("Loading");
                     break;
+                case "sADA":
+                    $('#calcResults').hide();
+                    $("#userInput").val(getCookie("sADA"));
+                    $("#userInput").attr("placeholder", "Enter Token Amount");
+                    $("#calcBtn").html("Calculate");
+                    $("#calcBtn").show();
+                    $("#tokenBalance").html("Loading");
+                    $("#tokenValue").html("Loading");
+                    $("#tokenValueUSD").html("Loading");
+                    break;
                 default:
                     break;
             }
