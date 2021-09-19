@@ -1154,6 +1154,7 @@
                 var sUSDholders, sUSDPrice; 
                 var sETHholders, sETHPrice;
                 var sBTCholders, sBTCPrice;
+                var sADAholders, sADAPrice;
 
                 $.each(data, function(i, item){
                     sUSDholders =  item.susd_holders;
@@ -1162,6 +1163,8 @@
                     sETHPrice = item.seth_price;
                     sBTCholders = item.sbtc_holders;
                     sBTCPrice = item.sbtc_price;
+                    sADAholders = item.sada_holders;
+                    sADAPrice = item.sada_price;
 
                     
 
@@ -1171,6 +1174,8 @@
                     $("#sETHPrice").html(sETHPrice);
                     $("#sBTCHolders").html(sBTCholders);
                     $("#sBTCPrice").html(sBTCPrice);
+                    $("#sADAHolders").html(sADAholders);
+                    $("#sADAPrice").html(sADAPrice);
 
                 });
             
