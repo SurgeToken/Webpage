@@ -4,7 +4,7 @@
     include("redis_config.php");
 
     $data = array();
-    $api_key = "7BY2SX3KIF1NT1QEPY82VZB2WBTJFMN75R";
+    $api_key = "6XENNFYMQP975TRGDPMDM6GSZ4VSWW6VYG";
 
     $wallet_address = $_POST["walletAddress"];
 
