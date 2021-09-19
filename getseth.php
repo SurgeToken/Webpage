@@ -43,7 +43,13 @@
         $redis->set("bETH Price", trim($beth_price));
         $redis->set("sETH Price", trim($seth_trimmed));
 
-    //move to ssBTC
-    header( "refresh:2;url=getsbtc.php" );
+    //move to sBTC
+    sleep(5);
+
+    //Redirect using the Location header.
+    header('Location: https://dev.xsurge.net/getsbtc.php/');
+
+    //exit to prevent the rest of the script from executing
+    exit;
 
 ?>

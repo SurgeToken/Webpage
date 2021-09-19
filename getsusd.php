@@ -52,6 +52,12 @@
     $redis->set("BNB Price", trim($bnb_price));
     
     //move to sETH
-    header( "refresh:2;url=getseth.php" );
+    sleep(5);
+
+    //Redirect using the Location header.
+    header('Location: https://dev.xsurge.net/getseth.php/');
+
+    //exit to prevent the rest of the script from executing
+    exit;
 
 ?>
