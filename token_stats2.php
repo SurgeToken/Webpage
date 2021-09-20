@@ -102,7 +102,7 @@
         print_r("sETH Holders: " . $redis->get("seth_holders") . "<br/>");
         print_r("sETH TS: " . $seth_total_supply . "<br/>");
         print_r("bETH TB: " . $beth_tb . "<br/>");
-        print_r("bETH Price: " . $redis->get("beth_price"));
+        print_r("bETH Price: " . $redis->get("beth_price") ."<br/>");
         print_r("sETH Price: " . $redis->get("seth_price"));
     }
 
