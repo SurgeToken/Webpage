@@ -21,6 +21,7 @@
 
         $busd_total_balance_json = json_decode(file_get_contents($busd_token_total_balance_url));
         $busd_total_balance = $busd_total_balance_json->result;
+        $busd_tb = number_format($busd_total_balance, 18, '.', '');
 
         //get data from BSCScan for sUSD & bUSD
         $get_html_susd = file_get_html('https://bscscan.com/token/0x14fee7d23233ac941add278c123989b86ea7e1ff');
@@ -55,6 +56,7 @@
         print_r( "sUSD Holders: " . $redis->get("susd_holders") . "<br/>" );
         print_r( "bUSD Price: " . $redis->get("busd_price") . "<br/>" );
         print_r( "bUSD Total Balance: " . $busd_total_balance . "<br/>" );
+        print_r( "bUSD Total Balance Formatted: " . $busd_tb . "<br/>" );
         print_r( "sUSD Total Supply: " . $susd_total_supply . "<br/>" );
         print_r( "sUSD Price: " . $redis->get("susd_price") . "<br/>" );
         print_r( "BNB Price: " . $redis->get("bnb_price") . "<br/>" );
