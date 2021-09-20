@@ -21,11 +21,10 @@
         $busd_total_balance_json = json_decode(file_get_contents($busd_token_total_balance_url));
         $busd_total_balance = $busd_total_balance_json->result;
 
-        //get data from BSCScan for sUSD & bUSD
-        $get_html_susd = file_get_html('https://bscscan.com/token/0x14fee7d23233ac941add278c123989b86ea7e1ff');
-        
-        //store data into variables
-        $susd_holders = $get_html_susd->find('div[class="mr-3"]',0)->plaintext;
+        //get dthe number of holders
+        $susd_holders_url = "https://api.covalenthq.com/v1/56/tokens/0xbF6bB9b8004942DFb3C1cDE3Cb950AF78ab8A5AF/token_holders/?&key=ckey_43c97667ea9547c594b5c51cf0e";
+        $susd_holders_json = json_decode(file_get_contents($susd_holders_url), true);
+        $susd_holders = $susd_holders_json['data'][0]['pagination']['total_count'];
 
         //get busd price from covalent
         $busd_price_url = "https://api.covalenthq.com/v1/pricing/historical_by_addresses_v2/56/USD/0xe9e7cea3dedca5984780bafc599bd69add087d56/?&key=ckey_43c97667ea9547c594b5c51cf0e";
