@@ -82,10 +82,10 @@
                 break;
             case "SADA":
                 //get current price of bBTC
-                $get_bada_price = $redis->get("bADA Price");
+                $get_bada_price = $redis->get("bada_price");
                                 
                 //calculate sADA Price
-                $sada_price = $redis->get("sADA Price");
+                $sada_price = $redis->get("sada_price");
     
                 $u_token = "ADA";
                 $s_token = "sADA";

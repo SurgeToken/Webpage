@@ -17,11 +17,9 @@
     $row['btcb_price'] = $redis->get("bbtc_price");
     $row['sbtc_price'] = $redis->get("sbtc_price");
 
-    $row['sada_holders'] = $redis->get("sADA Holders");
-    $row['total_supply_sada'] = $redis->get("sADA Total Supply");
-    $row['total_balance_bada'] = $redis->get("bADA Total Balance");
-    $row['bada_price'] = $redis->get("bADA Price");
-    $row['sada_price'] = $redis->get("sADA Price");
+    $row['sada_holders'] = $redis->get("sada_holders");
+    $row['bada_price'] = $redis->get("bada_price");
+    $row['sada_price'] = $redis->get("sada_price");
 
     //push all $row variables into the $data array
     array_push($data, $row);

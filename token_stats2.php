@@ -148,14 +148,20 @@
         $redis->set("bbtc_price", trim($bbtc_price));
         $redis->set("sbtc_price", trim($sbtc_trimmed));
 
-        print_r("sBTC Holders: " . $redis->get("sbtc_holders") . "<br/>");
+        /* print_r("sBTC Holders: " . $redis->get("sbtc_holders") . "<br/>");
         print_r("sBTC TS: " . $sbtc_total_supply . "<br/>");
         print_r("bBTC TB: " . $bbtc_tb . "<br/>");
         print_r("bBTC Price: " . $redis->get("bbtc_price") ."<br/>");
-        print_r("sBTC Price: " . $redis->get("sbtc_price"));
+        print_r("sBTC Price: " . $redis->get("sbtc_price")); */
     }
 
     function sADA(){
+
+        include_once("simple_html_dom.php");
+
+        //Connecting to Redis server on localhost 
+        include("redis_config.php");
+
         //get total supply for sADA
         $sada_token_total_supply_url = "https://api.bscscan.com/api?module=stats&action=tokensupply&contractaddress=0xbF6bB9b8004942DFb3C1cDE3Cb950AF78ab8A5AF&apikey=".$b_api_key."";
 
@@ -167,6 +173,8 @@
 
         $bada_total_balance_json = json_decode(file_get_contents($bada_token_total_balance_url));
         $bada_total_balance = $bada_total_balance_json->result;
+        $divisor = 10 ** 18;
+        $bada_tb = $bada_total_balance / $divisor;
 
         //get data from BSCScan for sADA & bADA
         $get_html_sada = file_get_html('https://bscscan.com/token/0xbF6bB9b8004942DFb3C1cDE3Cb950AF78ab8A5AF');
@@ -180,20 +188,26 @@
         $bada_price = $bada_price_json['data'][0]['prices'][0]['price'];
 
         //calculate sADA Price
-        $sada_price = $bada_total_balance / $sada_total_supply;
+        $sada_price = $bada_tb / $sada_total_supply;
 
         //format sADA price
         $sada_trimmed = rtrim(sprintf('%.16f', floatval($sada_price)),'0');
 
-        $redis->set("sADA Holders", trim($sada_holders));
-        $redis->set("bADA Price", trim($bada_price));
-        $redis->set("sADA Price", trim($sada_trimmed));
+        $redis->set("sada_holders", trim($sada_holders));
+        $redis->set("bada_price", trim($bada_price));
+        $redis->set("sada_price", trim($sada_trimmed));
+
+        print_r("sADA Holders: " . $redis->get("sada_holders") . "<br/>");
+        print_r("sADA TS: " . $sada_total_supply . "<br/>");
+        print_r("bADA TB: " . $bada_tb . "<br/>");
+        print_r("bADA Price: " . $redis->get("bada_price") ."<br/>");
+        print_r("sADA Price: " . $redis->get("sada_price"));
     }
 
     /* sUSD(); */
     /* sETH(); */
     /* sleep(2); */
-    sBTC();
-    /* sADA(); */
+    /* sBTC(); */
+    sADA();
    
 ?>

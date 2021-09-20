@@ -95,17 +95,11 @@
             break;
         case "sADA":
 
-            //get the total supply of sADA
-            $get_total_supply_sada = $redis->get("sADA Total Supply");
-
-            //get the total balance of bADA
-            $get_total_balance_bada = $redis->get("bADA Total Balance");
-                    
             //get current price of bADA
-            $get_bada_price = $redis->get("bADA Price");
+            $get_bada_price = $redis->get("bada_price");
                     
             //calculate sADA Price
-            $sada_price = $redis->get("sADA Price");
+            $sada_price = $redis->get("sada_price");
                     
             //calculate the value of sADA
             $user_sada_value = $sada_price * $tokens;
