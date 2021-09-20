@@ -98,6 +98,24 @@
                 $user_token_usd_value = $user_token_value * $get_bada_price;
                 $user_token_usd_value_trimmed = rtrim(sprintf('%.2f', floatval($user_token_usd_value)),'0');
                 break;
+            /* case "SUSELESS":
+                    //get current price of USELESS
+                    $get_useless_price = $redis->get("useless_price");
+                                    
+                    //calculate sUSELESS Price
+                    $suseless_price = $redis->get("suseless_price");
+        
+                    $u_token = "USELESS";
+                    $s_token = "sUSELESS";
+        
+                    //calculate the USELESS value of sUSELESS
+                    $user_token_value = $suseless_price * $token_result;
+                    $user_token_value_trimmed = rtrim(sprintf('%.2f', floatval($user_token_value)),'0');
+                            
+                    //calculate users value in USELESS
+                    $user_token_usd_value = $user_token_value * $get_useless_price;
+                    $user_token_usd_value_trimmed = rtrim(sprintf('%.2f', floatval($user_token_usd_value)),'0');
+                    break; */
             default:
                 break;
 

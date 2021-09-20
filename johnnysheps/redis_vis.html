@@ -27,7 +27,7 @@
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
 
   <!-- <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css" /> -->
-  <link href="assets/css/plugins.css" rel="stylesheet" type="text/css" />
+  <link href="../assets/css/plugins.css" rel="stylesheet" type="text/css" />
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
   <!-- END GLOBAL MANDATORY STYLES -->
 
@@ -43,6 +43,31 @@
 </head>
 
 <body>
+
+    <style>
+        .accordImg{
+            width: 30%;
+            float: left;
+        }
+
+
+        .accord{
+            position: relative;
+            padding: 20px;
+            border-radius: 8px;
+            border: 1px solid #104f5b47;
+            background-image: -webkit-linear-gradient(
+        0deg, rgb(0 32 41 / 82%) 0%, rgb(1 40 60 / 76%) 100%);
+            -webkit-box-shadow: 0 6px 10px 0 rgb(0 0 0 / 14%), 0 1px 18px 0 rgb(0 0 0 / 12%), 0 3px 5px -1px rgb(0 0 0 / 20%);
+            -moz-box-shadow: 0 6px 10px 0 rgba(0,0,0,.14), 0 1px 18px 0 rgba(0,0,0,.12), 0 3px 5px -1px rgba(0,0,0,.2);
+            box-shadow: 0 6px 10px 0 rgb(0 0 0 / 14%), 0 1px 18px 0 rgb(0 0 0 / 12%), 0 3px 5px -1px rgb(0 0 0 / 20%);
+        }
+
+        .accordion-item{
+            background-color: transparent !important;
+        }
+
+    </style>
      
     <div class="container">
         <div class="header-container2">
@@ -55,8 +80,70 @@
             </header>
         </div>
 
-        <div>
-
+        <div class="main">
+            <div class="row spacer3">
+                <div class="col">
+                    <div class="accordion" id="accordionExample">
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="headingOne">
+                                <button class="accord" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                    <img src="../assets/img/SURGEUSDWhite.png" class="accordImg" alt="...">
+                                </button>
+                          </h2>
+                          <div id="collapseOne" class="accordion-collapse collapse" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+                            <div class="accordion-body">
+                                <table class="table table-borderless statsTable">
+                                    <tr>
+                                        <td>Price:</td>
+                                        <td id="sUSDPrice">Loading</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Holders:</td>
+                                        <td id="sUSDHolders">Loading</td>
+                                    </tr>
+                                </table>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="accordion-item">
+                          <h2 class="accordion-header" id="headingTwo">
+                            <button class="accord" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                                <img src="../assets/img/SURGEETHWhite.png" class="accordImg" alt="...">
+                            </button>
+                          </h2>
+                          <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
+                            <div class="accordion-body">
+                              <strong>This is the second item's accordion body.</strong> It is hidden by default, until the collapse plugin adds the appropriate classes that we use to style each element. These classes control the overall appearance, as well as the showing and hiding via CSS transitions. You can modify any of this with custom CSS or overriding our default variables. It's also worth noting that just about any HTML can go within the <code>.accordion-body</code>, though the transition does limit overflow.
+                            </div>
+                          </div>
+                        </div>
+                        <div class="accordion-item">
+                          <h2 class="accordion-header" id="headingThree">
+                            <button class="accord" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                                <img src="../assets/img/SURGEBTCWhite.png" class="accordImg" alt="...">
+                            </button>
+                          </h2>
+                          <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#accordionExample">
+                            <div class="accordion-body">
+                              <strong>This is the third item's accordion body.</strong> It is hidden by default, until the collapse plugin adds the appropriate classes that we use to style each element. These classes control the overall appearance, as well as the showing and hiding via CSS transitions. You can modify any of this with custom CSS or overriding our default variables. It's also worth noting that just about any HTML can go within the <code>.accordion-body</code>, though the transition does limit overflow.
+                            </div>
+                          </div>
+                        </div>
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="headingFour">
+                              <button class="accord" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFour" aria-expanded="false" aria-controls="collapseThree">
+                                  <img src="../assets/img/SURGEBTCWhite.png" class="accordImg" alt="...">
+                              </button>
+                            </h2>
+                            <div id="collapseFour" class="accordion-collapse collapse" aria-labelledby="headingFour" data-bs-parent="#accordionExample">
+                              <div class="accordion-body">
+                                <strong>This is the third item's accordion body.</strong> It is hidden by default, until the collapse plugin adds the appropriate classes that we use to style each element. These classes control the overall appearance, as well as the showing and hiding via CSS transitions. You can modify any of this with custom CSS or overriding our default variables. It's also worth noting that just about any HTML can go within the <code>.accordion-body</code>, though the transition does limit overflow.
+                              </div>
+                            </div>
+                          </div>
+                      </div>
+                </div>
+            </div>
 
         </div>
     </div>
@@ -119,153 +206,14 @@
     $(document).ready(function() {
 
         
-        $("#calcBtn").hide();
-        $('#calcResults').hide();
-        $("#copyMSG").hide();
-
-         //Login Functions   
-         $('#userInput').keypress(function (e) {
-                var key = e.which;
-                if(key == 13)  // the enter key code
-                {
-
-                    switch($("#userSelect").val()){
-                        case "wallet":
-                            var walletAddress = $("#userInput").val();
-                            calcWallet(walletAddress);
-                            break;
-                        case "sUSD":
-                        case "sETH":
-                        case "sBTC":
-                            var ts = $("#userSelect").val();
-                            var ta = $("#userInput").val();
-                            calcToken(ts, ta);
-                            break;
-                        default:
-                            break;
-
-                    }
-
-                    return false;  
-                }
-            });
-
         //initial call for token stats
-        getTokenStats();
+        //getTokenStats();
 
         //run getTokenStats every 10 seconds
-        setInterval(function(){ 
+        /* setInterval(function(){ 
             getTokenStats();
-        }, 15000);
+        }, 15000); */
        
-
-        $('#userSelect').on('change', function() {
-
-            switch($("#userSelect").val()){
-                case "wallet":
-                    
-                    $('#calcResults').hide();
-                    $("#userInput").val(getCookie("user_wallet_address"));
-                    $("#userInput").attr("placeholder", "Enter Wallet Address");
-                    $("#calcBtn").html("Show");
-                    $("#calcBtn").show();
-                    $("#tokenBalanceSUSD").html("Loading");
-                    $("#tokenValueBNB").html("Loading");
-                    $("#tokenValuesusdUSD").html("Loading");
-                    $("#tokenBalanceSETH").html("Loading");
-                    $("#tokenValueETH").html("Loading");
-                    $("#tokenValuesethUSD").html("Loading");
-                    $("#tokenBalanceSBTC").html("Loading");
-                    $("#tokenValueBTC").html("Loading");
-                    $("#tokenValuesbtcUSD").html("Loading");
-                    break;
-                //For all other tokens
-                case "sETH":
-                    $('#calcResults').hide();
-                    $("#userInput").val(getCookie("sETH"));
-                    $("#userInput").attr("placeholder", "Enter Token Amount");
-                    $("#calcBtn").html("Calculate");
-                    $("#calcBtn").show();
-                    $("#tokenBalance").html("Loading");
-                    $("#tokenValue").html("Loading");
-                    $("#tokenValueUSD").html("Loading");
-                    break;
-                case "sUSD":
-                    $('#calcResults').hide();
-                    $("#userInput").val(getCookie("sUSD"));
-                    $("#userInput").attr("placeholder", "Enter Token Amount");
-                    $("#calcBtn").html("Calculate");
-                    $("#calcBtn").show();
-                    $("#tokenBalance").html("Loading");
-                    $("#tokenValue").html("Loading");
-                    $("#tokenValueUSD").html("Loading");
-                    break;
-                case "sBTC":
-                    $('#calcResults').hide();
-                    $("#userInput").val(getCookie("sBTC"));
-                    $("#userInput").attr("placeholder", "Enter Token Amount");
-                    $("#calcBtn").html("Calculate");
-                    $("#calcBtn").show();
-                    $("#tokenBalance").html("Loading");
-                    $("#tokenValue").html("Loading");
-                    $("#tokenValueUSD").html("Loading");
-                    break;
-                case "sADA":
-                    $('#calcResults').hide();
-                    $("#userInput").val(getCookie("sADA"));
-                    $("#userInput").attr("placeholder", "Enter Token Amount");
-                    $("#calcBtn").html("Calculate");
-                    $("#calcBtn").show();
-                    $("#tokenBalance").html("Loading");
-                    $("#tokenValue").html("Loading");
-                    $("#tokenValueUSD").html("Loading");
-                    break;
-                default:
-                    break;
-            }
-        });
-
-        $("#calcBtn").click(function(){
-
-            //check if user Chose a token or to enter wallet address
-            switch($("#userSelect").val()){
-                case "wallet":
-                    var walletAddress = $("#userInput").val();
-                    calcWallet(walletAddress);
-                    break;
-                //For all other tokens
-                default:
-                    var ts = $("#userSelect").val();
-                    var ta = $("#userInput").val();
-                    calcToken(ts, ta);
-                    break;
-            }
-            
-            
-        });
-
-        setInterval(function(){ 
-            if($("#calcResults").is(":visible")){
-                switch($("#userSelect").val()){
-                    case "wallet":
-                        var walletAddress = $("#userInput").val();
-                        calcWallet(walletAddress);
-                        break;
-                    case "sUSD":
-                    case "sETH":
-                    case "sBTC":
-                        var ts = $("#userSelect").val();
-                        var ta = $("#userInput").val();
-                        calcToken(ts, ta);
-                        break;
-                    default:
-                        break;
-                }
-            }
-            
-        }, 15000);
-        
-        
     });
 </script>
 
