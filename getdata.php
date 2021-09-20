@@ -46,10 +46,10 @@
                 break;
             case "SETH":
                 //get current price of wETH
-                $get_weth_price = $redis->get("bETH Price");
+                $get_beth_price = $redis->get("beth_price");
                         
                 //calculate sETH Price
-                $seth_price = $redis->get("sETH Price");
+                $seth_price = $redis->get("seth_price");
 
                 $u_token = "ETH";
                 $s_token = "sETH";
@@ -59,7 +59,7 @@
                 $user_token_value_trimmed = rtrim(sprintf('%.4f', floatval($user_token_value)),'0');
                 
                 //calculate users value in ETH
-                $user_token_usd_value = $user_token_value * $get_weth_price;
+                $user_token_usd_value = $user_token_value * $get_beth_price;
                 $user_token_usd_value_trimmed = rtrim(sprintf('%.2f', floatval($user_token_usd_value)),'0');
                 break;
             case "SBTC":

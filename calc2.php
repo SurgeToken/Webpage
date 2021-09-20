@@ -14,20 +14,14 @@
     switch($token_selected){
         case "sUSD":
 
-            //get the total supply of sUSD
-            $total_supply_susd = $redis->get("sUSD Total Supply");
-
-            //get the total balance of bUSD
-            $total_balance_busd = $redis->get("bUSD Total Balance");
-
             //get current price of BUSD
-            $busd_price = $redis->get("bUSD Price");
+            $busd_price = $redis->get("busd_price");
 
             //calculate sUSD Price
-            $susd_price = $redis->get("sUSD Price");
+            $susd_price = $redis->get("susd_price");
             
             //get the current price of BNB
-            $bnb_price = $redis->get("BNB Price");
+            $bnb_price = $redis->get("bnb_price");
             
             //calculate the USD value of sUSD
             $user_susd_usd_price = $susd_price * $tokens;
@@ -49,17 +43,11 @@
             break;
         case "sETH":
 
-            //get the total supply of sETH
-            $get_total_supply_seth = $redis->get("sETH Total Supply");
-           
-            //get the total balance of wETH
-            $get_total_balance_weth = $redis->get("bETH Total Balance");
-            
             //get current price of wETH
-            $get_weth_price = $redis->get("bETH Price");
+            $get_beth_price = $redis->get("beth_price");
             
             //calculate sETH Price
-            $seth_price = $redis->get("sETH Price");
+            $seth_price = $redis->get("seth_price");
             
             //calculate the value of sETH
             $user_seth_value = $seth_price * $tokens;
@@ -67,7 +55,7 @@
             $row['value_eth'] = $user_seth_value_trimmed;
 
             //calculate users value in ETH
-            $user_usd_value = $user_seth_value * $get_weth_price;
+            $user_usd_value = $user_seth_value * $get_beth_price;
             $user_usd_value_trimmed = rtrim(sprintf('%.2f', floatval($user_usd_value)),'0');
             
             $row['value_usd'] = number_format($user_usd_value_trimmed, 2, '.', ',');
