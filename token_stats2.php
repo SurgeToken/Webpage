@@ -165,6 +165,12 @@
     sBTC();
     sADA();
 
-        echo "1";
+    echo "1";
+
+    $redis_susd_holders = $redis->get("sUSD Holders");
+    $redis_busd_price = $redis->get("bUSD Price");
+    $redis_susd_price = $redis->get("sUSD Price");
+    $redis_bnb_price = $redis->get("BNB Price");
+
     
 ?>
