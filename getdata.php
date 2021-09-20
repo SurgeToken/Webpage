@@ -4,7 +4,7 @@
     include("redis_config.php");
 
     $data = array();
-    $api_key = "7BY2SX3KIF1NT1QEPY82VZB2WBTJFMN75R";
+    $api_key = "6XENNFYMQP975TRGDPMDM6GSZ4VSWW6VYG";
 
     $wallet_address = $_POST["walletAddress"];
 
@@ -28,10 +28,10 @@
         switch($token_name){
             case "SUSD":
                 //get the current price of BNB
-                $get_bnb_price = $redis->get("BNB Price");
+                $get_bnb_price = $redis->get("bnb_price");
 
                 //calculate sUSD Price
-                $susd_price = $redis->get("sUSD Price");
+                $susd_price = $redis->get("susd_price");
 
                 $u_token = "BNB";
                 $s_token = "sUSD";
@@ -46,10 +46,10 @@
                 break;
             case "SETH":
                 //get current price of wETH
-                $get_weth_price = $redis->get("bETH Price");
+                $get_beth_price = $redis->get("beth_price");
                         
                 //calculate sETH Price
-                $seth_price = $redis->get("sETH Price");
+                $seth_price = $redis->get("seth_price");
 
                 $u_token = "ETH";
                 $s_token = "sETH";
@@ -59,15 +59,15 @@
                 $user_token_value_trimmed = rtrim(sprintf('%.4f', floatval($user_token_value)),'0');
                 
                 //calculate users value in ETH
-                $user_token_usd_value = $user_token_value * $get_weth_price;
+                $user_token_usd_value = $user_token_value * $get_beth_price;
                 $user_token_usd_value_trimmed = rtrim(sprintf('%.2f', floatval($user_token_usd_value)),'0');
                 break;
             case "SBTC":
                 //get current price of bBTC
-                $get_btcb_price = $redis->get("bBTC Price");
+                $get_bbtc_price = $redis->get("bbtc_price");
                             
                 //calculate sBTC Price
-                $sbtc_price = $redis->get("sBTC Price");
+                $sbtc_price = $redis->get("sbtc_price");
 
                 $u_token = "BTC";
                 $s_token = "sBTC";
@@ -77,15 +77,15 @@
                 $user_token_value_trimmed = rtrim(sprintf('%.6f', floatval($user_token_value)),'0');
                     
                 //calculate users value in BTC
-                $user_token_usd_value = $user_token_value * $get_btcb_price;
+                $user_token_usd_value = $user_token_value * $get_bbtc_price;
                 $user_token_usd_value_trimmed = rtrim(sprintf('%.2f', floatval($user_token_usd_value)),'0');
                 break;
             case "SADA":
                 //get current price of bBTC
-                $get_bada_price = $redis->get("bADA Price");
+                $get_bada_price = $redis->get("bada_price");
                                 
                 //calculate sADA Price
-                $sada_price = $redis->get("sADA Price");
+                $sada_price = $redis->get("sada_price");
     
                 $u_token = "ADA";
                 $s_token = "sADA";
