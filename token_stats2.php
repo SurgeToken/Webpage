@@ -54,14 +54,6 @@
         $redis->set("susd_price", trim($susd_trimmed));
         $redis->set("bnb_price", trim($bnb_price));
 
-        print_r( "sUSD Holders: " . $redis->get("susd_holders") . "<br/>" );
-        print_r( "bUSD Price: " . $redis->get("busd_price") . "<br/>" );
-        print_r( "bUSD Total Balance: " . $busd_total_balance . "<br/>" );
-        print_r( "bUSD Total Balance Formatted: " . $busd_tb . "<br/>" );
-        print_r( "sUSD Total Supply: " . $susd_total_supply . "<br/>" );
-        print_r( "sUSD Price: " . $redis->get("susd_price") . "<br/>" );
-        print_r( "BNB Price: " . $redis->get("bnb_price") . "<br/>" );
-
     }
 
     function sETH(){

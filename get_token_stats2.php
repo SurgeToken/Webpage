@@ -5,12 +5,9 @@
     
     $data = array();
 
-    $row['susd_holders'] = $redis->get("sUSD Holders");
-    $row['total_supply_susd'] = $redis->get("sUSD Total Supply");
-    $row['total_balance_busd'] = $redis->get("bUSD Total Balance");
-    $row['busd_price'] = $redis->get("bUSD Price");
-    $row['susd_price'] = $redis->get("sUSD Price");
-
+    $row['susd_holders'] = $redis->get("susd_holders");
+    $row['busd_price'] = $redis->get("busd_price");
+    $row['susd_price'] = $redis->get("susd_price");
     
     $row['seth_holders'] = $redis->get("sETH Holders");
     $row['total_supply_seth'] = $redis->get("sETH Total Supply");
