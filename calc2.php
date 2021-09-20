@@ -69,17 +69,11 @@
             break;
         case "sBTC":
 
-            //get the total supply of sBTC
-            $get_total_supply_sbtc = $redis->get("sBTC Total Supply");
-               
-            //get the total balance of BTCb
-            $get_total_balance_btcb = $redis->get("bBTC Total Balance");
-                
             //get current price of BTCb
-            $get_btcb_price = $redis->get("bBTC Price");
+            $get_bbtc_price = $redis->get("bbtc_price");
                 
             //calculate sBTC Price
-            $sbtc_price = $redis->get("sBTC Price");
+            $sbtc_price = $redis->get("sbtc_price");
                 
             //calculate the value of sBTC
             $user_sbtc_value = $sbtc_price * $tokens;
@@ -87,7 +81,7 @@
             $row['value_btc'] = $user_sbtc_value_trimmed;
     
             //calculate users value in BTC
-            $user_usd_value = $user_sbtc_value * $get_btcb_price;
+            $user_usd_value = $user_sbtc_value * $get_bbtc_price;
             $user_usd_value_trimmed = rtrim(sprintf('%.2f', floatval($user_usd_value)),'0');
                 
             $row['value_usd'] = number_format($user_usd_value_trimmed, 2, '.', ',');

@@ -13,11 +13,9 @@
     $row['beth_price'] = $redis->get("beth_price");
     $row['seth_price'] = $redis->get("seth_price");
 
-    $row['sbtc_holders'] = $redis->get("sBTC Holders");
-    $row['total_supply_sbtc'] = $redis->get("sBTC Total Supply");
-    $row['total_balance_btcb'] = $redis->get("bBTC Total Balance");
-    $row['btcb_price'] = $redis->get("bBTC Price");
-    $row['sbtc_price'] = $redis->get("sBTC Price");
+    $row['sbtc_holders'] = $redis->get("sbtc_holders");
+    $row['btcb_price'] = $redis->get("bbtc_price");
+    $row['sbtc_price'] = $redis->get("sbtc_price");
 
     $row['sada_holders'] = $redis->get("sADA Holders");
     $row['total_supply_sada'] = $redis->get("sADA Total Supply");
