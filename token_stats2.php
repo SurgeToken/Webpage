@@ -5,7 +5,7 @@
     //token functions
     function sUSD(){
 
-        include("simple_html_dom.php");
+        include_once("simple_html_dom.php");
 
         //Connecting to Redis server on localhost 
         include("redis_config.php");
@@ -58,7 +58,7 @@
 
     function sETH(){
 
-        include("simple_html_dom.php");
+        include_once("simple_html_dom.php");
 
         //Connecting to Redis server on localhost 
         include("redis_config.php");
