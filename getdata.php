@@ -28,10 +28,10 @@
         switch($token_name){
             case "SUSD":
                 //get the current price of BNB
-                $get_bnb_price = $redis->get("BNB Price");
+                $get_bnb_price = $redis->get("bnb_price");
 
                 //calculate sUSD Price
-                $susd_price = $redis->get("sUSD Price");
+                $susd_price = $redis->get("susd_price");
 
                 $u_token = "BNB";
                 $s_token = "sUSD";

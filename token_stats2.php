@@ -57,6 +57,12 @@
     }
 
     function sETH(){
+
+        include("simple_html_dom.php");
+
+        //Connecting to Redis server on localhost 
+        include("redis_config.php");
+
         //get total supply for sETH
         $seth_token_total_supply_url = "https://api.bscscan.com/api?module=stats&action=tokensupply&contractaddress=0x5b1d1bbdcc432213f83b15214b93dc24d31855ef&apikey=".$b_api_key."";
 
@@ -68,6 +74,8 @@
 
         $beth_total_balance_json = json_decode(file_get_contents($beth_token_total_balance_url));
         $beth_total_balance = $beth_total_balance_json->result;
+        $divisor = 10 ** 18;
+        $beth_tb = $beth_total_balance / $divisor;
 
         //get data from BSCScan for sETH & wETH
         $get_html_seth = file_get_html('https://bscscan.com/token/0x5b1d1bbdcc432213f83b15214b93dc24d31855ef');
@@ -87,9 +95,9 @@
         //format sETH price
         $seth_trimmed = rtrim(sprintf('%.16f', floatval($seth_price)),'0');
 
-        $redis->set("sETH Holders", trim($seth_holders));
-        $redis->set("bETH Price", trim($beth_price));
-        $redis->set("sETH Price", trim($seth_trimmed));
+        $redis->set("seth_holders", trim($seth_holders));
+        $redis->set("beth_price", trim($beth_price));
+        $redis->set("seth_price", trim($seth_trimmed));
     }
 
     function sBTC(){
@@ -163,7 +171,7 @@
     }
 
     sUSD();
-    /* sETH(); */
+    sETH();
     /* sleep(2); */
     /* sBTC(); */
     /* sADA(); */

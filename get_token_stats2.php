@@ -9,11 +9,9 @@
     $row['busd_price'] = $redis->get("busd_price");
     $row['susd_price'] = $redis->get("susd_price");
     
-    $row['seth_holders'] = $redis->get("sETH Holders");
-    $row['total_supply_seth'] = $redis->get("sETH Total Supply");
-    $row['total_balance_weth'] = $redis->get("bETH Total Balance");
-    $row['weth_price'] = $redis->get("bETH Price");
-    $row['seth_price'] = $redis->get("sETH Price");
+    $row['seth_holders'] = $redis->get("seth_holders");
+    $row['beth_price'] = $redis->get("beth_price");
+    $row['seth_price'] = $redis->get("seth_price");
 
     $row['sbtc_holders'] = $redis->get("sBTC Holders");
     $row['total_supply_sbtc'] = $redis->get("sBTC Total Supply");
