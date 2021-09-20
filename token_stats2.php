@@ -37,7 +37,7 @@
         $busd_price = $busd_price_json['data'][0]['prices'][0]['price'];
 
         //calculate sUSD Price
-        $susd_price = $busd_total_balance / $susd_total_supply;
+        $susd_price = $busd_tb / $susd_total_supply;
 
         //format susd price 
         $susd_trimmed = rtrim(sprintf('%.16f', floatval($susd_price)),'0');
