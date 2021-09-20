@@ -172,5 +172,10 @@
     $redis_susd_price = $redis->get("sUSD Price");
     $redis_bnb_price = $redis->get("BNB Price");
 
+    echo $redis_susd_holders;
+    echo $redis_busd_price;
+    echo $redis_susd_price;
+    echo $redis_bnb_price;
+
     
 ?>
