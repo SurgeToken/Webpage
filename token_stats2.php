@@ -197,17 +197,17 @@
         $redis->set("bada_price", trim($bada_price));
         $redis->set("sada_price", trim($sada_trimmed));
 
-        print_r("sADA Holders: " . $redis->get("sada_holders") . "<br/>");
+        /* print_r("sADA Holders: " . $redis->get("sada_holders") . "<br/>");
         print_r("sADA TS: " . $sada_total_supply . "<br/>");
         print_r("bADA TB: " . $bada_tb . "<br/>");
         print_r("bADA Price: " . $redis->get("bada_price") ."<br/>");
-        print_r("sADA Price: " . $redis->get("sada_price"));
+        print_r("sADA Price: " . $redis->get("sada_price")); */
     }
 
-    /* sUSD(); */
-    /* sETH(); */
-    /* sleep(2); */
-    /* sBTC(); */
+    sUSD();
+    sETH();
+    sleep(2);
+    sBTC();
     sADA();
    
 ?>
