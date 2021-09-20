@@ -52,10 +52,10 @@
         $redis->set("susd_price", trim($susd_trimmed));
         $redis->set("bnb_price", trim($bnb_price));
 
-        print_r( $redis->get("susd_holders") );
-        print_r( $redis->get("busd_price") );
-        print_r( $redis->get("susd_price") );
-        print_r( $redis->get("bnb_price") );
+        print_r( $redis->get("susd_holders") . "<br/>" );
+        print_r( $redis->get("busd_price") . "<br/>" );
+        print_r( $redis->get("susd_price") . "<br/>" );
+        print_r( $redis->get("bnb_price") . "<br/>" );
 
     }
 
