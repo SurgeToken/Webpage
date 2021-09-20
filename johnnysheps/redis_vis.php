@@ -1,31 +1,3 @@
-<?php
-    //Connecting to Redis server on localhost 
-    include("redis_config.php");
-
-    /* print_r("sBTC Holders: " . $redis->get("sbtc_holders") . "<br/>");
-        print_r("sBTC TS: " . $sbtc_total_supply . "<br/>");
-        print_r("bBTC TB: " . $bbtc_tb . "<br/>");
-        print_r("bBTC Price: " . $redis->get("bbtc_price") ."<br/>");
-        print_r("sBTC Price: " . $redis->get("sbtc_price")); */
-
-    $susd_holders = $redis->get("susd_holders");
-    $susd_price = $redis->get("susd_price");
-    $busd_price = $redis->get("busd_price");
-
-    $seth_holders = $redis->get("seth_holders");
-    $seth_price = $redis->get("seth_price");
-    $beth_price = $redis->get("beth_price");
-
-    $sbtc_holders = $redis->get("sbtc_holders");
-    $sbtc_price = $redis->get("sbtc_price");
-    $bbtc_price = $redis->get("bbtc_price");
-
-    $sada_holders = $redis->get("sada_holders");
-    $sada_price = $redis->get("sada_price");
-    $bada_price = $redis->get("bada_price");
-
-?>
-
 <!doctype html>
 <html>
 <head>
