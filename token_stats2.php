@@ -90,7 +90,7 @@
         $beth_price = $beth_price_json['data'][0]['prices'][0]['price'];
 
         //calculate sETH Price
-        $seth_price = $beth_total_balance / $seth_total_supply;
+        $seth_price = $beth_tb / $seth_total_supply;
         
         //format sETH price
         $seth_trimmed = rtrim(sprintf('%.16f', floatval($seth_price)),'0');
