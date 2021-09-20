@@ -26,7 +26,6 @@
         
         //store data into variables
         $susd_holders = $get_html_susd->find('div[class="mr-3"]',0)->plaintext;
-        print_r( $susd_holders );
 
         //get busd price from covalent
         $busd_price_url = "https://api.covalenthq.com/v1/pricing/historical_by_addresses_v2/56/USD/0xe9e7cea3dedca5984780bafc599bd69add087d56/?&key=ckey_43c97667ea9547c594b5c51cf0e";
@@ -47,17 +46,17 @@
         $bnb_price_encoded = json_decode($bnb_price_json);
         $bnb_price = $bnb_price_encoded->result->ethusd;
 
-        $redis->set("sUSD Holders", trim($susd_holders));
+        //$redis->set("sUSD Holders", trim($susd_holders));
         $redis->set("bUSD Price", trim($busd_price));
         $redis->set("sUSD Price", trim($susd_trimmed));
         $redis->set("BNB Price", trim($bnb_price));
 
-        $redis_susd_holders = $redis->get("sUSD Holders");
+        //$redis_susd_holders = $redis->get("sUSD Holders");
         $redis_busd_price = $redis->get("bUSD Price");
         $redis_susd_price = $redis->get("sUSD Price");
         $redis_bnb_price = $redis->get("BNB Price");
 
-        print_r( $redis_susd_holders );
+        //print_r( $redis_susd_holders );
         print_r( $redis_busd_price );
         print_r( $redis_susd_price );
         print_r( $redis_bnb_price );
