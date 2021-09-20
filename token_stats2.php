@@ -21,7 +21,7 @@
 
         $busd_total_balance_json = json_decode(file_get_contents($busd_token_total_balance_url));
         $busd_total_balance = $busd_total_balance_json->result;
-        $busd_tb = number_format($busd_total_balance, 18, '.', '');
+        $busd_tb = number_format(($busd_total_balance/100),18);
 
         //get data from BSCScan for sUSD & bUSD
         $get_html_susd = file_get_html('https://bscscan.com/token/0x14fee7d23233ac941add278c123989b86ea7e1ff');
