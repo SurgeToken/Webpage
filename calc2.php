@@ -119,7 +119,7 @@
             echo json_encode($data); 
                     
             break;
-        /* case "sUSELESS":
+        /* case "sUSLS":
 
                 //get current price of USELESS
                 $get_useless_price = $redis->get("useless_price");
