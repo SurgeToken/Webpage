@@ -13,7 +13,8 @@
         "SUSD"=>"0x14fEe7d23233AC941ADd278c123989b86eA7e1fF", 
         "SETH"=>"0x5B1d1BBDCc432213F83b15214B93Dc24D31855Ef", 
         "SBTC"=>"0xb68c9D9BD82BdF4EeEcB22CAa7F3Ab94393108a1",
-        "SADA"=>"0xbF6bB9b8004942DFb3C1cDE3Cb950AF78ab8A5AF"
+        "SADA"=>"0xbF6bB9b8004942DFb3C1cDE3Cb950AF78ab8A5AF"/* ,
+        "sUSLS" =>"0x7694F08564a9097eFC97Cc2a9488795646A10a0f" */
     );
 
     foreach($tokens_array as $token_name => $token_address) {
@@ -98,6 +99,24 @@
                 $user_token_usd_value = $user_token_value * $get_bada_price;
                 $user_token_usd_value_trimmed = rtrim(sprintf('%.2f', floatval($user_token_usd_value)),'0');
                 break;
+            /* case "sUSLS":
+                    //get current price of USELESS
+                    $get_useless_price = $redis->get("useless_price");
+                                    
+                    //calculate sUSELESS Price
+                    $suseless_price = $redis->get("suseless_price");
+        
+                    $u_token = "USELESS";
+                    $s_token = "sUSLS";
+        
+                    //calculate the USELESS value of sUSELESS
+                    $user_token_value = $suseless_price * $token_result;
+                    $user_token_value_trimmed = rtrim(sprintf('%.2f', floatval($user_token_value)),'0');
+                            
+                    //calculate users value in USELESS
+                    $user_token_usd_value = $user_token_value * $get_useless_price;
+                    $user_token_usd_value_trimmed = rtrim(sprintf('%.2f', floatval($user_token_usd_value)),'0');
+                    break; */
             default:
                 break;
 

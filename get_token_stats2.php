@@ -21,6 +21,11 @@
     $row['bada_price'] = $redis->get("bada_price");
     $row['sada_price'] = $redis->get("sada_price");
 
+    /* $row['suseless_holders'] = $redis->get("suseless_holders");
+    $row['useless_price'] = $redis->get("useless_price");
+    $row['suseless_price'] = $redis->get("suseless_price"); */
+
+
     //push all $row variables into the $data array
     array_push($data, $row);
 

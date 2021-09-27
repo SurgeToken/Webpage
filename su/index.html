@@ -15,9 +15,11 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>xSurge - True Decentralized Finance. </title>
-  <link rel="icon" type="image/x-icon" href="assets/img/logo.ico"/>
-  <link href="assets/css/loader.css" rel="stylesheet" type="text/css" />
-  <script src="assets/js/loader.js"></script>
+  <link rel="icon" type="image/x-icon" href="/assets/img/logo.ico"/>
+  <link href="/assets/css/loader.css" rel="stylesheet" type="text/css" />
+  <script src="/assets/js/loader.js"></script>
+
+  <link href="/assets/lightbox.js-master/lightbox/lightbox.min.css?v=1.01" rel="stylesheet">
   
   <!-- BEGIN GLOBAL MANDATORY STYLES -->
   <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin>
@@ -27,16 +29,15 @@
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
 
   <!-- <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css" /> -->
-  <link href="assets/css/plugins.css" rel="stylesheet" type="text/css" />
+  <link href="/assets/css/plugins.css" rel="stylesheet" type="text/css" />
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
   <!-- END GLOBAL MANDATORY STYLES -->
 
   <!-- BEGIN PAGE LEVEL PLUGINS/CUSTOM STYLES -->
-  <link href="plugins/apex/apexcharts.css" rel="stylesheet" type="text/css">
-  <link href="assets/css/dashboard/dash_1.css?v=1.69" rel="stylesheet" type="text/css" />
-  <link href="assets/css/structure.css?v=1.94" rel="stylesheet" type="text/css" />
-  <link href="assets/css/masonry_2.css?v=1.29" rel="stylesheet" type="text/css">
-  <link href="assets/css/pages/coming-soon/style.css?v=1.03" rel="stylesheet" type="text/css">
+  <link href="/plugins/apex/apexcharts.css" rel="stylesheet" type="text/css">
+  <link href="/assets/css/dashboard/dash_1.css?v=1.69" rel="stylesheet" type="text/css" />
+  <link href="/assets/css/structure.css?v=1.90" rel="stylesheet" type="text/css" />
+  <link href="/assets/css/masonry_2.css?v=1.29" rel="stylesheet" type="text/css">
   <!-- END PAGE LEVEL PLUGINS/CUSTOM STYLES -->
 
   
@@ -50,59 +51,153 @@
             width: 100%;
             margin: 0 auto;
             height: 100%;
+            background-color: #03111bb8 !important;
         }
-        .box {
-            width: 50%;
+
+        .rowPad{
+            padding: 2%;
+        }
+
+        .contractText{
+            color: #3bcfd2;
+        }
+
+        .connectText{
+            color: #567fff;
+            font-weight: 800;
+        }
+
+        .dot {
+            height: 15px;
+            width: 15px;
+            background-color: #FF0000;
+            border-radius: 50%;
+            display: inline-block;
+        }
+
+        #howto-img {
+            width: 40em;
+            margin-top: 4%;
+        }
+        #tutorial-img {
+            width: 46em;
+        }
+        .cAddress {
+        text-align: center; 
+        }
+        .clickHere {
+            color: #42beff;
+            font-weight: 800;
+        }
+        .introSF {
+            max-width: 96vw;
             margin: 0 auto;
+ 
         }
-        .boxIntro {
-            width: 100%;
-            margin: 0 auto;
+        body > div.container > div:nth-child(2) > div h5 {
+            font-size: 16px !important;
         }
-
-        @media screen and (min-width: 329px) and (max-width: 767px) {
-            .box {
-                width: 100%;
-                margin: 0 auto;
-            }
-
-
+        .introSF {
+            background-color: rgb(6 31 43 / 80%);
         }
 
+        .spacerSE{
+            margin: 25px;
+        }
 
+        .tutorial-img  {
+            border-radius: 5px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
         
-        @media only screen and (min-width: 600px) {
-                .box:nth-child(odd) {
-                float:right;
-                clear: right;
+        .tutorial-img:hover {opacity: 0.7;}
+
+        @media screen and (max-width: 329px) {
+            .aImg{
+                display:none !important;
             }
-            .box:nth-child(even) {
-                float:left;
-                clear: left;
+
+            .iImg{
+                display:block !important;
             }
         }
 
-        .logoPad{
-            padding: 1.5%;
+        @media screen and (min-width: 330px) and (max-width: 364px) {
+            .aImg{
+                display:none !important;
+            }
+
+            .iImg{
+                display:block !important;
+            }
         }
 
-        .holderDiv{
-            display: none;
+        @media screen and (min-width: 365px) and (max-width: 399px) {
+            .aImg{
+                display:none !important;
+            }
+
+            .iImg{
+                display:block !important;
+            }
         }
 
-        .rSpacer{
-            margin-bottom: 15px;
+        @media screen and (min-width: 400px) and (max-width: 579px) {
+            .aImg{
+                display:none !important;
+            }
+
+            .iImg{
+                display:block !important;
+            }
         }
 
-        .priceTable{
-            color: #fff !important;
+        @media screen and (min-width: 580px) and (max-width: 767px) {
+            .aImg{
+                display:none !important;
+            }
+
+            .iImg{
+                display:block !important;
+            }
+        }
+
+        @media screen and (min-width: 768px) and (max-width: 836px) {
+            .aImg{
+                display: block !important;
+            }
+
+            .iImg{
+                display:none !important;
+            }
+        }
+
+        @media screen and (min-width: 837px) and (max-width: 1299px) {
+            .aImg{
+                display: block !important;
+            }
+
+            .iImg{
+                display:none !important;
+            } 
+        }
+ 
+        @media screen and (min-width: 1300px) {
+            .aImg{
+                display: block !important;
+            }
+
+            .iImg{
+                display:none !important;
+            }
         }
 
         </style>
 
 <div class="fullscreen-bg">
     <video loop muted autoplay class="fullscreen-bg__video">
-        <source src="assets/vid/video4.mp4" type="video/mp4">
+        <source src="/assets/vid/video4.mp4" type="video/mp4">
     </video>
   </div>
         
@@ -112,7 +207,7 @@
           
                     <div class="nav-logo align-self-center">
                         <div class="navLogo">
-                            <a class="navbar-brand" href="index.html"><img class="logoNav1" src="assets/img/xsurge.png" ></a>
+                            <a class="navbar-brand" href="index.html"><img class="logoNav1" src="../assets/img/xsurge.png" ></a>
                         </div>
                         <div class="dApp">
                             <a href="https://app.xsurge.net/" target="_blank">Trade</a>
@@ -448,316 +543,227 @@
           
                 </header>
             </div>
+            <div class="row rowPad" style="margin-top: 2%; margin-bottom: -2%;">
+                <div class="col-xl-10 col-lg-10 col-md-12 col-sm-12 col-xs-12 text-center align-self-center widget spacerSF introSF">
+                    <img class="logoNav1" src="../assets/img/SurgeUniversity.png" >
+                </div>
+          
+            </div> 
+
+            <div class="row rowPad spacerSE">
+                <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12 text-center align-self-center widget spacerSF">
+                    <h3>First Step - Browse to the Contract</h3>
+                    <h5><strong><a href="https://bscscan.com/address/0x95c8eE08b40107f5bd70c28c4Fd96341c8eaD9c7#readContract" alt="BscScan Contract Address" target="_blank" class="clickHere">Click Here</a></strong> to go to the Surge Fund Contract on BscScan
+                    <br><br><strong>Surge Fund Contract Address:</strong>
+                    <div class="contractAddress text-end">
+                        <p class="cAddress" id="contractAddress">0x95c8eE08b40107f5bd70c28c4Fd96341c8eaD9c7  <i onclick="copyAddress('contractAddress');return false;" class="far fa-copy"></i></p>
+                    </div>
+                    </h5>
+                    
+                </div>
+                <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                    <a href="/assets/img/surgefund2.png" data-lightbox data-image-alt="Image Desc" class="aImg"> 
+                        <img class=" mx-auto d-block tutorial-img" src="/assets/img/surgefund2.png" alt="coming_soon" >
+                    </a>
+                    <img class=" mx-auto d-block tutorial-img iImg" src="/assets/img/surgefund2.png" alt="coming_soon" >
+                </div>
+            </div>
+
+            <div class="row rowPad">
+                <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12 text-center align-self-center widget spacerSF">
+                    <h3>
+                        Function 8. isVictim
+                    </h3>
+                    <h4>
+                        This function verifies that your wallet address was in the listed addresses that were affected by the BNB Hack.  Simply enter your address and click Query.
+                    </h4>
+                    <h5>
+                        True = the address is entitled to reimbursement<br/>
+                        False = Go to the discord server and contact a moderator.
+                    </h5>
+                </div>
+                <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12 align-self-center">
+                    <a href="/assets/img/surgefund3.png" data-lightbox data-image-alt="Image Desc" class="data-image-alt="Image Desc" class="lbImgaImg""> 
+                        <img class="mx-auto d-block tutorial-img" src="/assets/img/surgefund3.png" alt="coming_soon" >
+                    </a>
+                    <img class=" mx-auto d-block tutorial-img iImg" src="/assets/img/surgefund3.png" alt="coming_soon" >
+                </div>
+            </div>
+
+            <div class="row rowPad">
+                <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12 text-center align-self-center widget spacerSF">
+                    <h3>
+                        Function 12. remainingBnbToClaimForVictim
+                    </h3>
+                    <h4>
+                        This function shows you the amount of BNB you have claim to.  As you claim from the contract over time, the value decreases.
+                    </h4>
+                    <h5>
+                        A number will be returned that can be converted, click on the number and it will bring up the page shown on the last step of this tutorial.
+                    </h5>
+                </div>
+                <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12 align-self-center">
+                    <a href="/assets/img/surgefund4.png" data-lightbox data-image-alt="Image Desc" class="data-image-alt="Image Desc" class="lbImgaImg""> 
+                        <img class="mx-auto d-block tutorial-img" src="/assets/img/surgefund4.png" alt="coming_soon" >
+                    </a>
+                    <img class=" mx-auto d-block tutorial-img iImg" src="/assets/img/surgefund4.png" alt="coming_soon" >
+                </div>
+            </div>
+
+            <div class="row rowPad">
+                <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12 text-center align-self-center widget spacerSF">
+                    <h3>
+                        Function 17. userCurrentClaim
+                    </h3>
+                    <h4>
+                        This function shows you what is currently available to claim in the contract.  As trades are made in the XSurge Ecosystem, the amount contributed to the contract will increase.  So too will this value
+                    </h4>
+                </div>
+                <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12 align-self-center">
+                    <a href="/assets/img/surgefund5.png" data-lightbox data-image-alt="Image Desc" class="data-image-alt="Image Desc" class="lbImgaImg""> 
+                        <img class="mx-auto d-block tutorial-img" src="/assets/img/surgefund5.png" alt="coming_soon" >
+                    </a>
+                    <img class=" mx-auto d-block tutorial-img iImg" src="/assets/img/surgefund5.png" alt="coming_soon" >
+                </div>
+            </div>
+
+            <div class="row rowPad">
+                <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12 text-center align-self-center widget spacerSF">
+                    <h3>
+                        Unit Converter
+                    </h3>
+                    <h4>
+                        By selecting a blue linked value from the contract, it brings up the converter page shown to the right. Check the number next to BNB(1). That is your amount available to claim.
+                    </h4>
+                </div>
+                <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12 align-self-center">
+                    <a href="/assets/img/surgefund6.png" data-lightbox data-image-alt="Image Desc" class="data-image-alt="Image Desc" class="lbImgaImg""> 
+                        <img class="mx-auto d-block tutorial-img" src="/assets/img/surgefund6.png" alt="coming_soon" >
+                    </a>
+                    <img class=" mx-auto d-block tutorial-img iImg" src="/assets/img/surgefund6.png" alt="coming_soon" >
+                </div>
+            </div>
+            <div class="row rowPad">
+                <div class="col-xl-3 col-lg-3 col-md-3 col-sm-12 col-xs-12 logoM  align-self-center">
+                    <img class="logo rounded mx-auto d-block" src="/assets/img/xlogo.png" alt="coming_soon" style="margin-top:-4em;">
+                    
+                </div>
+                <div class="col-xl-9 col-lg-9 col-md-9 col-sm-12 col-xs-12 text-center align-self-center">
+                    <h4>
+                        If you have any issues with the amounts of your wallet is not included in the victim list, contact any moderator on the <a href="https://discord.gg/XSURGE" class="clickHere">Discord</a>.  We will point you in the right direction.<br/><br/>
+                        Next "How To" will cover taking claims from the contract.
+                    </h4>
+                </div>
+            </div>
 
             <div class="boxIntro ">
                 <div class="row introSpacer">
-                    <div class="col-xl-9 col-lg-9 col-md-9 col-sm-12 col-xs-12 widget2 logoMIntro">
-                        <div class="" id="home">
-                            <div class="widget-chart-one">
-                                <div class="">
-                                    <h3 class="">Welcome to <strong>xSURGE</strong></h3>
-                                    <h4 class="">The Defi Revolution</h4>
-                                    <h5>
-                                        Explore our fast growing smart chain ecosystem that fosters innovation and encourages a truly decentralized future through on-chain liquidity, and fully renounced ownership.
-                                    </h5>
-                                </div>
-                            </div>
+                    <div class="col-xl-12 col-lg-9 col-md-9 col-sm-12 col-xs-12 text-center align-self-center">
+                        <img  class=" mx-auto d-block" src="/assets/img/surgefundhowto2.png" alt="coming_soon" >
+                    </div>
+                </div>
+            </div>
+
+            <div class="row rowPad">
+                <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12 text-center align-self-center widget spacerSF">
+                    <h4>
+                        Start by verifying the contract address for accuracy.<br/>
+                        Look at the lower tabs and select {<span class="contractText">Contract</span>} from the tab<br>
+                        <br><strong>Surge Fund Contract Address:</strong>
+                        <div class="contractAddress text-end" style="margin-top: 18px;">
+                            <p class="cAddress" id="contractAddress">0x95c8eE08b40107f5bd70c28c4Fd96341c8eaD9c7  <i onclick="copyAddress('contractAddress');return false;" class="far fa-copy"></i></p>
                         </div>
-                    </div>
-                    <div class="col-xl-3 col-lg-3 col-md-3 logoM text-center align-self-center">
-                        <img class="logo rounded mx-auto d-block" src="assets/img/xlogo.png" alt="coming_soon">
-                    </div>
+                    </h4>
+                    
+                </div>
+                <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12 align-self-center">
+                    <a href="/assets/img/surgefund7.png" data-lightbox data-image-alt="Image Desc" class="data-image-alt="Image Desc" class="lbImgaImg""> 
+                        <img class="mx-auto d-block tutorial-img" src="/assets/img/surgefund7.png" alt="coming_soon" >
+                    </a>
+                    <img class=" mx-auto d-block tutorial-img iImg" src="/assets/img/surgefund7.png" alt="coming_soon" >
+                </div>
+            </div>
+
+            <div class="row rowPad">
+                <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12 text-center align-self-center widget spacerSF">
+                    <h3>
+                        Select Write Contract
+                    </h3>
+                    <h4>
+                        At this point you'll be looking at various function calls within the contract.  Select {<span class="dot"></span><span class="connectText"> Connect to Web</span>} and connect to your wallet.  This is what we'll use to claim our reimbursement from the contract as new funds are added.
+                    </h4>
+                    <h5>Connecting may either be done through:</h5><br>
+                    <img  class=" mx-auto d-block" src="/assets/img/surgefundconnect.png" alt="coming_soon" style="width: 20rem">
+                </div>
+                <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12 align-self-center">
+                    <a href="/assets/img/surgefund8.png" data-lightbox data-image-alt="Image Desc" class="data-image-alt="Image Desc" class="lbImgaImg""> 
+                        <img class="mx-auto d-block tutorial-img" src="/assets/img/surgefund8.png" alt="coming_soon" >
+                    </a>
+                    <img class=" mx-auto d-block tutorial-img iImg" src="/assets/img/surgefund8.png" alt="coming_soon" >
+                </div>
+            </div>
+
+            <div class="row rowPad">
+                <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12 text-center align-self-center widget spacerSF">
+                    <h3>
+                        Function 3. Claim
+                    </h3>
+                    <h4>
+                        Once connected to your wallet, Click the "Write" button.  This will Claim your portion of the BNB that is currently in the pool.
+                    </h4>
+               
+                        <h3>Note:</h3>
+                        <h4>  The amount you can expect depends on how much BNB is in the pool, and how much BNB you have yet to claim.
+                    </h4>
+                    <h4 class="contractText">
+                        i.e. If I have 10 BNB left to claim, and there is 100 BNB left in the pool to distribute to everyone, that means I get 10/100 or 1/10th of however much BNB is in the contract.
+                    </h4>
+                </div>
+                <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12 align-self-center">
+                    <a href="/assets/img/surgefund9.png" data-lightbox data-image-alt="Image Desc" class="data-image-alt="Image Desc" class="lbImgaImg""> 
+                        <img class="mx-auto d-block tutorial-img" src="/assets/img/surgefund9.png" alt="coming_soon" >
+                    </a>
+                    <img class=" mx-auto d-block tutorial-img iImg" src="/assets/img/surgefund9.png" alt="coming_soon" >
                 </div>
             </div>
             
-            <!-- 1 Countdown -->
-            <div class="box" id="countdown">
-                <div class="widget widget-chart-one spacer5">
-                    <div class="coming-soon-cont">
-                        <img class="sWordmark spacer4" src="assets/img/SURGEUSELESSWhite.png" >
-                        <div class="spacer4">
-                            <div id="timer">
-                                <div class="days"><span class="count">--</span> <span class="text">Days</span></div>
-                                <div class="hours"><span class="count">--</span> <span class="text">Hours</span></div>
-                                <div class="min"><span class="count">--</span> <span class="text">Mins</span></div>
-                                <div class="sec"><span class="count">--</span> <span class="text">Secs</span></div>
-                            </div> 
-                        </div>
-                    </div>
+            <div class="row rowPad">
+                <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12 text-center align-self-center widget spacerSF">
+                    <h2>
+                        More Information
+                    </h2>
+                    <h4>
+                        Users may claim once every 24 hours. <br/>
+                        The minimum claim for each user is 0.00005 BNB.<br/>
+                        To verify exactly what your claim is for that day, refer to Function 17 of the contract (usersCurrentClaim), outlined in the (Community Review) Section of this tutorial.
+                    </h4>
                 </div>
-                     
-            </div>
-
-            <!-- 2 How it Works -->
-            <div class="box" id="hiw">
-                <div class="widget widget-chart-one spacer5">
-                    <div class="blocks">
-                        <h3 class="">How Surge is different</h3>
-                        <h5 class="">No Liquidity Pool & No Exchanges.</h5>
-                        <hr>
-                    </div>
-                    <div class="blocks">
-                        <h3 class="">How it works</h3>
-                        <h5 class="">Each transaction triggers a fee that raises the price of Surge relative to its underlying asset. That means Buys, Transfers, and Sells raise the price.</h5>
-                        <hr>
-                    </div>
-                    <div class="blocks">
-                        <h3 class="">How about the fees?</h3>
-                        <h5 class="">6% fee to buy, 6% fee to sell<!-- , 7% fee to navigate between tokens (i.e., SETH to SBTC) --> & 2% fee for wallet-to-wallet transfers</h5>
-                        <hr>
-                    </div>
-                    <div class="blocks">
-                        <h3 class="">xSurge Whitepaper</h3>
-                        <h5 class="">The xSurge Whitepaper will be available soon</h5>
-                    </div>
+                <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12 align-self-center">
+                    <a href="/assets/img/surgefund10.png" data-lightbox data-image-alt="Image Desc" class="data-image-alt="Image Desc" class="lbImgaImg""> 
+                        <img class="mx-auto d-block tutorial-img" src="/assets/img/surgefund10.png" alt="coming_soon" >
+                    </a>
+                    <img class=" mx-auto d-block tutorial-img iImg" src="/assets/img/surgefund10.png" alt="coming_soon" >
                 </div>
             </div>
 
-            <!-- 3 Latest Updates -->
-            <div class="box" id="countdown">
-                <div class="widget widget-chart-one spacer5">
-                    <h3 class="">Latest Updates</h3>
-                    <div class="blocks">
-                        <h4 class=""><em>SurgeADA Launched</em></h4>
-                        <div>
-                            <div class='dApp'>
-                                <a href='https://app.xsurge.net/' target="_blank">Buy Now</a>
-                            </div>
-                        </div>
-                    </div>
-                    <hr>
-                    <div class="blocks">
-                        <h4 class=""><em>SurgeETH Certik Audit is Live</em></h4>
-                        <h5 class="">
-                            In accordance with our Security First Approach, we have undergone and completed third party verification of our SurgeETH Token Contract. The audit was conducted through Certik, a highly esteemed blockchain auditor. Using their in-house formal verification technology, Certik provides a thorough assessment that outlines vulnerability ranking scores for various factors. Following completion of the audit, we are happy to report SurgeETH has earned an admirable rating for these factors along with a very high Security Score. In addition, SurgeETH will be under 24/7 Skynet Monitoring from the Certik Dashboard to further assure our community that security and integrity are always our first priority. <br/><br/>
-                            We ask that everyone take time to read each finding and alleviation in the assessment. We hope after reading through our audit, you'll consider showing your support as often as you can by voting "Secure" from the Dashboard of the Certik page. Voting is eligible every 24 hours so members may vote daily if they wish. Social sentiment has a significant impact on the security score ratings so this will help in boosting our score over time. With that being said, SurgeBTC audit is following closely and will be available soon for community review. Click <a href="https://www.certik.org/projects/surgeeth" target="_blank"><u>here</u></a> to view the SurgeETH audit results.
-                        </h5>
-                    </div>
-                     
+            <div class="row rowPad">
+                <div class="col-xl-2 col-lg-2 col-md-2 col-sm-12 col-xs-12 logoM  align-self-center">
+                    <img class="logo rounded mx-auto d-block" src="/assets/img/xlogo.png" alt="coming_soon" style="margin-top: -14%">
+                    
                 </div>
-            </div>
-
-            <!-- 4 How to Buy -->
-            <div class="box" id="htb">
-                <div class="howto widget widget-chart-one spacer5">
-                    <em><h3>Here's how to buy:</h3></em>
-                    <h5 class="">Buy BNB & Convert to BSC</h5>
-                    <p>BNB (Binance Coin) is available on all major exchanges, then convert your BNB to Binance Smart Chain (BSC)</p>
-                    <hr>
-                    <h5 class="">Send BSC to Surge Address</h5>
-                    <p>Send your BSC to the Surge Contract Address of your choice.</p>
-                    <hr>
-                    <h5 class="">Add Surge as custom token to your wallet</h5>
-                    <p>Add the Surge Contract Address, choose Network: Smart Chain</p><br>
-                    <div class="dApp">
-                        <a href="https://app.xsurge.net" target="_blank">Trade Now</a>
-                    </div>
+                <div class="col-xl-8 col-lg-8 col-md-8 col-sm-12 col-xs-12 text-center align-self-center">
+                    <h3>
+                        This concludes the How To tutorial for the Surge Fund Contract.
+                    </h3>
+                    <br>
+                    <h4>
+                        If you have any questions or concerns, <a href="https://discord.gg/XSURGE" class="clickHere">Click Here</a> to contact a moderator on the Official Discord.
+                        <br><br>
+                        <strong><a href="https://xsurge.net/index.html" class="clickHere">Click Here</a> to go back to the Homepage.</strong>
+                    </h4>
                 </div>
-            </div>
-
-            <!-- 5 Token Stats/Balances-->
-            <div class="box " id="tokbal">
-                <div class="widget widget-chart-one spacer5">
-                    <h3 class="">Token Statistics</h3>
-                    <div>
-                        <img class="sWordmark" src="assets/img/SURGEUSDWhite.png" >
-                        <table class="table table-borderless statsTable">
-                            <tr>
-                                <td>Price:</td>
-                                <td id="sUSDPrice">Loading</td>
-                            </tr>
-                            <tr>
-                                <td>Holders:</td>
-                                <td id="sUSDHolders">Loading</td>
-                            </tr>
-                        </table>
-                    </div>
-                    <div>
-                        <img class="sWordmark" src="assets/img/SURGEETHWhite.png" >
-                        <table class="table table-borderless statsTable">
-                            <tr>
-                                <td>Price:</td>
-                                <td id="sETHPrice">Loading</td>
-                            </tr>
-                            <tr>
-                                <td>Holders:</td>
-                                <td id="sETHHolders">Loading</td>
-                            </tr>
-                        </table>
-                    </div>
-                    <div>
-                        <img class="sWordmark" src="assets/img/SURGEBTCWhite.png" >
-                        <table class="table table-borderless statsTable">
-                            <tr>
-                                <td>Price:</td>
-                                <td id="sBTCPrice">Loading</td>
-                            </tr>
-                            <tr>
-                                <td>Holders:</td>
-                                <td id="sBTCHolders">Loading</td>
-                            </tr>
-                        </table>
-                    </div>
-                    <div>
-                        <img class="sWordmark" src="assets/img/SURGEADAWhite.png" >
-                        <table class="table table-borderless statsTable">
-                            <tr>
-                                <td>Price:</td>
-                                <td id="sADAPrice">Loading</td>
-                            </tr>
-                            <tr>
-                                <td>Holders:</td>
-                                <td id="sADAHolders">Loading</td>
-                            </tr>
-                        </table><br>(Token Stats, to include your amount, auto refresh every 15-30 seconds)
-                    </div>
-                    <hr>
-                    <!-- <div>
-                        <img class="sWordmark" src="assets/img/SURGEUSELESSWhite.png" >
-                        <table class="table table-borderless statsTable">
-                            <tr>
-                                <td>Price:</td>
-                                <td id="sUSLSPrice">Loading</td>
-                            </tr>
-                            <tr>
-                                <td>Holders:</td>
-                                <td id="sUSLSHolders">Loading</td>
-                            </tr>
-                        </table><br>(Token Stats, to include your amount, auto refresh every 15-30 seconds)
-                    </div>
-                    <hr> -->
-                    <div class="row spacer4">
-                        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-6 col-xl-6">
-                            <div class="form-group">
-                                <select class="form-select surgeSelect" aria-label="Token Select" id="userSelect">
-                                    <option selected value="noToken">Choose an Option</option>
-                                        <option value="wallet">Wallet Address</option>
-                                        <option value="sUSD">SurgeUSD</option>
-                                        <option value="sETH">SurgeETH</option>
-                                        <option value="sBTC">SurgeBTC</option>
-                                        <option value="sADA">SurgeADA</option>
-                                        <!-- <option value="sUSLS">SurgeUSELESS</option> -->
-                                </select>
-                            </div>
-                        </div>
-                        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-6 col-xl-6">
-                            <div class="input-group mb-3 ">
-                                <input type="text" class="form-control surgeAmount" placeholder="" aria-label="Wallet Address" aria-describedby="basic-addon1" id="userInput">
-                            </div>
-                            <div class="float-end">
-                                <button class="calcBtn" id="calcBtn">Show</button>
-                            </div>
-                        </div>
-                        
-                        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 resultsSpacer" id="calcResults">
-                             
-                            <!--Results for Wallet Address-->
-                            <div class="calcResults" id="resultsWallet">
-                                <h3>Your Amount</h3>
-                                <hr class="hrSpacer">
-                                <div class="loader" id="resultsLoading"></div>
-                                <div id="walletResultsDiv">
-                                    <table class="table table-borderless priceTable" id="walletResults"></table>
-                                    <p><em>Powered by BscScan.com APIs</em></p>
-                                </div>
-                            </div>
-
-                            <!--Results per Token-->
-                            <div class="calcResults" id="resultsToken">
-                                <h3>Your Amount</h3>
-                                <hr class="hrSpacer">
-                                <table class="table table-borderless priceTable">
-                                    <tr>
-                                        <td>Current Balance:</td>
-                                        <td id="tokenBalance">Loading</td>
-                                    </tr>
-                                    <tr>
-                                        <td id="tokenName"></td>
-                                        <td id="tokenValue">Loading</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Current Value (USD):</td>
-                                        <td id="tokenValueUSD">Loading</td>
-                                    </tr>
-                                </table>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                
-            </div> 
-
-            <!-- 6 Token Addresses -->
-            <div class="box " id="tok">
-                <div class="widget widget-chart-one spacer5">
-                    <em><h3>Find your favorite <strong>Token</strong> contract address here:</h3></em>
-                    <img class="sWordmark" src="assets/img/SURGEUSDWhite.png" >
-                    <div class="contractAddress text-end">
-                        <p class="cAddress" id="SurgeUSD">0x14fEe7d23233AC941ADd278c123989b86eA7e1fF  <i onclick="copyAddress('SurgeUSD');return false;" class="far fa-copy"></i></p>
-                    </div>
-                    <hr>
-                    <img class="sWordmark" src="assets/img/SURGEETHWhite.png" >
-                    <div class="contractAddress text-end">
-                        <p class="cAddress" id="SurgeETH">0x5B1d1BBDCc432213F83b15214B93Dc24D31855Ef  <i onclick="copyAddress('SurgeETH');return false;" class="far fa-copy"></i></p>
-                    </div>
-                    <hr>
-                    <img class="sWordmark" src="assets/img/SURGEBTCWhite.png" >
-                    <div class="contractAddress text-end">
-                        <p class="cAddress" id="SurgeBTC">0xb68c9D9BD82BdF4EeEcB22CAa7F3Ab94393108a1  <i onclick="copyAddress('SurgeBTC');return false;" class="far fa-copy"></i></p>
-                    </div>
-                    <hr>
-                    <img class="sWordmark" src="assets/img/SURGEADAWhite.png" >
-                    <div class="contractAddress text-end">
-                        <p class="cAddress" id="SurgeADA">0xbF6bB9b8004942DFb3C1cDE3Cb950AF78ab8A5AF <i onclick="copyAddress('SurgeADA');return false;" class="far fa-copy"></i></p>
-                    </div>
-                    <!-- <hr>
-                    <img class="sWordmark" src="assets/img/SURGEUSELESSWhite.png" >
-                    <div class="contractAddress text-end">
-                        <p class="cAddress" id="SurgeADA">0xbF6bB9b8004942DFb3C1cDE3Cb950AF78ab8A5AF <i onclick="copyAddress('SurgeADA');return false;" class="far fa-copy"></i></p>
-                    </div> -->
-                </div>
-            </div>
-
-            <!-- 7 Holder Div -->
-            <div class="box holderDiv" id="xtok">
-                <div class="widget widget-chart-one spacer5"></div>
             </div>
             
-
-            <!-- 8 xToken Addresses -->
-            <div class="box " id="xtok">
-                <div class="widget widget-chart-one spacer5">
-                    <em><h3>Find your favorite <strong>xToken</strong> contract address here:</h3></em>
-                    <p>Relaunch Coming Soon</p>
-                </div>
-            </div>
-
-            <!-- 9 Merch Shop  Link-->
-            <div class="box merch" id="merch">
-                <div class="widget widget-chart-one spacer5">
-                    <em><h3>xSurge Merchandise</h3></em>
-                    <p>
-                        <div class="dApp2 text-center">
-                            <a href="https://xsurgemerch.com/" target="_blank">Shop</a>
-                        </div></p>
-                </div>
-            </div>
-
-            <!-- Copied Token Address -->
-            <div class="centerpoint widgetMsg" id="copyMSG" style="display:none">
-                <div class="dialog" id="dialog"></div>
-            </div>
-
-            <!-- <div class="row" id="htb">
-                <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12 layout-spacing spacer3">
-                    <div class="widget widget-chart-one">
-                        <div class="">
-                            <img class="logoNav2" src="assets/img/BridgeManager.png" >
-                            <p>Contract address: 0x3f1a78eD1D3c97A72941e8733147085ae09C2588</p>
-                        </div>
-                    </div>
-                </div>
-            </div> -->
 
             <!-- Footer -->
             <div class="masonry-footer">
@@ -1086,518 +1092,68 @@
                 </div>
             </div>
         </div>
-
+        <div class="centerpoint widgetMsg" id="copyMSG" style="display:none">
+            <div class="dialog" id="dialog"></div>
+        </div>
         <!-- BEGIN GLOBAL MANDATORY SCRIPTS -->
         <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
-        <script src="https://cdn.jsdelivr.net/npm/js-cookie@3.0.1/dist/js.cookie.min.js"></script>
 
     <!-- Optional JavaScript; choose one of the two! -->
 
     <!-- Option 1: Bootstrap Bundle with Popper -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj" crossorigin="anonymous"></script>
 
-    
-    <!-- END GLOBAL MANDATORY SCRIPTS -->
-    <script src="assets/js/pages/coming-soon/coming-soon.js"></script>
-
-    <script>
-        // Set the date we're counting down to
-        var getYear = new Date().getFullYear();
-        var countDownDate = new Date("Oct 2, "+ getYear +" 15:00:00 GMT-0400").getTime();
-
-        // Update the count down every 1 second
-        var countdownfunction = setInterval(function() {
-
-        // Get todays date and time
-        var now = new Date().getTime();
-        
-        // Find the distance between now an the count down date
-        var distance = countDownDate - now;
-        
-        // Time calculations for days, hours, minutes and seconds
-        var days = Math.floor(distance / (1000 * 60 * 60 * 24));
-        var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-        var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-        var seconds = Math.floor((distance % (1000 * 60)) / 1000);
-        
-        // Output the result in an element with id="demo"
-        document.getElementById("timer").innerHTML = '<div class="days"><span class="count">' + days + '</span> <span class="text">Days</span></div>' +
-        '<div class="hours"><span class="count">'+ hours +'</span> <span class="text">Hours</span></div>' +
-        '<div class="min"><span class="count">'+ minutes +'</span> <span class="text">Mins</span></div>' +
-        '<div class="sec"><span class="count">'+ seconds +'</span> <span class="text">Secs</span></div>';
-        
-        // If the count down is over, write some text 
-        if (distance < 0) {
-            clearInterval(countdownfunction);
-            document.getElementById("timer").innerHTML = "<div class='dApp'><a href='https://app.xsurge.net' target='_blank'>Buy SurgeUSELESS Now</a></div>";
-        }
-        }, 1000);
-    </script>
-    
-
 
 <!-- <script src="bootstrap/js/popper.min.js"></script>
 <script src="bootstrap/js/bootstrap.min.js"></script> -->
-<script src="assets/js/app.js"></script>
+<script src="/assets/js/app.js"></script>
 
-<script>
 
-    var tempsUSDValueUSD, tempsUSDValueBNB, tempsETHValueUSD, tempsETHValueETH, tempsBTCValueUSD, tempsBTCValueBTC;
-
-        
-        function copyAddress(id){
-            var r = document.createRange();
-            var message = "";
-            r.selectNode(document.getElementById(id));
-            window.getSelection().removeAllRanges();
-            window.getSelection().addRange(r);
-            document.execCommand('copy');
-            window.getSelection().removeAllRanges();
-
-            $("#dialog").html(id + " Contract Address Copied!");
-            $("#copyMSG").show();
-
-            setTimeout(function () {
-
-                // Closing the alert
-                $("#copyMSG").hide();
-            }, 2000);
-
-        }
-        
-        function getTokenStats(){
-            $.post("get_token_stats2.php").done(function(data){
-                var data = JSON.parse(data);
-
-                var sUSDholders, sUSDPrice; 
-                var sETHholders, sETHPrice;
-                var sBTCholders, sBTCPrice;
-                var sADAholders, sADAPrice;
-
-                $.each(data, function(i, item){
-                    sUSDholders =  item.susd_holders;
-                    sUSDPrice = item.susd_price;
-                    sETHholders =  item.seth_holders;
-                    sETHPrice = item.seth_price;
-                    sBTCholders = item.sbtc_holders;
-                    sBTCPrice = item.sbtc_price;
-                    sADAholders = item.sada_holders;
-                    sADAPrice = item.sada_price;
-
-                    
-
-                    $("#sUSDHolders").html(sUSDholders);
-                    $("#sUSDPrice").html(sUSDPrice);
-                    $("#sETHHolders").html(sETHholders);
-                    $("#sETHPrice").html(sETHPrice);
-                    $("#sBTCHolders").html(sBTCholders);
-                    $("#sBTCPrice").html(sBTCPrice);
-                    $("#sADAHolders").html(sADAholders);
-                    $("#sADAPrice").html(sADAPrice);
-
-                });
-            
-            }); 
-        }
-
-        function calcWallet(walletAddress){
-            var wA = walletAddress;
-
-            //set the wallet address cookie
-            setCookie("user_wallet_address", wA, 30);
-            
-            $.post("getdata.php", {walletAddress: wA}).done(function(data){
-                        var data = JSON.parse(data);
-                        var tokenAmount, uTokenValue, tokenUSD, uToken, sToken;
-                        var displayHTML = "";
-
-                        $.each(data, function(i, item){
-                            sToken = item.s_token;
-                            tokenAmount = item.token_amount;
-                            uToken = item.u_token;
-                            uTokenValue = item.value_utoken;
-                            tokenUSD = item.value_token_usd;
-
-                            displayHTML += "<tr><td>Current Balance:</td><td>"+tokenAmount+ " "+sToken+"</td></tr><tr><td>Current Value ("+uToken+"):</td><td>"+uTokenValue+"</td></tr><tr><td>Current Value (USD):</td><td>$"+tokenUSD+"</td></tr><tr><td>&nbsp;</td></tr>";
-                            
-                            $("#walletResults").empty();
-                            $("#walletResults").append(displayHTML);
-                            $("#walletResults").show();
-                            $('#calcResults').show();
-                            $("#resultsWallet").show();
-                            $("#resultsToken").hide();
-
-                        });
-                    });
-
-           
-        }
-
-        function calcToken(tokenSelect, tokenAmount){
-            var tS = tokenSelect;
-            var tA = tokenAmount;
-
-            //set the susd holdings cookie
-            setCookie(tS, tA, 30);
-            
-
-            switch(tS){
-                case "noToken":
-                    $("#dialog").html("No Token Selected!");
-                    $("#copyMSG").show();
-
-                    setTimeout(function () {
-                        // Closing the alert
-                        $("#copyMSG").hide();
-                    }, 2000);
-                    break;
-                case "sUSD":
-                    
-                    //get total supply of sUSD
-                    $.post("calc2.php", {tokenSelected: tS, tokenAmount:tA}).done(function(data){
-                        var data = JSON.parse(data);
-                        var valueUSD, valueBNB;
-                        var tokenName = "BNB";
-
-                        $.each(data, function(i, item){
-                            valueUSD = item.value_usd;
-                            valueBNB = item.value_bnb;
-
-                            tempsUSDValueUSD = item.value_usd;
-                            tempsUSDValueBNB = item.value_bnb;
-
-                            $("#tokenBalance").html(tokenAmount + " sUSD");
-                            $("#tokenName").html("Current Value (BNB)");
-                            $("#tokenValue").html(valueBNB);
-                            $("#tokenValueUSD").html("$" + valueUSD);
-
-                            $('#calcResults').show();
-                            $("#resultsWallet").hide();
-                            $("#resultsToken").show();
-
-
-                        });
-                    });
-
-                    break;
-                case "sETH":
-
-                    
-
-                    $.post("calc2.php", {tokenSelected: tS, tokenAmount:tA}).done(function(data){
-                        var data = JSON.parse(data);
-                        var valueUSD, valueETH;
-                        var tokenName = "ETH";
-
-                        $.each(data, function(i, item){
-                            valueUSD = item.value_usd;
-                            valueETH = item.value_eth;
-                            tempsETHValueUSD = item.value_usd;
-                            tempsETHValueETH = item.value_eth;
-
-                            $("#tokenBalance").html(tokenAmount + " sETH");
-                            $("#tokenName").html("Current Value (ETH)");
-                            $("#tokenValue").html(valueETH);
-                            $("#tokenValueUSD").html("$" + valueUSD);
-
-                            $('#calcResults').show();
-                            $("#resultsWallet").hide();
-                            $("#resultsToken").show();
-
-
-                        });
-                    });
-                    break;
-                case "sBTC":
-
-                        $.post("calc2.php", {tokenSelected: tS, tokenAmount:tA}).done(function(data){
-                            var data = JSON.parse(data);
-                            var valueUSD, valueBTC;
-                            var tokenName = "BTC";
-
-                            $.each(data, function(i, item){
-                                valueUSD = item.value_usd;
-                                valueBTC = item.value_btc;
-                                tempsBTCValueUSD = item.value_usd;
-                                tempsBTCValueBTC = item.value_btc;
-
-                                $("#tokenBalance").html(tokenAmount + " sBTC");
-                                $("#tokenName").html("Current Value (BTC)");
-                                $("#tokenValue").html(valueBTC);
-                                $("#tokenValueUSD").html("$" + valueUSD);
-
-                                $('#calcResults').show();
-                                $("#resultsWallet").hide();
-                                $("#resultsToken").show();
-
-
-                            });
-                        });
-                        break;
-                case "sADA":
-                    
-                    $.post("calc2.php", {tokenSelected: tS, tokenAmount:tA}).done(function(data){
-                            var data = JSON.parse(data);
-                            var valueUSD, valueADA;
-                            var tokenName = "ADA";
-
-                            $.each(data, function(i, item){
-                                valueUSD = item.value_usd;
-                                valueADA = item.value_ada;
-                                tempsADAValueUSD = item.value_usd;
-                                tempsADAValueADA = item.value_ada;
-
-                                $("#tokenBalance").html(tokenAmount + " sADA");
-                                $("#tokenName").html("Current Value (ADA)");
-                                $("#tokenValue").html(valueADA);
-                                $("#tokenValueUSD").html("$" + valueUSD);
-
-                                $('#calcResults').show();
-                                $("#resultsWallet").hide();
-                                $("#resultsToken").show();
-
-
-                            });
-                        });
-                        break;
-                        break;
-
-                default:
-                    break;
-            }
-        }
-
-        function setCookie(cname, cvalue, exdays) {
-            const d = new Date();
-            d.setTime(d.getTime() + (exdays*24*60*60*1000));
-            let expires = "expires="+ d.toUTCString();
-            document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
-        }
-
-        function getCookie(cname) {
-            let name = cname + "=";
-            let decodedCookie = decodeURIComponent(document.cookie);
-            let ca = decodedCookie.split(';');
-            for(let i = 0; i <ca.length; i++) {
-                let c = ca[i];
-                while (c.charAt(0) == ' ') {
-                c = c.substring(1);
-                }
-                if (c.indexOf(name) == 0) {
-                return c.substring(name.length, c.length);
-                }
-            }
-            return "";
-        }
-
-        function checkCookie() {
-            let cookieAddress = getCookie("user_wallet_address");
-            let susdHolding = getCookie("sUSD");
-            let sethHolding = getCookie("sETH");
-            let sbtcHolding = getCookie("sBTC");
-            let sadaHolding = getCookie("sADA");
-        }
-  
-    
-
-    $(document).ready(function() {
-
-        
-        $("#calcBtn").hide();
-        $('#calcResults').hide();
-        $("#copyMSG").hide();
-
-         //Login Functions   
-         $('#userInput').keypress(function (e) {
-                var key = e.which;
-                if(key == 13)  // the enter key code
-                {
-
-                    switch($("#userSelect").val()){
-                        case "wallet":
-                            var walletAddress = $("#userInput").val();
-                            calcWallet(walletAddress);
-                            break;
-                        case "sUSD":
-                        case "sETH":
-                        case "sBTC":
-                            var ts = $("#userSelect").val();
-                            var ta = $("#userInput").val();
-                            calcToken(ts, ta);
-                            break;
-                        default:
-                            break;
-
-                    }
-
-                    return false;  
-                }
-            });
-
-        //initial call for token stats
-        getTokenStats();
-
-        //run getTokenStats every 10 seconds
-        setInterval(function(){ 
-            getTokenStats();
-        }, 15000);
-       
-
-        $('#userSelect').on('change', function() {
-
-            switch($("#userSelect").val()){
-                case "wallet":
-                    
-                    $('#calcResults').hide();
-                    $("#userInput").val(getCookie("user_wallet_address"));
-                    $("#userInput").attr("placeholder", "Enter Wallet Address");
-                    $("#calcBtn").html("Show");
-                    $("#calcBtn").show();
-                    $("#tokenBalanceSUSD").html("Loading");
-                    $("#tokenValueBNB").html("Loading");
-                    $("#tokenValuesusdUSD").html("Loading");
-                    $("#tokenBalanceSETH").html("Loading");
-                    $("#tokenValueETH").html("Loading");
-                    $("#tokenValuesethUSD").html("Loading");
-                    $("#tokenBalanceSBTC").html("Loading");
-                    $("#tokenValueBTC").html("Loading");
-                    $("#tokenValuesbtcUSD").html("Loading");
-                    break;
-                //For all other tokens
-                case "sETH":
-                    $('#calcResults').hide();
-                    $("#userInput").val(getCookie("sETH"));
-                    $("#userInput").attr("placeholder", "Enter Token Amount");
-                    $("#calcBtn").html("Calculate");
-                    $("#calcBtn").show();
-                    $("#tokenBalance").html("Loading");
-                    $("#tokenValue").html("Loading");
-                    $("#tokenValueUSD").html("Loading");
-                    break;
-                case "sUSD":
-                    $('#calcResults').hide();
-                    $("#userInput").val(getCookie("sUSD"));
-                    $("#userInput").attr("placeholder", "Enter Token Amount");
-                    $("#calcBtn").html("Calculate");
-                    $("#calcBtn").show();
-                    $("#tokenBalance").html("Loading");
-                    $("#tokenValue").html("Loading");
-                    $("#tokenValueUSD").html("Loading");
-                    break;
-                case "sBTC":
-                    $('#calcResults').hide();
-                    $("#userInput").val(getCookie("sBTC"));
-                    $("#userInput").attr("placeholder", "Enter Token Amount");
-                    $("#calcBtn").html("Calculate");
-                    $("#calcBtn").show();
-                    $("#tokenBalance").html("Loading");
-                    $("#tokenValue").html("Loading");
-                    $("#tokenValueUSD").html("Loading");
-                    break;
-                case "sADA":
-                    $('#calcResults').hide();
-                    $("#userInput").val(getCookie("sADA"));
-                    $("#userInput").attr("placeholder", "Enter Token Amount");
-                    $("#calcBtn").html("Calculate");
-                    $("#calcBtn").show();
-                    $("#tokenBalance").html("Loading");
-                    $("#tokenValue").html("Loading");
-                    $("#tokenValueUSD").html("Loading");
-                    break;
-                default:
-                    break;
-            }
-        });
-
-        $("#calcBtn").click(function(){
-
-            //check if user Chose a token or to enter wallet address
-            switch($("#userSelect").val()){
-                case "wallet":
-                    var walletAddress = $("#userInput").val();
-                    calcWallet(walletAddress);
-                    break;
-                //For all other tokens
-                default:
-                    var ts = $("#userSelect").val();
-                    var ta = $("#userInput").val();
-                    calcToken(ts, ta);
-                    break;
-            }
-            
-            
-        });
-
-        setInterval(function(){ 
-            if($("#calcResults").is(":visible")){
-                switch($("#userSelect").val()){
-                    case "wallet":
-                        var walletAddress = $("#userInput").val();
-                        calcWallet(walletAddress);
-                        break;
-                    case "sUSD":
-                    case "sETH":
-                    case "sBTC":
-                        var ts = $("#userSelect").val();
-                        var ta = $("#userInput").val();
-                        calcToken(ts, ta);
-                        break;
-                    default:
-                        break;
-                }
-            }
-            
-        }, 15000);
-        
-        
-    });
-</script>
-
-
-<script>
-
-    function mobileOrder(x) {
-
-        if($("#countdown").is(":visible")){
-            //do nothing
-            var tok = $("#tok");
-            var tokbal = $("#tokbal");
-
-            var ttok = tok.clone();
-            var ttokbal = tokbal.clone();
-
-            if (x.matches) { // If media query matches
-                tok.replaceWith(ttokbal);
-                tokbal.replaceWith(ttok);
-            } 
-
-        } else {
-            var hiw = $('#hiw');
-            var htb = $('#htb');
-
-            var thiw = hiw.clone();
-            var thtb = htb.clone();
-
-            if (x.matches) { // If media query matches
-                htb.replaceWith(thiw);
-                hiw.replaceWith(thtb);
-            } 
-        }
-        
-    }
-
-    var x = window.matchMedia("(max-width: 767px)");
-    
-    mobileOrder(x);// Call listener function at run time
-    
-    x.addListener(mobileOrder); // Attach listener function on state changes                           
-    
-    
-</script>
-
-<script src="assets/js/custom.js"></script>
-<script src="assets/js/dashboard/dash_1.js"></script>
+<script src="/assets/js/custom.js"></script>
+<script src="/assets/js/dashboard/dash_1.js"></script>
+<!-- <script src="/assets/lightbox.js-master/lightbox/lightbox.min.js"></script> -->
 <!-- END GLOBAL MANDATORY SCRIPTS -->
 <script src="//unpkg.com/imagesloaded@4/imagesloaded.pkgd.min.js"></script>
+<script>
 
+function copyAddress(id){
+                var r = document.createRange();
+                var message = "";
+                r.selectNode(document.getElementById(id));
+                window.getSelection().removeAllRanges();
+                window.getSelection().addRange(r);
+                document.execCommand('copy');
+                window.getSelection().removeAllRanges();
+
+                $("#dialog").html("Contract Address Copied!");
+                $("#copyMSG").show();
+
+                setTimeout(function () {
+
+                    // Closing the alert
+                    $("#copyMSG").hide();
+                }, 2000);
+
+            }
+
+</script>
+
+<script>
+
+    function dynamicallyLoadScript() {
+        var script = document.createElement("script");  // create a script DOM node
+        script.src = "/assets/lightbox.js-master/lightbox/lightbox.min.js";  // set its src to the provided URL
+
+        document.head.appendChild(script);  // add it to the end of the head section of the page (could change 'head' to 'body' to add it to the end of the body section instead)
+    }
+
+    var x = window.matchMedia("(min-width: 768px)");
+
+    if (x.matches) { // If media query matches
+        dynamicallyLoadScript();
+    } else {
+        //do something else
+        
+    }
+</script>
 </body>
