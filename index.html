@@ -612,7 +612,7 @@
                         </table><br>(Token Stats, to include your amount, auto refresh every 15-30 seconds)
                     </div>
                     <hr>
-                    <!-- <div>
+                    <div>
                         <img class="sWordmark" src="assets/img/SURGEUSELESSWhite.png" >
                         <table class="table table-borderless statsTable">
                             <tr>
@@ -625,7 +625,7 @@
                             </tr>
                         </table><br>(Token Stats, to include your amount, auto refresh every 15-30 seconds)
                     </div>
-                    <hr> -->
+                    <hr>
                     <div class="row spacer4">
                         <div class="col-xs-12 col-sm-12 col-md-12 col-lg-6 col-xl-6">
                             <div class="form-group">
@@ -712,11 +712,11 @@
                     <div class="contractAddress text-end">
                         <p class="cAddress" id="SurgeADA">0xbF6bB9b8004942DFb3C1cDE3Cb950AF78ab8A5AF <i onclick="copyAddress('SurgeADA');return false;" class="far fa-copy"></i></p>
                     </div>
-                    <!-- <hr>
+                    <hr>
                     <img class="sWordmark" src="assets/img/SURGEUSELESSWhite.png" >
                     <div class="contractAddress text-end">
-                        <p class="cAddress" id="SurgeADA">0xbF6bB9b8004942DFb3C1cDE3Cb950AF78ab8A5AF <i onclick="copyAddress('SurgeADA');return false;" class="far fa-copy"></i></p>
-                    </div> -->
+                        <p class="cAddress" id="SurgeUSLS">0x2e62e57d1D36517D4b0F329490AC1b78139967C0 <i onclick="copyAddress('SurgeUSLS');return false;" class="far fa-copy"></i></p>
+                    </div>
                 </div>
             </div>
 
@@ -1175,6 +1175,7 @@
                 var sETHholders, sETHPrice;
                 var sBTCholders, sBTCPrice;
                 var sADAholders, sADAPrice;
+                var sUSLSholders, sUSLSPrice;
 
                 $.each(data, function(i, item){
                     sUSDholders =  item.susd_holders;
@@ -1185,6 +1186,8 @@
                     sBTCPrice = item.sbtc_price;
                     sADAholders = item.sada_holders;
                     sADAPrice = item.sada_price;
+                    sUSLSholders = item.susls_holders;
+                    sADAPsUSLSPricerice = item.susls_price;
 
                     
 
@@ -1196,6 +1199,8 @@
                     $("#sBTCPrice").html(sBTCPrice);
                     $("#sADAHolders").html(sADAholders);
                     $("#sADAPrice").html(sADAPrice);
+                    $("#sUSLSHolders").html(sUSLSholders);
+                    $("#sUSLSPrice").html(sUSLSPrice);
 
                 });
             
@@ -1362,6 +1367,31 @@
                             });
                         });
                         break;
+                case "sUSLS":
+                    
+                    $.post("calc2.php", {tokenSelected: tS, tokenAmount:tA}).done(function(data){
+                            var data = JSON.parse(data);
+                            var valueUSD, valueADA;
+                            var tokenName = "USLS";
+
+                            $.each(data, function(i, item){
+                                valueUSD = item.value_usd;
+                                valueUSLS = item.value_usls;
+                                tempsUSLSValueUSD = item.value_usd;
+                                tempsUSLSValueUSLS = item.value_usls;
+
+                                $("#tokenBalance").html(tokenAmount + " sUSLS");
+                                $("#tokenName").html("Current Value (USLS)");
+                                $("#tokenValue").html(valueUSLS);
+                                $("#tokenValueUSD").html("$" + valueUSD);
+
+                                $('#calcResults').show();
+                                $("#resultsWallet").hide();
+                                $("#resultsToken").show();
+
+
+                            });
+                        });
                         break;
 
                 default:
@@ -1398,6 +1428,7 @@
             let sethHolding = getCookie("sETH");
             let sbtcHolding = getCookie("sBTC");
             let sadaHolding = getCookie("sADA");
+            let suslsHolding = getCookie("sUSLS");
         }
   
     
@@ -1423,6 +1454,16 @@
                         case "sUSD":
                         case "sETH":
                         case "sBTC":
+                            var ts = $("#userSelect").val();
+                            var ta = $("#userInput").val();
+                            calcToken(ts, ta);
+                            break;
+                        case "sADA":
+                            var ts = $("#userSelect").val();
+                            var ta = $("#userInput").val();
+                            calcToken(ts, ta);
+                            break;
+                        case "sUSLS":
                             var ts = $("#userSelect").val();
                             var ta = $("#userInput").val();
                             calcToken(ts, ta);
@@ -1464,6 +1505,7 @@
                     $("#tokenBalanceSBTC").html("Loading");
                     $("#tokenValueBTC").html("Loading");
                     $("#tokenValuesbtcUSD").html("Loading");
+                    
                     break;
                 //For all other tokens
                 case "sETH":
@@ -1506,6 +1548,16 @@
                     $("#tokenValue").html("Loading");
                     $("#tokenValueUSD").html("Loading");
                     break;
+                case "sUSLS":
+                    $('#calcResults').hide();
+                    $("#userInput").val(getCookie("sUSLS"));
+                    $("#userInput").attr("placeholder", "Enter Token Amount");
+                    $("#calcBtn").html("Calculate");
+                    $("#calcBtn").show();
+                    $("#tokenBalance").html("Loading");
+                    $("#tokenValue").html("Loading");
+                    $("#tokenValueUSD").html("Loading");
+                    break;
                 default:
                     break;
             }
@@ -1540,6 +1592,16 @@
                     case "sUSD":
                     case "sETH":
                     case "sBTC":
+                        var ts = $("#userSelect").val();
+                        var ta = $("#userInput").val();
+                        calcToken(ts, ta);
+                        break;
+                    case "sADA":
+                        var ts = $("#userSelect").val();
+                        var ta = $("#userInput").val();
+                        calcToken(ts, ta);
+                        break;
+                    case "sUSLS":
                         var ts = $("#userSelect").val();
                         var ta = $("#userInput").val();
                         calcToken(ts, ta);
