@@ -240,7 +240,7 @@
         $suseless_price = $useless_tb / $suseless_total_supply;
 
         //format suseless price
-        $suseless_trimmed = rtrim(sprintf('%.16f', floatval($suseless_price)),'0');
+        $suseless_trimmed = rtrim(sprintf('%.8f', floatval($suseless_price)),'0');
 
         $redis->set("susls_holders", trim($suseless_holders));
         $redis->set("useless_price", trim($useless_price));
