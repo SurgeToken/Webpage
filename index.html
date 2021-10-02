@@ -1371,7 +1371,7 @@
                     
                     $.post("calc2.php", {tokenSelected: tS, tokenAmount:tA}).done(function(data){
                             var data = JSON.parse(data);
-                            var valueUSD, valueADA;
+                            var valueUSD, valueUSLS;
                             var tokenName = "USLS";
 
                             $.each(data, function(i, item){

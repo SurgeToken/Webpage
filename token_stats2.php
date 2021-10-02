@@ -216,31 +216,37 @@
 
         $suseless_total_supply_json = json_decode(file_get_contents($suseless_token_total_supply_url));
         $suseless_total_supply = $suseless_total_supply_json->result;
+        //24454115924465
 
         //get total balance of useless
         $useless_token_total_balance_url = "https://api.bscscan.com/api?module=account&action=tokenbalance&contractaddress=0x2cd2664ce5639e46c6a3125257361e01d0213657&address=0x2e62e57d1d36517d4b0f329490ac1b78139967c0&tag=latest&apikey=7BY2SX3KIF1NT1QEPY82VZB2WBTJFMN75R";
 
         $useless_total_balance_json = json_decode(file_get_contents($useless_token_total_balance_url));
         $useless_total_balance = $useless_total_balance_json->result;
+        //10879105504784501978594
         $divisor = 10 ** 9;
         $useless_tb = $useless_total_balance / $divisor;
+        //10879105504784.501978594
 
         //get data from BSCScan for suseless & useless
         $get_html_suseless = file_get_html('https://bscscan.com/token/0x2e62e57d1d36517d4b0f329490ac1b78139967c0');
         $suseless_holders = $get_html_suseless->find('div[class="mr-3"]',0)->plaintext;
-            
+        //321 
+
         //get useless price from covalent
         $useless_price_url = "https://api.covalenthq.com/v1/pricing/historical_by_addresses_v2/56/USD/0x2cd2664ce5639e46c6a3125257361e01d0213657/?&key=ckey_43c97667ea9547c594b5c51cf0e";
 
         $useless_price_json = json_decode(file_get_contents($useless_price_url), true);
 
         $useless_price = $useless_price_json['data'][0]['prices'][0]['price'];
+        // 4.8232778E-8
 
         //calculate suseless Price
         $suseless_price = $useless_tb / $suseless_total_supply;
+        // 0.44487829935820964947644665925374
 
         //format suseless price
-        $suseless_trimmed = rtrim(sprintf('%.8f', floatval($suseless_price)),'0');
+        $suseless_trimmed = rtrim(sprintf('%.16f', floatval($suseless_price)),'0');
 
         $redis->set("susls_holders", trim($suseless_holders));
         $redis->set("useless_price", trim($useless_price));
