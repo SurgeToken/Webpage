@@ -212,13 +212,13 @@
         include("redis_config.php");
 
         //get total supply for sUSELESS
-        $suseless_token_total_supply_url = "https://api.bscscan.com/api?module=stats&action=tokensupply&contractaddress=0x7694F08564a9097eFC97Cc2a9488795646A10a0f&apikey=7BY2SX3KIF1NT1QEPY82VZB2WBTJFMN75R";
+        $suseless_token_total_supply_url = "https://api.bscscan.com/api?module=stats&action=tokensupply&contractaddress=0x2e62e57d1d36517d4b0f329490ac1b78139967c0&apikey=7BY2SX3KIF1NT1QEPY82VZB2WBTJFMN75R";
 
         $suseless_total_supply_json = json_decode(file_get_contents($suseless_token_total_supply_url));
         $suseless_total_supply = $suseless_total_supply_json->result;
 
         //get total balance of useless
-        $useless_token_total_balance_url = "https://api.bscscan.com/api?module=account&action=tokenbalance&contractaddress=0x2cd2664ce5639e46c6a3125257361e01d0213657&address=0x7694F08564a9097eFC97Cc2a9488795646A10a0f&tag=latest&apikey=7BY2SX3KIF1NT1QEPY82VZB2WBTJFMN75R";
+        $useless_token_total_balance_url = "https://api.bscscan.com/api?module=account&action=tokenbalance&contractaddress=0x2cd2664ce5639e46c6a3125257361e01d0213657&address=0x2e62e57d1d36517d4b0f329490ac1b78139967c0&tag=latest&apikey=7BY2SX3KIF1NT1QEPY82VZB2WBTJFMN75R";
 
         $useless_total_balance_json = json_decode(file_get_contents($useless_token_total_balance_url));
         $useless_total_balance = $useless_total_balance_json->result;
@@ -226,7 +226,7 @@
         $useless_tb = $useless_total_balance / $divisor;
 
         //get data from BSCScan for suseless & useless
-        $get_html_suseless = file_get_html('https://bscscan.com/token/0x7694F08564a9097eFC97Cc2a9488795646A10a0f');
+        $get_html_suseless = file_get_html('https://bscscan.com/token/0x2e62e57d1d36517d4b0f329490ac1b78139967c0');
         $suseless_holders = $get_html_suseless->find('div[class="mr-3"]',0)->plaintext;
             
         //get useless price from covalent
@@ -242,9 +242,9 @@
         //format suseless price
         $suseless_trimmed = rtrim(sprintf('%.16f', floatval($suseless_price)),'0');
 
-        $redis->set("suseless_holders", trim($suseless_holders));
+        $redis->set("susls_holders", trim($suseless_holders));
         $redis->set("useless_price", trim($useless_price));
-        $redis->set("suseless_price", trim($suseless_trimmed));
+        $redis->set("susls_price", trim($suseless_trimmed));
 
         /* print_r("suseless Holders: " . $redis->get("suseless_holders") . "<br/>");
         print_r("suseless TS: " . $suseless_total_supply . "<br/>");
@@ -258,5 +258,7 @@
     sleep(2);
     sBTC();
     sADA();
+    sleep(2);
+    sUSLS();
    
 ?>

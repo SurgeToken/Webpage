@@ -119,18 +119,18 @@
             echo json_encode($data); 
                     
             break;
-        /* case "sUSLS":
+        case "sUSLS":
 
                 //get current price of USELESS
                 $get_useless_price = $redis->get("useless_price");
                         
                 //calculate sUSELESS Price
-                $suseless_price = $redis->get("suseless_price");
+                $suseless_price = $redis->get("susls_price");
                         
                 //calculate the value of sUSELESS
                 $user_suseless_value = $suseless_price * $tokens;
-                $user_suseless_value_trimmed = rtrim(sprintf('%.4f', floatval($user_suseless_value)),'0');
-                $row['value_useless'] = $user_suseless_value_trimmed;
+                $user_suseless_value_trimmed = rtrim(sprintf('%.2f', floatval($user_suseless_value)),'0');
+                $row['value_usls'] = $user_suseless_value_trimmed;
             
                 //calculate users value in USELESS
                 $user_usd_value = $user_suseless_value * $get_useless_price;
@@ -144,7 +144,7 @@
                 //push the $data array to index.html
                 echo json_encode($data); 
                         
-                break; */
+                break;
         default:
             break;
     }
