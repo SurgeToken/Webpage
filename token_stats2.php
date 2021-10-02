@@ -1,6 +1,6 @@
 <?php
     
-   
+//    TODO: pull the decimal value from covalent with the price for the $divisor
 
     //token functions
     function sUSD(){
@@ -222,7 +222,7 @@
 
         $useless_total_balance_json = json_decode(file_get_contents($useless_token_total_balance_url));
         $useless_total_balance = $useless_total_balance_json->result;
-        $divisor = 10 ** 18;
+        $divisor = 10 ** 9;
         $useless_tb = $useless_total_balance / $divisor;
 
         //get data from BSCScan for suseless & useless
