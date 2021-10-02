@@ -125,7 +125,7 @@
                 $get_useless_price = $redis->get("useless_price");
                         
                 //calculate sUSELESS Price
-                $suseless_price = $redis->get("suseless_price");
+                $suseless_price = $redis->get("susls_price");
                         
                 //calculate the value of sUSELESS
                 $user_suseless_value = $suseless_price * $tokens;

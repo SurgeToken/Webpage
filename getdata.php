@@ -104,7 +104,7 @@
                     $get_useless_price = $redis->get("useless_price");
                                     
                     //calculate sUSELESS Price
-                    $suseless_price = $redis->get("suseless_price");
+                    $suseless_price = $redis->get("susls_price");
         
                     $u_token = "USLS";
                     $s_token = "sUSLS";
