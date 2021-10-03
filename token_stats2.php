@@ -242,7 +242,7 @@
         // 4.8232778E-8
 
         //calculate suseless Price
-        $suseless_price = ($useless_tb / $suseless_total_supply) / $divisor;
+        $suseless_price = ($useless_total_balance / $suseless_total_supply) / $divisor;
         // 0.44487829935820964947644665925374
 
         //format suseless price
