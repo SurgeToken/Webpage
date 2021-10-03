@@ -1,6 +1,6 @@
 <?php
     
-//    TODO: pull the decimal value from covalent with the price for the $divisor
+   
 
     //token functions
     function sUSD(){
@@ -216,14 +216,12 @@
 
         $suseless_total_supply_json = json_decode(file_get_contents($suseless_token_total_supply_url));
         $suseless_total_supply = $suseless_total_supply_json->result;
-        //25177092815249
 
         //get total balance of useless
         $useless_token_total_balance_url = "https://api.bscscan.com/api?module=account&action=tokenbalance&contractaddress=0x2cd2664ce5639e46c6a3125257361e01d0213657&address=0x2e62e57d1d36517d4b0f329490ac1b78139967c0&tag=latest&apikey=7BY2SX3KIF1NT1QEPY82VZB2WBTJFMN75R";
 
         $useless_total_balance_json = json_decode(file_get_contents($useless_token_total_balance_url));
         $useless_total_balance = $useless_total_balance_json->result;
-        //11229500486381635577099
         $divisor = 10 ** 9;
         $useless_tb = $useless_total_balance / $divisor;
         //10879105504784.501978594
@@ -243,7 +241,6 @@
 
         //calculate suseless Price
         $suseless_price = ($useless_total_balance / $suseless_total_supply) / $divisor;
-        // 0.44487829935820964947644665925374
 
         //format suseless price
         $suseless_trimmed = rtrim(sprintf('%.16f', floatval($suseless_price)),'0');
