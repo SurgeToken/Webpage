@@ -224,7 +224,7 @@
         $useless_total_balance_json = json_decode(file_get_contents($useless_token_total_balance_url));
         $useless_total_balance = $useless_total_balance_json->result;
         //11229500486381635577099
-        $divisor = 10 ** -9;
+        $divisor = 10 ** 9;
         $useless_tb = $useless_total_balance / $divisor;
         //10879105504784.501978594
 
@@ -242,7 +242,7 @@
         // 4.8232778E-8
 
         //calculate suseless Price
-        $suseless_price = $useless_tb / $suseless_total_supply;
+        $suseless_price = ($useless_tb / $suseless_total_supply) / $divisor;
         // 0.44487829935820964947644665925374
 
         //format suseless price
