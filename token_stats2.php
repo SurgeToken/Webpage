@@ -234,14 +234,15 @@
         $useless_price_json = json_decode(file_get_contents($useless_price_url));
 
         print_r($useless_price_json);
-        
-        //$useless_price = $useless_price_json['0x2cd2664ce5639e46c6a3125257361e01d0213657']['usd'];
+
+        $useless_price = $useless_price_json[0x2cd2664ce5639e46c6a3125257361e01d0213657][usd];
+        print_r($useless_price);
         
         //calculate suseless Price
         $suseless_price = ($useless_total_balance / $suseless_total_supply) / $divisor;
 
         //format suseless price
-        $suseless_trimmed = rtrim(sprintf('%.9f', floatval($suseless_price)),'0');
+        $suseless_trimmed = rtrim(sprintf('%.16f', floatval($suseless_price)),'0');
 
         $redis->set("susls_holders", trim($suseless_holders));
         $redis->set("useless_price", trim($useless_price));
