@@ -1,8 +1,5 @@
 <?php
     
-    use Codenixsv\CoinGeckoApi\CoinGeckoClient;
-   
-    $client = new CoinGeckoClient();
 
     //token functions
     function sUSD(){
