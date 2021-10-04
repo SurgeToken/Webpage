@@ -231,16 +231,13 @@
         $get_html_suseless = file_get_html('https://bscscan.com/token/0x2e62e57d1d36517d4b0f329490ac1b78139967c0');
         $suseless_holders = $get_html_suseless->find('div[class="mr-3"]',0)->plaintext;
 
-        /* //get useless price from covalent
-        $useless_price_url = "https://api.covalenthq.com/v1/pricing/historical_by_addresses_v2/56/USD/0x2cd2664ce5639e46c6a3125257361e01d0213657/?&key=ckey_43c97667ea9547c594b5c51cf0e"; */
+        //get useless price from coingecko
+        $useless_price_url = "https://api.coingecko.com/api/v3/simple/token_price/binance-smart-chain?contract_addresses=0x2cd2664ce5639e46c6a3125257361e01d0213657&vs_currencies=usd";
 
-        //ge useless price from coingecko
-        $useless_price = $client->simple()->getTokenPrice('binance-smart-chain','0x2cd2664ce5639e46c6a3125257361e01d0213657', 'usd');
+        $useless_price_json = json_decode(file_get_contents($useless_price_url), true);
 
-
-        /* $useless_price_json = json_decode(file_get_contents($useless_price_url), true);
-
-        $useless_price = $useless_price_json['data'][0]['prices'][0]['price']; */
+        $useless_price = $useless_price_json['usd'];
+        print_r("USELESS Price: ", $useless_price);
 
         //calculate suseless Price
         $suseless_price = ($useless_total_balance / $suseless_total_supply) / $divisor;
