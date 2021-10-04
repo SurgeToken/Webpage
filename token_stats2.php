@@ -233,11 +233,8 @@
 
         $useless_price_json = json_decode(file_get_contents($useless_price_url), true);
 
-        print_r($useless_price_json);
-
         $useless_price = $useless_price_json['0x2cd2664ce5639e46c6a3125257361e01d0213657'][0]['usd'];
-        print_r($useless_price);
-
+        
         //calculate suseless Price
         $suseless_price = ($useless_total_balance / $suseless_total_supply) / $divisor;
 
@@ -253,6 +250,8 @@
         print_r("useless TB: " . $useless_tb . "<br/>");
         print_r("useless Price: " . $redis->get("useless_price") ."<br/>");
         print_r("suseless Price: " . $redis->get("suseless_price")); */
+
+        print_r("useless Price: " . $redis->get("useless_price") ."<br/>");
     }
 
     sUSD();
