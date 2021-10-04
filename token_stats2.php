@@ -242,7 +242,7 @@
         $suseless_trimmed = rtrim(sprintf('%.16f', floatval($suseless_price)),'0');
 
         $redis->set("susls_holders", trim($suseless_holders));
-        $redis->set("useless_price", trim($useless_price));
+        $redis->set("useless_price2", trim($useless_price));
         $redis->set("susls_price", trim($suseless_trimmed));
 
         /* print_r("suseless Holders: " . $redis->get("suseless_holders") . "<br/>");
