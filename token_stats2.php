@@ -251,7 +251,7 @@
         print_r("useless Price: " . $redis->get("useless_price") ."<br/>");
         print_r("suseless Price: " . $redis->get("suseless_price")); */
 
-        print_r("useless Price: " . $redis->get("useless_price") ."<br/>");
+        
     }
 
     sUSD();
