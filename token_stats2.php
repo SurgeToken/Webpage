@@ -231,11 +231,12 @@
         //get useless price from coingecko
         $useless_price_url = "https://api.coingecko.com/api/v3/simple/token_price/binance-smart-chain?contract_addresses=0x2cd2664ce5639e46c6a3125257361e01d0213657&vs_currencies=usd";
 
-        $useless_price_json = json_decode(file_get_contents($useless_price_url), true);
+        $useless_price_json = json_decode(file_get_contents($useless_price_url));
 
-        $useless_price = $useless_price_json['0x2cd2664ce5639e46c6a3125257361e01d0213657']['usd'];
-        print_r("USELESS Price: ", $useless_price);
-
+        print_r($useless_price_json);
+        
+        //$useless_price = $useless_price_json['0x2cd2664ce5639e46c6a3125257361e01d0213657']['usd'];
+        
         //calculate suseless Price
         $suseless_price = ($useless_total_balance / $suseless_total_supply) / $divisor;
 
