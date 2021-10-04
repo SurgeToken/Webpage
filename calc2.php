@@ -123,7 +123,8 @@
 
                 //get current price of USELESS
                 $get_useless_price = $redis->get("useless_price");
-                        
+                $row['useless_price'] = $get_useless_price;
+                
                 //calculate sUSELESS Price
                 $suseless_price = $redis->get("susls_price");
                         
