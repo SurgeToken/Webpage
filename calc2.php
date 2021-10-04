@@ -136,7 +136,7 @@
                 $row['value_usls'] = $user_suseless_value_trimmed;
             
                 //calculate users value in USELESS
-                $user_usd_value = $user_suseless_value * $get_useless_price;
+                $user_usd_value = $user_suseless_value * $get_useless_price2;
                 $user_usd_value_trimmed = rtrim(sprintf('%.2f', floatval($user_usd_value)),'0');
                         
                 $row['value_usd'] = number_format($user_usd_value_trimmed, 2, '.', ',');
