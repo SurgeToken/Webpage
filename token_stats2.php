@@ -29,11 +29,11 @@
         //store data into variables
         $susd_holders = $get_html_susd->find('div[class="mr-3"]',0)->plaintext;
 
-        //get busd price from covalent
-        $busd_price_url = "https://api.covalenthq.com/v1/pricing/historical_by_addresses_v2/56/USD/0xe9e7cea3dedca5984780bafc599bd69add087d56/?&key=ckey_43c97667ea9547c594b5c51cf0e";
+        //get busd price from coingecko
+        $busd_price_url = "https://api.coingecko.com/api/v3/simple/token_price/binance-smart-chain?contract_addresses=0xe9e7cea3dedca5984780bafc599bd69add087d56&vs_currencies=usd";
         $busd_price_json = json_decode(file_get_contents($busd_price_url), true);
 
-        $busd_price = $busd_price_json['data'][0]['prices'][0]['price'];
+        $busd_price = $busd_price_json['0xe9e7cea3dedca5984780bafc599bd69add087d56']['usd'];
 
         //calculate sUSD Price
         $susd_price = $busd_tb / $susd_total_supply;
@@ -82,11 +82,11 @@
         //store data into variables
         $seth_holders = $get_html_seth->find('div[class="mr-3"]',0)->plaintext;
 
-        //get the price of bETH
-        $beth_price_url = "https://api.covalenthq.com/v1/pricing/historical_by_addresses_v2/56/USD/0x2170ed0880ac9a755fd29b2688956bd959f933f8/?&key=ckey_43c97667ea9547c594b5c51cf0e";
+        //get the price of bETH from coingecko
+        $beth_price_url = "https://api.coingecko.com/api/v3/simple/token_price/binance-smart-chain?contract_addresses=0x2170ed0880ac9a755fd29b2688956bd959f933f8&vs_currencies=usd";
         $beth_price_json = json_decode(file_get_contents($beth_price_url), true);
 
-        $beth_price = $beth_price_json['data'][0]['prices'][0]['price'];
+        $beth_price = $beth_price_json['0x2170ed0880ac9a755fd29b2688956bd959f933f8']['usd'];
 
         //calculate sETH Price
         $seth_price = $beth_tb / $seth_total_supply;
@@ -130,12 +130,12 @@
         $get_html_sbtc = file_get_html('https://bscscan.com/token/0xb68c9D9BD82BdF4EeEcB22CAa7F3Ab94393108a1');
         $sbtc_holders = $get_html_sbtc->find('div[class="mr-3"]',0)->plaintext;
 
-        //get bBTC price from covalent
-        $bbtc_price_url = "https://api.covalenthq.com/v1/pricing/historical_by_addresses_v2/56/USD/0x7130d2a12b9bcbfae4f2634d864a1ee1ce3ead9c/?&key=ckey_43c97667ea9547c594b5c51cf0e";
+        //get bBTC price from coingecko
+        $bbtc_price_url = "https://api.coingecko.com/api/v3/simple/token_price/binance-smart-chain?contract_addresses=0x7130d2a12b9bcbfae4f2634d864a1ee1ce3ead9c&vs_currencies=usd";
 
         $bbtc_price_json = json_decode(file_get_contents($bbtc_price_url), true);
 
-        $bbtc_price = $bbtc_price_json['data'][0]['prices'][0]['price'];
+        $bbtc_price = $bbtc_price_json['0x7130d2a12b9bcbfae4f2634d864a1ee1ce3ead9c']['usd'];
         
         //calculate sBTC Price
         $sbtc_price = $bbtc_tb / $sbtc_total_supply;
@@ -179,12 +179,12 @@
         $get_html_sada = file_get_html('https://bscscan.com/token/0xbF6bB9b8004942DFb3C1cDE3Cb950AF78ab8A5AF');
         $sada_holders = $get_html_sada->find('div[class="mr-3"]',0)->plaintext;
             
-        //get bADA price from covalent
-        $bada_price_url = "https://api.covalenthq.com/v1/pricing/historical_by_addresses_v2/56/USD/0x3ee2200efb3400fabb9aacf31297cbdd1d435d47/?&key=ckey_43c97667ea9547c594b5c51cf0e";
+        //get bADA price from coingecko
+        $bada_price_url = "https://api.coingecko.com/api/v3/simple/token_price/binance-smart-chain?contract_addresses=0x3ee2200efb3400fabb9aacf31297cbdd1d435d47&vs_currencies=usd";
 
         $bada_price_json = json_decode(file_get_contents($bada_price_url), true);
 
-        $bada_price = $bada_price_json['data'][0]['prices'][0]['price'];
+        $bada_price = $bada_price_json['0x3ee2200efb3400fabb9aacf31297cbdd1d435d47']['usd'];
 
         //calculate sADA Price
         $sada_price = $bada_tb / $sada_total_supply;
@@ -242,7 +242,7 @@
         $suseless_trimmed = rtrim(sprintf('%.16f', floatval($suseless_price)),'0');
 
         $redis->set("susls_holders", trim($suseless_holders));
-        $redis->set("useless_price2", trim($useless_price));
+        $redis->set("useless_price", trim($useless_price));
         $redis->set("susls_price", trim($suseless_trimmed));
 
         /* print_r("suseless Holders: " . $redis->get("suseless_holders") . "<br/>");

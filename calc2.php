@@ -123,9 +123,6 @@
 
                 //get current price of USELESS
                 $get_useless_price = $redis->get("useless_price");
-                $get_useless_price2 = $redis->get("useless_price2");
-                $row['useless_price'] = $get_useless_price;
-                $row['useless_price2'] = $get_useless_price2;
                 
                 //calculate sUSELESS Price
                 $suseless_price = $redis->get("susls_price");
@@ -136,7 +133,7 @@
                 $row['value_usls'] = $user_suseless_value_trimmed;
             
                 //calculate users value in USELESS
-                $user_usd_value = $user_suseless_value * $get_useless_price2;
+                $user_usd_value = $user_suseless_value * $get_useless_price;
                 $user_usd_value_trimmed = rtrim(sprintf('%.2f', floatval($user_usd_value)),'0');
                         
                 $row['value_usd'] = number_format($user_usd_value_trimmed, 2, '.', ',');
