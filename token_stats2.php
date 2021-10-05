@@ -288,8 +288,7 @@
 
         $useless_total_balance_json = json_decode(file_get_contents($useless_token_total_balance_url));
         $useless_total_balance = $useless_total_balance_json->result;
-        $divisor = 10 ** 9;
-        $useless_tb = $useless_total_balance / $divisor;
+        
 
         //get data from BSCScan for suseless & useless
         $get_html_suseless = file_get_html('https://bscscan.com/token/0x2e62e57d1d36517d4b0f329490ac1b78139967c0');
@@ -304,6 +303,7 @@
         $useless_price = $useless_price_json['0x2cd2664ce5639e46c6a3125257361e01d0213657']['usd'];
         
         //calculate suseless Price
+        $divisor = 10 ** 9;
         $suseless_price = ($useless_total_balance / $suseless_total_supply) / $divisor;
 
         //format suseless price
