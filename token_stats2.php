@@ -1,7 +1,9 @@
 <?php
-    
+    include 'Connection.php';
+    include 'PostgreSQL.php';
+
     use SurgePostgreSQL\Connection as Connection;
-    use SurgePostgreSQL\PostgreSQLUpdate as PostgreSQLUpdate;
+    use SurgePostgreSQL\PostgreSQL as PostgreSQL;
 
     try{
         Connection::get()->connect();
