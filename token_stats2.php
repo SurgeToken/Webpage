@@ -4,15 +4,7 @@
 
     use SurgePostgreSQL\Connection as Connection;
     use SurgePostgreSQL\PostgreSQL as PostgreSQL;
-
-    try{
-        Connection::get()->connect();
-        print_r( 'Connection Established' );
-    } catch(\PDOException $e) {
-        print_r( $e->getMessage() );
-    }
           
-
     //token functions
     function sUSD(){
 
@@ -68,11 +60,11 @@
             // connect to the PostgreSQL database
             $pdo = Connection::get()->connect();
         
-            // 
-            $tokenData = new PostgreSQL($pdo);
+            
+            $updateTokenData = new PostgreSQL($pdo);
         
             
-            $affectedRows = $tokenData->updateToken($token_symbol, $token_holders, $susd_price);
+            $affectedRows = $updateTokenData->updateToken($token_symbol, $token_holders, $susd_price);
         
             print_r( 'Number of row affected ' . $affectedRows);
         } catch (\PDOException $e) {
