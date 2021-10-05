@@ -2,7 +2,7 @@
 
 namespace SurgePostgreSQL;
 
-class tokenData {
+class PostgreSQL {
     
     private $pdo;
 
