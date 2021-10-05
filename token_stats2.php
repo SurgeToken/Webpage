@@ -1,5 +1,32 @@
 <?php
     
+    use SurgePostgreSQL\Connection as Connection;
+
+    try{
+        Connection::get()->connect();
+        echo 'Connection Established';
+    } catch(\PDOException $e) {
+        echo $e->getMessage();
+    }
+
+    function updateToken($token_symbol, $token_holders, $token_price){
+        $sql = 'UPDATE tokens '
+                . 'SET token_holders = :token_holders, '
+                . 'token_price = :token_price '
+                . 'WHERE token_symbol = :token_symbol';
+
+        $stmt = $this->pdo->prepare($sql);
+
+        //bind values
+        $stmt->bindValue(':token_holders', $token_holders);
+        $stmt->bindValue(':token_price', $token_holders);
+        $stmt->bindValue(':token_symbol', $token_symbol);
+
+        //update data
+        $stmt->execute();
+
+        return $stmt->rowCount();
+    }           
 
     //token functions
     function sUSD(){
@@ -47,6 +74,9 @@
         $bnb_price_json = file_get_contents($bnb_price_url);
         $bnb_price_encoded = json_decode($bnb_price_json);
         $bnb_price = $bnb_price_encoded->result->ethusd;
+
+        //add data to postgres db
+        
 
         $redis->set("susd_holders", trim($susd_holders));
         $redis->set("busd_price", trim($busd_price));
