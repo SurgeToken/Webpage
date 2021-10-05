@@ -5,9 +5,9 @@
 
     try{
         Connection::get()->connect();
-        echo 'Connection Established';
+        print_r( 'Connection Established' );
     } catch(\PDOException $e) {
-        echo $e->getMessage();
+        print_r( $e->getMessage() );
     }
           
 
