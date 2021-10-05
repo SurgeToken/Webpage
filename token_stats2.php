@@ -64,7 +64,7 @@
             $updateTokenData = new PostgreSQL($pdo);
         
             
-            $affectedRows = $updateTokenData->updateToken($token_symbol, $token_holders, $susd_price);
+            $affectedRows = $updateTokenData->updateToken($token_symbol, $token_holders, $susd_trimmed);
         
             print_r( 'Number of row affected ' . $affectedRows);
         } catch (\PDOException $e) {
@@ -120,6 +120,22 @@
         //format sETH price
         $seth_trimmed = rtrim(sprintf('%.16f', floatval($seth_price)),'0');
 
+        //add data to postgres db
+        try {
+            // connect to the PostgreSQL database
+            $pdo = Connection::get()->connect();
+        
+            
+            $updateTokenData = new PostgreSQL($pdo);
+        
+            
+            $affectedRows = $updateTokenData->updateToken($token_symbol, $token_holders, $seth_trimmed);
+        
+            print_r( 'Number of row affected ' . $affectedRows);
+        } catch (\PDOException $e) {
+            print_r( $e->getMessage());
+        }
+
         $redis->set("seth_holders", trim($seth_holders));
         $redis->set("beth_price", trim($beth_price));
         $redis->set("seth_price", trim($seth_trimmed));
@@ -166,6 +182,22 @@
 
         //format sBTC price
         $sbtc_trimmed = rtrim(sprintf('%.16f', floatval($sbtc_price)),'0');
+
+        //add data to postgres db
+        try {
+            // connect to the PostgreSQL database
+            $pdo = Connection::get()->connect();
+        
+            
+            $updateTokenData = new PostgreSQL($pdo);
+        
+            
+            $affectedRows = $updateTokenData->updateToken($token_symbol, $token_holders, $sbtc_trimmed);
+        
+            print_r( 'Number of row affected ' . $affectedRows);
+        } catch (\PDOException $e) {
+            print_r( $e->getMessage());
+        }
 
         $redis->set("sbtc_holders", trim($sbtc_holders));
         $redis->set("bbtc_price", trim($bbtc_price));
@@ -214,6 +246,22 @@
         //format sADA price
         $sada_trimmed = rtrim(sprintf('%.16f', floatval($sada_price)),'0');
 
+        //add data to postgres db
+        try {
+            // connect to the PostgreSQL database
+            $pdo = Connection::get()->connect();
+        
+            
+            $updateTokenData = new PostgreSQL($pdo);
+        
+            
+            $affectedRows = $updateTokenData->updateToken($token_symbol, $token_holders, $sada_trimmed);
+        
+            print_r( 'Number of row affected ' . $affectedRows);
+        } catch (\PDOException $e) {
+            print_r( $e->getMessage());
+        }
+
         $redis->set("sada_holders", trim($sada_holders));
         $redis->set("bada_price", trim($bada_price));
         $redis->set("sada_price", trim($sada_trimmed));
@@ -260,6 +308,22 @@
 
         //format suseless price
         $suseless_trimmed = rtrim(sprintf('%.16f', floatval($suseless_price)),'0');
+
+        //add data to postgres db
+        try {
+            // connect to the PostgreSQL database
+            $pdo = Connection::get()->connect();
+        
+            
+            $updateTokenData = new PostgreSQL($pdo);
+        
+            
+            $affectedRows = $updateTokenData->updateToken($token_symbol, $token_holders, $suseless_trimmed);
+        
+            print_r( 'Number of row affected ' . $affectedRows);
+        } catch (\PDOException $e) {
+            print_r( $e->getMessage());
+        }
 
         $redis->set("susls_holders", trim($suseless_holders));
         $redis->set("useless_price", trim($useless_price));
