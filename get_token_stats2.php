@@ -1,5 +1,11 @@
 <?php
 
+    include 'Connection.php';
+    include 'PostgreSQL.php';
+
+    use SurgePostgreSQL\Connection as Connection;
+    use SurgePostgreSQL\PostgreSQL as PostgreSQL;
+
     //Connecting to Redis server on localhost 
     include("redis_config.php");
     

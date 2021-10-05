@@ -10,6 +10,7 @@ class PostgreSQL {
         $this->pdo = $pdo;
     }
 
+    //update function
     public function updateToken($token_symbol, $token_holders, $token_price) {
 
         // sql statement to update a row in the stock table
@@ -29,6 +30,24 @@ class PostgreSQL {
 
         // return the number of row affected
         return $stmt->rowCount();
+    }
+
+    //read function
+    public function all() {
+        $stmt = $this->pdo->query('SELECT token_address, token_price, token_holders, token_symbol '
+                . 'FROM tokens '
+                . 'ORDER BY token_id');
+        $tokens = [];
+        while ($row = $stmt->fetch(\PDO::FETCH_ASSOC)) {
+            $tokens[] = [
+                'token_address' => $row['token_address'],
+                'token_symbol' => $row['token_symbol'],
+                'token_holders' => $row['token_holders'],
+                'token_price' => $row['token_price']
+                
+            ];
+        }
+        return $tokens;
     }
 }
 ?>
