@@ -67,7 +67,7 @@
             $pdo = Connection::get()->connect();
         
             // 
-            $updateTokenData = new PostgreSQLPHPUpdate($pdo);
+            $updateTokenData = new PostgreSQLUpdate($pdo);
         
             
             $affectedRows = $updateTokenData->updateToken($token_symbol, $token_holders, $susd_price);
@@ -90,6 +90,8 @@
 
         //Connecting to Redis server on localhost 
         include("redis_config.php");
+
+        $token_symbol = "SETH";
 
         //get total supply for sETH
         $seth_token_total_supply_url = "https://api.bscscan.com/api?module=stats&action=tokensupply&contractaddress=0x5b1d1bbdcc432213f83b15214b93dc24d31855ef&apikey=7BY2SX3KIF1NT1QEPY82VZB2WBTJFMN75R";
@@ -127,11 +129,6 @@
         $redis->set("beth_price", trim($beth_price));
         $redis->set("seth_price", trim($seth_trimmed));
 
-        /* print_r("sETH Holders: " . $redis->get("seth_holders") . "<br/>");
-        print_r("sETH TS: " . $seth_total_supply . "<br/>");
-        print_r("bETH TB: " . $beth_tb . "<br/>");
-        print_r("bETH Price: " . $redis->get("beth_price") ."<br/>");
-        print_r("sETH Price: " . $redis->get("seth_price")); */
     }
 
     function sBTC(){
@@ -140,6 +137,8 @@
 
         //Connecting to Redis server on localhost 
         include("redis_config.php");
+
+        $token_symbol = "SBTC";
 
         //get total supply for sBTC
         $sbtc_token_total_supply_url = "https://api.bscscan.com/api?module=stats&action=tokensupply&contractaddress=0xb68c9D9BD82BdF4EeEcB22CAa7F3Ab94393108a1&apikey=7BY2SX3KIF1NT1QEPY82VZB2WBTJFMN75R";
@@ -176,11 +175,6 @@
         $redis->set("bbtc_price", trim($bbtc_price));
         $redis->set("sbtc_price", trim($sbtc_trimmed));
 
-        /* print_r("sBTC Holders: " . $redis->get("sbtc_holders") . "<br/>");
-        print_r("sBTC TS: " . $sbtc_total_supply . "<br/>");
-        print_r("bBTC TB: " . $bbtc_tb . "<br/>");
-        print_r("bBTC Price: " . $redis->get("bbtc_price") ."<br/>");
-        print_r("sBTC Price: " . $redis->get("sbtc_price")); */
     }
 
     function sADA(){
@@ -189,6 +183,8 @@
 
         //Connecting to Redis server on localhost 
         include("redis_config.php");
+
+        $token_symbol = "SADA";
 
         //get total supply for sADA
         $sada_token_total_supply_url = "https://api.bscscan.com/api?module=stats&action=tokensupply&contractaddress=0xbF6bB9b8004942DFb3C1cDE3Cb950AF78ab8A5AF&apikey=7BY2SX3KIF1NT1QEPY82VZB2WBTJFMN75R";
@@ -225,11 +221,6 @@
         $redis->set("bada_price", trim($bada_price));
         $redis->set("sada_price", trim($sada_trimmed));
 
-        /* print_r("sADA Holders: " . $redis->get("sada_holders") . "<br/>");
-        print_r("sADA TS: " . $sada_total_supply . "<br/>");
-        print_r("bADA TB: " . $bada_tb . "<br/>");
-        print_r("bADA Price: " . $redis->get("bada_price") ."<br/>");
-        print_r("sADA Price: " . $redis->get("sada_price")); */
     }
 
     function sUSLS(){
@@ -238,6 +229,8 @@
 
         //Connecting to Redis server on localhost 
         include("redis_config.php");
+
+        $token_symbol = "SUSLS";
 
         //get total supply for sUSELESS
         $suseless_token_total_supply_url = "https://api.bscscan.com/api?module=stats&action=tokensupply&contractaddress=0x2e62e57d1d36517d4b0f329490ac1b78139967c0&apikey=7BY2SX3KIF1NT1QEPY82VZB2WBTJFMN75R";
@@ -274,13 +267,6 @@
         $redis->set("useless_price", trim($useless_price));
         $redis->set("susls_price", trim($suseless_trimmed));
 
-        /* print_r("suseless Holders: " . $redis->get("suseless_holders") . "<br/>");
-        print_r("suseless TS: " . $suseless_total_supply . "<br/>");
-        print_r("useless TB: " . $useless_tb . "<br/>");
-        print_r("useless Price: " . $redis->get("useless_price") ."<br/>");
-        print_r("suseless Price: " . $redis->get("suseless_price")); */
-
-        
     }
 
     sUSD();
