@@ -34,7 +34,7 @@
         
         //store data into variables
         $susd_holders = $get_html_susd->find('div[class="mr-3"]',0)->plaintext;
-        $susd_holders = rtrim($susd_holders, "addresses");
+        $token_holders = rtrim($susd_holders, 'addresses');
 
         //get busd price from coingecko
         $busd_price_url = "https://api.coingecko.com/api/v3/simple/token_price/binance-smart-chain?contract_addresses=0xe9e7cea3dedca5984780bafc599bd69add087d56&vs_currencies=usd";
@@ -64,7 +64,7 @@
             $updateTokenData = new PostgreSQL($pdo);
         
             
-            $affectedRows = $updateTokenData->updateToken($token_symbol, $susd_holders, $susd_trimmed);
+            $affectedRows = $updateTokenData->updateToken($token_symbol, $token_holders, $susd_trimmed);
         
             print_r( 'Number of row affected ' . $affectedRows);
         } catch (\PDOException $e) {
