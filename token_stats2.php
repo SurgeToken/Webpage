@@ -1,6 +1,7 @@
 <?php
     
     use SurgePostgreSQL\Connection as Connection;
+    use SurgePostgreSQL\PostgreSQLUpdate as PostgreSQLUpdate;
 
     try{
         Connection::get()->connect();
@@ -8,25 +9,7 @@
     } catch(\PDOException $e) {
         echo $e->getMessage();
     }
-
-    function updateToken($token_symbol, $token_holders, $token_price){
-        $sql = 'UPDATE tokens '
-                . 'SET token_holders = :token_holders, '
-                . 'token_price = :token_price '
-                . 'WHERE token_symbol = :token_symbol';
-
-        $stmt = $this->pdo->prepare($sql);
-
-        //bind values
-        $stmt->bindValue(':token_holders', $token_holders);
-        $stmt->bindValue(':token_price', $token_holders);
-        $stmt->bindValue(':token_symbol', $token_symbol);
-
-        //update data
-        $stmt->execute();
-
-        return $stmt->rowCount();
-    }           
+          
 
     //token functions
     function sUSD(){
@@ -35,6 +18,8 @@
 
         //Connecting to Redis server on localhost 
         include("redis_config.php");
+
+        $token_symbol = "SUSD";
 
         //get total supply for sUSD
         $susd_token_total_supply_url = "https://api.bscscan.com/api?module=stats&action=tokensupply&contractaddress=0x14fee7d23233ac941add278c123989b86ea7e1ff&apikey=7BY2SX3KIF1NT1QEPY82VZB2WBTJFMN75R";
@@ -55,6 +40,7 @@
         
         //store data into variables
         $susd_holders = $get_html_susd->find('div[class="mr-3"]',0)->plaintext;
+        $token_holders = rtrim($susd_holders, "addresses");
 
         //get busd price from coingecko
         $busd_price_url = "https://api.coingecko.com/api/v3/simple/token_price/binance-smart-chain?contract_addresses=0xe9e7cea3dedca5984780bafc599bd69add087d56&vs_currencies=usd";
@@ -76,7 +62,20 @@
         $bnb_price = $bnb_price_encoded->result->ethusd;
 
         //add data to postgres db
+        try {
+            // connect to the PostgreSQL database
+            $pdo = Connection::get()->connect();
         
+            // 
+            $updateTokenData = new PostgreSQLPHPUpdate($pdo);
+        
+            
+            $affectedRows = $updateTokenData->updateToken($token_symbol, $token_holders, $susd_price);
+        
+            echo 'Number of row affected ' . $affectedRows;
+        } catch (\PDOException $e) {
+            echo $e->getMessage();
+        }
 
         $redis->set("susd_holders", trim($susd_holders));
         $redis->set("busd_price", trim($busd_price));
