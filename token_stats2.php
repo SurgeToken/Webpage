@@ -72,9 +72,9 @@
             
             $affectedRows = $updateTokenData->updateToken($token_symbol, $token_holders, $susd_price);
         
-            echo 'Number of row affected ' . $affectedRows;
+            print_r( 'Number of row affected ' . $affectedRows);
         } catch (\PDOException $e) {
-            echo $e->getMessage();
+            print_r( $e->getMessage());
         }
 
         $redis->set("susd_holders", trim($susd_holders));
