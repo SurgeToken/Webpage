@@ -114,8 +114,11 @@
 
         $beth_price = $beth_price_json['0x2170ed0880ac9a755fd29b2688956bd959f933f8']['usd'];
 
-        //calculate sETH Price
+        //calculate sETH Price USD
         $seth_price = $beth_tb / $seth_total_supply;
+
+        //calculate sETH Price bETH
+        $beth_seth_price = $seth_price / $beth_price;
         
         //format sETH price
         $seth_trimmed = rtrim(sprintf('%.16f', floatval($seth_price)),'0');
@@ -139,6 +142,7 @@
         $redis->set("seth_holders", trim($seth_holders));
         $redis->set("beth_price", trim($beth_price));
         $redis->set("seth_price", trim($seth_trimmed));
+        $redis->set("seth_beth_price", trim($beth_seth_price));
 
     }
 

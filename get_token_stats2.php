@@ -18,6 +18,7 @@
     $row['seth_holders'] = $redis->get("seth_holders");
     $row['beth_price'] = $redis->get("beth_price");
     $row['seth_price'] = $redis->get("seth_price");
+    $row['seth_beth_price'] = $redis->get("seth_beth_price");
 
     $row['sbtc_holders'] = $redis->get("sbtc_holders");
     $row['btcb_price'] = $redis->get("bbtc_price");

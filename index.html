@@ -563,7 +563,7 @@
                         <img class="sWordmark" src="assets/img/SURGEUSDWhite.png" >
                         <table class="table table-borderless statsTable">
                             <tr>
-                                <td>Price:</td>
+                                <td>Price [USD]:</td>
                                 <td id="sUSDPrice">Loading</td>
                             </tr>
                             <tr>
@@ -576,8 +576,12 @@
                         <img class="sWordmark" src="assets/img/SURGEETHWhite.png" >
                         <table class="table table-borderless statsTable">
                             <tr>
-                                <td>Price:</td>
-                                <td id="sETHPrice">Loading</td>
+                                <td>Price [USD]:</td>
+                                <td id="sETHPriceUSD">Loading</td>
+                            </tr>
+                            <tr>
+                                <td>Price [BETH]:</td>
+                                <td id="sETHPriceBETH">Loading</td>
                             </tr>
                             <tr>
                                 <td>Holders:</td>
@@ -589,8 +593,12 @@
                         <img class="sWordmark" src="assets/img/SURGEBTCWhite.png" >
                         <table class="table table-borderless statsTable">
                             <tr>
-                                <td>Price:</td>
-                                <td id="sBTCPrice">Loading</td>
+                                <td>Price [USD]:</td>
+                                <td id="sBTCPriceUSD">Loading</td>
+                            </tr>
+                            <tr>
+                                <td>Price [BBTC]:</td>
+                                <td id="sBTCPriceBBTC">Loading</td>
                             </tr>
                             <tr>
                                 <td>Holders:</td>
@@ -602,8 +610,12 @@
                         <img class="sWordmark" src="assets/img/SURGEADAWhite.png" >
                         <table class="table table-borderless statsTable">
                             <tr>
-                                <td>Price:</td>
-                                <td id="sADAPrice">Loading</td>
+                                <td>Price [USD]:</td>
+                                <td id="sADAPriceUSD">Loading</td>
+                            </tr>
+                            <tr>
+                                <td>Price [BADA]:</td>
+                                <td id="sADAPriceBADA">Loading</td>
                             </tr>
                             <tr>
                                 <td>Holders:</td>
@@ -1171,7 +1183,7 @@
                 var data = JSON.parse(data);
 
                 var sUSDholders, sUSDPrice; 
-                var sETHholders, sETHPrice;
+                var sETHholders, sETHPrice, sETHbETHPrice;
                 var sBTCholders, sBTCPrice;
                 var sADAholders, sADAPrice;
                 var sUSLSholders, sUSLSPrice;
@@ -1181,6 +1193,7 @@
                     sUSDPrice = item.susd_price;
                     sETHholders =  item.seth_holders;
                     sETHPrice = item.seth_price;
+                    sETHbETHPrice = item.seth_beth_price;
                     sBTCholders = item.sbtc_holders;
                     sBTCPrice = item.sbtc_price;
                     sADAholders = item.sada_holders;
@@ -1192,12 +1205,17 @@
 
                     $("#sUSDHolders").html(sUSDholders);
                     $("#sUSDPrice").html(sUSDPrice);
+
                     $("#sETHHolders").html(sETHholders);
-                    $("#sETHPrice").html(sETHPrice);
+                    $("#sETHPriceUSD").html(sETHPrice);
+                    $("#sETHPriceBETH").html(sETHbETHPrice);
+
                     $("#sBTCHolders").html(sBTCholders);
                     $("#sBTCPrice").html(sBTCPrice);
+
                     $("#sADAHolders").html(sADAholders);
                     $("#sADAPrice").html(sADAPrice);
+
                     $("#sUSLSHolders").html(sUSLSholders);
                     $("#sUSLSPrice").html(sUSLSPrice);
 
