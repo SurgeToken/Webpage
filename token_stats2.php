@@ -119,6 +119,7 @@
 
         //calculate sETH Price bETH
         $beth_seth_price = $seth_price / $beth_price;
+        $beth_seth_price_trimmed = rtrim(sprintf('%.16f', floatval($beth_seth_price)),'0');
         
         //format sETH price
         $seth_trimmed = rtrim(sprintf('%.16f', floatval($seth_price)),'0');
@@ -142,7 +143,7 @@
         $redis->set("seth_holders", trim($seth_holders));
         $redis->set("beth_price", trim($beth_price));
         $redis->set("seth_price", trim($seth_trimmed));
-        $redis->set("seth_beth_price", trim($beth_seth_price));
+        $redis->set("seth_beth_price", trim($beth_seth_price_trimmed));
 
     }
 
