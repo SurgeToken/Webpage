@@ -17,7 +17,7 @@ class PostgreSQL {
         $sql = 'UPDATE tokens '
                 . 'SET token_holders = :token_holders, '
                 . 'token_price = :token_price, '
-                . 'token_price_underlying = :token_price_underlying'
+                . 'token_price_underlying = :token_price_underlying '
                 . 'WHERE token_symbol = :token_symbol';
 
         $stmt = $this->pdo->prepare($sql);
@@ -27,6 +27,7 @@ class PostgreSQL {
         $stmt->bindValue(':token_price', $token_price);
         $stmt->bindValue(':token_price_underlying', $token_price_underlying);
         $stmt->bindValue(':token_symbol', $token_symbol);
+
         // update data in the database
         $stmt->execute();
 
