@@ -64,7 +64,7 @@
             $updateTokenData = new PostgreSQL($pdo);
         
             
-            $affectedRows = $updateTokenData->updateToken($token_symbol, $token_holders, $susd_trimmed);
+            $affectedRows = $updateTokenData->updateToken($token_symbol, $token_holders, $susd_trimmed, $susd_trimmed);
         
             print_r( 'Number of row affected ' . $affectedRows);
         } catch (\PDOException $e) {
