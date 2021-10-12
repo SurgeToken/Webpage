@@ -133,7 +133,7 @@
             $updateTokenData = new PostgreSQL($pdo);
         
             
-            $affectedRows = $updateTokenData->updateToken($token_symbol, $token_holders, $seth_trimmed);
+            $affectedRows = $updateTokenData->updateToken($token_symbol, $token_holders, $seth_trimmed, $beth_seth_price_trimmed);
         
             print_r( 'Number of row affected ' . $affectedRows);
         } catch (\PDOException $e) {
@@ -185,6 +185,10 @@
         //calculate sBTC Price
         $sbtc_price = $bbtc_tb / $sbtc_total_supply;
 
+        //calculate sBTC Price bBTC
+        $bbtc_sbtc_price = $sbtc_price / $bbtc_price;
+        $bbtc_sbtc_price_trimmed = rtrim(sprintf('%.16f', floatval($bbtc_sbtc_price)),'0');
+
         //format sBTC price
         $sbtc_trimmed = rtrim(sprintf('%.16f', floatval($sbtc_price)),'0');
 
@@ -197,7 +201,7 @@
             $updateTokenData = new PostgreSQL($pdo);
         
             
-            $affectedRows = $updateTokenData->updateToken($token_symbol, $token_holders, $sbtc_trimmed);
+            $affectedRows = $updateTokenData->updateToken($token_symbol, $token_holders, $sbtc_trimmed, $bbtc_sbtc_price_trimmed);
         
             print_r( 'Number of row affected ' . $affectedRows);
         } catch (\PDOException $e) {
@@ -207,6 +211,7 @@
         $redis->set("sbtc_holders", trim($sbtc_holders));
         $redis->set("bbtc_price", trim($bbtc_price));
         $redis->set("sbtc_price", trim($sbtc_trimmed));
+        $redis->set("sbtc_bbtc_price", trim($bbtc_sbtc_price_trimmed));
 
     }
 
@@ -248,6 +253,10 @@
         //calculate sADA Price
         $sada_price = $bada_tb / $sada_total_supply;
 
+        //calculate sADA Price bADA
+        $bada_sada_price = $sada_price / $bada_price;
+        $bada_sada_price_trimmed = rtrim(sprintf('%.16f', floatval($bada_sada_price)),'0');
+
         //format sADA price
         $sada_trimmed = rtrim(sprintf('%.16f', floatval($sada_price)),'0');
 
@@ -260,7 +269,7 @@
             $updateTokenData = new PostgreSQL($pdo);
         
             
-            $affectedRows = $updateTokenData->updateToken($token_symbol, $token_holders, $sada_trimmed);
+            $affectedRows = $updateTokenData->updateToken($token_symbol, $token_holders, $sada_trimmed, $bada_sada_price_trimmed);
         
             print_r( 'Number of row affected ' . $affectedRows);
         } catch (\PDOException $e) {
@@ -270,6 +279,7 @@
         $redis->set("sada_holders", trim($sada_holders));
         $redis->set("bada_price", trim($bada_price));
         $redis->set("sada_price", trim($sada_trimmed));
+        $redis->set("bada_sada_price", trim($bada_sada_price_trimmed));
 
     }
 
@@ -311,6 +321,10 @@
         $divisor = 10 ** 9;
         $suseless_price = ($useless_total_balance / $suseless_total_supply) / $divisor;
 
+        //calculate sUSLS Price USLS
+        $usls_susls_price = $suseless_price / $useless_price;
+        $usls_susls_price_trimmed = rtrim(sprintf('%.16f', floatval($usls_susls_price)),'0');
+
         //format suseless price
         $suseless_trimmed = rtrim(sprintf('%.16f', floatval($suseless_price)),'0');
 
@@ -323,7 +337,7 @@
             $updateTokenData = new PostgreSQL($pdo);
         
             
-            $affectedRows = $updateTokenData->updateToken($token_symbol, $token_holders, $suseless_trimmed);
+            $affectedRows = $updateTokenData->updateToken($token_symbol, $token_holders, $suseless_trimmed, $usls_susls_price_trimmed);
         
             print_r( 'Number of row affected ' . $affectedRows);
         } catch (\PDOException $e) {
@@ -333,6 +347,7 @@
         $redis->set("susls_holders", trim($suseless_holders));
         $redis->set("useless_price", trim($useless_price));
         $redis->set("susls_price", trim($suseless_trimmed));
+        $redis->set("usls_susls_price", trim($usls_susls_price_trimmed));
 
     }
 

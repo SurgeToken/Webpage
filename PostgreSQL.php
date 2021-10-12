@@ -11,12 +11,13 @@ class PostgreSQL {
     }
 
     //update function
-    public function updateToken($token_symbol, $token_holders, $token_price) {
+    public function updateToken($token_symbol, $token_holders, $token_price, $token_price_underlying) {
 
         // sql statement to update a row in the stock table
         $sql = 'UPDATE tokens '
                 . 'SET token_holders = :token_holders, '
-                . 'token_price = :token_price '
+                . 'token_price = :token_price, '
+                . 'token_price_underlying = :token_price_underlying'
                 . 'WHERE token_symbol = :token_symbol';
 
         $stmt = $this->pdo->prepare($sql);
@@ -24,6 +25,7 @@ class PostgreSQL {
         // bind values to the statement
         $stmt->bindValue(':token_holders', $token_holders);
         $stmt->bindValue(':token_price', $token_price);
+        $stmt->bindValue(':token_price_underlying', $token_price_underlying);
         $stmt->bindValue(':token_symbol', $token_symbol);
         // update data in the database
         $stmt->execute();
