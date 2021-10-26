@@ -1256,7 +1256,7 @@
                 var data = JSON.parse(data);
 
                 var sUSDholders, sUSDPrice; 
-                var sETHholders, sETHPrice, sETHbETHPrice;
+                var sETHholders, sETHPrice;
                 var sBTCholders, sBTCPrice;
                 var sADAholders, sADAPrice;
                 var sUSLSholders, sUSLSPrice;
@@ -1266,7 +1266,6 @@
                     sUSDPrice = item.susd_price;
                     sETHholders =  item.seth_holders;
                     sETHPrice = item.seth_price;
-                    sETHbETHPrice = item.seth_beth_price;
                     sBTCholders = item.sbtc_holders;
                     sBTCPrice = item.sbtc_price;
                     sADAholders = item.sada_holders;
@@ -1280,8 +1279,7 @@
                     $("#sUSDPrice").html(sUSDPrice);
 
                     $("#sETHHolders").html(sETHholders);
-                    $("#sETHPriceUSD").html(sETHPrice);
-                    $("#sETHPriceBETH").html(sETHbETHPrice);
+                    $("#sETHPrice").html(sETHPrice);
 
                     $("#sBTCHolders").html(sBTCholders);
                     $("#sBTCPrice").html(sBTCPrice);
