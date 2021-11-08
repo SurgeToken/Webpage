@@ -474,8 +474,10 @@
             <div class="box" id="countdown">
                 <div class="widget widget-chart-one spacer5">
                     <div class="coming-soon-cont">
-                        <img class="sWordmark spacer4" src="assets/img/xUSD.png" >
-                        <div class="spacer4">
+                        <div class="spacer4 text-center">
+                            <img class="sWordmark spacer4" src="assets/img/xUSD.png" >
+                        </div>
+                        <div class="spacer4 text-center xUSD">
                             <div id="timer">
                                 <div class="days"><span class="count">--</span> <span class="text">Days</span></div>
                                 <div class="hours"><span class="count">--</span> <span class="text">Hours</span></div>
@@ -483,8 +485,8 @@
                                 <div class="sec"><span class="count">--</span> <span class="text">Secs</span></div>
                             </div> 
                         </div>
-                        <div class="spacer4">
-                            <a href="https://www.docdroid.com/uiDvcE9/xusd-education-copy-pdf" target="_blank">Learn more about xUSD</a>
+                        <div class="spacer5 text-center">
+                            <h3><a href="https://www.docdroid.com/uiDvcE9/xusd-education-copy-pdf" target="_blank">Learn more about xUSD</a></h3>
                         </div>
                     </div>
                 </div>
@@ -1218,7 +1220,7 @@
         // If the count down is over, write some text 
         if (distance < 0) {
             clearInterval(countdownfunction);
-            document.getElementById("timer").innerHTML = "<div class='dApp'><a href='https://app.xsurge.net' target='_blank'>Buy SurgeUSELESS Now</a></div>";
+            document.getElementById("timer").innerHTML = "<div class='dApp'><a href='https://appv2.xsurge.net' target='_blank'>Buy xUSD Now</a></div>";
         }
         }, 1000);
     </script>
