@@ -114,11 +114,17 @@ h4, h5, h6 {
   .spacer2{
     margin-top:-9%;
   }
+  .fSize{
+    font-size: 1rem;
+  }
 }
 
 @media screen and (min-width: 365px) and (max-width: 399px) {
   .spacer2{
     margin-top:-8%;
+}
+.fSize{
+  font-size: .7rem;
 }
 }
 
@@ -126,11 +132,17 @@ h4, h5, h6 {
   .spacer2{
     margin-top:-7%;
 }
+  .fSize{
+    font-size: 1rem;
+  }
 }
 
 @media screen and (min-width: 580px) and (max-width: 767px) {
   .spacer2{
     margin-top:-5%;
+}
+.fSize{
+  font-size: 1rem;
 }
 }
 
@@ -391,6 +403,20 @@ code {
 
 }
 
+.dApp3 a {
+
+  text-decoration: none;
+  color: white;
+  font-size: 1.2em;
+  font-weight: 800;
+  background: #004354e6;
+  padding: 8px 12px;
+  border-radius: 30px;
+  border: 1px solid #31f0fd85;
+  box-shadow: rgba(0, 195, 255, 0.16) 0px 0px 20px 0px;
+
+}
+
 .nav-logo .dApp a {
   margin-left: 4em;
   margin-right: 0;
@@ -398,6 +424,12 @@ code {
 }
 
 .nav-logo .dApp2 a {
+  margin-left: 4em;
+  margin-right: 0;
+  position: absolute;
+}
+
+.nav-logo .dApp3 a {
   margin-left: 4em;
   margin-right: 0;
   position: absolute;
@@ -414,7 +446,7 @@ code {
 
 @media screen and (min-width: 1000px) {
   .nav-logo .dApp a {
-    right: 32.5em;
+    right: 39em;
     margin-top: 11px;
   }
 }
@@ -423,7 +455,14 @@ code {
   .dApp2 a {
     right: 27em;
     margin-top: 11px;
+  }
 }
+
+@media screen and (min-width: 1000px){
+  .dApp3 a {
+    right: 32em;
+    margin-top: 11px;
+  }
 }
 
 
