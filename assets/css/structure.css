@@ -114,11 +114,17 @@ h4, h5, h6 {
   .spacer2{
     margin-top:-9%;
   }
+  .fSize{
+    font-size: 1rem;
+  }
 }
 
 @media screen and (min-width: 365px) and (max-width: 399px) {
   .spacer2{
     margin-top:-8%;
+}
+.fSize{
+  font-size: 1rem;
 }
 }
 
@@ -126,11 +132,17 @@ h4, h5, h6 {
   .spacer2{
     margin-top:-7%;
 }
+  .fSize{
+    font-size: 1rem;
+  }
 }
 
 @media screen and (min-width: 580px) and (max-width: 767px) {
   .spacer2{
     margin-top:-5%;
+}
+.fSize{
+  font-size: 1rem;
 }
 }
 
