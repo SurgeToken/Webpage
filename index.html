@@ -784,27 +784,42 @@
                     <em><h3>Find your favorite <strong>Token</strong> contract address here:</h3></em>
                     <img class="sWordmark" src="assets/img/SURGEUSDWhite.png" >
                     <div class="contractAddress text-end">
-                        <p class="cAddress" id="SurgeUSD">0x14fEe7d23233AC941ADd278c123989b86eA7e1fF  <i onclick="copyAddress('SurgeUSD');return false;" class="far fa-copy"></i></p>
+                        <p class="cAddress" id="SurgeUSD">0x14fEe7d23233AC941ADd278c123989b86eA7e1fF  
+                            <i onclick="copyAddress('SurgeUSD');return false;" class="far fa-copy"></i>
+                            <img onclick="addToMetamask('sUSD')" width="20" height="20" src="assets/img/metamask_logo_small.png" alt="Add To MetaMask">
+                        </p>
                     </div>
                     <hr>
                     <img class="sWordmark" src="assets/img/SURGEETHWhite.png" >
                     <div class="contractAddress text-end">
-                        <p class="cAddress" id="SurgeETH">0x5B1d1BBDCc432213F83b15214B93Dc24D31855Ef  <i onclick="copyAddress('SurgeETH');return false;" class="far fa-copy"></i></p>
+                        <p class="cAddress" id="SurgeETH">0x5B1d1BBDCc432213F83b15214B93Dc24D31855Ef  
+                            <i onclick="copyAddress('SurgeETH');return false;" class="far fa-copy"></i>
+                            <img onclick="addToMetamask('sETH')" width="20" height="20" src="assets/img/metamask_logo_small.png" alt="Add To MetaMask">
+                        </p>
                     </div>
                     <hr>
                     <img class="sWordmark" src="assets/img/SURGEBTCWhite.png" >
                     <div class="contractAddress text-end">
-                        <p class="cAddress" id="SurgeBTC">0xb68c9D9BD82BdF4EeEcB22CAa7F3Ab94393108a1  <i onclick="copyAddress('SurgeBTC');return false;" class="far fa-copy"></i></p>
+                        <p class="cAddress" id="SurgeBTC">0xb68c9D9BD82BdF4EeEcB22CAa7F3Ab94393108a1  
+                            <i onclick="copyAddress('SurgeBTC');return false;" class="far fa-copy"></i>
+                            <img onclick="addToMetamask('sBTC')" width="20" height="20" src="assets/img/metamask_logo_small.png" alt="Add To MetaMask">
+                        </p>
                     </div>
                     <hr>
                     <img class="sWordmark" src="assets/img/SURGEADAWhite.png" >
                     <div class="contractAddress text-end">
-                        <p class="cAddress" id="SurgeADA">0xbF6bB9b8004942DFb3C1cDE3Cb950AF78ab8A5AF <i onclick="copyAddress('SurgeADA');return false;" class="far fa-copy"></i></p>
+                        <p class="cAddress" id="SurgeADA">0xbF6bB9b8004942DFb3C1cDE3Cb950AF78ab8A5AF 
+                            <i onclick="copyAddress('SurgeADA');return false;" class="far fa-copy"></i>
+                            <img onclick="addToMetamask('sADA')" width="20" height="20" src="assets/img/metamask_logo_small.png" alt="Add To MetaMask">
+                        </p>
                     </div>
                     <hr>
                     <img class="sWordmark" src="assets/img/SURGEUSELESSWhite.png" >
                     <div class="contractAddress text-end">
-                        <p class="cAddress" id="SurgeUSLS">0x2e62e57d1D36517D4b0F329490AC1b78139967C0 <i onclick="copyAddress('SurgeUSLS');return false;" class="far fa-copy"></i></p>
+                        <p class="cAddress" id="SurgeUSLS">0x2e62e57d1D36517D4b0F329490AC1b78139967C0 
+                            <i onclick="copyAddress('SurgeUSLS');return false;" class="far fa-copy"></i>
+                            <img onclick="addToMetamask('sUSELESS')" width="20" height="20" src="assets/img/metamask_logo_small.png" alt="Add To MetaMask">
+                        </p>
                     </div>
                 </div>
             </div>
@@ -821,11 +836,17 @@
                     <em><h3>Find your favorite <strong>xToken</strong> contract address here:</h3></em>
                     <img class="sWordmark" src="assets/img/xUSD2.png" >
                     <div class="contractAddress text-end">
-                        <p class="cAddress" id="xUSD">0x254246331cacbC0b2ea12bEF6632E4C6075f60e2  <i onclick="copyAddress('xUSD');return false;" class="far fa-copy"></i></p>
+                        <p class="cAddress" id="xUSD">0x254246331cacbC0b2ea12bEF6632E4C6075f60e2  
+                            <i onclick="copyAddress('xUSD');return false;" class="far fa-copy"></i>
+                            <img onclick="addToMetamask('xUSD')" width="20" height="20" src="assets/img/metamask_logo_small.png" alt="Add To MetaMask">
+                        </p>
                     </div>
                     <img class="sWordmark" src="assets/img/xusdbnbfarm.png" >
                     <div class="contractAddress text-end">
-                        <p class="cAddress" id="XUSD/BNB FARM">0x579aaF9882A1941885fADa7A6243cEACf3037659  <i onclick="copyAddress('XUSD/BNB FARM');return false;" class="far fa-copy"></i></p>
+                        <p class="cAddress" id="XUSD/BNB FARM">0x579aaF9882A1941885fADa7A6243cEACf3037659  
+                            <i onclick="copyAddress('XUSD/BNB FARM');return false;" class="far fa-copy"></i>
+                            <img onclick="addToMetamask('xUSDBNBFARM')" width="20" height="20" src="assets/img/metamask_logo_small.png" alt="Add To MetaMask">
+                        </p>
                     </div>
                 </div>
             </div>
@@ -1758,6 +1779,86 @@
     
     
 </script>
+
+ <script>
+        const tokens = [
+        {
+                'address': '0x14fEe7d23233AC941ADd278c123989b86eA7e1fF',
+                'decimals': 1,
+                'name': 'SurgeUSD',
+                'symbol': 'sUSD'
+            },
+            {
+                'address': '0x5B1d1BBDCc432213F83b15214B93Dc24D31855Ef',
+                'decimals': 1,
+                'name': 'SurgeETH',
+                'symbol': 'sETH'
+            },
+            {
+                'address': '0xb68c9D9BD82BdF4EeEcB22CAa7F3Ab94393108a1',
+                'decimals': 1,
+                'name': 'SurgeBTC',
+                'symbol': 'sBTC'
+            },
+            {
+                'address': '0xbF6bB9b8004942DFb3C1cDE3Cb950AF78ab8A5AF',
+                'decimals': 1,
+                'name': 'SurgeADA',
+                'symbol': 'sADA'
+            },
+            {
+                'address': '0x2e62e57d1D36517D4b0F329490AC1b78139967C0',
+                'decimals': 1,
+                'name': 'SurgeUSELESS',
+                'symbol': 'sUSELESS'
+            },
+            {
+                'address': '0x254246331cacbC0b2ea12bEF6632E4C6075f60e2',
+                'decimals': 18,
+                'name': 'xUSD',
+                'symbol': 'xUSD'
+            },
+            {
+                'address': '0x579aaF9882A1941885fADa7A6243cEACf3037659',
+                'decimals': 18,
+                'name': 'xUSD-BNB FARM',
+                'symbol': 'xUSDBNBFARM'
+            }
+        ]
+
+
+        const tokenImage = 'https://xsurge.net/assets/img/xlogo.png';
+
+
+        async function addToMetamask(tokenSymbol) {
+            const token = tokens.find(token => token.symbol === tokenSymbol);
+            
+            try {
+            // wasAdded is a boolean. Like any RPC method, an error may be thrown.
+            const wasAdded = await ethereum.request({
+                method: 'wallet_watchAsset',
+                params: {
+                type: 'ERC20', // Initially only supports ERC20, but eventually more!
+                options: {
+                    address: token.address, // The address that the token is at.
+                    symbol: token.symbol, // A ticker symbol or shorthand, up to 5 chars.
+                    decimals: token.decimals, // The number of decimals in the token
+                    image: tokenImage, // A string url of the token logo
+                },
+                },
+            });
+
+            if (wasAdded) {
+                console.log('Thanks for your interest!');
+            } else {
+                console.log('Your loss!');
+            }
+            } catch (error) {
+            console.log(error);
+            }
+        }
+    </script>
+    
 
 <script src="assets/js/custom.js"></script>
 <script src="assets/js/dashboard/dash_1.js"></script>
