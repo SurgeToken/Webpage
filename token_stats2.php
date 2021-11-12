@@ -64,7 +64,7 @@
             $updateTokenData = new PostgreSQL($pdo);
         
             
-            $affectedRows = $updateTokenData->updateToken($token_symbol, $token_holders, $susd_trimmed, $susd_trimmed);
+            $affectedRows = $updateTokenData->updateToken($token_symbol, $token_holders);
         
             print_r( 'Number of row affected ' . $affectedRows);
         } catch (\PDOException $e) {
@@ -133,7 +133,7 @@
             $updateTokenData = new PostgreSQL($pdo);
         
             
-            $affectedRows = $updateTokenData->updateToken($token_symbol, $token_holders, $seth_trimmed, $beth_seth_price_trimmed);
+            $affectedRows = $updateTokenData->updateToken($token_symbol, $token_holders);
         
             print_r( 'Number of row affected ' . $affectedRows);
         } catch (\PDOException $e) {
@@ -201,7 +201,7 @@
             $updateTokenData = new PostgreSQL($pdo);
         
             
-            $affectedRows = $updateTokenData->updateToken($token_symbol, $token_holders, $sbtc_trimmed, $bbtc_sbtc_price_trimmed);
+            $affectedRows = $updateTokenData->updateToken($token_symbol, $token_holders);
         
             print_r( 'Number of row affected ' . $affectedRows);
         } catch (\PDOException $e) {
@@ -269,7 +269,7 @@
             $updateTokenData = new PostgreSQL($pdo);
         
             
-            $affectedRows = $updateTokenData->updateToken($token_symbol, $token_holders, $sada_trimmed, $bada_sada_price_trimmed);
+            $affectedRows = $updateTokenData->updateToken($token_symbol, $token_holders);
         
             print_r( 'Number of row affected ' . $affectedRows);
         } catch (\PDOException $e) {
@@ -337,7 +337,7 @@
             $updateTokenData = new PostgreSQL($pdo);
         
             
-            $affectedRows = $updateTokenData->updateToken($token_symbol, $token_holders, $suseless_trimmed, $usls_susls_price_trimmed);
+            $affectedRows = $updateTokenData->updateToken($token_symbol, $token_holders);
         
             print_r( 'Number of row affected ' . $affectedRows);
         } catch (\PDOException $e) {
@@ -351,6 +351,70 @@
 
     }
 
+    function xUSD(){
+
+        include_once("simple_html_dom.php");
+
+        //Connecting to Redis server on localhost 
+        include("redis_config.php");
+
+        $token_symbol = "XUSD";
+
+        //get data from BSCScan for suseless & useless
+        $get_html_suseless = file_get_html('https://bscscan.com/token/0x254246331cacbC0b2ea12bEF6632E4C6075f60e2');
+        $suseless_holders = $get_html_suseless->find('div[class="mr-3"]',0)->plaintext;
+        $token_holders = rtrim($suseless_holders);
+
+        //add data to postgres db
+        try {
+            // connect to the PostgreSQL database
+            $pdo = Connection::get()->connect();
+        
+            
+            $updateTokenData = new PostgreSQL($pdo);
+        
+            
+            $affectedRows = $updateTokenData->updateToken($token_symbol, $token_holders);
+        
+            print_r( 'Number of row affected ' . $affectedRows);
+        } catch (\PDOException $e) {
+            print_r( $e->getMessage());
+        }
+
+    }
+
+    function xUSDBNB(){
+
+        include_once("simple_html_dom.php");
+
+        //Connecting to Redis server on localhost 
+        include("redis_config.php");
+
+        $token_symbol = "XUSDBNB";
+
+        //get data from BSCScan for suseless & useless
+        $get_html_suseless = file_get_html('https://bscscan.com/token/0x579aaF9882A1941885fADa7A6243cEACf3037659');
+        $suseless_holders = $get_html_suseless->find('div[class="mr-3"]',0)->plaintext;
+        $token_holders = rtrim($suseless_holders);
+
+        //add data to postgres db
+        try {
+            // connect to the PostgreSQL database
+            $pdo = Connection::get()->connect();
+        
+            
+            $updateTokenData = new PostgreSQL($pdo);
+        
+            
+            $affectedRows = $updateTokenData->updateToken($token_symbol, $token_holders);
+        
+            print_r( 'Number of row affected ' . $affectedRows);
+        } catch (\PDOException $e) {
+            print_r( $e->getMessage());
+        }
+
+    }
+
     sUSD();
     sETH();
     sleep(2);
@@ -358,5 +422,8 @@
     sADA();
     sleep(2);
     sUSLS();
+    xUSD();
+    sleep(2);
+    xUSDBNB();
    
 ?>

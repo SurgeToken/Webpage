@@ -11,21 +11,17 @@ class PostgreSQL {
     }
 
     //update function
-    public function updateToken($token_symbol, $token_holders, $token_price, $token_price_underlying) {
+    public function updateToken($token_symbol, $token_holders) {
 
         // sql statement to update a row in the stock table
         $sql = 'UPDATE tokens '
                 . 'SET token_holders = :token_holders, '
-                . 'token_price = :token_price, '
-                . 'token_price_underlying = :token_price_underlying '
                 . 'WHERE token_symbol = :token_symbol';
 
         $stmt = $this->pdo->prepare($sql);
 
         // bind values to the statement
         $stmt->bindValue(':token_holders', $token_holders);
-        $stmt->bindValue(':token_price', $token_price);
-        $stmt->bindValue(':token_price_underlying', $token_price_underlying);
         $stmt->bindValue(':token_symbol', $token_symbol);
 
         // update data in the database
@@ -37,7 +33,7 @@ class PostgreSQL {
 
     //read function
     public function all() {
-        $stmt = $this->pdo->query('SELECT token_address, token_price, token_holders, token_symbol '
+        $stmt = $this->pdo->query('SELECT token_address, token_holders, token_symbol '
                 . 'FROM tokens '
                 . 'ORDER BY token_id');
         $tokens = [];
@@ -45,8 +41,7 @@ class PostgreSQL {
             $tokens[] = [
                 'token_address' => $row['token_address'],
                 'token_symbol' => $row['token_symbol'],
-                'token_holders' => $row['token_holders'],
-                'token_price' => $row['token_price']
+                'token_holders' => $row['token_holders']
                 
             ];
         }
