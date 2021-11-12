@@ -15,7 +15,7 @@ class PostgreSQL {
 
         // sql statement to update a row in the stock table
         $sql = 'UPDATE tokens '
-                . 'SET token_holders = :token_holders, '
+                . 'SET token_holders = :token_holders '
                 . 'WHERE token_symbol = :token_symbol';
 
         $stmt = $this->pdo->prepare($sql);
@@ -35,7 +35,7 @@ class PostgreSQL {
 
         // sql statement to update a row in the stock table
         $sql = 'UPDATE farms '
-                . 'SET farm_holders = :farm_holders, '
+                . 'SET farm_holders = :farm_holders '
                 . 'WHERE farm_symbol = :farm_symbol';
 
         $stmt = $this->pdo->prepare($sql);

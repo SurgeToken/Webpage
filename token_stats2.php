@@ -406,7 +406,7 @@
             $updateFarmData = new PostgreSQL($pdo);
         
             
-            $affectedRows = $updateFarmData->updateFarms($farm_symbol, $farm_holders);
+            $affectedRows = $updateFarmData->updateFarm($farm_symbol, $farm_holders);
         
             print_r( 'Number of row affected ' . $affectedRows);
         } catch (\PDOException $e) {
